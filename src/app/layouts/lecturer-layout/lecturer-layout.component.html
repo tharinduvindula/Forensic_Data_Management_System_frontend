@@ -1,0 +1,36 @@
+<div class="wrapper">
+    <div class="sidebar" data-color="white" data-background-color="red" data-image="./assets/img/sidebar-1.jpg">
+        <app-lecturersidebar></app-lecturersidebar>
+        <div class="sidebar-background" style="background-image: url(./assets/img/sidebar-4.jpg)"></div>
+    </div>
+    <div class="main-panel">
+        <app-navbar></app-navbar>
+        <div style="padding-top: 6%" *ngIf="isDashboard('maps')">
+            <div *ngIf="!isMobileMenu()">
+                <div class="row  ml-0 mr-0">
+                    <div class="col  mx-auto" style="padding-left: 20%;">
+
+                        <fusioncharts width="800" height="550" type="srilanka" [dataSource]="dataSource">
+                        </fusioncharts>
+
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="isMobileMenu()">
+                <div class="row  ml-0 mr-0" style="padding-top:6%">
+                    <div class="col  mx-auto">
+
+                        <fusioncharts width="550" height="450" type="srilanka" [dataSource]="dataSource">
+                        </fusioncharts>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <router-outlet></router-outlet>
+        <div *ngIf="isMaps('maps')">
+            <app-footer></app-footer>
+        </div>
+    </div>
+</div>
