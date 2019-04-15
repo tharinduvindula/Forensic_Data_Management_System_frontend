@@ -13,14 +13,15 @@ const routes: Routes = [
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',
-  }, /* {
+  }, {
     path: '',
     component: DemoLayoutComponent,
     children: [
         {
       path: '',
         loadChildren: './layouts/demo-layout/demo-layout.module#DemoLayoutModule'
-  }]},
+      }]
+  }, /*
   {
     path: '',
     component: AdminLayoutComponent,
@@ -29,8 +30,8 @@ const routes: Routes = [
         path: '',
         loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
       }]
-  },*/
-  {
+  },
+ /* {
     path: '',
     component: LecturerLayoutComponent,
     children: [
@@ -38,7 +39,7 @@ const routes: Routes = [
         path: '',
         loadChildren: './layouts/lecturer-layout/lecturer-layout.module#LecturerLayoutModule'
       }]
-  }
+ }*/
     // { path: 'dashboard',      component: DashboardComponent },
     // { path: 'user-profile',   component: UserProfileComponent },
     // { path: 'table-list',     component: TableListComponent },

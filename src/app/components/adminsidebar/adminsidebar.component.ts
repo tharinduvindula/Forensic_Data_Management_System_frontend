@@ -18,11 +18,11 @@ export const ROUTES: RouteInfo[] = [
 ];
 
 @Component({
-  selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  selector: 'app-adminsidebar',
+  templateUrl: './adminsidebar.component.html',
+  styleUrls: ['./adminsidebar.component.css']
 })
-export class SidebarComponent implements OnInit {
+export class AdminsidebarComponent implements OnInit {
   menuItems: any[];
 
   constructor() { }

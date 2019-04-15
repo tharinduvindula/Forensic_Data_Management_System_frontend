@@ -6,6 +6,7 @@ import { DemoLayoutRoutes } from './demo-layout.routing';
 import { DemodashboardComponent } from '../../pages/demodashboard/demodashboard.component';
 import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
 
+
 import {
   MatButtonModule,
   MatInputModule,
@@ -29,6 +30,7 @@ import {
   declarations: [
     DemodashboardComponent,
     UserProfileComponent,
+    
   ]
 })
 
