@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "demo-layout.component.scss"
+    ],
+    "names": [],
+    "file": "demo-layout.component.css"
+}

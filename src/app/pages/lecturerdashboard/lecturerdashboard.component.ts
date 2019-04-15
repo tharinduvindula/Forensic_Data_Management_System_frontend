@@ -8,67 +8,14 @@ import * as Chartist from 'chartist';
 })
 export class LecturerdashboardComponent implements OnInit {
 
-  dataSource: Object;
-  constructor() {
-    this.dataSource = {
-      'chart': {
-        'animation': '0',
-        'showbevel': '0',
-        'usehovercolor': '1',
-        'canvasbordercolor': 'FFFFFF',
-        'bordercolor': 'FFFFFF',
-        'caption': 'Website Visits for the month of March 2018',
-        'fillalpha': '80',
-        'hovercolor': 'black',
-        'showborder': 0,
-        'entityfillhovercolor': 'black',
-// tslint:disable-next-line: max-line-length
-        'entitytooltext': '<div style=\'font-size:14px; text-align:center; padding: 2px 4px 2px 4px; color:white;\'>$lName</div><div style=\'font-size:12px; color:white\'>$value  deths for month</div>',
-        'theme': 'fint'
-      },
-      'colorrange': {
-        'gradient': '0',
-        'color': [
-          {
-            'minvalue': '0',
-            'maxvalue': '500',
-            'displayvalue': '< $500K',
-            'code': '#42A5F5'
-          },
-          {
-            'minvalue': '500',
-            'maxvalue': '1000',
-            'displayvalue': '$500K - $1000K',
-            'code': '#1E88E5'
-          },
-          {
-            'minvalue': '1000',
-            'maxvalue': '1500',
-            'displayvalue': '$1000K - $1500K',
-            'code': '#1976D2'
-          },
-          {
-            'minvalue': '1500',
-            'maxvalue': '2000',
-            'displayvalue': '$1500K - $2000K',
-            'code': '#1F65C0'
-          },
-          {
-            'minvalue': '2000',
-            'maxvalue': '5000',
-            'displayvalue': 'No data availale',
-            'code': '#BBDEFB'
-          }
-        ]
-      },
-      'data': [
-        {'id': 'LK.CO' , 'value': 2000},
-        { 'id': 'LK.MH', 'value': 3182 },
-        { 'id': 'LK.KE', 'value': 3280 },
-        { 'id': 'LK.KY', 'value': 911 }]
+  
+  constructor() {  }
+  isMobileMenu() {
+    if (screen.width > 991) {
+      return false;
     }
+    return true;
   }
-
 
   startAnimationForLineChart(chart) {
       let seq: any, delays: any, durations: any;

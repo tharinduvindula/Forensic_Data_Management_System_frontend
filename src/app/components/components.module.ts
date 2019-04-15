@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
+import { AdminsidebarComponent } from './adminsidebar/adminsidebar.component';
 import { DemosidebarComponent } from './demosidebar/demosidebar.component';
 import { LoginComponent } from './login/login.component';
 import { LecturersidebarComponent } from './lecturersidebar/lecturersidebar.component';
@@ -19,7 +19,7 @@ import { LecturersidebarComponent } from './lecturersidebar/lecturersidebar.comp
   declarations: [
     FooterComponent,
     NavbarComponent,
-    SidebarComponent,
+    AdminsidebarComponent,
     DemosidebarComponent,
     LecturersidebarComponent,
     LoginComponent,
@@ -27,7 +27,7 @@ import { LecturersidebarComponent } from './lecturersidebar/lecturersidebar.comp
   exports: [
     FooterComponent,
     NavbarComponent,
-    SidebarComponent,
+    AdminsidebarComponent,
     DemosidebarComponent,
     LecturersidebarComponent,
 

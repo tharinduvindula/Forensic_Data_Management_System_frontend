@@ -1,3 +1,50 @@
+<div style="padding-top: 6%" >
+    <div *ngIf="!isMobileMenu()">
+        <div class="row  ml-0 mr-0">
+            <div class="col  mx-auto" style="padding-left: 20%;">
+                <div class="container">
+
+                    <h1>Map with a legend for areas</h1>
+                    <div class="mapcontainer">
+
+                        <div class="map">
+                            <span>Alternative content for the map</span>
+                        </div>
+                        <div class="areaLegend">
+                            <span>Alternative content for the legend</span>
+                        </div>
+                    </div>
+
+                </div>
+                
+
+            </div>
+        </div>
+    </div>
+    <div *ngIf="isMobileMenu()">
+        <div class="row  ml-0 mr-0" style="padding-top:6%">
+            <div class="col  mx-auto">
+                <div class="container">
+
+                    <h1>Map with a legend for areas</h1>
+                    <div class="mapcontainer">
+
+                        <div class="map">
+                            <span>Alternative content for the map</span>
+                        </div>
+                        <div class="areaLegend">
+                            <span>Alternative content for the legend</span>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
 <div class="container-fluid" style="overflow-x: hidden; padding-right: 1%;">
     <div class="row ml-0 mr-0">
         <div class="col-lg-5">
