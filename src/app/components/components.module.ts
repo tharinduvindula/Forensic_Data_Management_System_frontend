@@ -8,6 +8,7 @@ import { AdminsidebarComponent } from './adminsidebar/adminsidebar.component';
 import { DemosidebarComponent } from './demosidebar/demosidebar.component';
 import { LoginComponent } from './login/login.component';
 import { LecturersidebarComponent } from './lecturersidebar/lecturersidebar.component';
+import { ColombomapComponent } from './colombomap/colombomap.component';
 
 
 
@@ -23,6 +24,7 @@ import { LecturersidebarComponent } from './lecturersidebar/lecturersidebar.comp
     DemosidebarComponent,
     LecturersidebarComponent,
     LoginComponent,
+    ColombomapComponent,
   ],
   exports: [
     FooterComponent,
@@ -30,6 +32,7 @@ import { LecturersidebarComponent } from './lecturersidebar/lecturersidebar.comp
     AdminsidebarComponent,
     DemosidebarComponent,
     LecturersidebarComponent,
+    ColombomapComponent,
 
   ]
 })

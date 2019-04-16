@@ -62,7 +62,6 @@ FusionChartsModule.fcRoot(FusionCharts, FusionMaps, Srilanka, FusionTheme);
     DemoLayoutComponent,
     LecturerLayoutComponent,
     PagesComponent,
-    
   ],
   providers: [],
   bootstrap: [AppComponent]

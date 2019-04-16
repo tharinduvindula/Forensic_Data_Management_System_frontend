@@ -15,6 +15,7 @@ import {
   MatTooltipModule,
   MatSelectModule
 } from '@angular/material';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -29,8 +30,7 @@ import {
   ],
   declarations: [
     DemodashboardComponent,
-    UserProfileComponent,
-    
+    UserProfileComponent, 
   ]
 })
 
