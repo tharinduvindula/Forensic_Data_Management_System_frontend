@@ -5,7 +5,8 @@
         <div class="sidebar-background" style="background-image: url(./assets/img/sidebar-4.jpg)"></div>
     </div>
     <div class="main-panel">
-        <app-navbar></app-navbar>	  
+        <app-navbar></app-navbar>
+        <div *ngIf="isDashboard('maps')">	  
         <div style="padding-top: 6%">
             <div *ngIf="!isMobileMenu()">
                 <div class="row  ml-0 mr-0">
@@ -22,6 +23,7 @@
                 </div>
 
             </div>
+        </div>
         </div>
         <router-outlet></router-outlet>
         <div *ngIf="isMaps('maps')">
