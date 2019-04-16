@@ -35,7 +35,12 @@
               "node_modules/bootstrap-notify/bootstrap-notify.js",
               "node_modules/chartist/dist/chartist.js",
               "src/assets/js/jquery.mapael.js",
-              "src/assets/js/sl-district-maps.min.js"
+              "src/assets/js/sl-district-maps.min.js",
+               "node_modules/jquery/dist/jquery.min.js",
+               "node_modules/raphael/raphael.min.js",
+               "node_modules/jquery-mousewheel/jquery.mousewheel.js",
+               "node_modules/jquery-mapael/js/jquery.mapael.min.js"
+               
             ]
           },
           "configurations": {
