@@ -1,8 +1,13 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 
 import { AppRoutingModule } from './app.routing';
@@ -24,7 +29,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { PagesComponent } from './pages/pages.component';
 import { DemoLayoutComponent } from './layouts/demo-layout/demo-layout.component';
 import { LecturerLayoutComponent } from './layouts/lecturer-layout/lecturer-layout.component';
-
+import { UserAccessComponent } from './pages/user-access/user-access.component';
 
 
 // Import angular-fusioncharts
@@ -36,6 +41,7 @@ import * as FusionMaps from 'fusioncharts/fusioncharts.maps';
 import * as Srilanka from 'fusionmaps/maps/fusioncharts.srilanka';
 
 import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fint';
+
 
 
 
@@ -55,6 +61,12 @@ FusionChartsModule.fcRoot(FusionCharts, FusionMaps, Srilanka, FusionTheme);
     AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
     }),
+    BrowserModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSlideToggleModule
   ],
   declarations: [
     AppComponent,

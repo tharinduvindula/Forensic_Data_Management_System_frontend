@@ -68,15 +68,6 @@ export class DemoLayoutComponent implements OnInit {
           return true;
       }
   }
-  isDashboard(path) {
-        let titlee = this.location.prepareExternalUrl(this.location.path());
-        titlee = titlee.slice(1);
-        if ('dashboard' == titlee) {
-            return true;
-        } else {
-            return false;
-        }
-    }
   runOnRouteChange(): void {
     if (window.matchMedia(`(min-width: 960px)`).matches && !this.isMac()) {
       const elemMainPanel = <HTMLElement>document.querySelector('.main-panel');
