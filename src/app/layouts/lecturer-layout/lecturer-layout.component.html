@@ -4,26 +4,7 @@
         <div class="sidebar-background" style="background-image: url(./assets/img/sidebar-4.jpg)"></div>
     </div>
     <div class="main-panel">
-        <app-navbar></app-navbar>
-        <div *ngIf="isDashboard('maps')">
-            <div style="padding-top: 6%">
-                <div *ngIf="!isMobileMenu()">
-                    <div class="row  ml-0 mr-0">
-                        <div class="col-md-8  mx-auto">
-                            <app-colombomap></app-colombomap>
-                        </div>
-                    </div>
-                </div>
-                <div *ngIf="isMobileMenu()">
-                    <div class="row  ml-0 mr-0" style="padding-top:6%">
-                        <div class="col  mx-auto">
-                            <app-colombomap></app-colombomap>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
+        <app-navbar></app-navbar>     
         <router-outlet></router-outlet>
         <div *ngIf="isMaps('maps')">
             <app-footer></app-footer>

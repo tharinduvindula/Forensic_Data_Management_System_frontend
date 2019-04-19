@@ -10,6 +10,7 @@ import { TypographyComponent } from '../../pages/typography/typography.component
 import { IconsComponent } from '../../pages/icons/icons.component';
 import { MapsComponent } from '../../pages/maps/maps.component';
 import { NotificationsComponent } from '../../pages/notifications/notifications.component';
+import { UserAccessComponent } from 'app/pages/user-access/user-access.component';
 
 
 import {
@@ -18,8 +19,10 @@ import {
   MatRippleModule,
   MatFormFieldModule,
   MatTooltipModule,
-  MatSelectModule
+  MatSelectModule,
+  MatSlideToggleModule
 } from '@angular/material';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -31,6 +34,7 @@ import {
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
+    MatSlideToggleModule,
   ],
   declarations: [
     AdmindashboardComponent,
@@ -40,6 +44,7 @@ import {
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
+    UserAccessComponent
   ]
 })
 

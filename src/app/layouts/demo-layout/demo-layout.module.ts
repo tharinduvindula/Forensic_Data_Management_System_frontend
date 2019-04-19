@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DemoLayoutRoutes } from './demo-layout.routing';
 import { DemodashboardComponent } from '../../pages/demodashboard/demodashboard.component';
 import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
-
+import { ComponentsModule } from 'app/components/components.module';
 
 import {
   MatButtonModule,
@@ -15,6 +15,8 @@ import {
   MatTooltipModule,
   MatSelectModule
 } from '@angular/material';
+
+
 
 @NgModule({
   imports: [
@@ -27,10 +29,11 @@ import {
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
+    ComponentsModule,
   ],
   declarations: [
     DemodashboardComponent,
-    UserProfileComponent, 
+    UserProfileComponent,
   ]
 })
 

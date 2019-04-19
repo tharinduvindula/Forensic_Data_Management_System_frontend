@@ -1,3 +1,21 @@
+<div style="padding-top: 6%">
+    <div *ngIf="!isMobileMenu()">
+        <div class="row  ml-0 mr-0">
+            <div class="col-md-8  mx-auto">
+                <app-colombomap></app-colombomap>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="isMobileMenu()">
+        <div class="row  ml-0 mr-0" style="padding-top:6%">
+            <div class="col  mx-auto">
+                <app-colombomap></app-colombomap>
+            </div>
+        </div>
+
+    </div>
+</div>
+
 <div class="container-fluid" style="overflow-x: hidden; padding-right: 1%;">
     <div class="row ml-0 mr-0">
         <div class="col-lg-5">
