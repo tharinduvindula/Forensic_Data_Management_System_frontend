@@ -6,6 +6,7 @@ import { DemoLayoutRoutes } from './demo-layout.routing';
 import { DemodashboardComponent } from '../../pages/demodashboard/demodashboard.component';
 import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
 import { ComponentsModule } from 'app/components/components.module';
+import { PatientdetailsComponent } from 'app/pages/patientdetails/patientdetails.component'; 
 
 import {
   MatButtonModule,
@@ -15,6 +16,7 @@ import {
   MatTooltipModule,
   MatSelectModule
 } from '@angular/material';
+
 
 
 
@@ -34,6 +36,7 @@ import {
   declarations: [
     DemodashboardComponent,
     UserProfileComponent,
+    PatientdetailsComponent,
   ]
 })
 
