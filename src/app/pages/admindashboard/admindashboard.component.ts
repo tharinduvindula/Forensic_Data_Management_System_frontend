@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import * as Chartist from 'chartist';
 
 @Component({
   selector: 'app-admindashboard',
@@ -10,5 +9,7 @@ export class AdmindashboardComponent implements OnInit {
 
   constructor() { }
   ngOnInit() {}
+  public name="";
+
 
 }
