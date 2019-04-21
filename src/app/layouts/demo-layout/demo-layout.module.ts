@@ -14,8 +14,15 @@ import {
   MatRippleModule,
   MatFormFieldModule,
   MatTooltipModule,
-  MatSelectModule
+  MatSelectModule,
+  MatRadioModule,
+  MatStepperModule,
 } from '@angular/material';
+import { PolicereportComponent } from 'app/pages/policereport/policereport.component';
+import { AddComponent } from 'app/pages/add/add.component';
+import { EditComponent } from 'app/pages/edit/edit.component';
+import { DeleteComponent } from 'app/pages/delete/delete.component';
+import { RetrieveComponent } from 'app/pages/retrieve/retrieve.component';
 
 
 
@@ -32,11 +39,17 @@ import {
     MatSelectModule,
     MatTooltipModule,
     ComponentsModule,
+    MatRadioModule,
+    MatStepperModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     DemodashboardComponent,
     UserProfileComponent,
-    PatientdetailsComponent,
+    AddComponent,
+    EditComponent,
+    DeleteComponent,
+    RetrieveComponent,
   ]
 })
 
