@@ -1,3 +1,20 @@
 ::ng-deep .mat-step-header .mat-step-icon-selected {
     background-color: red; 
+    
  }
+.btn {
+    margin-right: 16px;
+    background-color:rgb(241, 0, 0);
+}
+.btn:hover{
+    background-color: rgb(241, 0, 0);
+}
+
+
+.mat-focused .mat-form-field-label {
+    color: #5cb53f !important;
+    }
+
+.mat-form-field-ripple {
+background-color: #5cb53f !important;
+}

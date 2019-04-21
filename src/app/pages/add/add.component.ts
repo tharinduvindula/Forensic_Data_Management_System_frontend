@@ -10,7 +10,7 @@ export class AddComponent implements OnInit {
   isLinear = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
-
+  
   constructor(private _formBuilder: FormBuilder) {}
 
   ngOnInit() {

@@ -17,6 +17,7 @@ import {
   MatSelectModule,
   MatRadioModule,
   MatStepperModule,
+  MatListModule,
 } from '@angular/material';
 import { PolicereportComponent } from 'app/pages/policereport/policereport.component';
 import { AddComponent } from 'app/pages/add/add.component';
@@ -42,6 +43,7 @@ import { RetrieveComponent } from 'app/pages/retrieve/retrieve.component';
     MatRadioModule,
     MatStepperModule,
     ReactiveFormsModule,
+    MatListModule,
   ],
   declarations: [
     DemodashboardComponent,
