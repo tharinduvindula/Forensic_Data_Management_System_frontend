@@ -41,6 +41,10 @@ import * as FusionMaps from 'fusioncharts/fusioncharts.maps';
 import * as Srilanka from 'fusionmaps/maps/fusioncharts.srilanka';
 
 import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fint';
+import { AddComponent } from './pages/add/add.component';
+import { EditComponent } from './pages/edit/edit.component';
+import { DeleteComponent } from './pages/delete/delete.component';
+import { RetrieveComponent } from './pages/retrieve/retrieve.component';
 
 
 
@@ -74,6 +78,8 @@ FusionChartsModule.fcRoot(FusionCharts, FusionMaps, Srilanka, FusionTheme);
     DemoLayoutComponent,
     LecturerLayoutComponent,
     PagesComponent,
+    
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
