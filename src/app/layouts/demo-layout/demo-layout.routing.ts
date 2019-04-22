@@ -2,12 +2,10 @@ import { Routes } from '@angular/router';
 
 import { DemodashboardComponent } from '../../pages/demodashboard/demodashboard.component';
 import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
-import { PatientdetailsComponent } from 'app/pages/patientdetails/patientdetails.component';
-import { PolicereportComponent } from 'app/pages/policereport/policereport.component';
-import { AddComponent } from 'app/pages/add/add.component';
-import { EditComponent } from 'app/pages/edit/edit.component';
-import { DeleteComponent } from 'app/pages/delete/delete.component';
-import { RetrieveComponent } from 'app/pages/retrieve/retrieve.component';
+import { AddComponent } from 'app/components/add/add.component';
+import { EditComponent } from 'app/components/edit/edit.component';
+import { DeleteComponent } from 'app/components/delete/delete.component';
+import { RetrieveComponent } from 'app/components/retrieve/retrieve.component';
 
 export const DemoLayoutRoutes: Routes = [
     // {
