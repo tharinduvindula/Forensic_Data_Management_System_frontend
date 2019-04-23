@@ -19,6 +19,9 @@ import {
   MatSelectModule,
   MatRadioModule,
   MatStepperModule,
+  MatListModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
 } from '@angular/material';
 
 
@@ -42,6 +45,9 @@ import {
     MatRadioModule,
     MatStepperModule,
     ReactiveFormsModule,
+    MatListModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   declarations: [
     DemodashboardComponent,
