@@ -6,6 +6,7 @@ import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import PerfectScrollbar from 'perfect-scrollbar';
 
+
 @Component({
     selector: 'app-demo-layout',
     templateUrl: './demo-layout.component.html',

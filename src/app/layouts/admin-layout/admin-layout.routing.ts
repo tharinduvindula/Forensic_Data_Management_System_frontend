@@ -3,11 +3,10 @@ import { Routes } from '@angular/router';
 import { AdmindashboardComponent } from '../../pages/admindashboard/admindashboard.component';
 import { UserAccessComponent } from '../../pages/user-access/user-access.component';
 import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
-import { TableListComponent } from '../../pages/table-list/table-list.component';
-import { TypographyComponent } from '../../pages/typography/typography.component';
 import { IconsComponent } from '../../pages/icons/icons.component';
-import { MapsComponent } from '../../pages/maps/maps.component';
-import { NotificationsComponent } from '../../pages/notifications/notifications.component';
+import { AdminEditUserDetailComponent } from 'app/pages/admin-edit-user-detail/admin-edit-user-detail.component';
+import { UserProfileDeleteComponent } from 'app/components/user-profile-delete/user-profile-delete.component';
+import { UserProfileEditComponent } from 'app/components/user-profile-edit/user-profile-edit.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -46,12 +45,10 @@ export const AdminLayoutRoutes: Routes = [
     //         component: TypographyComponent
     //     }]
     // }
-    { path: 'dashboard',      component: AdmindashboardComponent },
-    { path: 'user-profile',   component: UserProfileComponent },
-    { path: 'user-access',    component: UserAccessComponent },
-    { path: 'table-list',     component: TableListComponent },
-    { path: 'typography',     component: TypographyComponent },
-    { path: 'icons',          component: IconsComponent },
-    { path: 'maps',           component: MapsComponent },
-    { path: 'notifications',  component: NotificationsComponent }
+    { path: 'dashboard',            component: AdmindashboardComponent },
+    { path: 'user-profile-delete',  component: UserProfileDeleteComponent },
+    { path: 'user-profile-edit',    component: UserProfileEditComponent },
+    { path: 'user-access',          component: UserAccessComponent },
+    { path: 'icons',                component: IconsComponent },
+    { path: 'editUserDetail',       component: AdminEditUserDetailComponent}
 ];

@@ -23,7 +23,8 @@
             "styles": [
               "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
               "src/assets/scss/material-dashboard.scss",
-              "src/assets/css/demo.css"
+              "src/assets/css/demo.css",
+              "./node_modules/fullpage.js/dist/fullpage.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
@@ -39,7 +40,9 @@
                "node_modules/jquery/dist/jquery.min.js",
                "node_modules/raphael/raphael.min.js",
                "node_modules/jquery-mousewheel/jquery.mousewheel.js",
-               "node_modules/jquery-mapael/js/jquery.mapael.min.js"
+               "node_modules/jquery-mapael/js/jquery.mapael.min.js",
+               "./node_modules/jquery/dist/jquery.js",
+               "./node_modules/fullpage.js/dist/fullpage.js"
                
             ]
           },

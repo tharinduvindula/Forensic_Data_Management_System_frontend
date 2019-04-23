@@ -5,11 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { AdmindashboardComponent } from '../../pages/admindashboard/admindashboard.component';
 import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
-import { TableListComponent } from '../../pages/table-list/table-list.component';
-import { TypographyComponent } from '../../pages/typography/typography.component';
 import { IconsComponent } from '../../pages/icons/icons.component';
-import { MapsComponent } from '../../pages/maps/maps.component';
-import { NotificationsComponent } from '../../pages/notifications/notifications.component';
 import { UserAccessComponent } from 'app/pages/user-access/user-access.component';
 
 
@@ -22,6 +18,9 @@ import {
   MatSelectModule,
   MatSlideToggleModule
 } from '@angular/material';
+import { AdminEditUserDetailComponent } from 'app/pages/admin-edit-user-detail/admin-edit-user-detail.component';
+import { UserProfileDeleteComponent } from 'app/components/user-profile-delete/user-profile-delete.component';
+import { UserProfileEditComponent } from 'app/components/user-profile-edit/user-profile-edit.component';
 
 @NgModule({
   imports: [
@@ -38,13 +37,11 @@ import {
   ],
   declarations: [
     AdmindashboardComponent,
-    UserProfileComponent,
-    TableListComponent,
-    TypographyComponent,
     IconsComponent,
-    MapsComponent,
-    NotificationsComponent,
-    UserAccessComponent
+    UserAccessComponent,
+    AdminEditUserDetailComponent,
+    UserProfileDeleteComponent,
+    UserProfileEditComponent,
   ]
 })
 
