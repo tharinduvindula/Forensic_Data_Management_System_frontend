@@ -19,18 +19,12 @@ import { AppComponent } from './app.component';
 import { AdmindashboardComponent } from './pages/admindashboard/admindashboard.component';
 import { DemodashboardComponent } from './pages/demodashboard/demodashboard.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
-import { TableListComponent } from './pages/table-list/table-list.component';
-import { TypographyComponent } from './pages/typography/typography.component';
 import { IconsComponent } from './pages/icons/icons.component';
-import { MapsComponent } from './pages/maps/maps.component';
-import { NotificationsComponent } from './pages/notifications/notifications.component';
 import { AgmCoreModule } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { PagesComponent } from './pages/pages.component';
 import { DemoLayoutComponent } from './layouts/demo-layout/demo-layout.component';
 import { LecturerLayoutComponent } from './layouts/lecturer-layout/lecturer-layout.component';
-import { UserAccessComponent } from './pages/user-access/user-access.component';
-
 
 // Import angular-fusioncharts
 import { FusionChartsModule } from 'angular-fusioncharts';
@@ -45,6 +39,7 @@ import { AddComponent } from './components/add/add.component';
 import { EditComponent } from './components/edit/edit.component';
 import { DeleteComponent } from './components/delete/delete.component';
 import { RetrieveComponent } from './components/retrieve/retrieve.component';
+
 
 
 
@@ -70,7 +65,7 @@ FusionChartsModule.fcRoot(FusionCharts, FusionMaps, Srilanka, FusionTheme);
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
   ],
   declarations: [
     AppComponent,
