@@ -18,6 +18,8 @@ import {
   MatRadioModule,
   MatStepperModule,
   MatListModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
 } from '@angular/material';
 import { PolicereportComponent } from 'app/pages/policereport/policereport.component';
 import { AddComponent } from 'app/pages/add/add.component';
@@ -44,6 +46,8 @@ import { RetrieveComponent } from 'app/pages/retrieve/retrieve.component';
     MatStepperModule,
     ReactiveFormsModule,
     MatListModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   declarations: [
     DemodashboardComponent,

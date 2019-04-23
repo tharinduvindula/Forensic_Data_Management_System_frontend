@@ -10,6 +10,12 @@ export class AddComponent implements OnInit {
   isLinear = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
+  time = {hour: 13, minute: 30};
+  meridian = true;
+
+  toggleMeridian() {
+      this.meridian = !this.meridian;
+  }
   
   constructor(private _formBuilder: FormBuilder) {}
 
