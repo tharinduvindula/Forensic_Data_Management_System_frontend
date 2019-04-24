@@ -14,7 +14,8 @@ declare interface RouteInfo {
 }
 export const ROUTES: RouteInfo[] = [
   {
-    nic: '963190042v', editpath: '/user-profile-edit', deletepath: '/user-profile-delete', name: 'tharindu', photo: 'assets/img/cover.jpeg',
+// tslint:disable-next-line: max-line-length
+    nic: '963190042v', editpath: '/user-profile-edit', deletepath: '/user-profile-delete', name: 'tharindu', photo: 'assets/img/faces/marc.jpg',
     startDate: '2019/04/22', contactNumber: '0717615678', email: 'tharinduvindula@gmail.com', type: 'demo'
   },
   {

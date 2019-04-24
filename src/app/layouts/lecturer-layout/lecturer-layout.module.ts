@@ -13,8 +13,19 @@ import {
   MatRippleModule,
   MatFormFieldModule,
   MatTooltipModule,
-  MatSelectModule
+  MatSelectModule,
+  MatRadioModule,
+  MatStepperModule,
+  MatListModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatIconModule
 } from '@angular/material';
+import { UserProfileViewComponent } from 'app/components/user-profile-view/user-profile-view.component';
+import { AddComponent } from 'app/components/add/add.component';
+import { EditComponent } from 'app/components/edit/edit.component';
+import { DeleteComponent } from 'app/components/delete/delete.component';
+import { RetrieveComponent } from 'app/components/retrieve/retrieve.component';
 
 
 @NgModule({
@@ -29,10 +40,22 @@ import {
     MatSelectModule,
     MatTooltipModule,
     ComponentsModule,
+    MatRadioModule,
+    MatStepperModule,
+    ReactiveFormsModule,
+    MatListModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatIconModule,
   ],
   declarations: [
     LecturerdashboardComponent,
     UserProfileComponent,
+    UserProfileViewComponent,
+    AddComponent,
+    EditComponent,
+    DeleteComponent,
+    RetrieveComponent,
   ]
 })
 

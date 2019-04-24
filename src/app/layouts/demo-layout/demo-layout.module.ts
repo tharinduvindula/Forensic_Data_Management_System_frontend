@@ -22,6 +22,7 @@ import {
   MatListModule,
   MatDatepickerModule,
   MatNativeDateModule,
+  MatIconModule,
 } from '@angular/material';
 import { FusionChartsModule } from 'angular-fusioncharts';
 import { AnalysisComponent } from 'app/components/analysis/analysis.component';
@@ -29,8 +30,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import * as FusionCharts from 'fusioncharts';
 import * as Charts from 'fusioncharts/fusioncharts.charts';
-
 import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
+import { UserProfileViewComponent } from 'app/components/user-profile-view/user-profile-view.component';
+
 
 FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
 
@@ -55,7 +57,8 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     MatListModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    FusionChartsModule,   
+    MatIconModule,
+    FusionChartsModule,
     HttpModule,
   ],
   declarations: [
@@ -66,6 +69,7 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     EditComponent,
     DeleteComponent,
     RetrieveComponent,
+    UserProfileViewComponent,
   ]
 })
 

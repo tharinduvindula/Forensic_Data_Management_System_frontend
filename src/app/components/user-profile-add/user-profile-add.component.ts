@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-user-profile',
-  templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.css']
+  selector: 'app-user-profile-add',
+  templateUrl: './user-profile-add.component.html',
+  styleUrls: ['./user-profile-add.component.scss']
 })
-export class UserProfileComponent implements OnInit {
+export class UserProfileAddComponent implements OnInit {
   email = new FormControl('', [Validators.required, Validators.email]);
 
   constructor() { }

@@ -6,6 +6,7 @@ import { AddComponent } from 'app/components/add/add.component';
 import { EditComponent } from 'app/components/edit/edit.component';
 import { DeleteComponent } from 'app/components/delete/delete.component';
 import { RetrieveComponent } from 'app/components/retrieve/retrieve.component';
+import { UserProfileViewComponent } from 'app/components/user-profile-view/user-profile-view.component';
 import { AnalysisComponent } from 'app/components/analysis/analysis.component';
 
 export const DemoLayoutRoutes: Routes = [
@@ -23,6 +24,7 @@ export const DemoLayoutRoutes: Routes = [
     // }
     { path: 'dashboard',      component: DemodashboardComponent },
     { path: 'user-profile',   component: UserProfileComponent },
+    { path: 'user-profile-view', component: UserProfileViewComponent },
     { path: 'add',   component: AddComponent },
     { path: 'edit',   component: EditComponent },
     { path: 'delete',   component: DeleteComponent },

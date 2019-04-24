@@ -3,7 +3,8 @@
     <div class="col-lg-11">
       <div class="card">
         <div class="card-header card-header-warning">
-          <h4 class="card-title">Lecture</h4>
+          <h4 class="card-title">users</h4>
+          <p>editing user details</p>
         </div>
         <div class="card-body table-responsive">
           <table class="table table-hover">
@@ -16,39 +17,6 @@
             </thead>
             <tbody>
               <tr *ngFor="let menuItem of lecturesets">
-                <td><img class="img" src={{menuItem.photo}} alt="Card image cap"
-                    style="width:80px;height: 80px;border-radius: 50%;"></td>
-                <td class="text-dark">{{menuItem.name}}</td>
-                <td>{{menuItem.nic}}</td>
-                <td><button mat-raised-button [routerLink]="[menuItem.editpath]" type="submit"
-                    style="background-color: blue;" class="btn">Edit
-                    Profile</button></td>
-                <td><button mat-raised-button [routerLink]="[menuItem.deletepath]" type="submit"
-                    class="btn btn-danger">Delete
-                    Profile</button></td>
-              </tr>
-            </tbody>
-
-          </table>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-11">
-      <div class="card">
-        <div class="card-header card-header-warning">
-          <h4 class="card-title">Lecture</h4>
-        </div>
-        <div class="card-body table-responsive">
-          <table class="table table-hover">
-            <thead class="text-warning">
-              <th>photo</th>
-              <th>Name</th>
-              <th>Nic Number</th>
-              <th>Edit</th>
-              <th>Delete</th>
-            </thead>
-            <tbody>
-              <tr *ngFor="let menuItem of demosets">
                 <td><img class="img" src={{menuItem.photo}} alt="Card image cap"
                     style="width:80px;height: 80px;border-radius: 50%;"></td>
                 <td class="text-dark">{{menuItem.name}}</td>

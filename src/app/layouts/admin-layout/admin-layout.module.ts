@@ -16,11 +16,17 @@ import {
   MatFormFieldModule,
   MatTooltipModule,
   MatSelectModule,
-  MatSlideToggleModule
+  MatSlideToggleModule,
+  MatIconModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+
 } from '@angular/material';
 import { AdminEditUserDetailComponent } from 'app/pages/admin-edit-user-detail/admin-edit-user-detail.component';
 import { UserProfileDeleteComponent } from 'app/components/user-profile-delete/user-profile-delete.component';
 import { UserProfileEditComponent } from 'app/components/user-profile-edit/user-profile-edit.component';
+import { UserProfileAddComponent } from 'app/components/user-profile-add/user-profile-add.component';
+import { UserProfileViewComponent } from 'app/components/user-profile-view/user-profile-view.component';
 
 @NgModule({
   imports: [
@@ -34,6 +40,10 @@ import { UserProfileEditComponent } from 'app/components/user-profile-edit/user-
     MatSelectModule,
     MatTooltipModule,
     MatSlideToggleModule,
+    MatIconModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     AdmindashboardComponent,
@@ -42,6 +52,8 @@ import { UserProfileEditComponent } from 'app/components/user-profile-edit/user-
     AdminEditUserDetailComponent,
     UserProfileDeleteComponent,
     UserProfileEditComponent,
+    UserProfileAddComponent,
+    UserProfileViewComponent,
   ]
 })
 

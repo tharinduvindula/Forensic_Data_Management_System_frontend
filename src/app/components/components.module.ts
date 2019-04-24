@@ -14,11 +14,12 @@ import { FusionChartsModule } from 'angular-fusioncharts';
 
 
 
+
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    
+
   ],
   declarations: [
     FooterComponent,
@@ -28,7 +29,6 @@ import { FusionChartsModule } from 'angular-fusioncharts';
     LecturersidebarComponent,
     LoginComponent,
     ColombomapComponent,
-   
   ],
   exports: [
     FooterComponent,
@@ -37,6 +37,8 @@ import { FusionChartsModule } from 'angular-fusioncharts';
     DemosidebarComponent,
     LecturersidebarComponent,
     ColombomapComponent,
+
+
 
   ]
 })
