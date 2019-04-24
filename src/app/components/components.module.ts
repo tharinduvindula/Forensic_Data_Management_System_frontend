@@ -9,6 +9,8 @@ import { DemosidebarComponent } from './demosidebar/demosidebar.component';
 import { LoginComponent } from './login/login.component';
 import { LecturersidebarComponent } from './lecturersidebar/lecturersidebar.component';
 import { ColombomapComponent } from './colombomap/colombomap.component';
+import { AnalysisComponent } from './analysis/analysis.component';
+import { FusionChartsModule } from 'angular-fusioncharts';
 
 
 
@@ -17,6 +19,7 @@ import { ColombomapComponent } from './colombomap/colombomap.component';
   imports: [
     CommonModule,
     RouterModule,
+    
   ],
   declarations: [
     FooterComponent,
@@ -26,7 +29,11 @@ import { ColombomapComponent } from './colombomap/colombomap.component';
     LecturersidebarComponent,
     LoginComponent,
     ColombomapComponent,
+<<<<<<< HEAD
     
+=======
+   
+>>>>>>> 9e5d90ebdf717b85fae4b3bbc47e50f33bdc235d
   ],
   exports: [
     FooterComponent,

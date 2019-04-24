@@ -6,7 +6,11 @@ import { AddComponent } from 'app/components/add/add.component';
 import { EditComponent } from 'app/components/edit/edit.component';
 import { DeleteComponent } from 'app/components/delete/delete.component';
 import { RetrieveComponent } from 'app/components/retrieve/retrieve.component';
+<<<<<<< HEAD
 import { UserProfileViewComponent } from 'app/components/user-profile-view/user-profile-view.component';
+=======
+import { AnalysisComponent } from 'app/components/analysis/analysis.component';
+>>>>>>> 9e5d90ebdf717b85fae4b3bbc47e50f33bdc235d
 
 export const DemoLayoutRoutes: Routes = [
     // {
@@ -28,5 +32,6 @@ export const DemoLayoutRoutes: Routes = [
     { path: 'edit',   component: EditComponent },
     { path: 'delete',   component: DeleteComponent },
     { path: 'retrieve',   component: RetrieveComponent },
+    { path: 'analysis',   component: AnalysisComponent },
 
 ];

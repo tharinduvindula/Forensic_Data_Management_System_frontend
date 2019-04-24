@@ -24,10 +24,20 @@ import {
   MatNativeDateModule,
   MatIconModule,
 } from '@angular/material';
+<<<<<<< HEAD
 import { UserProfileViewComponent } from 'app/components/user-profile-view/user-profile-view.component';
+=======
+import { FusionChartsModule } from 'angular-fusioncharts';
+import { AnalysisComponent } from 'app/components/analysis/analysis.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
+import * as FusionCharts from 'fusioncharts';
+import * as Charts from 'fusioncharts/fusioncharts.charts';
+>>>>>>> 9e5d90ebdf717b85fae4b3bbc47e50f33bdc235d
 
+import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 
-
+FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
 
 
 
@@ -50,11 +60,17 @@ import { UserProfileViewComponent } from 'app/components/user-profile-view/user-
     MatListModule,
     MatDatepickerModule,
     MatNativeDateModule,
+<<<<<<< HEAD
     MatIconModule,
+=======
+    FusionChartsModule,   
+    HttpModule,
+>>>>>>> 9e5d90ebdf717b85fae4b3bbc47e50f33bdc235d
   ],
   declarations: [
     DemodashboardComponent,
     UserProfileComponent,
+    AnalysisComponent,
     AddComponent,
     EditComponent,
     DeleteComponent,
