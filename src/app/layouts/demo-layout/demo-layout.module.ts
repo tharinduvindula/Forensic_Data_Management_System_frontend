@@ -36,6 +36,7 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
 
 
 
+
 @NgModule({
   imports: [
     CommonModule,
