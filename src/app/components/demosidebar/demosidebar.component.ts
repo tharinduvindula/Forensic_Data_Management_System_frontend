@@ -15,7 +15,7 @@ export const ROUTES: RouteInfo[] = [
   { path: '/edit', title: 'Update Report',  icon: 'edit', class: '' },
   { path: '/delete', title: 'Delete Report',  icon: 'delete', class: '' },
   { path: '/retrieve', title: 'Retrieve Report',  icon: 'description', class: '' },
-  
+
 ];
 
 @Component({

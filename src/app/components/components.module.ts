@@ -19,7 +19,7 @@ import { FusionChartsModule } from 'angular-fusioncharts';
   imports: [
     CommonModule,
     RouterModule,
-    
+
   ],
   declarations: [
     FooterComponent,
@@ -29,11 +29,6 @@ import { FusionChartsModule } from 'angular-fusioncharts';
     LecturersidebarComponent,
     LoginComponent,
     ColombomapComponent,
-<<<<<<< HEAD
-    
-=======
-   
->>>>>>> 9e5d90ebdf717b85fae4b3bbc47e50f33bdc235d
   ],
   exports: [
     FooterComponent,
@@ -42,8 +37,8 @@ import { FusionChartsModule } from 'angular-fusioncharts';
     DemosidebarComponent,
     LecturersidebarComponent,
     ColombomapComponent,
-    
-    
+
+
 
   ]
 })

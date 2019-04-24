@@ -58,7 +58,7 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     MatDatepickerModule,
     MatNativeDateModule,
     MatIconModule,
-    FusionChartsModule,   
+    FusionChartsModule,
     HttpModule,
   ],
   declarations: [
