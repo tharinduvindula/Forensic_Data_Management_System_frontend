@@ -1,0 +1,242 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-lg-3 col-md-12 col-sm-12">
+              <div class="card card-stats">
+                  <div class="card-header card-header-warning card-header-icon">
+                      <div class="card-icon">
+                          <i class="material-icons">pan_tool</i>
+                      </div>
+                      <p class="card-category">Total Orders Given</p>
+                      <h3 class="card-title">100
+                          
+                      </h3>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                          <i class="material-icons">update</i> Just Updated
+                          
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-12 col-sm-12">
+              <div class="card card-stats">
+                  <div class="card-header card-header-danger card-header-icon">
+                      <div class="card-icon">
+                          <i class="material-icons">group</i>
+                      </div>
+                      <p class="card-category">Total Deaths</p>
+                      <h3 class="card-title">34,245</h3>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                          <i class="material-icons">date_range</i> Last 24 Hours
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-12 col-sm-12">
+              <div class="card card-stats">
+                  <div class="card-header card-header-warning card-header-icon">
+                      <div class="card-icon">
+                          <i class="material-icons">fingerprint</i>
+                      </div>
+                      <p class="card-category">Total Post Mortems</p>
+                      <h3 class="card-title">75</h3>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                          <i class="material-icons">date_range</i> Last 24 Hours
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+
+          <div class="col-lg-3 col-md-12 col-sm-12">
+              <div class="card card-stats">
+                  <div class="card-header card-header-danger card-header-icon">
+                      <div class="card-icon">
+                          <i class="material-icons">thumb_down</i>
+                      </div>
+                      <p class="card-category">Report delays > 1 month</p>
+                      <h3 class="card-title">245</h3>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                          <i class="material-icons">update</i> Just Updated
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-4">
+              <div class="card card-chart">
+                  <!--<div class="card-header card-header-success">-->
+                      <div class="card-header card-header-danger">
+                      <div class="ct-chart">
+                        <h1>
+                          {{title}}
+                        </h1>
+                        <fusioncharts
+                            containerBackgroundOpacity ="0"
+                            width="300"
+                            height="300"
+                            type="line"
+                            [dataSource]="pareport">
+                        </fusioncharts>
+
+
+                      </div>
+                  </div>
+                  <div class="card-body">
+                      <h4 class="card-title">Police Report Delays</h4>
+                      <p class="card-category">
+                          <span class="text-success"><i class="material-icons">search</i> </span> Search delays according to place</p>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                          <i class="material-icons">access_time</i> updated 4 minutes ago
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="card card-chart">
+                  <div class="card-header card-header-warning">
+                      <div class="ct-chart">
+                        <h1>
+                          {{title}}
+                        </h1>
+                        <fusioncharts
+                            containerBackgroundOpacity ="0"
+                            width="340"
+                            height="300"
+                            type="doughnut2d"
+                            [dataSource]="dataSource">
+                        </fusioncharts>
+
+
+                      </div>
+                  </div>
+                  <div class="card-body">
+                      <h4 class="card-title">Orders given by Coroner</h4>
+                      <p class="card-category">
+                          <span class="text-success"><i class="fa fa-long-arrow-down"></i> 10% </span> decrease in Coroner Orders.</p>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                          <i class="material-icons">access_time</i> updated 2 minutes ago
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="card card-chart">
+                  <div class="card-header card-header-danger">
+                      <div class="ct-chart">
+
+                        <h1>
+                          {{title}}
+                        </h1>
+                        <fusioncharts
+                            containerBackgroundOpacity ="0"
+                            width="300"
+                            height="300"
+                            type="column2d"
+                            [dataSource]="gareport">
+                        </fusioncharts>
+
+                      </div>
+                  </div>
+                  <div class="card-body">
+                      <h4 class="card-title">GA report Delays</h4>
+                      <p class="card-category">
+                          <span class="text-success"><i class="material-icons">search</i> </span> Search delays according to place</p>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                          <i class="material-icons">access_time</i> updated 1 minutes ago
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+            <div class="card card-chart">
+                <!--<div class="card-header card-header-tabs card-header-primary">-->
+                <div class="card-header card-header-warning">
+                    <div class="ct-chart">
+                      <h1>
+                        {{title}}
+                      </h1>
+                      <fusioncharts
+                        containerBackgroundOpacity ="0"
+                        width="500"
+                        height="350"
+                        type="bar2d"
+                        [dataSource]="pmreport">
+                      </fusioncharts>
+
+
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Post Mortem and Reports Delay</h4>
+                    <p class="card-category">
+                        <span class="text-success"><i class="material-icons">search</i> </span> Search delays according to place</p>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">access_time</i> updated 3 minutes ago
+                    </div>
+                </div>
+
+               
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card card-chart">
+                <!--<div class="card-header card-header-info">-->
+                <div class="card-header card-header-danger">  
+                    <div class="ct-chart">
+                      <h1>
+                        {{title}}
+                      </h1>
+                      <fusioncharts
+                        containerBackgroundOpacity ="0"
+                        width="550"
+                        height="350"
+                        type="pie2d"
+                        [dataSource]="manner">
+
+                      </fusioncharts>
+
+
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Manners Of Death</h4>
+                    <p class="card-category">
+                        <span class="text-success"><i class="material-icons">search</i> </span> Search according to year</p>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">access_time</i> updated 5 minutes ago
+                    </div>
+                </div>
+
+
+
+            
+            </div>
+        </div>
+        
+    </div>
+
+
+
+      
