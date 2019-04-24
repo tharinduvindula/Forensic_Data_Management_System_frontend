@@ -17,100 +17,64 @@
 </div>
 
 <div class="container-fluid" style="overflow-x: hidden; padding-right: 1%;">
-    <div class="row ml-0 mr-0">
-        <div class="col-lg-5">
-            <div class="card">
-                <div class="card-header card-header-warning">
-                    <h4 class="card-title">Employees Stats</h4>
-                    <p class="card-category">New employees on 15th September, 2016</p>
-                </div>
-                <div class="card-body table-responsive">
-                    <table class="table table-hover">
-                        <thead class="text-warning">
-                            <th>ID</th>
-                            <th></th>
-                            <th>Name</th>
-                            <th>Starting Date</th>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>Dakota Rice</td>
-                                <td>$36,738</td>
+    <div class="col-lg-11">
+        <div class="card">
 
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>1</td>
-                                <td>Minerva Hooper</td>
-                                <td>$23,789</td>
-
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>1</td>
-                                <td>Sage Rodriguez</td>
-                                <td>$56,142</td>
-
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>1</td>
-                                <td>Philip Chaney</td>
-                                <td>$38,735</td>
-
-                            </tr>
-                        </tbody>
-                    </table>
+            <div class="card-header card-header-warning">
+                <h4 class="card-title">Lecture Stats</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-3" style="padding-top: 1%" *ngFor="let menuItem of menuItems">
+                        <div *ngIf="isLecture(menuItem.type)">
+                            <div class="card card-profile"
+                                style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                <div class="card-avatar">
+                                    <a [routerLink]="['/user-profile-view']">
+                                        <img class="img" style="width:100px;height: 100px;border-radius: 50%;"
+                                            src={{menuItem.photo}} />
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{menuItem.name}}</h5>
+                                    <p class="card-text">{{menuItem.contactNumber}}<br>
+                                        {{menuItem.email}}<br>
+                                        {{menuItem.startDate}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-5">
-            <div class="card">
-                <div class="card-header card-header-warning">
-                    <h4 class="card-title">Employees Stats</h4>
-                    <p class="card-category">New employees on 15th September, 2016</p>
-                </div>
-                <div class="card-body table-responsive">
-                    <table class="table table-hover">
-                        <thead class="text-warning">
-                            <th>ID</th>
-                            <th></th>
-                            <th>Name</th>
-                            <th>Starting Date</th>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>Dakota Rice</td>
-                                <td>$36,738</td>
+    </div>
+    <div class="col-lg-11">
+        <div class="card">
 
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>1</td>
-                                <td>Minerva Hooper</td>
-                                <td>$23,789</td>
-
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>1</td>
-                                <td>Sage Rodriguez</td>
-                                <td>$56,142</td>
-
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>1</td>
-                                <td>Philip Chaney</td>
-                                <td>$38,735</td>
-
-                            </tr>
-                        </tbody>
-                    </table>
+            <div class="card-header card-header-warning">
+                <h4 class="card-title">Demo Stats</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-3" style="padding-top: 1%" *ngFor="let menuItem of menuItems">
+                        <div *ngIf="isDemo(menuItem.type)">
+                            <div class="card card-profile"
+                                style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                <div class="card-avatar">
+                                    <a [routerLink]="['/user-profile-view']">
+                                        <img class="img" style="width:100px;height: 100px;border-radius: 50%;"
+                                            src={{menuItem.photo}} />
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{menuItem.name}}</h5>
+                                    <p class="card-text">{{menuItem.contactNumber}}<br>
+                                        {{menuItem.email}}<br>
+                                        {{menuItem.startDate}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

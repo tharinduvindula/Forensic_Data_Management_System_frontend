@@ -22,7 +22,9 @@ import {
   MatListModule,
   MatDatepickerModule,
   MatNativeDateModule,
+  MatIconModule,
 } from '@angular/material';
+import { UserProfileViewComponent } from 'app/components/user-profile-view/user-profile-view.component';
 
 
 
@@ -48,6 +50,7 @@ import {
     MatListModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatIconModule,
   ],
   declarations: [
     DemodashboardComponent,
@@ -56,6 +59,7 @@ import {
     EditComponent,
     DeleteComponent,
     RetrieveComponent,
+    UserProfileViewComponent,
   ]
 })
 

@@ -1,5 +1,41 @@
 import { Component, OnInit } from '@angular/core';
-import * as Chartist from 'chartist';
+
+declare const $: any;
+declare interface RouteInfo {
+  path: string;
+  name: string;
+  photo: string;
+  startDate: string;
+  contactNumber: string;
+  email: string;
+  type: string;
+}
+export const ROUTES: RouteInfo[] = [
+  {
+    path: '/dashboard', name: 'tharindu', photo: 'assets/img/cover.jpeg', startDate: '2019/04/22',
+    contactNumber: '0717615678', email: 'tharinduvindula@gmail.com', type: 'demo'
+  },
+  {
+    path: '/dashboard', name: 'tharindu', photo: 'assets/img/cover.jpeg', startDate: '2019/04/22',
+    contactNumber: '0717615678', email: 'tharinduvindula@gmail.com', type: 'demo'
+  },
+  {
+    path: '/dashboard', name: 'tharindu', photo: 'assets/img/cover.jpeg', startDate: '2019/04/22',
+    contactNumber: '0717615678', email: 'tharinduvindula@gmail.com', type: 'demo'
+  },
+  {
+    path: '/dashboard', name: 'tharindu', photo: 'assets/img/cover.jpeg', startDate: '2019/04/22',
+    contactNumber: '0717615678', email: 'tharinduvindula@gmail.com', type: 'demo'
+  },
+  {
+    path: '/dashboard', name: 'tharindu', photo: 'assets/img/cover.jpeg', startDate: '2019/04/22',
+    contactNumber: '0717615678', email: 'tharinduvindula@gmail.com', type: 'demo'
+  },
+  {
+    path: '/dashboard', name: 'tharindu', photo: 'assets/img/cover.jpeg', startDate: '2019/04/22',
+    contactNumber: '0717615678', email: 'tharinduvindula@gmail.com', type: 'lecture'
+  },
+];
 
 @Component({
   selector: 'app-lecturerdashboard',
@@ -7,15 +43,31 @@ import * as Chartist from 'chartist';
   styleUrls: ['./lecturerdashboard.component.css']
 })
 export class LecturerdashboardComponent implements OnInit {
+  menuItems: any[];
 
-
-  constructor() {  }
+  constructor() { }
   isMobileMenu() {
     if (screen.width > 991) {
       return false;
     }
     return true;
   }
-  ngOnInit() { }
+
+  ngOnInit() {
+    this.menuItems = ROUTES.filter(menuItem => menuItem);
+  }
+
+  isDemo(dtype) {
+    if (dtype === 'demo') {
+      return true;
+    }
+    return false;
+  }
+  isLecture(Ltype) {
+    if (Ltype === 'lecture') {
+      return true;
+    }
+    return false;
+  }
 
 }

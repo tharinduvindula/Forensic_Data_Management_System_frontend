@@ -12,6 +12,7 @@ import { ColombomapComponent } from './colombomap/colombomap.component';
 
 
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -25,6 +26,7 @@ import { ColombomapComponent } from './colombomap/colombomap.component';
     LecturersidebarComponent,
     LoginComponent,
     ColombomapComponent,
+    
   ],
   exports: [
     FooterComponent,
@@ -33,6 +35,8 @@ import { ColombomapComponent } from './colombomap/colombomap.component';
     DemosidebarComponent,
     LecturersidebarComponent,
     ColombomapComponent,
+    
+    
 
   ]
 })

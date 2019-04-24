@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col-md-8">
       <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-        <div class="card-header card-header-danger"
-          style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        <div class="card-header card-header-pills"
+          style="background-color: green;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
           <h4 class="card-title">Edit Profile</h4>
           <p class="card-category">Complete profile</p>
         </div>
@@ -25,6 +25,14 @@
               <div class="col-md-6">
                 <mat-form-field class="example-full-width">
                   <input matInput placeholder="Last Name" type="text">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+                <mat-form-field class="example-full-width">
+                  <input type="tel" matInput placeholder="NIC Number">
+                  <span matSuffix>v &nbsp;</span>
                 </mat-form-field>
               </div>
             </div>
@@ -64,7 +72,28 @@
                 </mat-form-field>
               </div>
             </div>
-            <button mat-raised-button type="submit" class="btn btn-danger pull-right">Update
+            <div class="row">
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                  <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" placeholder="starting date">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+                <mat-form-field class="example-full-width">
+                  <mat-label>User Type</mat-label>
+                  <mat-select>
+                    <mat-option value="lectuer">Lecture</mat-option>
+                    <mat-option value="demo">Demo</mat-option>
+                    <mat-option value="admin">Admin</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <button mat-raised-button type="submit" style="background-color: green;" class="btn pull-right">Add
               Profile</button>
             <div class="clearfix"></div>
           </form>
