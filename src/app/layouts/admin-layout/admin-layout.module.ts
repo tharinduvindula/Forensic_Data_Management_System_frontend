@@ -54,6 +54,7 @@ import { UserProfileViewComponent } from 'app/components/user-profile-view/user-
     UserProfileEditComponent,
     UserProfileAddComponent,
     UserProfileViewComponent,
+    UserProfileComponent,
   ]
 })
 

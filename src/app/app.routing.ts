@@ -13,7 +13,7 @@ const routes: Routes = [
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',
-  }, /* {
+  }, /*  {
     path: '',
     component: DemoLayoutComponent,
     children: [
@@ -31,7 +31,7 @@ const routes: Routes = [
         loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
       }]
   },
- /* {
+  /*{
     path: '',
     component: LecturerLayoutComponent,
     children: [

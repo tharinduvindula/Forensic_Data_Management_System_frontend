@@ -57,6 +57,12 @@ export class AdminEditUserDetailComponent implements OnInit {
     this.demosets = ROUTES.filter(menuItem => menuItem);
     this.lecturesets = ROUTES.filter(menuItem => menuItem);
   }
+  isMobileMenu() {
+    if (screen.width > 991) {
+      return false;
+    }
+    return true;
+  }
 
   isDemo(dtype) {
     if (dtype === 'demo') {

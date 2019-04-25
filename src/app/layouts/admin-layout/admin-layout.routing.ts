@@ -48,6 +48,7 @@ export const AdminLayoutRoutes: Routes = [
     //     }]
     // }
     { path: 'dashboard',            component: AdmindashboardComponent },
+    { path: 'user-profile',         component: UserProfileComponent },
     { path: 'user-profile-delete',  component: UserProfileDeleteComponent },
     { path: 'user-profile-edit',    component: UserProfileEditComponent },
     { path: 'user-profile-add',     component: UserProfileAddComponent },
