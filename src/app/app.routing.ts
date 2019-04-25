@@ -13,7 +13,7 @@ const routes: Routes = [
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',
-  }, /* {
+  },  {
     path: '',
     component: DemoLayoutComponent,
     children: [
@@ -21,7 +21,7 @@ const routes: Routes = [
       path: '',
         loadChildren: './layouts/demo-layout/demo-layout.module#DemoLayoutModule'
       }]
-  }, */
+  }, /*
   {
     path: '',
     component: AdminLayoutComponent,
@@ -30,7 +30,7 @@ const routes: Routes = [
         path: '',
         loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
       }]
-  },
+  },*/
  /* {
     path: '',
     component: LecturerLayoutComponent,

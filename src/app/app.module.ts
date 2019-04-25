@@ -36,8 +36,6 @@ import * as Srilanka from 'fusionmaps/maps/fusioncharts.srilanka';
 
 import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fint';
 import { AddComponent } from './components/add/add.component';
-import { EditComponent } from './components/edit/edit.component';
-import { DeleteComponent } from './components/delete/delete.component';
 import { RetrieveComponent } from './components/retrieve/retrieve.component';
 
 

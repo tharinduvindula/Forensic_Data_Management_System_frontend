@@ -23,8 +23,6 @@ import {
 } from '@angular/material';
 import { UserProfileViewComponent } from 'app/components/user-profile-view/user-profile-view.component';
 import { AddComponent } from 'app/components/add/add.component';
-import { EditComponent } from 'app/components/edit/edit.component';
-import { DeleteComponent } from 'app/components/delete/delete.component';
 import { RetrieveComponent } from 'app/components/retrieve/retrieve.component';
 
 
@@ -52,9 +50,7 @@ import { RetrieveComponent } from 'app/components/retrieve/retrieve.component';
     LecturerdashboardComponent,
     UserProfileComponent,
     UserProfileViewComponent,
-    AddComponent,
-    EditComponent,
-    DeleteComponent,
+    AddComponent,    
     RetrieveComponent,
   ]
 })
