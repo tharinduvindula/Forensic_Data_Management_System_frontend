@@ -7,6 +7,7 @@ import { EditComponent } from 'app/components/edit/edit.component';
 import { AddComponent } from 'app/components/add/add.component';
 import { DeleteComponent } from 'app/components/delete/delete.component';
 import { RetrieveComponent } from 'app/components/retrieve/retrieve.component';
+import { AnalysisComponent } from 'app/components/analysis/analysis.component';
 
 export const LecturerLayoutRoutes: Routes = [
     // {
@@ -28,4 +29,5 @@ export const LecturerLayoutRoutes: Routes = [
     { path: 'edit', component: EditComponent },
     { path: 'delete', component: DeleteComponent },
     { path: 'retrieve', component: RetrieveComponent },
+    { path: 'analysis', component: AnalysisComponent },
 ];

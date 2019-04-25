@@ -11,5 +11,11 @@ export class UserProfileViewComponent implements OnInit {
 
   ngOnInit() {
   }
+  isMobileMenu() {
+    if (screen.width > 991) {
+      return false;
+    }
+    return true;
+  }
 
 }
