@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-report-delete',
@@ -6,10 +7,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./report-delete.component.scss']
 })
 export class ReportDeleteComponent implements OnInit {
+  isLinear = false;
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
+  time = {hour: 13, minute: 30};
+  meridian = true;
 
-  constructor() { }
+  toggleMeridian() {
+    this.meridian = !this.meridian;
+}
 
-  ngOnInit() {
-  }
+constructor(private _formBuilder: FormBuilder) {}
+
+ngOnInit() {
+  this.firstFormGroup = this._formBuilder.group({
+    firstCtrl: ['', Validators.required]
+  });
+  this.secondFormGroup = this._formBuilder.group({
+    secondCtrl: ['', Validators.required]
+  });
+}
 
 }

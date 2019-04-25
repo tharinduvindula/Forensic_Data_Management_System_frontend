@@ -6,11 +6,16 @@
             <h4 class="card-title">Retrieve Report</h4>
             <p class="card-category">Search report to view, edit and delete </p>
           </div>
-          <div class="card-body">
+          <div class="card-body"> 
               <div class="col-md-6" style="float: none; margin: 0 auto;">
-                      
-                      <input class="form-control mr-sm-2" type="text" icon="search" placeholder="Enter SRJ No to search..." [(ngModel)]="srj" (input)="Search()">
-                      
+                <div class="row" >
+                  
+                  <i class="material-icons">search</i>
+                
+                  <div class="col-md-8" >
+                     <input class="form-control mr-sm-2" type="text" icon="search" placeholder="Enter SRJ No to search..." [(ngModel)]="srj" (input)="Search()">
+                    </div>
+                </div>     
               </div>
               <div class="col-lg-8 col-md-12" style="float: none; margin: 0 auto;">
                   <div class="card">                    
