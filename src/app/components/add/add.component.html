@@ -11,7 +11,7 @@
               <mat-horizontal-stepper [linear]="isLinear" #stepper>
                 <mat-step [stepControl]="firstFormGroup">
                   <form [formGroup]="firstFormGroup">
-                    <ng-template matStepLabel>Patient Details</ng-template>
+                    <ng-template matStepLabel>Deceased Details</ng-template>
                     <div class="row">
                         <div class="col-md-3">
                             <mat-form-field class="example-full-width" color="warn">
@@ -19,6 +19,22 @@
                             </mat-form-field>
                           </div>
                     </div>
+                    <div class="row">
+                              
+                        <div class="col-md-3">
+                                                            
+                            <mat-form-field class="example-full-width" color="warn">
+                                <input matInput [matDatepicker]="picker3" placeholder="Post Mortem Date" type="date">
+                            </mat-form-field>
+                            
+                        </div>          
+                        <div class="col-md-3">
+                                                            
+                            <mat-form-field class="example-full-width" color="warn">
+                              <input matInput placeholder="Post Mortem Time" type="time">                       
+                            </mat-form-field>
+                        </div>                   
+                      </div>
                     <div class="row">
                         <div class="col-md-6">
                           <mat-form-field class="example-full-width" color="warn">
@@ -233,6 +249,14 @@
                           
                           <div class="col-md-12" >
                           <h3><b>Government Analyst</b></h3>
+                          <div class="row">
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width" color="warn">
+                                  <input matInput placeholder="CT Number" type="text">
+                                </mat-form-field>
+                              </div>
+                            
+                          </div>
                           <h5><b>List of Specimens</b></h5>
                           <p>
                               Number of specimens submitted: {{specimens1.selectedOptions.selected.length}}
@@ -305,9 +329,8 @@
                             <div class="col-md-3">
                                                                 
                                 <mat-form-field class="example-full-width" color="warn">
-                                    <input matInput [matDatepicker]="picker" placeholder="Samples Deliver Date">
-                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                                    <mat-datepicker #picker ></mat-datepicker>
+                                    <input matInput [matDatepicker]="picker" placeholder="Samples Deliver Date" type="date">
+                                   
                                   </mat-form-field>
                                 
                             </div>          
@@ -327,6 +350,14 @@
                       <div class="row">
                           <div class="col-md-12">
                             <h3><b>MRI</b></h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                  <mat-form-field class="example-full-width" color="warn">
+                                    <input matInput placeholder="Reference Number" type="text">
+                                  </mat-form-field>
+                                </div>
+                              
+                            </div>
                             <h5><b>List of Specimens</b></h5>
                           <p>
                               Number of specimens submitted: {{specimens2.selectedOptions.selected.length}}
@@ -399,9 +430,7 @@
                                 <div class="col-md-3">
                                    
                                     <mat-form-field class="example-full-width" color="warn">
-                                        <input matInput [matDatepicker]="picker1" placeholder="Samples Deliver Date">
-                                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-                                        <mat-datepicker #picker1></mat-datepicker>
+                                        <input matInput [matDatepicker]="picker1" placeholder="Samples Deliver Date" type="date">                                       
                                       </mat-form-field>
                                             
                                         
@@ -422,6 +451,14 @@
                         <div class="row">
                             <div class="col-md-12">
                               <h3><b>Other</b></h3>
+                              <div class="row">
+                                  <div class="col-md-6">
+                                    <mat-form-field class="example-full-width" color="warn">
+                                      <input matInput placeholder="Reference Number" type="text">
+                                    </mat-form-field>
+                                  </div>
+                                
+                              </div>
                               <h5><b>List of Specimens</b></h5>
                           <p>
                               Number of specimens submitted: {{specimens3.selectedOptions.selected.length}}
@@ -494,9 +531,7 @@
                                 <div class="col-md-3">
                                                                    
                                     <mat-form-field class="example-full-width" color="warn">
-                                        <input matInput [matDatepicker]="picker2" placeholder="Samples Deliver Date">
-                                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-                                        <mat-datepicker #picker2></mat-datepicker>
+                                        <input matInput [matDatepicker]="picker2" placeholder="Samples Deliver Date" type="date">                                        
                                       </mat-form-field>
                                     
                                 </div>          
