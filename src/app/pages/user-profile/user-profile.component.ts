@@ -14,6 +14,13 @@ export class UserProfileComponent implements OnInit {
   ngOnInit() {
   }
 
+  isMobileMenu() {
+    if (screen.width > 991) {
+      return false;
+    }
+    return true;
+  }
+
   getErrorMessage() {
     return this.email.hasError('required') ? 'You must enter a value' :
       this.email.hasError('email') ? 'Not a valid email' :

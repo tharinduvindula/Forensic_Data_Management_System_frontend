@@ -6,7 +6,10 @@ import { LecturerLayoutRoutes } from './lecturer-layout.routing';
 import { LecturerdashboardComponent } from '../../pages/lecturerdashboard/lecturerdashboard.component';
 import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
 import { ComponentsModule } from 'app/components/components.module';
-
+import { UserProfileViewComponent } from 'app/components/user-profile-view/user-profile-view.component';
+import { AddComponent } from 'app/components/add/add.component';
+import { RetrieveComponent } from 'app/components/retrieve/retrieve.component';
+import { AnalysisComponent } from 'app/components/analysis/analysis.component';
 import {
   MatButtonModule,
   MatInputModule,
@@ -21,9 +24,16 @@ import {
   MatNativeDateModule,
   MatIconModule
 } from '@angular/material';
-import { UserProfileViewComponent } from 'app/components/user-profile-view/user-profile-view.component';
-import { AddComponent } from 'app/components/add/add.component';
-import { RetrieveComponent } from 'app/components/retrieve/retrieve.component';
+
+import { FusionChartsModule } from 'angular-fusioncharts';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
+import * as FusionCharts from 'fusioncharts';
+import * as Charts from 'fusioncharts/fusioncharts.charts';
+import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
+
+
+FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
 
 
 @NgModule({
@@ -45,6 +55,8 @@ import { RetrieveComponent } from 'app/components/retrieve/retrieve.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatIconModule,
+    FusionChartsModule,
+    HttpModule,
   ],
   declarations: [
     LecturerdashboardComponent,
@@ -52,6 +64,7 @@ import { RetrieveComponent } from 'app/components/retrieve/retrieve.component';
     UserProfileViewComponent,
     AddComponent,    
     RetrieveComponent,
+    AnalysisComponent,
   ]
 })
 
