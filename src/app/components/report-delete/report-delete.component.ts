@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatStepper } from '@angular/material';
 
 @Component({
   selector: 'app-report-delete',
@@ -26,6 +27,11 @@ ngOnInit() {
   this.secondFormGroup = this._formBuilder.group({
     secondCtrl: ['', Validators.required]
   });
+}
+@ViewChild('stepper') stepper: MatStepper;
+
+ngAfterViewInit() {
+    this.stepper.selectedIndex = 5; 
 }
 
 }
