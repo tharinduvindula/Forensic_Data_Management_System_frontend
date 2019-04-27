@@ -26,7 +26,7 @@ export class UserProfileAddComponent implements OnInit {
     usertype: null,
     password: 'uosj@123',
   };
-  error:null;
+  error: null;
 
   constructor(private Users: UserService ) {
 
@@ -35,10 +35,10 @@ export class UserProfileAddComponent implements OnInit {
   ngOnInit() {
 
   }
-  
-  onsubmit(){
+
+  onsubmit() {
     this.Users.adduser(this.form).subscribe(
-      data =>console.log(data),
+      data => console.log(data),
       error => this.handleError(error)
     );
   }

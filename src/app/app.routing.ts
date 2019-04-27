@@ -9,25 +9,26 @@ import { LecturerLayoutComponent } from './layouts/lecturer-layout/lecturer-layo
 import { LoginComponent } from './components/login/login.component';
 
 
+
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'login',
     pathMatch: 'full',
   }, {
     path: 'login',
     component: LoginComponent,
   },  {
-    path: '',
+    path: 'demo',
     component: DemoLayoutComponent,
     children: [
         {
       path: '',
         loadChildren: './layouts/demo-layout/demo-layout.module#DemoLayoutModule'
       }]
-  }/*
+  },
   {
-    path: '',
+    path: 'admin',
     component: AdminLayoutComponent,
     children: [
       {
@@ -35,15 +36,15 @@ const routes: Routes = [
         loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
       }]
   },
- /* {
-    path: '',
+  {
+    path: 'lecturer',
     component: LecturerLayoutComponent,
     children: [
       {
         path: '',
         loadChildren: './layouts/lecturer-layout/lecturer-layout.module#LecturerLayoutModule'
       }]
- }*/
+ }
     // { path: 'dashboard',      component: DashboardComponent },
     // { path: 'user-profile',   component: UserProfileComponent },
     // { path: 'table-list',     component: TableListComponent },

@@ -2581,7 +2581,7 @@
                         "stroke-linejoin": "round"
                     },
                     attrsHover: {
-                        fill: "#f38a03",
+                        fill: "#383838",
                         animDuration: 300
                     },
                     text: {

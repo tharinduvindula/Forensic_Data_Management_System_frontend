@@ -20,6 +20,7 @@ export const LecturerLayoutRoutes: Routes = [
     //   component: UserProfileComponent
     // }]
     // }
+    { path: '', pathMatch: 'full', redirectTo: 'dashboard', component: LecturerdashboardComponent },
     { path: 'dashboard', component: LecturerdashboardComponent },
     { path: 'user-profile-view', component: UserProfileViewComponent },
     { path: 'user-profile',   component: UserProfileComponent },
