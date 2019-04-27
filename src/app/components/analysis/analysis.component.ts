@@ -45,21 +45,24 @@ export class AnalysisComponent implements OnInit {
   };
     this.manner = {
       'chart': {
-
+        
+        "showLabels":0,
+        //"showp":0,
         'smartLineColor': '#ffffff',
         'use3DLighting': '1',
-        'showLegend': 0,
-        'pieRadius': 100,
+       /// 'showLegend': 0,
+        'pieRadius': 90,
         'CaptionFontSize': 18,
         'subCaptionFontSize': 15,
         'subCaptionFontcolor': '#ffffff',
-        'caption': 'Manners of Death',
+        'caption': 'Cause of Death',
         'subCaption': '[2017-2018]',
         'palettecolors': '#310000,#630000,#950000,#c70000,#f90000',
         'legendItemFontColor': '#ffffff',
         'outCnvBaseFontColor': '#ffffff',
         'labelFontColor': '#ffffff',
-        'labelFontSize': 15,
+        'labelFontSize': 10,
+       // 'legendFontSize': 11,
         'bgAlpha': 0,
         'theme': 'fusion'
       },
@@ -83,6 +86,7 @@ export class AnalysisComponent implements OnInit {
     };
     this.gareport = {
       'chart': {
+        
         'maxLabelHeight': '50',
         'labelDisplay': 'rotate',
         'CaptionFontSize': 18,
@@ -169,12 +173,12 @@ export class AnalysisComponent implements OnInit {
     this.pmreport = {
       'chart': {
 
-        'caption': 'PM Report and Delays',
+        'caption': 'No of PM Report and Delays',
         'subCaption': 'Dehiwala-Mount Lavinia',
-        'CaptionFontSize': 18,
-        'subCaptionFontSize': 15,
+        'CaptionFontSize': 30,
+        'subCaptionFontSize': 20,
         'subCaptionFontcolor': '#ffffff',
-        'labelFontSize': 10,
+        //'labelFontSize': 10,
         'legendFontSize': 5,
         'palettecolors': '#ffffff,#fdfacc,#fcf59a,#faf068,#f9eb36,#f8e604,#FFD700',
         'legendItemFontColor': '#ffffff',
