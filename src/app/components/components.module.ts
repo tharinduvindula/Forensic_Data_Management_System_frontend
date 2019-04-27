@@ -11,6 +11,9 @@ import { LecturersidebarComponent } from './lecturersidebar/lecturersidebar.comp
 import { ColombomapComponent } from './colombomap/colombomap.component';
 import { AnalysisComponent } from './analysis/analysis.component';
 import { FusionChartsModule } from 'angular-fusioncharts';
+import { MatFormFieldModule } from '@angular/material';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -19,6 +22,8 @@ import { FusionChartsModule } from 'angular-fusioncharts';
   imports: [
     CommonModule,
     RouterModule,
+    FormsModule,
+    HttpClientModule,
 
   ],
   declarations: [

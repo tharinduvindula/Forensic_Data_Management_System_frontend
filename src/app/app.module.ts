@@ -39,6 +39,9 @@ import { AddComponent } from './components/add/add.component';
 import { EditComponent } from './components/edit/edit.component';
 import { DeleteComponent } from './components/delete/delete.component';
 import { RetrieveComponent } from './components/retrieve/retrieve.component';
+import { HttpClientModule } from '@angular/common/http';
+import { UserService } from './service/user.service';
+
 
 
 
@@ -53,6 +56,7 @@ FusionChartsModule.fcRoot(FusionCharts, FusionMaps, Srilanka, FusionTheme);
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     ComponentsModule,
     RouterModule,
     FusionChartsModule,
@@ -75,7 +79,7 @@ FusionChartsModule.fcRoot(FusionCharts, FusionMaps, Srilanka, FusionTheme);
     PagesComponent,
 
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
