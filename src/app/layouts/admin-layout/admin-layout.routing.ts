@@ -11,12 +11,12 @@ import { UserProfileAddComponent } from 'app/components/user-profile-add/user-pr
 import { UserProfileViewComponent } from 'app/components/user-profile-view/user-profile-view.component';
 
 export const AdminLayoutRoutes: Routes = [
-    // {
-    //   path: '',
-    //   children: [ {
-    //     path: 'dashboard',
-    //     component: DashboardComponent
-    // }]}, {
+   /*  {
+       path: '',
+       children: [ {
+         path: 'dashboard',
+         component: AdmindashboardComponent
+     }]}, *///{
     // path: '',
     // children: [ {
     //   path: 'userprofile',
@@ -47,6 +47,7 @@ export const AdminLayoutRoutes: Routes = [
     //         component: TypographyComponent
     //     }]
     // }
+    { path: '', pathMatch: 'full', redirectTo: 'dashboard',  component: AdmindashboardComponent },
     { path: 'dashboard',            component: AdmindashboardComponent },
     { path: 'user-profile',         component: UserProfileComponent },
     { path: 'user-profile-delete',  component: UserProfileDeleteComponent },

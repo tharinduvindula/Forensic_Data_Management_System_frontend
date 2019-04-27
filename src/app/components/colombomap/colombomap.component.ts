@@ -33,7 +33,7 @@ export class ColombomapComponent implements OnInit {
             {
               max: 25,
               attrs: {
-                fill: '#97e766'
+                fill: '#BBDEFB'
               },
               label: 'Less than de 300 000 inhabitants'
             },
@@ -41,22 +41,30 @@ export class ColombomapComponent implements OnInit {
               min: 25,
               max: 50,
               attrs: {
-                fill: '#7fd34d'
+                fill: '#1F65C0'
               },
-              label: 'Between 100 000 and 500 000 inhabitants'
+              label: 'Less than de 300 000 inhabitants'
             },
             {
               min: 50,
               max: 75,
               attrs: {
-                fill: '#5faa32'
+                fill: '#1976D2'
+              },
+              label: 'Between 100 000 and 500 000 inhabitants'
+            },
+            {
+              min: 75,
+              max: 100,
+              attrs: {
+                fill: '#1E88E5'
               },
               label: 'Between 500 000 and 1 000 000 inhabitants'
             },
             {
-              min: 75,
+              min: 100,
               attrs: {
-                fill: '#3f7d1a'
+                fill: '#42A5F5'
               },
               label: 'More than 1 million inhabitants'
             }
@@ -85,12 +93,12 @@ export class ColombomapComponent implements OnInit {
           tooltip: { content: '<span style="font-weight:bold;">homagama (69)</span><br />Population : 2' }
         },
         'division-kaduwela-municipal-council': {
-          value: '2',
+          value: '35',
           href: '#',
           tooltip: { content: '<span style="font-weight:bold;">Hauts-de-Seine (92)</span><br />Population : 9' }
         },
         'division-kolonnawa-urban-council': {
-          value: '9',
+          value: '70',
           href: '#',
           tooltip: { content: '<span style="font-weight:bold;">Seine-Saint-Denis (93)</span><br />Population : 7' }
         },
@@ -110,22 +118,22 @@ export class ColombomapComponent implements OnInit {
           tooltip: { content: '<span style="font-weight:bold;">Yvelines (78)</span><br />Population : 55' }
         },
         'division-seethawaka-pradeshiya-sabha': {
-          value: '55',
+          value: '5',
           href: '#',
           tooltip: { content: '<span style="font-weight:bold;">Seine-et-Marne (77)</span><br />Population : 1347008' }
         },
         'division-seethawakapura-urban-council': {
-          value: '1340868',
+          value: '60',
           href: '#',
           tooltip: { content: '<span style="font-weight:bold;">Val-de-Marne (94)</span><br />Population : 1340868' }
         },
         'division-sri-jayewardenapura-kotte-municipal-council': {
-          value: '1317685',
+          value: '180',
           href: '#',
           tooltip: { content: '<span style="font-weight:bold;">Loire-Atlantique (44)</span><br />Population : 1317685' }
         },
         'division-kesbewa-urban-council': {
-          value: '1275952',
+          value: '110',
           href: '#',
           tooltip: { content: '<span style="font-weight:bold;">Seine-Maritime (76)</span><br />Population : 1275952' }
         }

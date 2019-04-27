@@ -39,6 +39,7 @@ import { AddComponent } from './components/add/add.component';
 import { RetrieveComponent } from './components/retrieve/retrieve.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserService } from './service/user.service';
+import { TokenService } from './service/token.service';
 
 
 
@@ -77,7 +78,7 @@ FusionChartsModule.fcRoot(FusionCharts, FusionMaps, Srilanka, FusionTheme);
     PagesComponent,
 
   ],
-  providers: [UserService],
+  providers: [UserService,TokenService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

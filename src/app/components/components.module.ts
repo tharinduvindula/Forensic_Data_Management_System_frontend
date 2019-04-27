@@ -37,9 +37,9 @@ import { ReportViewComponent } from './report-view/report-view.component';
     LecturersidebarComponent,
     LoginComponent,
     ColombomapComponent,
-    
-   
-    
+
+
+
   ],
   exports: [
     FooterComponent,

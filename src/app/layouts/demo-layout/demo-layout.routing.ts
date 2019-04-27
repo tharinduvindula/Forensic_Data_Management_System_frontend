@@ -23,10 +23,11 @@ export const DemoLayoutRoutes: Routes = [
     //   component: UserProfileComponent
     // }]
     // }
+    { path: '', pathMatch: 'full', redirectTo: 'dashboard', component: DemodashboardComponent },
     { path: 'dashboard',      component: DemodashboardComponent },
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'user-profile-view', component: UserProfileViewComponent },
-    { path: 'add',   component: AddComponent },    
+    { path: 'add',   component: AddComponent },
     { path: 'retrieve',   component: RetrieveComponent },
     { path: 'analysis',   component: AnalysisComponent },
     { path: 'report-edit',   component: ReportEditComponent },
