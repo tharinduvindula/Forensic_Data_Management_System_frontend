@@ -11,9 +11,15 @@ import { LecturersidebarComponent } from './lecturersidebar/lecturersidebar.comp
 import { ColombomapComponent } from './colombomap/colombomap.component';
 import { AnalysisComponent } from './analysis/analysis.component';
 import { FusionChartsModule } from 'angular-fusioncharts';
+<<<<<<< HEAD
 import { MatFormFieldModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+=======
+import { ReportEditComponent } from './report-edit/report-edit.component';
+import { ReportDeleteComponent } from './report-delete/report-delete.component';
+import { ReportViewComponent } from './report-view/report-view.component';
+>>>>>>> 4f3617d4a4d8d8ef44f77d78649e1b7d999f1776
 
 
 
@@ -34,6 +40,9 @@ import { HttpClientModule } from '@angular/common/http';
     LecturersidebarComponent,
     LoginComponent,
     ColombomapComponent,
+    
+   
+    
   ],
   exports: [
     FooterComponent,

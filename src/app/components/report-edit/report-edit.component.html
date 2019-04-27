@@ -1,10 +1,10 @@
-  <div class="container-fluid">
+<div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
         <div class="card">
-          <div class="card-header card-header-danger">
-              <h4 class="card-title">New Report</h4>
-              <p class="card-category">Complete new report</p>
+          <div class="card-header card-header-warning">
+              <h4 class="card-title">Update Report</h4>
+              <p class="card-category">Click Update to submit changes</p>
           </div>
           <div class="card-body">
             
@@ -554,11 +554,11 @@
                     </form>
                   </mat-step>
                 <mat-step [stepControl]="secondFormGroup">
-                  <ng-template matStepLabel>Done</ng-template>
+                  <ng-template matStepLabel>Update</ng-template>
                   
                   <div class="row">
                     <button mat-button matStepperPrevious class="btn btn-danger ">Back</button>
-                    <button mat-button (click)="stepper.reset()" class="btn btn-danger">Reset</button>
+                    <button mat-button class="btn btn-danger">Update</button>
                   </div>
                 </mat-step>
               </mat-horizontal-stepper>

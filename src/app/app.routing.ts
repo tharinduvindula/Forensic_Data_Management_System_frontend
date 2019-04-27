@@ -14,10 +14,14 @@ const routes: Routes = [
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',
+<<<<<<< HEAD
   }, {
     path: 'login',
     component: LoginComponent,
   },/*  {
+=======
+  },   {
+>>>>>>> 4f3617d4a4d8d8ef44f77d78649e1b7d999f1776
     path: '',
     component: DemoLayoutComponent,
     children: [
@@ -25,7 +29,7 @@ const routes: Routes = [
       path: '',
         loadChildren: './layouts/demo-layout/demo-layout.module#DemoLayoutModule'
       }]
-  }, */
+  }/*
   {
     path: '',
     component: AdminLayoutComponent,

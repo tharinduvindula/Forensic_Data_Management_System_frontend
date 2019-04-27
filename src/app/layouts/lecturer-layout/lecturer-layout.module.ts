@@ -8,8 +8,6 @@ import { UserProfileComponent } from '../../pages/user-profile/user-profile.comp
 import { ComponentsModule } from 'app/components/components.module';
 import { UserProfileViewComponent } from 'app/components/user-profile-view/user-profile-view.component';
 import { AddComponent } from 'app/components/add/add.component';
-import { EditComponent } from 'app/components/edit/edit.component';
-import { DeleteComponent } from 'app/components/delete/delete.component';
 import { RetrieveComponent } from 'app/components/retrieve/retrieve.component';
 import { AnalysisComponent } from 'app/components/analysis/analysis.component';
 import {
@@ -26,6 +24,7 @@ import {
   MatNativeDateModule,
   MatIconModule
 } from '@angular/material';
+
 import { FusionChartsModule } from 'angular-fusioncharts';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
@@ -63,9 +62,7 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     LecturerdashboardComponent,
     UserProfileComponent,
     UserProfileViewComponent,
-    AddComponent,
-    EditComponent,
-    DeleteComponent,
+    AddComponent,    
     RetrieveComponent,
     AnalysisComponent,
   ]
