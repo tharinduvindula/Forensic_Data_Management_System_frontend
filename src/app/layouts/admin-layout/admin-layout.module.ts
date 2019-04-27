@@ -27,6 +27,8 @@ import { UserProfileDeleteComponent } from 'app/components/user-profile-delete/u
 import { UserProfileEditComponent } from 'app/components/user-profile-edit/user-profile-edit.component';
 import { UserProfileAddComponent } from 'app/components/user-profile-add/user-profile-add.component';
 import { UserProfileViewComponent } from 'app/components/user-profile-view/user-profile-view.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   imports: [
@@ -44,6 +46,8 @@ import { UserProfileViewComponent } from 'app/components/user-profile-view/user-
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    HttpModule,
   ],
   declarations: [
     AdmindashboardComponent,

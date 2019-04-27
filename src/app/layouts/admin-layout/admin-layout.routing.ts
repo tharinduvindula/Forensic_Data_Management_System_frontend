@@ -51,7 +51,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'user-profile',         component: UserProfileComponent },
     { path: 'user-profile-delete',  component: UserProfileDeleteComponent },
     { path: 'user-profile-edit',    component: UserProfileEditComponent },
-    { path: 'user-profile-add',     component: UserProfileAddComponent },
     { path: 'user-profile-view',    component: UserProfileViewComponent },
     { path: 'addusers',             component: UserProfileAddComponent },
     { path: 'user-access',          component: UserAccessComponent },

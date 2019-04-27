@@ -37,6 +37,9 @@ import * as Srilanka from 'fusionmaps/maps/fusioncharts.srilanka';
 import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fint';
 import { AddComponent } from './components/add/add.component';
 import { RetrieveComponent } from './components/retrieve/retrieve.component';
+import { HttpClientModule } from '@angular/common/http';
+import { UserService } from './service/user.service';
+
 
 
 
@@ -51,6 +54,7 @@ FusionChartsModule.fcRoot(FusionCharts, FusionMaps, Srilanka, FusionTheme);
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     ComponentsModule,
     RouterModule,
     FusionChartsModule,
@@ -73,7 +77,7 @@ FusionChartsModule.fcRoot(FusionCharts, FusionMaps, Srilanka, FusionTheme);
     PagesComponent,
 
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'app/components/user-profile-add/user';
+
+
 
 declare const $: any;
 declare interface RouteInfo {
@@ -47,10 +50,20 @@ export class AdmindashboardComponent implements OnInit {
 
   menuItems: any[];
 
+  user: User[] = [];
+
   constructor() { }
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
+    //this.getalluser();
   }
+  /*getalluser() {
+    this.userservice.getuser().subscribe((all)=>{
+      this.user = all;
+      console.log(this.user);
+    })
+  }*/
+
   isMobileMenu() {
     if (screen.width > 991) {
       return false;

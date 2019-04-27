@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
-import { CommonModule, } from '@angular/common';
+import { CommonModule, NgIf, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { DemoLayoutComponent } from './layouts/demo-layout/demo-layout.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LecturerLayoutComponent } from './layouts/lecturer-layout/lecturer-layout.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,14 @@ const routes: Routes = [
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',
+<<<<<<< HEAD
+  }, {
+    path: 'login',
+    component: LoginComponent,
+  },/*  {
+=======
   },   {
+>>>>>>> 4f3617d4a4d8d8ef44f77d78649e1b7d999f1776
     path: '',
     component: DemoLayoutComponent,
     children: [
@@ -31,7 +39,7 @@ const routes: Routes = [
         loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
       }]
   },
-  /*{
+ /* {
     path: '',
     component: LecturerLayoutComponent,
     children: [
