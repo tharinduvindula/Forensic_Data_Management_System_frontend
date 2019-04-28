@@ -15,27 +15,27 @@ declare interface RouteInfo {
 export const ROUTES: RouteInfo[] = [
   {
 // tslint:disable-next-line: max-line-length
-    nic: '963190042v', editpath: '/user-profile-edit', deletepath: '/user-profile-delete', name: 'tharindu', photo: 'assets/img/faces/marc.jpg',
+    nic: '963190042v', editpath: '/admin/user-profile-edit', deletepath: '/admin/user-profile-delete', name: 'tharindu', photo: 'assets/img/faces/marc.jpg',
     startDate: '2019/04/22', contactNumber: '0717615678', email: 'tharinduvindula@gmail.com', type: 'demo'
   },
   {
-    nic: '963190042v', editpath: '/user-profile-edit', deletepath: '/user-profile-delete', name: 'tharindu', photo: 'assets/img/cover.jpeg',
+    nic: '963190042v', editpath: '/admin/user-profile-edit', deletepath: '/admin/user-profile-delete', name: 'tharindu', photo: 'assets/img/cover.jpeg',
     startDate: '2019/04/22', contactNumber: '0717615678', email: 'tharinduvindula@gmail.com', type: 'demo'
   },
   {
-    nic: '963190042v', editpath: '/user-profile-edit', deletepath: '/user-profile-delete', name: 'tharindu', photo: 'assets/img/cover.jpeg',
+    nic: '963190042v', editpath: '/admin/user-profile-edit', deletepath: '/admin/user-profile-delete', name: 'tharindu', photo: 'assets/img/cover.jpeg',
     startDate: '2019/04/22', contactNumber: '0717615678', email: 'tharinduvindula@gmail.com', type: 'demo'
   },
   {
-    nic: '963190042v', editpath: '/user-profile-edit', deletepath: '/user-profile-delete', name: 'tharindu', photo: 'assets/img/cover.jpeg',
+    nic: '963190042v', editpath: '/admin/user-profile-edit', deletepath: '/admin/user-profile-delete', name: 'tharindu', photo: 'assets/img/cover.jpeg',
     startDate: '2019/04/22', contactNumber: '0717615678', email: 'tharinduvindula@gmail.com', type: 'demo'
   },
   {
-    nic: '963190042v', editpath: '/user-profile-edit', deletepath: '/user-profile-delete', name: 'tharindu', photo: 'assets/img/cover.jpeg',
+    nic: '963190042v', editpath: '/admin/user-profile-edit', deletepath: '/admin/user-profile-delete', name: 'tharindu', photo: 'assets/img/cover.jpeg',
     startDate: '2019/04/22', contactNumber: '0717615678', email: 'tharinduvindula@gmail.com', type: 'demo'
   },
   {
-    nic: '963190042v', editpath: '/user-profile-edit', deletepath: '/user-profile-delete', name: 'tharindu', photo: 'assets/img/cover.jpeg',
+    nic: '963190042v', editpath: '/admin/user-profile-edit', deletepath: '/admin/user-profile-delete', name: 'tharindu', photo: 'assets/img/cover.jpeg',
     startDate: '2019/04/22', contactNumber: '0717615678', email: 'tharinduvindula@gmail.com', type: 'lecture'
   },
 ];

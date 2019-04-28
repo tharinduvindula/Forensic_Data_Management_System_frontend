@@ -7,7 +7,7 @@ import { DemodashboardComponent } from '../../pages/demodashboard/demodashboard.
 import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
 import { ComponentsModule } from 'app/components/components.module';
 import { AddComponent } from 'app/components/add/add.component';
-import { RetrieveComponent } from 'app/components/retrieve/retrieve.component';
+import { DemoRetrieveComponent } from 'app/components/demoretrieve/demoretrieve.component';
 import {
   MatButtonModule,
   MatInputModule,
@@ -66,8 +66,8 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     DemodashboardComponent,
     UserProfileComponent,
     AnalysisComponent,
-    AddComponent,    
-    RetrieveComponent,
+    AddComponent,
+    DemoRetrieveComponent,
     UserProfileViewComponent,
     ReportEditComponent,
     ReportDeleteComponent,

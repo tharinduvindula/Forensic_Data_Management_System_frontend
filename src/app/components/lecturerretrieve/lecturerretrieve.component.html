@@ -1,0 +1,55 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-warning">
+            <h4 class="card-title">Retrieve Report</h4>
+            <p class="card-category">Search report to view, edit and delete </p>
+          </div>
+          <div class="card-body"> 
+              <div class="col-md-6" style="float: none; margin: 0 auto;">
+                <div class="row" >
+                  
+                  <i class="material-icons">search</i>
+                
+                  <div class="col-md-8" >
+                     <input class="form-control mr-sm-2" type="text" icon="search" placeholder="Enter SRJ No to search..." [(ngModel)]="srj" (input)="Search()">
+                    </div>
+                </div>     
+              </div>
+              <div class="col-lg-8 col-md-12" style="float: none; margin: 0 auto;">
+                  <div class="card">                    
+                      <div class="card-body table-responsive">
+                          <table class="table table-hover">
+                              <thead class="text-warning">
+                                  <th class="cname">SRJ No</th>
+                                  <th class="cname">Deceased Name</th>
+                                  <th class="cname">View Report</th>
+                                  <th class="cname">Edit Report</th>
+                                  <th class="cname">Delete Report</th>
+                                  
+                              </thead>
+                              <tbody>
+                                  <tr *ngFor="let menuItem of reports">
+                                    <td class="text-dark">{{menuItem.srj}}</td>
+                                    <td>{{menuItem.fname}}</td>
+                                    <td><button mat-raised-button [routerLink]="[menuItem.viewpath]" type="submit"
+                                      class="btn btn-info"><i class="material-icons">view_list</i> View</button></td>
+                                    <td><button mat-raised-button [routerLink]="[menuItem.editpath]" type="submit"
+                                        class="btn btn-success"><i class="material-icons">edit </i> Edit</button></td>
+                                    <td><button mat-raised-button [routerLink]="[menuItem.deletepath]" type="submit"
+                                      class="btn btn-danger"><i class="material-icons">delete </i> Delete</button></td>
+                                  </tr>
+                                </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  

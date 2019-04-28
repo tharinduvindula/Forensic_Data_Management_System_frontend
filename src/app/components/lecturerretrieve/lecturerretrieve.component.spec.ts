@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RetrieveComponent } from './retrieve.component';
+import { LecturerRetrieveComponent } from './lecturerretrieve.component';
 
-describe('RetrieveComponent', () => {
-  let component: RetrieveComponent;
-  let fixture: ComponentFixture<RetrieveComponent>;
+describe('LecturerRetrieveComponent', () => {
+  let component: LecturerRetrieveComponent;
+  let fixture: ComponentFixture<LecturerRetrieveComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RetrieveComponent ]
+      declarations: [ LecturerRetrieveComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RetrieveComponent);
+    fixture = TestBed.createComponent(LecturerRetrieveComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

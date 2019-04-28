@@ -17,7 +17,7 @@
                 </mat-form-field>
               </div>
             </div>
-            <div class="form-group row">
+            <div class="form-group row" *ngIf="loggedin">
               <div class="col-md-6">
                 <mat-form-field class="example-full-width">
                   <input matInput name="firstname" placeholder="Fist Name" type="text" [(ngModel)]="form.firstname"
@@ -80,7 +80,7 @@
             <div class="form-group row">
               <div class="col-md-6">
                 <mat-form-field class="example-full-width">
-                  <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" placeholder="starting date"
+                  <input matInput type="date" [matDatepickerFilter]="myFilter" [matDatepicker]="picker" placeholder="starting date"
                   name="startdate" [(ngModel)]="form.startdate">
                   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                   <mat-datepicker #picker></mat-datepicker>
