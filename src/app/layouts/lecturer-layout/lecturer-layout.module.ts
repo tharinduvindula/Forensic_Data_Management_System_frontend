@@ -8,7 +8,7 @@ import { UserProfileComponent } from '../../pages/user-profile/user-profile.comp
 import { ComponentsModule } from 'app/components/components.module';
 import { UserProfileViewComponent } from 'app/components/user-profile-view/user-profile-view.component';
 import { AddComponent } from 'app/components/add/add.component';
-import { RetrieveComponent } from 'app/components/retrieve/retrieve.component';
+import { LecturerRetrieveComponent } from 'app/components/lecturerretrieve/lecturerretrieve.component';
 import { AnalysisComponent } from 'app/components/analysis/analysis.component';
 import {
   MatButtonModule,
@@ -31,6 +31,9 @@ import { HttpModule } from '@angular/http';
 import * as FusionCharts from 'fusioncharts';
 import * as Charts from 'fusioncharts/fusioncharts.charts';
 import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
+import { ReportDeleteComponent } from 'app/components/report-delete/report-delete.component';
+import { ReportViewComponent } from 'app/components/report-view/report-view.component';
+import { ReportEditComponent } from 'app/components/report-edit/report-edit.component';
 
 
 FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
@@ -62,9 +65,12 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     LecturerdashboardComponent,
     UserProfileComponent,
     UserProfileViewComponent,
-    AddComponent,    
-    RetrieveComponent,
+    AddComponent,
+    LecturerRetrieveComponent,
     AnalysisComponent,
+    ReportEditComponent,
+    ReportDeleteComponent,
+    ReportViewComponent,
   ]
 })
 

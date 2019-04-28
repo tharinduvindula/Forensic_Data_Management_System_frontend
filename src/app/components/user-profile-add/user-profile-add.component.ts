@@ -2,6 +2,10 @@ import { Component, OnInit, Injectable } from '@angular/core';
 import { FormControl, Validators, NgForm } from '@angular/forms';
 import { UserService } from '../../service/user.service';
 import 'rxjs/add/operator/toPromise';
+import { AuthService } from 'app/service/auth.service';
+import { logging } from 'protractor';
+import { Router } from '@angular/router';
+import { TokenService } from 'app/service/token.service';
 
 
 @Injectable()
@@ -27,13 +31,20 @@ export class UserProfileAddComponent implements OnInit {
     password: 'uosj@123',
   };
   error: null;
+  public loggedin: boolean;
 
-  constructor(private Users: UserService ) {
+  constructor(private Users: UserService, private Auth: AuthService, private router: Router, private token: TokenService) {
 
   }
 
   ngOnInit() {
-
+    /*this.Auth.authStatus.subscribe(value => this.loggedin = value);
+    if (!this.loggedin) {
+        this.router.navigateByUrl('login');
+    }
+    if (!this.token.isUserdemo()) {
+      this.router.navigateByUrl('login');
+    }*/
   }
 
   onsubmit() {

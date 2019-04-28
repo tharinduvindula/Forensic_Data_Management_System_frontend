@@ -11,8 +11,8 @@ export const ROUTES: RouteInfo[] = [
   { path: '/demo/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
   { path: '/demo/user-profile', title: 'User Profile',  icon: 'person', class: '' },
   { path: '/demo/analysis', title: 'Report Analysis',  icon: 'show_chart', class: '' },
-  { path: '/demo/add', title: 'New Report',  icon: 'add', class: '' }, 
-  { path: '/demo/retrieve', title: 'Retrieve Report',  icon: 'pageview', class: '' },
+  { path: '/demo/add', title: 'New Report',  icon: 'add', class: '' },
+  { path: '/demo/demoretrieve', title: 'Retrieve Report',  icon: 'pageview', class: '' },
 
 ];
 

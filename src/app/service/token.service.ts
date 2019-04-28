@@ -54,13 +54,13 @@ export class TokenService {
     return this.isValid();
   }
 
-  isUserAdmin() {
+  public isUserAdmin(): boolean {
     return 'admin' === this.getusertype() ? true : false;
   }
-  isUserdemo() {
+  public isUserdemo(): boolean {
     return 'demo' === this.getusertype() ? true : false;
   }
-  isUserLecture() {
+  public isUserLecture(): boolean {
     return 'lecture' === this.getusertype() ? true : false;
   }
 
