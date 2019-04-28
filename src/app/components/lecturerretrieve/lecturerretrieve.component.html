@@ -7,15 +7,14 @@
             <p class="card-category">Search report to view, edit and delete </p>
           </div>
           <div class="card-body"> 
-              <div class="col-md-6" style="float: none; margin: 0 auto;">
-                <div class="row" >
-                  
-                  <i class="material-icons">search</i>
-                
-                  <div class="col-md-8" >
-                     <input class="form-control mr-sm-2" type="text" icon="search" placeholder="Enter SRJ No to search..." [(ngModel)]="srj" (input)="Search()">
-                    </div>
-                </div>     
+              <div class="col-md-4" style="float: none; margin: 0 auto;">
+                  <div class="input-group no-border">
+                      <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
+                          <i class="material-icons">search</i>
+                          <div class="ripple-container"></div>
+                      </button>
+                      <input type="text" value="" class="form-control" placeholder="Enter SRJ No to search..."  [(ngModel)]="srj" (input)="Search()">
+                  </div>  
               </div>
               <div class="col-lg-8 col-md-12" style="float: none; margin: 0 auto;">
                   <div class="card">                    

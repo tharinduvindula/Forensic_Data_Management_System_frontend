@@ -34,6 +34,7 @@ import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 import { ReportDeleteComponent } from 'app/components/report-delete/report-delete.component';
 import { ReportViewComponent } from 'app/components/report-view/report-view.component';
 import { ReportEditComponent } from 'app/components/report-edit/report-edit.component';
+import { AddDemoComponent } from 'app/components/add-demo/add-demo.component';
 
 
 FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
@@ -71,6 +72,7 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     ReportEditComponent,
     ReportDeleteComponent,
     ReportViewComponent,
+    AddDemoComponent,
   ]
 })
 
