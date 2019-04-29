@@ -39,7 +39,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserService } from './service/user.service';
 import { TokenService } from './service/token.service';
 import { AuthService } from './service/auth.service';
-
+import { BeforLoginService } from './service/befor-login.service';
+import { AfterLoginService } from './service/after-login.service';
+import { AdminuserService } from './service/adminuser.service';
+import { ScreenlockComponent } from './components/screenlock/screenlock.component';
+import { ScreenlockService } from './service/screenlock.service';
+import { DemouserService } from './service/demouser.service';
+import { LectureruserService } from './service/lectureruser.service';
+import { PagenotfoundComponent } from './pages/pagenotfound/pagenotfound.component';
 
 
 
@@ -75,9 +82,21 @@ FusionChartsModule.fcRoot(FusionCharts, FusionMaps, Srilanka, FusionTheme);
     DemoLayoutComponent,
     LecturerLayoutComponent,
     PagesComponent,
+    ScreenlockComponent,
+    PagenotfoundComponent,
 
   ],
-  providers: [UserService, TokenService, AuthService],
+  providers: [
+    UserService,
+    TokenService,
+    AuthService,
+    BeforLoginService,
+    AfterLoginService,
+    AdminuserService,
+    ScreenlockService,
+    LectureruserService,
+    DemouserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

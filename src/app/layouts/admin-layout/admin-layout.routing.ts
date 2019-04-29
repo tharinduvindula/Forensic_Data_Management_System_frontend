@@ -9,6 +9,7 @@ import { UserProfileDeleteComponent } from 'app/components/user-profile-delete/u
 import { UserProfileEditComponent } from 'app/components/user-profile-edit/user-profile-edit.component';
 import { UserProfileAddComponent } from 'app/components/user-profile-add/user-profile-add.component';
 import { UserProfileViewComponent } from 'app/components/user-profile-view/user-profile-view.component';
+import { AdminuserService } from 'app/service/adminuser.service';
 
 export const AdminLayoutRoutes: Routes = [
    /*  {
@@ -49,10 +50,10 @@ export const AdminLayoutRoutes: Routes = [
     // }
     { path: '', pathMatch: 'full', redirectTo: 'dashboard',  component: AdmindashboardComponent },
     { path: 'dashboard',            component: AdmindashboardComponent },
-    { path: 'user-profile',         component: UserProfileComponent },
+    { path: 'user-profile', component: UserProfileComponent},
     { path: 'user-profile-delete',  component: UserProfileDeleteComponent },
     { path: 'user-profile-edit',    component: UserProfileEditComponent },
-    { path: 'user-profile-view',    component: UserProfileViewComponent },
+    { path: 'user-profile-view', component: UserProfileViewComponent},
     { path: 'addusers',             component: UserProfileAddComponent },
     { path: 'user-access',          component: UserAccessComponent },
     { path: 'icons',                component: IconsComponent },
