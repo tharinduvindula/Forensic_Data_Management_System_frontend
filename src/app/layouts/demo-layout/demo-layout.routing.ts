@@ -10,6 +10,7 @@ import { ReportEditComponent } from 'app/components/report-edit/report-edit.comp
 import { ReportDeleteComponent } from 'app/components/report-delete/report-delete.component';
 import { ReportViewComponent } from 'app/components/report-view/report-view.component';
 
+
 export const DemoLayoutRoutes: Routes = [
     // {
     //   path: '',
@@ -25,8 +26,8 @@ export const DemoLayoutRoutes: Routes = [
     // }
     { path: '', pathMatch: 'full', redirectTo: 'dashboard', component: DemodashboardComponent },
     { path: 'dashboard',      component: DemodashboardComponent },
-    { path: 'user-profile',   component: UserProfileComponent },
-    { path: 'user-profile-view', component: UserProfileViewComponent },
+    { path: 'user-profile', component: UserProfileComponent},
+    { path: 'user-profile-view', component: UserProfileViewComponent},
     { path: 'add',   component: AddComponent },
     { path: 'demoretrieve',   component: DemoRetrieveComponent },
     { path: 'analysis',   component: AnalysisComponent },

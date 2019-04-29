@@ -2,6 +2,8 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../adminsidebar/adminsidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { Router } from '@angular/router';
+import { AuthService } from 'app/service/auth.service';
+import { TokenService } from 'app/service/token.service';
 
 @Component({
   selector: 'app-navbar',
@@ -15,12 +17,18 @@ export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
 
-    constructor(location: Location,  private element: ElementRef, private router: Router) {
+    constructor(
+        location: Location,
+        private element: ElementRef,
+        private router: Router,
+        private Auth: AuthService,
+        private Token: TokenService
+        ) {
       this.location = location;
           this.sidebarVisible = false;
     }
 
-    ngOnInit(){
+    ngOnInit() {
       this.listTitles = ROUTES.filter(listTitle => listTitle);
       const navbar: HTMLElement = this.element.nativeElement;
       this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
@@ -37,7 +45,7 @@ export class NavbarComponent implements OnInit {
     sidebarOpen() {
         const toggleButton = this.toggleButton;
         const body = document.getElementsByTagName('body')[0];
-        setTimeout(function(){
+        setTimeout(function() {
             toggleButton.classList.add('toggled');
         }, 500);
 
@@ -85,7 +93,7 @@ export class NavbarComponent implements OnInit {
 
            if (body.querySelectorAll('.main-panel')) {
                 document.getElementsByClassName('main-panel')[0].appendChild($layer);
-            }else if (body.classList.contains('off-canvas-sidebar')) {
+            } else if (body.classList.contains('off-canvas-sidebar')) {
                 document.getElementsByClassName('wrapper-full-page')[0].appendChild($layer);
             }
 
@@ -109,18 +117,33 @@ export class NavbarComponent implements OnInit {
         }
     };
 
-    getTitle(){
+    getTitle() {
       var titlee = this.location.prepareExternalUrl(this.location.path());
-      if(titlee.charAt(0) === '#'){
+      if (titlee.charAt(0) === '#') {
           titlee = titlee.slice( 2 );
       }
       titlee = titlee.split('/').pop();
 
-      for(var item = 0; item < this.listTitles.length; item++){
-          if(this.listTitles[item].path === titlee){
+      for (var item = 0; item < this.listTitles.length; item++) {
+          if (this.listTitles[item].path === titlee) {
               return this.listTitles[item].title;
           }
       }
       return 'Dashboard';
+    }
+    logout(event: MouseEvent) {
+        event.preventDefault();
+        this.Token.remove();
+        this.Auth.changeAuthStatus(false);
+        this.router.navigateByUrl('login');
+    }
+    screenlock(event: MouseEvent) {
+        event.preventDefault();
+        console.log('1 ' + false);
+        localStorage.removeItem('lock');
+        localStorage.setItem('flink', this.router.url);
+        this.Auth.changescreenlockStatus(true);
+        console.log('4 ' + this.Auth.getstatus());
+        this.router.navigateByUrl('lock');
     }
 }

@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   };
 
   public error = null;
+  loggedin: boolean;
 
   constructor(
     private Users: UserService,
@@ -34,14 +35,13 @@ export class LoginComponent implements OnInit {
   }
 
   handleResponse(data) {
-    this.Token.handle(data.access_token, data.user.usertype);
+    this.Token.handle(data.access_token);
     this.Auth.changeAuthStatus(true);
-
     if (this.Token.isUserAdmin()) {
       this.router.navigateByUrl('admin/dashboard');
-    } else if (this.Token.isUserdemo) {
+    } else if (this.Token.isUserdemo()) {
       this.router.navigateByUrl('demo/dashboard');
-    } else if (this.Token.isUserLecture) {
+    } else if (this.Token.isUserLecture()) {
       this.router.navigateByUrl('lecturer/dashboard');
     } else {
       this.router.navigateByUrl('login');
@@ -53,6 +53,7 @@ export class LoginComponent implements OnInit {
 
   }
   ngOnInit() {
+    this.Auth.authStatus.subscribe(value => this.loggedin = value)
   }
 
 }

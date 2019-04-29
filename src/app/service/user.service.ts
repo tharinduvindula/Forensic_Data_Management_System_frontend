@@ -10,6 +10,9 @@ export class UserService {
   adduser(data) {
     return this.http.post(`${this.baseUrl}/adduser`, data)
   }
+  updateuser(data) {
+    return this.http.post(`${this.baseUrl}/updateuser`, data)
+  }
 
   login(data) {
     return this.http.post(`${this.baseUrl}/login`, data)

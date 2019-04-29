@@ -1,39 +1,40 @@
 import { Injectable } from '@angular/core';
-import { decode } from 'base-64';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class TokenService {
   private iss = {
     login: 'http://localhost:8000/api/login'
   };
+  constructor(private http: HttpClient) { }
 
-  constructor() { }
-
-  handle(token, usertype) {
-    this.set(token, usertype);
+  handle(token) {
+    this.set(token);
   }
 
-  set(token, usertype) {
+  set(token) {
     localStorage.setItem('token', token);
-    localStorage.setItem('usertype', usertype);
+    localStorage.setItem('lock', 'unlock');
   }
   gettoken() {
     return localStorage.getItem('token');
   }
-  getusertype() {
-    return localStorage.getItem('usertype');
+  getlock() {
+    return localStorage.getItem('lock');
+  }
+  geturl() {
+    return localStorage.getItem('flink');
   }
 
   remove() {
     localStorage.removeItem('token');
-    localStorage.removeItem('usertype');
+    localStorage.removeItem('lock');
   }
 
   isValid() {
     const token = this.gettoken();
     if (token) {
       const payload = this.payload(token);
-      console.log(payload);
       if (payload) {
         return Object.values(this.iss).indexOf(payload.iss) > -1 ? true : false;
       }
@@ -54,15 +55,25 @@ export class TokenService {
     return this.isValid();
   }
 
-  public isUserAdmin(): boolean {
-    return 'admin' === this.getusertype() ? true : false;
-  }
-  public isUserdemo(): boolean {
-    return 'demo' === this.getusertype() ? true : false;
-  }
-  public isUserLecture(): boolean {
-    return 'lecture' === this.getusertype() ? true : false;
+  screenunlock(value) {
+    console.log('value pass');
+    console.log(this.payload(value).sub)
+    console.log(this.payload(this.gettoken()).sub)
+    return this.payload(value).sub === this.payload(this.gettoken()).sub ? true : false;
   }
 
+  isscreenlock(){
+    return ('unlock' != this.getlock()) ? true : false;
+  }
+
+  public isUserAdmin(): boolean {
+    return 'admin' === this.payload(this.gettoken()).ud.usertype ? true : false;
+  }
+  public isUserdemo(): boolean {
+    return 'demo' === this.payload(this.gettoken()).ud.usertype ? true : false;
+  }
+  public isUserLecture(): boolean {
+    return 'lecturer' === this.payload(this.gettoken()).ud.usertype ? true : false;
+  }
 
 }

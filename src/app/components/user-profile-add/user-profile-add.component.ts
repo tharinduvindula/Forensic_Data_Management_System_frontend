@@ -31,28 +31,29 @@ export class UserProfileAddComponent implements OnInit {
     password: 'uosj@123',
   };
   error: null;
-  public loggedin: boolean;
+  public form1 = {
+    email: this.form.email,
+    password: 'uosj@123'
+  };
 
-  constructor(private Users: UserService, private Auth: AuthService, private router: Router, private token: TokenService) {
+  constructor(private Users: UserService, private Auth: AuthService, private router: Router, private Token: TokenService) {
 
   }
 
   ngOnInit() {
-    /*this.Auth.authStatus.subscribe(value => this.loggedin = value);
-    if (!this.loggedin) {
-        this.router.navigateByUrl('login');
-    }
-    if (!this.token.isUserdemo()) {
-      this.router.navigateByUrl('login');
-    }*/
   }
 
   onsubmit() {
-    this.Users.adduser(this.form).subscribe(
-      data => console.log(data),
+    this.Users.adduser(this.form);
+    this.Users.login(this.form1).subscribe(
+      data => this.handleResponse(data),
       error => this.handleError(error)
     );
   }
+  handleResponse(data){
+    this.Token.handle(data.access_token);
+  }
+
   handleError(error) {
     this.error = error.error.error;
   }

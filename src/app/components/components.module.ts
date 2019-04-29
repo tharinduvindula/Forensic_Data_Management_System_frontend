@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReportEditComponent } from './report-edit/report-edit.component';
 import { ReportDeleteComponent } from './report-delete/report-delete.component';
 import { ReportViewComponent } from './report-view/report-view.component';
+import { ScreenlockComponent } from './screenlock/screenlock.component';
 
 
 
