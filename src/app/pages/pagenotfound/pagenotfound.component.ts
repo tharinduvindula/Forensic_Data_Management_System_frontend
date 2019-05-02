@@ -23,11 +23,11 @@ export class PagenotfoundComponent implements OnInit {
         this.router.navigateByUrl('lock');
       } else {
         if (this.Token.isUserAdmin()) {
-          this.router.navigateByUrl('admin/dashboard');
+          this.router.navigateByUrl('admin/Dashboard');
         } else if (this.Token.isUserdemo()) {
-          this.router.navigateByUrl('demo/dashboard');
+          this.router.navigateByUrl('demo/Dashboard');
         } else if (this.Token.isUserLecture()) {
-          this.router.navigateByUrl('lecturer/dashboard');
+          this.router.navigateByUrl('lecturer/Dashboard');
         }
       }
     } else {

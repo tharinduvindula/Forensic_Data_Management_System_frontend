@@ -3,7 +3,6 @@ import { FormControl, Validators, NgForm } from '@angular/forms';
 import { UserService } from '../../service/user.service';
 import 'rxjs/add/operator/toPromise';
 import { AuthService } from 'app/service/auth.service';
-import { logging } from 'protractor';
 import { Router } from '@angular/router';
 import { TokenService } from 'app/service/token.service';
 
@@ -31,10 +30,7 @@ export class UserProfileAddComponent implements OnInit {
     password: 'uosj@123',
   };
   error: null;
-  public form1 = {
-    email: this.form.email,
-    password: 'uosj@123'
-  };
+
 
   constructor(private Users: UserService, private Auth: AuthService, private router: Router, private Token: TokenService) {
 
@@ -44,14 +40,10 @@ export class UserProfileAddComponent implements OnInit {
   }
 
   onsubmit() {
-    this.Users.adduser(this.form);
-    this.Users.login(this.form1).subscribe(
-      data => this.handleResponse(data),
-      error => this.handleError(error)
+    this.Users.adduser(this.form).subscribe(
+      data => console.log(data),
+      error => this.handleError(error),
     );
-  }
-  handleResponse(data){
-    this.Token.handle(data.access_token);
   }
 
   handleError(error) {

@@ -48,11 +48,11 @@ export class LecturerRetrieveComponent implements OnInit {
   }
 
   Search() {
-    if (this.srj != '') {
+    if (this.srj !== '') {
       this.reports = this.reports.filter(res => {
         return res.srj.toLocaleLowerCase().match(this.srj.toLocaleLowerCase());
       });
-    } else if (this.srj == '') {
+    } else if (this.srj === '') {
       this.ngOnInit();
     }
 

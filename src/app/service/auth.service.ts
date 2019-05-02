@@ -9,19 +9,15 @@ export class AuthService {
   screenlockStatus = this.screenlock.asObservable();
 
   changeAuthStatus(value: boolean) {
-    console.log('log'+this.getlog());
     this.loggedIn.next(value);
-    console.log('log' + this.getlog());
   }
   changescreenlockStatus(value: boolean) {
-    console.log('test 2' + this.getstatus());
     this.screenlock.next(value);
-    console.log('test3 ' + this.getstatus());
   }
-  getstatus(){
+  getstatus() {
     return this.screenlock.value;
   }
-  getlog(){
+  getlog() {
     return this.loggedIn.value;
   }
 

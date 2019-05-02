@@ -1,41 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { USER } from 'app/models/USER';
+import { UserService } from 'app/service/user.service';
 
-declare const $: any;
-declare interface RouteInfo {
-  path: string;
-  name: string;
-  photo: string;
-  startDate: string;
-  contactNumber: string;
-  email: string;
-  type: string;
-}
-export const ROUTES: RouteInfo[] = [
-  {
-    path: '/dashboard', name: 'tharindu', photo: 'assets/img/cover.jpeg', startDate: '2019/04/22',
-    contactNumber: '0717615678', email: 'tharinduvindula@gmail.com', type: 'demo'
-  },
-  {
-    path: '/dashboard', name: 'tharindu', photo: 'assets/img/cover.jpeg', startDate: '2019/04/22',
-    contactNumber: '0717615678', email: 'tharinduvindula@gmail.com', type: 'demo'
-  },
-  {
-    path: '/dashboard', name: 'tharindu', photo: 'assets/img/cover.jpeg', startDate: '2019/04/22',
-    contactNumber: '0717615678', email: 'tharinduvindula@gmail.com', type: 'demo'
-  },
-  {
-    path: '/dashboard', name: 'tharindu', photo: 'assets/img/cover.jpeg', startDate: '2019/04/22',
-    contactNumber: '0717615678', email: 'tharinduvindula@gmail.com', type: 'demo'
-  },
-  {
-    path: '/dashboard', name: 'tharindu', photo: 'assets/img/cover.jpeg', startDate: '2019/04/22',
-    contactNumber: '0717615678', email: 'tharinduvindula@gmail.com', type: 'demo'
-  },
-  {
-    path: '/dashboard', name: 'tharindu', photo: 'assets/img/cover.jpeg', startDate: '2019/04/22',
-    contactNumber: '0717615678', email: 'tharinduvindula@gmail.com', type: 'lecture'
-  },
-];
 
 @Component({
   selector: 'app-lecturerdashboard',
@@ -43,31 +9,35 @@ export const ROUTES: RouteInfo[] = [
   styleUrls: ['./lecturerdashboard.component.css']
 })
 export class LecturerdashboardComponent implements OnInit {
-  menuItems: any[];
+  users: USER[] = [];
 
-  constructor() { }
+  constructor(private User: UserService) {
+    this.getAlluser();
+   }
+
+  ngOnInit() {
+  }
+  getAlluser() {
+    this.User.getalluser().subscribe((all) => {
+      this.users = all
+    }
+    );
+  }
+
   isMobileMenu() {
     if (screen.width > 991) {
       return false;
     }
     return true;
   }
-
-  ngOnInit() {
-    this.menuItems = ROUTES.filter(menuItem => menuItem);
+  isDemo() {
+    return this.users.filter(x => x.usertype === 'demo');
   }
-
-  isDemo(dtype) {
-    if (dtype === 'demo') {
-      return true;
-    }
-    return false;
+  isLecture() {
+    return this.users.filter(x => x.usertype === 'lecturer');
   }
-  isLecture(Ltype) {
-    if (Ltype === 'lecture') {
-      return true;
-    }
-    return false;
+  isAdmin() {
+    return this.users.filter(x => x.usertype === 'admin');
   }
 
 }

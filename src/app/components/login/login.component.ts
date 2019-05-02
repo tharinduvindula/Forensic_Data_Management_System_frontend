@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
     email: null,
     password: null
   };
-
+  public loading = false;
   public error = null;
   loggedin: boolean;
 
@@ -29,20 +29,28 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.Users.login(this.form).subscribe(
-      data => this.handleResponse(data),
-      error => this.handleError(error),
+      data =>{
+        this.loading = false;
+        this.handleResponse(data)
+        },
+        
+      error => {
+        this.loading = false;
+        this.handleError(error)
+      }
     );
+    this.router.navigateByUrl('admin/Dashboard');
   }
 
   handleResponse(data) {
     this.Token.handle(data.access_token);
     this.Auth.changeAuthStatus(true);
     if (this.Token.isUserAdmin()) {
-      this.router.navigateByUrl('admin/dashboard');
+      this.router.navigateByUrl('admin/Dashboard');
     } else if (this.Token.isUserdemo()) {
-      this.router.navigateByUrl('demo/dashboard');
+      this.router.navigateByUrl('demo/Dashboard');
     } else if (this.Token.isUserLecture()) {
-      this.router.navigateByUrl('lecturer/dashboard');
+      this.router.navigateByUrl('lecturer/Dashboard');
     } else {
       this.router.navigateByUrl('login');
     }
@@ -56,4 +64,7 @@ export class LoginComponent implements OnInit {
     this.Auth.authStatus.subscribe(value => this.loggedin = value)
   }
 
+  public showAlert(): void {
+    alert('ngx-loading rocks!');
+  }
 }

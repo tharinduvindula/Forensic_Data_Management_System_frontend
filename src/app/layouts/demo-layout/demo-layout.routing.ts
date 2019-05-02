@@ -25,9 +25,9 @@ export const DemoLayoutRoutes: Routes = [
     // }]
     // }
     { path: '', pathMatch: 'full', redirectTo: 'dashboard', component: DemodashboardComponent },
-    { path: 'dashboard',      component: DemodashboardComponent },
-    { path: 'user-profile', component: UserProfileComponent},
-    { path: 'user-profile-view', component: UserProfileViewComponent},
+    { path: 'Dashboard',      component: DemodashboardComponent },
+    { path: 'User-Profile', component: UserProfileComponent},
+    { path: 'User-Profile-view', component: UserProfileViewComponent},
     { path: 'add',   component: AddComponent },
     { path: 'demoretrieve',   component: DemoRetrieveComponent },
     { path: 'analysis',   component: AnalysisComponent },

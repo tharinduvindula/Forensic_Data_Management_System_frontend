@@ -1,44 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'app/components/user-profile-add/user';
-
-
-
-declare const $: any;
-declare interface RouteInfo {
-  path: string;
-  name: string;
-  photo: string;
-  startDate: string;
-  contactNumber: string;
-  email: string;
-  type: string;
-}
-export const ROUTES: RouteInfo[] = [
-  {
-    path: '/dashboard', name: 'tharindu', photo: 'assets/img/faces/marc.jpg', startDate: '2019/04/22',
-    contactNumber: '0717615678', email: 'tharinduvindula@gmail.com', type: 'demo'
-  },
-  {
-    path: '/dashboard', name: 'tharindu', photo: 'assets/img/cover.jpeg', startDate: '2019/04/22',
-    contactNumber: '0717615678', email: 'tharinduvindula@gmail.com', type: 'demo'
-  },
-  {
-    path: '/dashboard', name: 'tharindu', photo: 'assets/img/cover.jpeg', startDate: '2019/04/22',
-    contactNumber: '0717615678', email: 'tharinduvindula@gmail.com', type: 'demo'
-  },
-  {
-    path: '/dashboard', name: 'tharindu', photo: 'assets/img/cover.jpeg', startDate: '2019/04/22',
-    contactNumber: '0717615678', email: 'tharinduvindula@gmail.com', type: 'demo'
-  },
-  {
-    path: '/dashboard', name: 'tharindu', photo: 'assets/img/cover.jpeg', startDate: '2019/04/22',
-    contactNumber: '0717615678', email: 'tharinduvindula@gmail.com', type: 'demo'
-  },
-  {
-    path: '/dashboard', name: 'tharindu', photo: 'assets/img/cover.jpeg', startDate: '2019/04/22',
-    contactNumber: '0717615678', email: 'tharinduvindula@gmail.com', type: 'lecture'
-  },
-];
+import { UserService } from 'app/service/user.service';
+import { USER } from 'app/models/USER';
 
 
 @Component({
@@ -47,22 +9,19 @@ export const ROUTES: RouteInfo[] = [
   styleUrls: ['./admindashboard.component.css']
 })
 export class AdmindashboardComponent implements OnInit {
+  users: USER[] = [];
 
-  menuItems: any[];
-
-  user: User[] = [];
-
-  constructor() { }
-  ngOnInit() {
-    this.menuItems = ROUTES.filter(menuItem => menuItem);
-    //this.getalluser();
+  constructor(private User: UserService) {
+    this.getAlluser();
   }
-  /*getalluser() {
-    this.userservice.getuser().subscribe((all)=>{
-      this.user = all;
-      console.log(this.user);
-    })
-  }*/
+  ngOnInit() {
+  }
+  getAlluser() {
+    this.User.getalluser().subscribe((all) => {
+       this.users = all
+      }
+     );
+  }
 
   isMobileMenu() {
     if (screen.width > 991) {
@@ -70,17 +29,14 @@ export class AdmindashboardComponent implements OnInit {
     }
     return true;
   }
-  isDemo(dtype) {
-    if (dtype === 'demo') {
-      return true;
-    }
-    return false;
+  isDemo() {
+    return this.users.filter(x => x.usertype === 'demo');
   }
-  isLecture(Ltype) {
-    if (Ltype === 'lecture') {
-      return true;
-    }
-    return false;
+  isLecture() {
+    return this.users.filter(x => x.usertype === 'lecturer');
+  }
+  isAdmin() {
+    return this.users.filter(x => x.usertype === 'admin');
   }
 
 }

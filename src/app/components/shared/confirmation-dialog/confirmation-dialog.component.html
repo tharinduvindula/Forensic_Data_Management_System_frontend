@@ -1,0 +1,7 @@
+<div mat-dialog-content style="padding-bottom: 15%;text-decoration: black;text-decoration-style: double;">
+  {{message}}
+</div>
+<div mat-dialog-actions>
+  <button mat-button class="btn btn-danger pull-left" (click)="onNoClick()">No Thanks</button>
+  <button mat-button class="btn btn-danger pull-right" [mat-dialog-close]="true" cdkFocusInitial>ok!</button>
+</div>

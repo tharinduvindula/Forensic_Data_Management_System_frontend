@@ -16,7 +16,6 @@ export class AddComponent implements OnInit {
   toggleMeridian() {
       this.meridian = !this.meridian;
   }
-  
   constructor(private _formBuilder: FormBuilder) {}
 
   ngOnInit() {

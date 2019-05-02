@@ -17,11 +17,11 @@
 
               </thead>
               <tbody>
-                <tr *ngFor="let menuItem of menuItems">
-                  <td><img class="img" src={{menuItem.photo}} alt="Card image cap"
+                <tr *ngFor="let user of isOtheruser()">
+                  <td><img class="img" src="../../../assets/img/mask.png" alt="Card image cap"
                       style="width:30px;height: 30px;border-radius: 50%;"></td>
-                  <td class="text-dark">{{menuItem.name}}</td>
-                  <td>{{menuItem.nic}}</td>
+                  <td class="text-dark">{{user.fullname}}</td>
+                  <td>{{user.nic}}</td>
                   <td>
                     <mat-slide-toggle>Auto-Renew</mat-slide-toggle>
                   </td>
@@ -54,11 +54,11 @@
 
               </thead>
               <tbody>
-                <tr *ngFor="let menuItem of menuItems">
-                  <td><img class="img" src={{menuItem.photo}} alt="Card image cap"
+                <tr *ngFor="let user of isOtheruser()">
+                  <td><img class="img" src="../../../assets/img/faces/marc.jpg" alt="Card image cap"
                       style="width:80px;height: 80px;border-radius: 50%;"></td>
-                  <td class="text-dark">{{menuItem.name}}</td>
-                  <td>{{menuItem.nic}}</td>
+                  <td class="text-dark">{{user.fullname}}</td>
+                  <td>{{user.nic}}</td>
                   <td>
                     <mat-slide-toggle>Auto-Renew</mat-slide-toggle>
                   </td>

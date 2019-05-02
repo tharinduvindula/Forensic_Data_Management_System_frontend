@@ -10,7 +10,7 @@
             <div class="card-body">
               <h5 class="card-title">{{form.fullname}}</h5>
               <p class="card-text">{{form.telephone}}<br>
-                {{form.email1}}<br>
+                {{form.email}}<br>
                {{startdate}}</p>
             </div>
           </div>
@@ -63,7 +63,7 @@
                 <div class="form-group row">
                   <div class="col-md-8">
                     <mat-form-field>
-                      <input matInput name="email" placeholder="Enter email" [formControl]="email"
+                      <input matInput name="email" placeholder="Enter email" 
                         [(ngModel)]="form.email" required>
                       <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
                     </mat-form-field>
@@ -157,7 +157,7 @@
                 <div class="form-group row">
                   <div class="col-md-8">
                     <mat-form-field>
-                      <input matInput name="email" placeholder="Enter email" [formControl]="email"
+                      <input matInput name="email" placeholder="Enter email" 
                         [(ngModel)]="form.email" required>
                       <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
                     </mat-form-field>
