@@ -24,9 +24,7 @@ export class ScreenlockComponent implements OnInit {
     private Token: TokenService,
     private router: Router,
     private Auth: AuthService
-  ) { 
-    console.log(Auth.getstatus());
-    }
+  ) {    }
 
   onSubmit() {
     this.Users.login(this.form).subscribe(
@@ -36,20 +34,13 @@ export class ScreenlockComponent implements OnInit {
   }
 
   handleResponse(data) {
-    console.log('sucses');
-    
     if (this.Token.screenunlock(data.access_token)) {
-      console.log('5' + this.Auth.getstatus());
       this.Auth.changescreenlockStatus(false);
-      console.log('6' + this.Auth.getstatus());
-      console.log('7' + this.Auth.getstatus() +'mach');
       localStorage.setItem('lock', 'unlock');
       const url = this.Token.geturl()
       localStorage.removeItem('flink');
       this.router.navigateByUrl(url);
-      
-    }
-    else{
+    } else {
       console.log('invalid user');
       this.router.navigateByUrl('lock');
     }

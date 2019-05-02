@@ -18,7 +18,7 @@ import { ReportEditComponent } from './report-edit/report-edit.component';
 import { ReportDeleteComponent } from './report-delete/report-delete.component';
 import { ReportViewComponent } from './report-view/report-view.component';
 import { ScreenlockComponent } from './screenlock/screenlock.component';
-
+import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
 
 
 
@@ -28,6 +28,14 @@ import { ScreenlockComponent } from './screenlock/screenlock.component';
     RouterModule,
     FormsModule,
     HttpClientModule,
+    NgxLoadingModule.forRoot({
+      animationType: ngxLoadingAnimationTypes.wanderingCubes,
+      backdropBackgroundColour: 'rgba(0,0,0,0.1)',
+      backdropBorderRadius: '4px',
+      primaryColour: '#ffffff',
+      secondaryColour: '#ffffff',
+      tertiaryColour: '#ffffff'
+    }),
 
   ],
   declarations: [

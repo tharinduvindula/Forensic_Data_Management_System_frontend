@@ -71,7 +71,7 @@ export class NavbarComponent implements OnInit {
         }
         const body = document.getElementsByTagName('body')[0];
 
-        if (this.mobile_menu_visible == 1) {
+        if (this.mobile_menu_visible === 1) {
             // $('html').removeClass('nav-open');
             body.classList.remove('nav-open');
             if ($layer) {
@@ -101,7 +101,7 @@ export class NavbarComponent implements OnInit {
                 $layer.classList.add('visible');
             }, 100);
 
-            $layer.onclick = function() { //asign a function
+            $layer.onclick = function() { // asign a function
               body.classList.remove('nav-open');
               this.mobile_menu_visible = 0;
               $layer.classList.remove('visible');
@@ -126,10 +126,10 @@ export class NavbarComponent implements OnInit {
 
       for (var item = 0; item < this.listTitles.length; item++) {
           if (this.listTitles[item].path === titlee) {
-              return this.listTitles[item].title;
+               console.log(this.listTitles[item].title);
           }
       }
-      return 'Dashboard';
+      return titlee;
     }
     logout(event: MouseEvent) {
         event.preventDefault();
@@ -139,11 +139,17 @@ export class NavbarComponent implements OnInit {
     }
     screenlock(event: MouseEvent) {
         event.preventDefault();
-        console.log('1 ' + false);
         localStorage.removeItem('lock');
         localStorage.setItem('flink', this.router.url);
         this.Auth.changescreenlockStatus(true);
-        console.log('4 ' + this.Auth.getstatus());
         this.router.navigateByUrl('lock');
+    }
+    editprofile(event: MouseEvent) {
+        event.preventDefault();
+        this.router.navigateByUrl(`${this.Token.payload(this.Token.gettoken()).ud.usertype}/` + 'User-Profile');
+    }
+    godashboard(event: MouseEvent) {
+        event.preventDefault();
+        this.router.navigateByUrl(`${this.Token.payload(this.Token.gettoken()).ud.usertype}/` + 'Dashboard');
     }
 }

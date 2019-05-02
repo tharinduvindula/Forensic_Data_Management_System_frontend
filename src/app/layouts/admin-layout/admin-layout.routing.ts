@@ -17,7 +17,7 @@ export const AdminLayoutRoutes: Routes = [
        children: [ {
          path: 'dashboard',
          component: AdmindashboardComponent
-     }]}, *///{
+     }]}, */// {
     // path: '',
     // children: [ {
     //   path: 'userprofile',
@@ -49,13 +49,13 @@ export const AdminLayoutRoutes: Routes = [
     //     }]
     // }
     { path: '', pathMatch: 'full', redirectTo: 'dashboard',  component: AdmindashboardComponent },
-    { path: 'dashboard',            component: AdmindashboardComponent },
-    { path: 'user-profile', component: UserProfileComponent},
-    { path: 'user-profile-delete',  component: UserProfileDeleteComponent },
-    { path: 'user-profile-edit',    component: UserProfileEditComponent },
-    { path: 'user-profile-view', component: UserProfileViewComponent},
-    { path: 'addusers',             component: UserProfileAddComponent },
-    { path: 'user-access',          component: UserAccessComponent },
+    { path: 'Dashboard',            component: AdmindashboardComponent },
+    { path: 'User-Profile', component: UserProfileComponent},
+    { path: 'User-Profile-delete',  component: UserProfileDeleteComponent },
+    { path: 'User-Profile-edit',    component: UserProfileEditComponent },
+    { path: 'User-Profile-view', component: UserProfileViewComponent},
+    { path: 'Add-Users',             component: UserProfileAddComponent },
+    { path: 'User-Access',          component: UserAccessComponent },
     { path: 'icons',                component: IconsComponent },
-    { path: 'editUserDetail',       component: AdminEditUserDetailComponent}
+    { path: 'Edit-User-Detail',       component: AdminEditUserDetailComponent}
 ];

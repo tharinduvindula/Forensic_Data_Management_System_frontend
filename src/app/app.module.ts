@@ -8,7 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-
+import { NgxLoadingModule } from 'ngx-loading';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
@@ -47,6 +47,8 @@ import { ScreenlockService } from './service/screenlock.service';
 import { DemouserService } from './service/demouser.service';
 import { LectureruserService } from './service/lectureruser.service';
 import { PagenotfoundComponent } from './pages/pagenotfound/pagenotfound.component';
+import { ConfirmationDialogComponent } from './components/shared/confirmation-dialog/confirmation-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
@@ -75,6 +77,8 @@ FusionChartsModule.fcRoot(FusionCharts, FusionMaps, Srilanka, FusionTheme);
     MatInputModule,
     MatButtonModule,
     MatSlideToggleModule,
+    MatDialogModule,
+    NgxLoadingModule.forRoot({}),
   ],
   declarations: [
     AppComponent,
@@ -84,7 +88,11 @@ FusionChartsModule.fcRoot(FusionCharts, FusionMaps, Srilanka, FusionTheme);
     PagesComponent,
     ScreenlockComponent,
     PagenotfoundComponent,
+    ConfirmationDialogComponent,
 
+  ],
+  entryComponents: [
+    ConfirmationDialogComponent,
   ],
   providers: [
     UserService,

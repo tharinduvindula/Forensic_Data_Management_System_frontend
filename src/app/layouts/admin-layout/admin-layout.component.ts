@@ -16,7 +16,7 @@ export class AdminLayoutComponent implements OnInit {
   private _router: Subscription;
   private lastPoppedUrl: string;
   private yScrollStack: number[] = [];
- 
+
 
   constructor( public location: Location, private router: Router) {}
 
@@ -38,11 +38,11 @@ export class AdminLayoutComponent implements OnInit {
       });
        this.router.events.subscribe((event: any) => {
           if (event instanceof NavigationStart) {
-             if (event.url != this.lastPoppedUrl) {
+             if (event.url !== this.lastPoppedUrl) {
                  this.yScrollStack.push(window.scrollY);
              }
          } else if (event instanceof NavigationEnd) {
-             if (event.url == this.lastPoppedUrl) {
+             if (event.url === this.lastPoppedUrl) {
                  this.lastPoppedUrl = undefined;
                  window.scrollTo(0, this.yScrollStack.pop());
              } else {
@@ -65,7 +65,7 @@ export class AdminLayoutComponent implements OnInit {
   isMaps(path) {
       var titlee = this.location.prepareExternalUrl(this.location.path());
       titlee = titlee.slice( 1 );
-      if (path == titlee) {
+      if (path === titlee) {
           return false;
       } else {
           return true;
@@ -88,7 +88,7 @@ export class AdminLayoutComponent implements OnInit {
     isDashboard(path) {
         let titlee = this.location.prepareExternalUrl(this.location.path());
         titlee = titlee.slice(1);
-        if ('dashboard' == titlee) {
+        if ('Dashboard' === titlee) {
             return true;
         } else {
             return false;

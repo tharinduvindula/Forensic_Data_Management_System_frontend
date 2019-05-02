@@ -1,7 +1,5 @@
-import { ThrowStmt } from "@angular/compiler";
 
-export class Demo
-{
+export class Demo {
   fullname: string;
   firstname: string;
   nic: string;

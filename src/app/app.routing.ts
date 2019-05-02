@@ -67,7 +67,7 @@ const routes: Routes = [
  },
   { path: '**', component: PagenotfoundComponent }
     // { path: 'dashboard',      component: DashboardComponent },
-    // { path: 'user-profile',   component: UserProfileComponent },
+    // { path: 'User-Profile',   component: UserProfileComponent },
     // { path: 'table-list',     component: TableListComponent },
     // { path: 'typography',     component: TypographyComponent },
     // { path: 'icons',          component: IconsComponent },
@@ -85,6 +85,6 @@ const routes: Routes = [
   exports: [
   ],
 })
-export class AppRoutingModule { 
-  constructor(){}
+export class AppRoutingModule {
+  constructor() {}
 }

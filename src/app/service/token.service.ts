@@ -56,14 +56,11 @@ export class TokenService {
   }
 
   screenunlock(value) {
-    console.log('value pass');
-    console.log(this.payload(value).sub)
-    console.log(this.payload(this.gettoken()).sub)
     return this.payload(value).sub === this.payload(this.gettoken()).sub ? true : false;
   }
 
-  isscreenlock(){
-    return ('unlock' != this.getlock()) ? true : false;
+  isscreenlock() {
+    return ('unlock' !== this.getlock()) ? true : false;
   }
 
   public isUserAdmin(): boolean {

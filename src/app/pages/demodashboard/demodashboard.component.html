@@ -1,4 +1,3 @@
-
 <div style="padding-top: 6%">
     <div *ngIf="isMobileMenu();else elseblock">
         <div class="row  ml-0 mr-0" style="padding-top:6%">
@@ -6,8 +5,7 @@
                 <app-colombomap></app-colombomap>
             </div>
         </div>
-
-    </div>'
+    </div>
     <ng-template #elseblock>
         <div class="row  ml-0 mr-0">
             <div class="col-md-8  mx-auto">
@@ -16,6 +14,7 @@
         </div>
     </ng-template>
 </div>
+
 
 <div *ngIf="isMobileMenu();else elseblock1">
     <div class="container-fluid" style="overflow-x: hidden; padding-right: 1%;">
@@ -27,22 +26,20 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-10" style="padding-top: 1%" *ngFor="let menuItem of menuItems">
-                            <div *ngIf="isLecture(menuItem.type)">
-                                <div class="card card-profile"
-                                    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-                                    <div class="card-avatar">
-                                        <a [routerLink]="['/demo/user-profile-view']">
-                                            <img class="img" style="width:100px;height: 100px;border-radius: 50%;"
-                                                src={{menuItem.photo}} />
-                                        </a>
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{menuItem.name}}</h5>
-                                        <p class="card-text">{{menuItem.contactNumber}}<br>
-                                            {{menuItem.email}}<br>
-                                            {{menuItem.startDate}}</p>
-                                    </div>
+                        <div class="col-10" style="padding-top: 1%" *ngFor="let user of isLecture()">
+                            <div class="card card-profile"
+                                style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                <div class="card-avatar">
+                                    <a [routerLink]="['/admin/User-Profile-view']">
+                                        <!-- <img class="img" style="width:100px;height: 100px;border-radius: 50%;"
+                                                src={{user.photo}} />-->
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{user.fullname}}</h5>
+                                    <p class="card-text">{{user.telephone}}<br>
+                                        {{user.email}}<br>
+                                        {{user.startdate.split('T')[0]}}</p>
                                 </div>
                             </div>
                         </div>
@@ -58,22 +55,49 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-10" style="padding-top: 3%" *ngFor="let menuItem of menuItems">
-                            <div *ngIf="isDemo(menuItem.type)">
-                                <div class="card card-profile"
-                                    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-                                    <div class="card-avatar">
-                                        <a [routerLink]="['/demo/user-profile-view']">
-                                            <img class="img" style="width:100px;height: 100px;border-radius: 50%;"
-                                                src={{menuItem.photo}} />
-                                        </a>
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{menuItem.name}}</h5>
-                                        <p class="card-text">{{menuItem.contactNumber}}<br>
-                                            {{menuItem.email}}<br>
-                                            {{menuItem.startDate}}</p>
-                                    </div>
+                        <div class="col-10" style="padding-top: 3%" *ngFor="let user of isDemo()">
+                            <div class="card card-profile"
+                                style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                <div class="card-avatar">
+                                    <a [routerLink]="['/admin/User-Profile-view']">
+                                        <!-- <img class="img" style="width:100px;height: 100px;border-radius: 50%;"
+                                                src={{user.photo}} />-->
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{user.fullname}}</h5>
+                                    <p class="card-text">{{user.telephone}}<br>
+                                        {{user.email}}<br>
+                                        {{user.startdate.split('T')[0]}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-11">
+            <div class="card">
+
+                <div class="card-header card-header-warning">
+                    <h4 class="card-title">Admin Stats</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-10" style="padding-top: 3%" *ngFor="let user of isAdmin()">
+                            <div class="card card-profile"
+                                style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                <div class="card-avatar">
+                                    <a [routerLink]="['/admin/User-Profile-view']">
+                                        <!-- <img class="img" style="width:100px;height: 100px;border-radius: 50%;"
+                                                src={{user.photo}} />-->
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{user.fullname}}</h5>
+                                    <p class="card-text">{{user.telephone}}<br>
+                                        {{user.email}}<br>
+                                        {{user.startdate.split('T')[0]}}</p>
                                 </div>
                             </div>
                         </div>
@@ -94,22 +118,20 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-3" style="padding-top: 1%" *ngFor="let menuItem of menuItems">
-                            <div *ngIf="isLecture(menuItem.type)">
-                                <div class="card card-profile"
-                                    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-                                    <div class="card-avatar">
-                                        <a [routerLink]="['/demo/user-profile-view']">
-                                            <img class="img" style="width:100px;height: 100px;border-radius: 50%;"
-                                                src={{menuItem.photo}} />
-                                        </a>
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{menuItem.name}}</h5>
-                                        <p class="card-text">{{menuItem.contactNumber}}<br>
-                                            {{menuItem.email}}<br>
-                                            {{menuItem.startDate}}</p>
-                                    </div>
+                        <div class="col-3" style="padding-top: 1%" *ngFor="let user of isLecture()">
+                            <div class="card card-profile"
+                                style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                <div class="card-avatar">
+                                    <a [routerLink]="['/admin/User-Profile-view']">
+                                        <!-- <img class="img" style="width:100px;height: 100px;border-radius: 50%;"
+                                                src={{user.photo}} />-->
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{user.fullname}}</h5>
+                                    <p class="card-text">{{user.telephone}}<br>
+                                        {{user.email}}<br>
+                                        {{user.startdate.split('T')[0]}}</p>
                                 </div>
                             </div>
                         </div>
@@ -125,22 +147,49 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-3" style="padding-top: 1%" *ngFor="let menuItem of menuItems">
-                            <div *ngIf="isDemo(menuItem.type)">
-                                <div class="card card-profile"
-                                    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-                                    <div class="card-avatar">
-                                        <a [routerLink]="['/demo/user-profile-view']">
-                                            <img class="img" style="width:100px;height: 100px;border-radius: 50%;"
-                                                src={{menuItem.photo}} />
-                                        </a>
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{menuItem.name}}</h5>
-                                        <p class="card-text">{{menuItem.contactNumber}}<br>
-                                            {{menuItem.email}}<br>
-                                            {{menuItem.startDate}}</p>
-                                    </div>
+                        <div class="col-3" style="padding-top: 1%" *ngFor="let user of isDemo()">
+                            <div class="card card-profile"
+                                style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                <div class="card-avatar">
+                                    <a [routerLink]="['/admin/User-Profile-view']">
+                                        <!-- <img class="img" style="width:100px;height: 100px;border-radius: 50%;"
+                                                src={{user.photo}} />-->
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{user.fullname}}</h5>
+                                    <p class="card-text">{{user.telephone}}<br>
+                                        {{user.email}}<br>
+                                        {{user.startdate.split('T')[0]}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-11">
+            <div class="card">
+
+                <div class="card-header card-header-warning">
+                    <h4 class="card-title">Admin Stats</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-3" style="padding-top: 1%" *ngFor="let user of isAdmin()">
+                            <div class="card card-profile"
+                                style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                <div class="card-avatar">
+                                    <a [routerLink]="['/admin/User-Profile-view']">
+                                        <!-- <img class="img" style="width:100px;height: 100px;border-radius: 50%;"
+                                                src={{user.photo}} />-->
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{user.fullname}}</h5>
+                                    <p class="card-text">{{user.telephone}}<br>
+                                        {{user.email}}<br>
+                                        {{user.startdate.split('T')[0]}}</p>
                                 </div>
                             </div>
                         </div>
