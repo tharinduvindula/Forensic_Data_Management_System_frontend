@@ -3,8 +3,8 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DemoLayoutRoutes } from './demo-layout.routing';
-import { DemodashboardComponent } from '../../pages/demodashboard/demodashboard.component';
-import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
+import { DemodashboardComponent } from '../../components/demodashboard/demodashboard.component';
+import { UserProfileDemoComponent } from '../../components/user-profile-demo/user-profile-demo.component';
 import { ComponentsModule } from 'app/components/components.module';
 import { AddComponent } from 'app/components/add/add.component';
 import { DemoRetrieveComponent } from 'app/components/demoretrieve/demoretrieve.component';
@@ -29,7 +29,7 @@ import { HttpModule } from '@angular/http';
 import * as FusionCharts from 'fusioncharts';
 import * as Charts from 'fusioncharts/fusioncharts.charts';
 import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
-import { UserProfileViewComponent } from 'app/components/user-profile-view/user-profile-view.component';
+import { UserProfileViewDemoComponent } from 'app/components/user-profile-view-demo/user-profile-view-demo.component';
 import { ReportEditComponent } from 'app/components/report-edit/report-edit.component';
 import { ReportDeleteComponent } from 'app/components/report-delete/report-delete.component';
 import { ReportViewComponent } from 'app/components/report-view/report-view.component';
@@ -64,11 +64,11 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
   ],
   declarations: [
     DemodashboardComponent,
-    UserProfileComponent,
+    UserProfileDemoComponent,
     AnalysisComponent,
     AddComponent,
     DemoRetrieveComponent,
-    UserProfileViewComponent,
+    UserProfileViewDemoComponent,
     ReportEditComponent,
     ReportDeleteComponent,
     ReportViewComponent,

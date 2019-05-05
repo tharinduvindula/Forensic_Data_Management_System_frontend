@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { USER } from 'app/models/USER';
 import { UserService } from 'app/service/user.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TokenService } from 'app/service/token.service';
+import { MatDialog } from '@angular/material';
+import { ConfirmationDialogComponent } from '../shared/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-user-profile-delete',
@@ -22,18 +25,33 @@ export class UserProfileDeleteComponent implements OnInit {
     email: null,
     telephone: null,
     startdate: null,
-    usertype: null
+    usertype: null,
+    lasteditby: this.Token.payload(this.Token.gettoken()).ud.fullname,
+    photo: null,
   };
   public form1 = {
     email: null
   }
+  public form2 = {
+    email: null,
+    lasteditby: this.Token.payload(this.Token.gettoken()).ud.fullname
+  }
+
   startdate: any;
-  constructor(private User: UserService, private Activatedroute: ActivatedRoute) {
+  editby: any;
+  addingby: any;
+  constructor(
+    private User: UserService,
+    private Activatedroute: ActivatedRoute,
+    public dialog: MatDialog,
+    private Token: TokenService,
+    private router: Router
+    ) {
     this.form1.email = this.Activatedroute.snapshot.queryParamMap.get('Email');
     this.getuser();
+    this.form2.email = this.Activatedroute.snapshot.queryParamMap.get('Email');
   }
   ngOnInit() {
-
   }
 
   getuser() {
@@ -46,14 +64,31 @@ export class UserProfileDeleteComponent implements OnInit {
         this.form.sex = all.sex,
         this.form.email = all.email,
         this.form.telephone = all.telephone,
-        this.form.startdate = all.startdate,
+        this.form.startdate = all.startdate.split('T')[0],
         this.form.usertype = all.usertype,
-        this.startdate = this.form.startdate.split('T')[0]
+        this.startdate = this.form.startdate.split('T')[0],
+        this.addingby = all.addingby,
+        this.editby = all.lasteditby,
+        this.form.photo = all.photo
     }
     );
   }
-  onsubmit() {
-
+  onsubmit(){
+    this.openDialog();
+  }
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      width: '350px',
+      data: 'do you want delete ' + `${this.form.fullname}` + ' account'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.User.deleteuser(this.form2).subscribe(
+          data =>
+            this.router.navigateByUrl('admin/Edit-User-Detail')
+        );
+      }
+    });
   }
 
 

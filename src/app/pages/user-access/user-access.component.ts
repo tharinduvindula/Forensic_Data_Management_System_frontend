@@ -12,12 +12,13 @@ import { TokenService } from 'app/service/token.service';
   styleUrls: ['./user-access.component.scss']
 })
 export class UserAccessComponent implements OnInit {
-  color = 'red';
-  checked = false;
-  disabled = false;
   users: USER[] = [];
+  public form = {
+    email: null,
+    temporydisable: null
+  }
 
-  constructor(private User: UserService, private Token: TokenService) {
+  constructor(private User: UserService, private Token: TokenService, private Users: UserService) {
     this.getAlluser();
    }
 
@@ -26,12 +27,25 @@ export class UserAccessComponent implements OnInit {
   }
   getAlluser() {
     this.User.getalluser().subscribe((all) => {
-      this.users = all
+      this.users = all,
+      console.log(all)
     }
     );
   }
   isOtheruser() {
-    return this.users.filter(x => x.id !== this.Token.payload(this.Token.gettoken()).sub);
+    return this.users.filter(x => (x.id !== this.Token.payload(this.Token.gettoken()).sub) && (x.permenetdisable === 0));
+  }
+  setValue(email, e) {
+    if (e.checked) {
+      this.form.temporydisable = 0;
+      this.form.email = email;
+    } else {
+      this.form.temporydisable = 1;
+      this.form.email = email;
+    }
+    this.Users.temporarydisable(this.form).subscribe(
+      data => {}
+    );
   }
 
 

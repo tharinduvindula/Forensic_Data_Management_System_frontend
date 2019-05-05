@@ -6,17 +6,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { DemoLayoutComponent } from './layouts/demo-layout/demo-layout.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LecturerLayoutComponent } from './layouts/lecturer-layout/lecturer-layout.component';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from './pages/login/login.component';
 import { BeforLoginService } from './service/befor-login.service';
 import { AfterLoginService } from './service/after-login.service';
 import { AdminuserService } from './service/adminuser.service';
-import { ScreenlockComponent } from './components/screenlock/screenlock.component';
+import { ScreenlockComponent } from './pages/screenlock/screenlock.component';
 import { ScreenlockService } from './service/screenlock.service';
 import { LectureruserService } from './service/lectureruser.service';
 import { DemouserService } from './service/demouser.service';
 import { PagenotfoundComponent } from './pages/pagenotfound/pagenotfound.component';
-
-
 
 
 const routes: Routes = [

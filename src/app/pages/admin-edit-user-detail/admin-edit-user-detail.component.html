@@ -16,8 +16,8 @@
               <th>Delete</th>
             </thead>
             <tbody>
-              <tr *ngFor="let user of users">
-                <td><img class="img" src="../../../assets/img/faces/marc.jpg" alt="Card image cap"
+              <tr *ngFor="let user of isOtheruser()">
+                <td><img class="img"  [src]="'data:image/png' + ';base64,' + user.photo"  alt="Card image cap"
                     style="width:80px;height: 80px;border-radius: 50%;"></td>
                 <td class="text-dark">{{user.fullname}}</td>
                 <td>{{user.nic}}</td>

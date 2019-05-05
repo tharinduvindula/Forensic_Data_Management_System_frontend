@@ -29,7 +29,7 @@ export class AdminEditUserDetailComponent implements OnInit {
     );
   }
   isOtheruser() {
-    return this.users.filter(x => x.id !== this.Token.payload(this.Token.gettoken()).sub);
+    return this.users.filter(x => (x.id !== this.Token.payload(this.Token.gettoken()).sub) && (x.permenetdisable === 0));
   }
   isMobileMenu() {
     if (screen.width > 991) {

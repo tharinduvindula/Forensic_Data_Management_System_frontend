@@ -1,0 +1,172 @@
+<div *ngIf="isMobileMenu();else elseblock">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3" style="padding-top:2% ;">
+        <div class="card card-profile"
+          style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+          <div style="padding-top: 3%;padding-bottom: 3%">
+            <img class="img" style="width:250px;height: 250px;border-radius: 50%;"
+              [src]="'data:image/png' + ';base64,' + form.photo" *ngIf="form.photo" />
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">{{form.fullname}}</h5>
+            <p class="card-text">0{{form.telephone}}<br>
+              {{form.email}}<br>
+              Stat Date : {{startdate}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Profile</h4>
+            <p class="card-category">about profile</p>
+          </div>
+          <div class="card-header">
+            <div class="row">
+              <div class="col-md-12" style="padding-left: 5%;padding-bottom: 1%; padding-top: 1%;">
+                <strong style="display:inline;font-size: 17px">Full Name : </strong>
+                <h5 style="display:inline;">{{form.fullname}}</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12" style="padding-left: 5%;padding-bottom: 1%">
+                <strong style="display:inline;font-size: 17px">NIC Number : </strong>
+                <h5 style="display:inline;">{{form.nic}}</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12" style="padding-left: 5%;padding-bottom: 1%">
+                <strong style="display:inline;font-size: 17px">Sex : </strong>
+                <h5 style="display:inline;">{{form.sex}}</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12" style="padding-left: 5%;padding-bottom: 1%">
+                <strong style="display:inline;font-size: 17px">Email : </strong>
+                <h5 style="display:inline;">{{form.email}}</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12" style="padding-left: 5%;padding-bottom: 1%">
+                <strong style="display:inline;font-size: 17px">Adress : </strong>
+                <h5 style="display:inline;">{{form.address}}</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12" style="padding-left: 5%;padding-bottom: 1%">
+                <strong style="display:inline;font-size: 17px">Telephone : </strong>
+                <h5 style="display:inline;">{{form.telephone}}</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12" style="padding-left: 5%;padding-bottom: 1%">
+                <strong style="display:inline;font-size: 17px">Starting Date : </strong>
+                <h5 style="display:inline;">{{form.startdate}}</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12" style="padding-left: 5%;padding-bottom: 1%">
+                <strong style="display:inline;font-size: 17px">User Type : </strong>
+                <h5 style="display:inline;">{{form.usertype}}</h5>
+              </div>
+            </div>
+
+
+          </div>
+          <span style="padding-left: 6%">This user is adding by {{addingby}} and last edit by {{editby}}</span>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<ng-template #elseblock>
+   <div class="container-fluid">
+     <div class="row">
+       <div class="col-md-8">
+         <div class="card">
+           <div class="card-header card-header-danger">
+             <h4 class="card-title">Profile</h4>
+             <p class="card-category">about profile</p>
+           </div>
+           <div class="card-header">
+             <div class="row">
+               <div class="col-md-12" style="padding-left: 5%;padding-bottom: 1%; padding-top: 1%;">
+                <strong style="display:inline;font-size: 17px">Full Name : </strong>
+                <h5 style="display:inline;">{{form.fullname}}</h5>
+               </div>
+             </div>
+             <div class="row" >
+               <div class="col-md-12" style="padding-left: 5%;padding-bottom: 1%">
+                <strong style="display:inline;font-size: 17px">NIC Number : </strong>
+                <h5 style="display:inline;">{{form.nic}}</h5>
+               </div>
+             </div>
+             <div class="row">
+               <div class="col-md-12" style="padding-left: 5%;padding-bottom: 1%">
+                  <strong style="display:inline;font-size: 17px">Sex : </strong>
+                  <h5 style="display:inline;">{{form.sex}}</h5>
+               </div>
+             </div>
+             <div class="row">
+               <div class="col-md-12" style="padding-left: 5%;padding-bottom: 1%">
+                <strong style="display:inline;font-size: 17px">Email : </strong>
+                <h5 style="display:inline;">{{form.email}}</h5>
+               </div>
+             </div>
+             <div class="row">
+               <div class="col-md-12" style="padding-left: 5%;padding-bottom: 1%">
+                <strong style="display:inline;font-size: 17px">Adress : </strong>
+                <h5 style="display:inline;">{{form.address}}</h5>
+               </div>
+             </div>
+             <div class="row">
+               <div class="col-md-12" style="padding-left: 5%;padding-bottom: 1%">
+                  <strong style="display:inline;font-size: 17px">Telephone : </strong>
+                  <h5 style="display:inline;">{{form.telephone}}</h5>
+               </div>
+             </div>
+             <div class="row">
+               <div class="col-md-12" style="padding-left: 5%;padding-bottom: 1%">
+                <strong style="display:inline;font-size: 17px">Starting Date : </strong>
+                <h5 style="display:inline;">{{form.startdate}}</h5>
+               </div>
+             </div>
+             <div class="row">
+               <div class="col-md-12" style="padding-left: 5%;padding-bottom: 1%">
+                 <strong style="display:inline;font-size: 17px">User Type : </strong>
+                 <h5 style="display:inline;">{{form.usertype}}</h5>
+               </div>
+             </div>
+            <div style="padding-top: 5%;padding-bottom: 0.5%;padding-left: 5%;">
+              <span>This user is adding by {{addingby}} and last edit by {{editby}}</span>
+            </div>
+
+           </div>
+         
+         </div>
+       </div>
+       <div class="col-md-3" style="padding-top:2% ;">
+         <div class="card card-profile"
+           style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+          <div style="padding-top: 3%;padding-bottom: 3%">
+            <img class="img" style="width:250px;height: 250px;border-radius: 50%;"
+              [src]="'data:image/png' + ';base64,' + form.photo" *ngIf="form.photo" />
+          </div>
+           <div class="card-body">
+             <h5 class="card-title">{{form.fullname}}</h5>
+             <p class="card-text">0{{form.telephone}}<br>
+               {{form.email}}<br>
+                Stat Date : {{startdate}}</p>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+</ng-template>
+
+
+

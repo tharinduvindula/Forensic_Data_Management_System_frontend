@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ErrorHandler } from '@angular/core';
 import { UserService } from '../../service/user.service';
 import { TokenService } from '../../service/token.service';
 import { Router } from '@angular/router';
@@ -10,7 +10,7 @@ import { Token } from '@angular/compiler';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, ErrorHandler {
 
   public form = {
     email: null,
@@ -29,17 +29,13 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.Users.login(this.form).subscribe(
-      data =>{
-        this.loading = false;
+      data => {
         this.handleResponse(data)
         },
-        
       error => {
-        this.loading = false;
         this.handleError(error)
       }
     );
-    this.router.navigateByUrl('admin/Dashboard');
   }
 
   handleResponse(data) {
