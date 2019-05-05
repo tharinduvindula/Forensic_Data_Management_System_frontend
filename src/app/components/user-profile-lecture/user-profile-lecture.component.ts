@@ -9,11 +9,11 @@ import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-user-profile',
-  templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.css']
+  selector: 'app-user-profile-lecture',
+  templateUrl: './user-profile-lecture.component.html',
+  styleUrls: ['./user-profile-lecture.component.css']
 })
-export class UserProfileComponent implements OnInit {
+export class UserProfileLectureComponent implements OnInit {
   email = new FormControl('', [Validators.required, Validators.email]);
   startdate = null;
   public form = {
@@ -24,16 +24,60 @@ export class UserProfileComponent implements OnInit {
     sex: this.Token.payload(this.Token.gettoken()).ud.sex,
     email: this.Token.payload(this.Token.gettoken()).ud.email,
     telephone: this.Token.payload(this.Token.gettoken()).ud.telephone,
+    addingby: this.Token.payload(this.Token.gettoken()).ud.addingby,
+    lasteditby: this.Token.payload(this.Token.gettoken()).ud.fullname,
     oldemail: this.Token.payload(this.Token.gettoken()).ud.email,
+    photo: this.Token.payload(this.Token.gettoken()).photo,
+
   };
+  editby = this.Token.payload(this.Token.gettoken()).ud.lasteditby;
   error: any;
+  imageSrc;
+  photoFile: any;
+  //base64s
+  photoString: string;
+
+ 
 
   constructor(private Users: UserService, private Token: TokenService, public dialog: MatDialog, private Auth: AuthService,
-     private router: Router) { }
+     private router: Router) {
+    this.form.photo = (this.Token.payload(this.Token.gettoken()).ud.photo);
+      }
 
   ngOnInit() {
     this.startdate = this.Token.payload(this.Token.gettoken()).ud.startdate.split('T')[0];
 
+  }
+  public picked(event) {
+    const fileList: FileList = event.target.files;
+    if (fileList.length > 0) {
+      const file: File = fileList[0];
+      this.photoFile = file;
+      this.handleInputChange(file); // turn into base64
+    } else {
+      alert('No file selected');
+    }
+  }
+
+
+  handleInputChange(files) {
+    const file = files;
+    const pattern = /image-*/;
+    const reader = new FileReader();
+    if (!file.type.match(pattern)) {
+      alert('invalid format');
+      return;
+    }
+    reader.onloadend = this._handleReaderLoaded.bind(this);
+    reader.readAsDataURL(file);
+  }
+
+  _handleReaderLoaded(e) {
+    const reader = e.target;
+    const base64result = reader.result.substr(reader.result.indexOf(',') + 1);
+    // this.imageSrc = base64result;
+    this.photoString = base64result;
+    this.form.photo = this.photoString;
   }
 
   isMobileMenu() {
@@ -57,7 +101,7 @@ export class UserProfileComponent implements OnInit {
 
   onsubmit() {
     this.Users.updateuser(this.form).subscribe(
-      data =>  console.log(data),
+      data => data,
       error => this.handleError(error),
     );
     this.openDialog();

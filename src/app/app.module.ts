@@ -16,9 +16,8 @@ import { ComponentsModule } from './components/components.module';
 
 import { AppComponent } from './app.component';
 
-import { AdmindashboardComponent } from './pages/admindashboard/admindashboard.component';
-import { DemodashboardComponent } from './pages/demodashboard/demodashboard.component';
-import { UserProfileComponent } from './pages/user-profile/user-profile.component';
+import { AdmindashboardComponent } from './components/admindashboard/admindashboard.component';
+import { DemodashboardComponent } from './components/demodashboard/demodashboard.component';
 import { IconsComponent } from './pages/icons/icons.component';
 import { AgmCoreModule } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
@@ -42,7 +41,7 @@ import { AuthService } from './service/auth.service';
 import { BeforLoginService } from './service/befor-login.service';
 import { AfterLoginService } from './service/after-login.service';
 import { AdminuserService } from './service/adminuser.service';
-import { ScreenlockComponent } from './components/screenlock/screenlock.component';
+import { ScreenlockComponent } from './pages/screenlock/screenlock.component';
 import { ScreenlockService } from './service/screenlock.service';
 import { DemouserService } from './service/demouser.service';
 import { LectureruserService } from './service/lectureruser.service';
@@ -89,7 +88,6 @@ FusionChartsModule.fcRoot(FusionCharts, FusionMaps, Srilanka, FusionTheme);
     ScreenlockComponent,
     PagenotfoundComponent,
     ConfirmationDialogComponent,
-
   ],
   entryComponents: [
     ConfirmationDialogComponent,

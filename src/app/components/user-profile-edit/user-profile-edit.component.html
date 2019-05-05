@@ -111,20 +111,30 @@
                         </div>
                       
                       </form>
+                      <div style="padding-bottom: 0.5%;padding-left: 5%;">
+                        <span>This user is adding by {{addingby}} and last edit by {{editby}}</span>
+                      </div>
                   </div>
               </div>
           </div>
           <div class="col-md-3"style="padding-top:2% ;">
             <div class="card card-profile"
               style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-              <div class="card-avatar">
-                <img class="img" style="width:100px;height: 100px;border-radius: 50%;" src="./assets/img/cover.jpeg" />
+              <div style="padding-top: 3%;padding-bottom: 3%">
+                <img class="img" style="width:250px;height: 250px;border-radius: 50%;"
+                  [src]="'data:image/png' + ';base64,' + form.photo" *ngIf="form.photo" />
+              </div>
+              <div class="upload-btn-wrapper">
+                <button class="btn" style="background-color: blue">
+                  <i class="material-icons"> add_photo_alternate</i>add new Photo
+                </button>
+                <input #imageInput type="file" accept="image/*" (change)="preview(imageInput.files)">
               </div>
               <div class="card-body">
                 <h5 class="card-title">{{form.fullname}}</h5>
-                <p class="card-text">{{form.telephone}}<br>
+                <p class="card-text">0{{form.telephone}}<br>
                   {{form.email}}<br>
-                  {{startdate}}</p>
+                  Stat Date : {{startdate}}</p>
               </div>
             </div>
           </div>

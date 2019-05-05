@@ -27,6 +27,9 @@ export class UserService {
   updateuser(data) {
     return this.http.post(`${this.baseUrl}/updateuser`, data);
   }
+  deleteuser(data) {
+    return this.http.post(`${this.baseUrl}/deleteuser`, data);
+  }
 
   login(data) {
     return this.http.post(`${this.baseUrl}/login`, data);
@@ -37,5 +40,8 @@ export class UserService {
   }
   getuser(data) {
     return this.http.post<USER>(`${this.baseUrl}/getuser`, data);
+  }
+  temporarydisable(data) {
+    return this.http.post(`${this.baseUrl}/temporarydisable`, data);
   }
 }

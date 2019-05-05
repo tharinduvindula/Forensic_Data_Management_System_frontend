@@ -10,7 +10,13 @@ export class USER {
     startdate = null;
     telephone = null;
     usertype = null;
-    constructor(address, email, firstname, nic, fullname, id, lastname, sex, startdate, telephone, usertype) {
+    addingby = null;
+    lasteditby = null;
+    temporydisable = null;
+    permenetdisable = null;
+    photo = null;
+    constructor(address, email, firstname, nic, fullname, id, lastname, sex, startdate, telephone, usertype,
+        addingby, lasteditby, temporydisable, permenetdisable, photo) {
         this.address = address;
         this.email = email;
         this.firstname = firstname;
@@ -22,5 +28,10 @@ export class USER {
         this.startdate = startdate;
         this.telephone = telephone;
         this.usertype = usertype;
+        this.addingby = addingby;
+        this.lasteditby = lasteditby;
+        this.temporydisable = temporydisable;
+        this.permenetdisable = permenetdisable;
+        this.photo = photo;
     }
 }

@@ -3,8 +3,8 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLayoutRoutes } from './admin-layout.routing';
-import { AdmindashboardComponent } from '../../pages/admindashboard/admindashboard.component';
-import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
+import { AdmindashboardComponent } from '../../components/admindashboard/admindashboard.component';
+import { UserProfileAdminComponent } from '../../components/user-profile-admin/user-profile-admin.component';
 import { IconsComponent } from '../../pages/icons/icons.component';
 import { UserAccessComponent } from 'app/pages/user-access/user-access.component';
 
@@ -26,7 +26,7 @@ import { AdminEditUserDetailComponent } from 'app/pages/admin-edit-user-detail/a
 import { UserProfileDeleteComponent } from 'app/components/user-profile-delete/user-profile-delete.component';
 import { UserProfileEditComponent } from 'app/components/user-profile-edit/user-profile-edit.component';
 import { UserProfileAddComponent } from 'app/components/user-profile-add/user-profile-add.component';
-import { UserProfileViewComponent } from 'app/components/user-profile-view/user-profile-view.component';
+import { UserProfileViewAdminComponent } from 'app/components/user-profile-view-admin/user-profile-view-admin.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 
@@ -57,8 +57,8 @@ import { HttpModule } from '@angular/http';
     UserProfileDeleteComponent,
     UserProfileEditComponent,
     UserProfileAddComponent,
-    UserProfileViewComponent,
-    UserProfileComponent,
+    UserProfileViewAdminComponent,
+    UserProfileAdminComponent,
   ]
 })
 

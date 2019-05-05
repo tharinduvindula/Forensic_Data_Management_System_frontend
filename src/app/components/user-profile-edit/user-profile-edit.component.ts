@@ -3,6 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { USER } from 'app/models/USER';
 import { UserService } from 'app/service/user.service';
+import { TokenService } from 'app/service/token.service';
 
 @Component({
   selector: 'app-user-profile-edit',
@@ -24,18 +25,43 @@ export class UserProfileEditComponent implements OnInit {
     email: null,
     telephone: null,
     startdate: null,
-    usertype: null
+    usertype: null,
+    lasteditby: this.Token.payload(this.Token.gettoken()).ud.fullname,
+    photo: null
   };
   public form1 = {
     email: null
   }
-  startdate:any;
-  constructor(private User: UserService, private Activatedroute: ActivatedRoute) {
+  startdate: any;
+  editby: any;
+  addingby: any;
+  public imagePath;
+  imgURL: any;
+  public message: string;
+
+  preview(files) {
+    if (files.length === 0) {
+      return;
+    }
+
+    var mimeType = files[0].type;
+    if (mimeType.match(/image\/*/) == null) {
+      this.message = 'Only images are supported.';
+      return;
+    }
+
+    var reader = new FileReader();
+    this.imagePath = files;
+    reader.readAsDataURL(files[0]);
+    reader.onload = (_event) => {
+      this.form.photo = reader.result;
+    }
+  }
+  constructor(private User: UserService, private Activatedroute: ActivatedRoute, private Token: TokenService) {
     this.form1.email = this.Activatedroute.snapshot.queryParamMap.get('Email');
     this.getuser();
   }
   ngOnInit() {
-    
   }
 
   getuser() {
@@ -50,7 +76,10 @@ export class UserProfileEditComponent implements OnInit {
       this.form.telephone = all.telephone,
       this.form.startdate = all.startdate,
       this.form.usertype = all.usertype,
-      this.startdate = this.form.startdate.split('T')[0]
+      this.startdate = this.form.startdate.split('T')[0],
+      this.addingby = all.addingby,
+      this.editby = all.lasteditby,
+      this.form.photo =all.photo
     }
     );
   }

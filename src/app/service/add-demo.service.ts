@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class AddDemoService {
 
-  server = 'http://localhost:8080/fdms/public/';
+  server = 'http://localhost:8000/api/';
   headers: Headers = new Headers();
   options: any;
 
@@ -50,7 +50,7 @@ export class AddDemoService {
         photo
       );
 
-      return this.httpClient.post<Demo>(this.server + 'addDemo', newDemo);
+      return this.httpClient.post<Demo>('http://localhost:8000/addDemo', newDemo);
   }
 
 }
