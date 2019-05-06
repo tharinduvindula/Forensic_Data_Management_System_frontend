@@ -12,7 +12,7 @@ export const ROUTES: RouteInfo[] = [
   { path: '/demo/User-Profile', title: 'User Profile',  icon: 'person', class: '' },
   { path: '/demo/analysis', title: 'Report Analysis',  icon: 'show_chart', class: '' },
   { path: '/demo/add', title: 'New Report',  icon: 'add', class: '' },
-  { path: '/demo/demoretrieve', title: 'Retrieve Report',  icon: 'pageview', class: '' },
+  { path: '/demo/retrieve', title: 'Retrieve Report',  icon: 'pageview', class: '' },
 
 ];
 

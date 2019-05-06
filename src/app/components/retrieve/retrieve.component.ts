@@ -32,11 +32,11 @@ export const ROUTES: RouteInfo[] = [
 
 
 @Component({
-  selector: 'app-demoretrieve',
-  templateUrl: './demoretrieve.component.html',
-  styleUrls: ['./demoretrieve.component.scss']
+  selector: 'app-retrieve',
+  templateUrl: './retrieve.component.html',
+  styleUrls: ['./retrieve.component.scss']
 })
-export class DemoRetrieveComponent implements OnInit {
+export class RetrieveComponent implements OnInit {
   srj: string;
   reports: any[];
   constructor() { }

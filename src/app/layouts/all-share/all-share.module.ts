@@ -1,14 +1,7 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AdminLayoutRoutes } from './admin-layout.routing';
-import { AdmindashboardComponent } from '../../components/admindashboard/admindashboard.component';
-import { UserProfileComponent } from '../../components/user-profile/user-profile.component';
-import { IconsComponent } from '../../pages/icons/icons.component';
-import { UserAccessComponent } from 'app/pages/user-access/user-access.component';
-
-
+import { UserProfileComponent } from 'app/components/user-profile/user-profile.component';
+import { UserProfileViewComponent } from 'app/components/user-profile-view/user-profile-view.component';
 import {
   MatButtonModule,
   MatInputModule,
@@ -23,19 +16,25 @@ import {
   MatRadioModule,
 
 } from '@angular/material';
+import { RouterModule } from '@angular/router';
+import { AdminLayoutRoutes } from '../admin-layout/admin-layout.routing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+import { LecturerLayoutRoutes } from '../lecturer-layout/lecturer-layout.routing';
+import { DemoLayoutRoutes } from '../demo-layout/demo-layout.routing';
+import { AdmindashboardComponent } from 'app/components/admindashboard/admindashboard.component';
+import { UserAccessComponent } from 'app/pages/user-access/user-access.component';
+import { IconsComponent } from 'app/pages/icons/icons.component';
 import { AdminEditUserDetailComponent } from 'app/pages/admin-edit-user-detail/admin-edit-user-detail.component';
 import { UserProfileDeleteComponent } from 'app/components/user-profile-delete/user-profile-delete.component';
 import { UserProfileEditComponent } from 'app/components/user-profile-edit/user-profile-edit.component';
 import { UserProfileAddComponent } from 'app/components/user-profile-add/user-profile-add.component';
-import { UserProfileViewComponent } from 'app/components/user-profile-view/user-profile-view.component';
-import { HttpClientModule } from '@angular/common/http';
-import { HttpModule } from '@angular/http';
-import { AllShareModule } from '../all-share/all-share.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(AdminLayoutRoutes),
+    RouterModule,
     FormsModule,
     MatButtonModule,
     MatRadioModule,
@@ -51,18 +50,10 @@ import { AllShareModule } from '../all-share/all-share.module';
     ReactiveFormsModule,
     HttpClientModule,
     HttpModule,
-    AllShareModule,
   ],
   declarations: [
-    AdmindashboardComponent,
-    IconsComponent,
-    UserAccessComponent,
-    AdminEditUserDetailComponent,
-    UserProfileDeleteComponent,
-    UserProfileEditComponent,
-    UserProfileAddComponent,
-    
+    UserProfileComponent,
+    UserProfileViewComponent,
   ]
 })
-
-export class AdminLayoutModule {}
+export class AllShareModule { }
