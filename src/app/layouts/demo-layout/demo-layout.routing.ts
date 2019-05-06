@@ -12,18 +12,6 @@ import { ReportViewComponent } from 'app/components/report-view/report-view.comp
 
 
 export const DemoLayoutRoutes: Routes = [
-    // {
-    //   path: '',
-    //   children: [ {
-    //     path: 'dashboard',
-    //     component: DashboardComponent
-    // }]}, {
-    // path: '',
-    // children: [ {
-    //   path: 'userprofile',
-    //   component: UserProfileComponent
-    // }]
-    // }
     { path: '', pathMatch: 'full', redirectTo: 'dashboard', component: DemodashboardComponent },
     { path: 'Dashboard',      component: DemodashboardComponent },
     { path: 'User-Profile', component: UserProfileComponent},
