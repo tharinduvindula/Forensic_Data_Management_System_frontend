@@ -39,12 +39,10 @@ export class AdminEditUserDetailComponent implements OnInit {
   }
   onedit(event, email) {
     event.preventDefault();
-    console.log(email);
     this.router.navigate(['/admin/User-Profile-edit'], { queryParams: { Email : email}, skipLocationChange: true   });
   }
   ondelete(event, email) {
     event.preventDefault();
-    console.log(email)
     this.router.navigate(['/admin/User-Profile-delete'], { queryParams: { Email: email }, skipLocationChange: true });
   }
 

@@ -32,11 +32,11 @@
                                   <tr *ngFor="let menuItem of reports">
                                     <td class="text-dark">{{menuItem.srj}}</td>
                                     <td>{{menuItem.fname}}</td>
-                                    <td><button mat-raised-button  type="submit"
+                                    <td><button mat-raised-button (click)=onview($event) type="submit"
                                       class="btn btn-info"><i class="material-icons">view_list</i> View</button></td>
-                                    <td><button mat-raised-button type="submit"
+                                    <td><button mat-raised-button (click)=onedit($event) type="submit"
                                         class="btn btn-success"><i class="material-icons">edit </i> Edit</button></td>
-                                    <td><button mat-raised-button  type="submit"
+                                    <td><button mat-raised-button (click)=ondelete($event) type="submit"
                                       class="btn btn-danger"><i class="material-icons">delete </i> Delete</button></td>
                                   </tr>
                                 </tbody>

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
+import { Router } from '@angular/router';
+import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { TokenService } from 'app/service/token.service';
 
 declare const $: any;
 declare interface RouteInfo {
@@ -39,7 +42,12 @@ export const ROUTES: RouteInfo[] = [
 export class RetrieveComponent implements OnInit {
   srj: string;
   reports: any[];
-  constructor() { }
+  constructor(
+    private router: Router,
+    private Token: TokenService
+    ) {
+    console.log(this.Token.payload(this.Token.gettoken()).ud.usertype)
+     }
 
   ngOnInit() {
     this.reports = ROUTES.filter(menuItem => menuItem);
@@ -56,4 +64,23 @@ export class RetrieveComponent implements OnInit {
     }
 
   }
+
+  onview(event) {
+    event.preventDefault();
+   
+    this.router.navigate([`/${this.Token.payload(this.Token.gettoken()).ud.usertype}` + '/report-view'],
+    { queryParams: { srjno: "" }, skipLocationChange: true });
+  }
+  onedit(event) {
+    event.preventDefault();
+    this.router.navigate([`/${this.Token.payload(this.Token.gettoken()).ud.usertype}` + '/report-edit'],
+     { queryParams: { srjno: "" }, skipLocationChange: true });
+  }
+  ondelete(eventl) {
+    event.preventDefault();
+    this.router.navigate([`/${this.Token.payload(this.Token.gettoken()).ud.usertype}` + '/report-delete'],
+     { queryParams: { srjno :"" }, skipLocationChange: true });
+  }
+
 }
+
