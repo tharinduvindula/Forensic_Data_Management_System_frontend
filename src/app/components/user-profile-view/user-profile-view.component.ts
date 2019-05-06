@@ -5,11 +5,11 @@ import { ActivatedRoute } from '@angular/router';
 import { USER } from 'app/models/USER';
 
 @Component({
-  selector: 'app-user-profile-view-admin',
-  templateUrl: './user-profile-view-admin.component.html',
-  styleUrls: ['./user-profile-view-admin.component.scss']
+  selector: 'app-user-profile-view',
+  templateUrl: './user-profile-view.component.html',
+  styleUrls: ['./user-profile-view.component.scss']
 })
-export class UserProfileViewAdminComponent implements OnInit {
+export class UserProfileViewComponent implements OnInit {
   users: USER;
   error: any;
 

@@ -9,11 +9,11 @@ import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-user-profile-lecture',
-  templateUrl: './user-profile-lecture.component.html',
-  styleUrls: ['./user-profile-lecture.component.css']
+  selector: 'app-user-profile',
+  templateUrl: './user-profile.component.html',
+  styleUrls: ['./user-profile.component.css']
 })
-export class UserProfileLectureComponent implements OnInit {
+export class UserProfileComponent implements OnInit {
   email = new FormControl('', [Validators.required, Validators.email]);
   startdate = null;
   public form = {
@@ -34,10 +34,10 @@ export class UserProfileLectureComponent implements OnInit {
   error: any;
   imageSrc;
   photoFile: any;
-  //base64s
+  // base64s
   photoString: string;
 
- 
+
 
   constructor(private Users: UserService, private Token: TokenService, public dialog: MatDialog, private Auth: AuthService,
      private router: Router) {
@@ -46,7 +46,6 @@ export class UserProfileLectureComponent implements OnInit {
 
   ngOnInit() {
     this.startdate = this.Token.payload(this.Token.gettoken()).ud.startdate.split('T')[0];
-
   }
   public picked(event) {
     const fileList: FileList = event.target.files;

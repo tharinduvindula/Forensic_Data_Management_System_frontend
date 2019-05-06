@@ -52,7 +52,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 
 
-
 // Pass the fusioncharts library and chart modules
 FusionChartsModule.fcRoot(FusionCharts, FusionMaps, Srilanka, FusionTheme);
 

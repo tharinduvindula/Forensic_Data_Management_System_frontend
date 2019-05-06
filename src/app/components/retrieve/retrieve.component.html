@@ -14,7 +14,7 @@
                           <div class="ripple-container"></div>
                       </button>
                       <input type="text" value="" class="form-control" placeholder="Enter SRJ No to search..."  [(ngModel)]="srj" (input)="Search()">
-                  </div>  
+                  </div>     
               </div>
               <div class="col-lg-8 col-md-12" style="float: none; margin: 0 auto;">
                   <div class="card">                    
@@ -32,11 +32,11 @@
                                   <tr *ngFor="let menuItem of reports">
                                     <td class="text-dark">{{menuItem.srj}}</td>
                                     <td>{{menuItem.fname}}</td>
-                                    <td><button mat-raised-button [routerLink]="[menuItem.viewpath]" type="submit"
+                                    <td><button mat-raised-button  type="submit"
                                       class="btn btn-info"><i class="material-icons">view_list</i> View</button></td>
-                                    <td><button mat-raised-button [routerLink]="[menuItem.editpath]" type="submit"
+                                    <td><button mat-raised-button type="submit"
                                         class="btn btn-success"><i class="material-icons">edit </i> Edit</button></td>
-                                    <td><button mat-raised-button [routerLink]="[menuItem.deletepath]" type="submit"
+                                    <td><button mat-raised-button  type="submit"
                                       class="btn btn-danger"><i class="material-icons">delete </i> Delete</button></td>
                                   </tr>
                                 </tbody>
