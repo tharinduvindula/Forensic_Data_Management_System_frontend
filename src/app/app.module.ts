@@ -48,6 +48,7 @@ import { LectureruserService } from './service/lectureruser.service';
 import { PagenotfoundComponent } from './pages/pagenotfound/pagenotfound.component';
 import { ConfirmationDialogComponent } from './components/shared/confirmation-dialog/confirmation-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MultiuserhandleService } from './service/multiuserhandle.service';
 
 
 
@@ -100,7 +101,8 @@ FusionChartsModule.fcRoot(FusionCharts, FusionMaps, Srilanka, FusionTheme);
     AdminuserService,
     ScreenlockService,
     LectureruserService,
-    DemouserService
+    DemouserService,
+    MultiuserhandleService,
   ],
   bootstrap: [AppComponent]
 })

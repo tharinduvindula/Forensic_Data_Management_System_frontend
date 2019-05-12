@@ -4,6 +4,7 @@ import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common'
 import { Router } from '@angular/router';
 import { AuthService } from 'app/service/auth.service';
 import { TokenService } from 'app/service/token.service';
+import { MultiuserhandleService } from 'app/service/multiuserhandle.service';
 
 @Component({
   selector: 'app-navbar',
@@ -16,13 +17,17 @@ export class NavbarComponent implements OnInit {
       mobile_menu_visible: any = 0;
     private toggleButton: any;
     private sidebarVisible: boolean;
+    public form1 = {
+        email: null
+    };
 
     constructor(
         location: Location,
         private element: ElementRef,
         private router: Router,
         private Auth: AuthService,
-        private Token: TokenService
+        private Token: TokenService,
+        private UserHandle: MultiuserhandleService
         ) {
       this.location = location;
           this.sidebarVisible = false;
@@ -133,6 +138,14 @@ export class NavbarComponent implements OnInit {
     }
     logout(event: MouseEvent) {
         event.preventDefault();
+        this.form1.email = this.Token.payload(this.Token.gettoken()).ud.email;
+        this.UserHandle.removmultiuserhandle(this.form1).subscribe(
+            data => {
+                console.log(data)
+            },
+            error => {
+                console.log(error)
+            });
         this.Token.remove();
         this.Auth.changeAuthStatus(false);
         this.router.navigateByUrl('login');

@@ -7,7 +7,7 @@ import { Headers, RequestOptions } from '@angular/http';
 
 @Injectable()
 export class UserService {
-  private baseUrl = 'http://localhost:8000/api';
+  private baseUrl = 'http://192.168.2.1:8000/api';
   headers: Headers = new Headers();
   options: any;
 

@@ -1,16 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { USER } from 'app/models/USER';
 import { UserService } from 'app/service/user.service';
 import { TokenService } from 'app/service/token.service';
+import { MultiuserhandleService } from 'app/service/multiuserhandle.service';
 
 @Component({
   selector: 'app-user-profile-edit',
   templateUrl: './user-profile-edit.component.html',
   styleUrls: ['./user-profile-edit.component.css']
 })
-export class UserProfileEditComponent implements OnInit {
+export class UserProfileEditComponent implements OnInit, OnDestroy {
   email = new FormControl('', [Validators.required, Validators.email]);
   users: USER;
   error: any;
@@ -57,11 +58,22 @@ export class UserProfileEditComponent implements OnInit {
       this.form.photo = reader.result;
     }
   }
-  constructor(private User: UserService, private Activatedroute: ActivatedRoute, private Token: TokenService) {
+  constructor(
+    private User: UserService,
+    private Activatedroute: ActivatedRoute, private Token: TokenService, private UserHandle: MultiuserhandleService) {
     this.form1.email = this.Activatedroute.snapshot.queryParamMap.get('Email');
     this.getuser();
   }
   ngOnInit() {
+  }
+  ngOnDestroy() {
+    this.UserHandle.removmultiuserhandle(this.form1).subscribe(
+      data => {
+        console.log(data)
+      },
+      error => {
+        console.log(error)
+      });
   }
 
   getuser() {
@@ -83,8 +95,7 @@ export class UserProfileEditComponent implements OnInit {
     }
     );
   }
-  onsubmit(){
-    
+  onsubmit() {
   }
 
 

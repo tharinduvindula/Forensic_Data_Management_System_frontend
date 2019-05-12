@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { TokenService } from 'app/service/token.service';
 import { UserService } from 'app/service/user.service';
@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from 'app/components/shared/confirmation-dialog/confirmation-dialog.component';
 import { AuthService } from 'app/service/auth.service';
 import { Router } from '@angular/router';
+import { MultiuserhandleService } from 'app/service/multiuserhandle.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { Router } from '@angular/router';
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.css']
 })
-export class UserProfileComponent implements OnInit {
+export class UserProfileComponent implements OnInit, OnDestroy {
   email = new FormControl('', [Validators.required, Validators.email]);
   startdate = null;
   public form = {
@@ -36,16 +37,31 @@ export class UserProfileComponent implements OnInit {
   photoFile: any;
   // base64s
   photoString: string;
+  public form1 = {
+    email: null
+  };
 
 
 
   constructor(private Users: UserService, private Token: TokenService, public dialog: MatDialog, private Auth: AuthService,
-     private router: Router) {
+    private router: Router, private UserHandle: MultiuserhandleService) {
     this.form.photo = (this.Token.payload(this.Token.gettoken()).ud.photo);
       }
 
   ngOnInit() {
     this.startdate = this.Token.payload(this.Token.gettoken()).ud.startdate.split('T')[0];
+  }
+  ngOnDestroy() {
+    if( this.Token.gettoken() !== null) {
+      this.form1.email = this.Token.payload(this.Token.gettoken()).ud.email;
+      this.UserHandle.removmultiuserhandle(this.form1).subscribe(
+        data => {
+          console.log(data)
+        },
+        error => {
+          console.log(error)
+        });
+    }
   }
   public picked(event) {
     const fileList: FileList = event.target.files;
