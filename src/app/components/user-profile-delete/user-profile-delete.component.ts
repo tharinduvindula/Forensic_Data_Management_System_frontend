@@ -1,17 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { USER } from 'app/models/USER';
 import { UserService } from 'app/service/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TokenService } from 'app/service/token.service';
 import { MatDialog } from '@angular/material';
 import { ConfirmationDialogComponent } from '../shared/confirmation-dialog/confirmation-dialog.component';
+import { MultiuserhandleService } from 'app/service/multiuserhandle.service';
 
 @Component({
   selector: 'app-user-profile-delete',
   templateUrl: './user-profile-delete.component.html',
   styleUrls: ['./user-profile-delete.component.css']
 })
-export class UserProfileDeleteComponent implements OnInit {
+export class UserProfileDeleteComponent implements OnInit, OnDestroy {
   users: USER;
   error: any;
 
@@ -45,13 +46,23 @@ export class UserProfileDeleteComponent implements OnInit {
     private Activatedroute: ActivatedRoute,
     public dialog: MatDialog,
     private Token: TokenService,
-    private router: Router
+    private router: Router,
+    private UserHandle: MultiuserhandleService
     ) {
     this.form1.email = this.Activatedroute.snapshot.queryParamMap.get('Email');
     this.getuser();
     this.form2.email = this.Activatedroute.snapshot.queryParamMap.get('Email');
   }
   ngOnInit() {
+  }
+  ngOnDestroy() {
+    this.UserHandle.removmultiuserhandle(this.form1).subscribe(
+      data => {
+        console.log(data)
+      },
+      error => {
+        console.log(error)
+      });
   }
 
   getuser() {
