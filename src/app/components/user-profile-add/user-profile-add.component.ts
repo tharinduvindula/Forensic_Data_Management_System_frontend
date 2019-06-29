@@ -36,6 +36,9 @@ export class UserProfileAddComponent implements OnInit {
     lasteditby: this.Token.payload(this.Token.gettoken()).ud.fullname,
     photo: null
   };
+  public form1 = {
+    email: null
+  };
   error: null;
   imageSrc;
   photoFile: any;
@@ -55,6 +58,10 @@ export class UserProfileAddComponent implements OnInit {
     this.Users.adduser(this.form).subscribe(
       data => this.formValues.resetForm(),
       error => this.handleError(error),
+    );
+    this.form1.email = this.form.email;
+    this.Users.sendPasswordResetLink(this.form1).subscribe(
+      data => console.log(data)
     );
   }
 

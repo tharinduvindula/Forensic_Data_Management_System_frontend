@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class TokenService {
   private iss = {
-    login: 'http://192.168.2.1:8000/api/login'
+    login: 'http://127.0.0.1:8000/api/login'
   };
   constructor(private http: HttpClient) { }
 

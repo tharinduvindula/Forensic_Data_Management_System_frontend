@@ -14,6 +14,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/admin/Dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
     { path: '/admin/Add-Users', title: 'Add Users', icon: 'person_add', class: '' },
     { path: '/admin/User-Access', title: 'User Access', icon: 'phonelink_off', class: '' },
+    { path: '/admin/Password-Reset', title: 'Password Reset', icon: 'phonelink_off', class: '' },
     { path: '/admin/Edit-User-Detail', title: 'Edit User Detail', icon: 'recent_actors', class: '' },
 ];
 
@@ -40,7 +41,7 @@ export class AdminsidebarComponent implements OnInit {
       }
       return true;
   };
-  dirtoprofile(){
+  dirtoprofile() {
     this.form.email = this.token.payload(this.token.gettoken()).ud.email;
     this.UserHandle.multiuserhandleforuser(this.form).subscribe(
       data => {

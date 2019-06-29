@@ -1,0 +1,52 @@
+<link rel="stylesheet" type="text/css" href="./assets/login/css/main.css">
+
+
+
+<div class="limiter" *ngIf="!loggedin">
+  <div class="container-login100" style="background-image: url('./assets/login/images/bg-01.jpg');">
+    <div class="wrap-login100">
+      <form class="login100-form validate-form" #ResetPasswordForm=ngForm  (ngSubmit)="onSubmit()">
+        <div style="padding-bottom: 3%">
+          <span class="login100-form-logo">
+        
+            <img src="/assets/img/unilogo.png" alt="Image" height="110" width="110" />
+        
+          </span>
+        </div>
+
+        <span class="login100-form-title p-b-34 p-t-27">
+          Reset Password
+        </span>
+        <div class="alert alert-danger" [hidden]="!error">
+          {{error}}
+        </div>
+
+        <div class="wrap-input100 validate-input" data-validate="Enter username">
+        <input type="email" name="email" class="input100" id="inputEmail3" placeholder="Email" [(ngModel)]="form.email"
+          required>
+        <span class="text-danger" [hidden]="!error.email">{{error}</span>
+          <span class="focus-input100" data-placeholder="&#xf207;"></span>
+        </div>
+
+        <div class="wrap-input100 validate-input" data-validate="Enter password">
+          <input type="password" name="password" class="input100" id="inputPassword3" placeholder="Password"
+            [(ngModel)]="form.password" required>
+          <span class="focus-input100" data-placeholder="&#xf191;"></span>
+        </div>
+
+        <div class="wrap-input100 validate-input" data-validate="Enter password">
+          <input type="password" name="password_confirmation" class="input100" id="inputPassword4"
+            placeholder="Confirm Password" [(ngModel)]="form.password_confirmation" required>
+          <span class="focus-input100" data-placeholder="&#xf191;"></span>
+        </div>
+
+        <div class="container-login100-form-btn">
+          <button type="submit" class="login100-form-btn" [disabled]="!ResetPasswordForm.valid">Reset</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<div id="dropDownSelect1"></div>

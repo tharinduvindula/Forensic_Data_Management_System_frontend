@@ -40,7 +40,6 @@ export class LecturersidebarComponent implements OnInit {
       }
       return true;
   };
-  
   dirtoprofile() {
     this.form.email = this.token.payload(this.token.gettoken()).ud.email;
     this.UserHandle.multiuserhandleforuser(this.form).subscribe(

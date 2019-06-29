@@ -7,7 +7,7 @@ import { Headers, RequestOptions } from '@angular/http';
 
 @Injectable()
 export class UserService {
-  private baseUrl = 'http://192.168.2.1:8000/api';
+  private baseUrl = 'http://127.0.0.1:8000/api';
   headers: Headers = new Headers();
   options: any;
 
@@ -44,4 +44,16 @@ export class UserService {
   temporarydisable(data) {
     return this.http.post(`${this.baseUrl}/temporarydisable`, data);
   }
+  defaultpassword(data) {
+    return this.http.post(`${this.baseUrl}/defaultpassword`, data);
+  }
+  sendPasswordResetLink(data) {
+    return this.http.post(`${this.baseUrl}/sendPasswordResetLink`, data);
+  }
+
+  changePassword(data) {
+    return this.http.post(`${this.baseUrl}/changePassword`, data);
+  }
+  
+
 }
