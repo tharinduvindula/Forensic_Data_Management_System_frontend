@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class AddDemoService {
 
-  server = 'http://192.168.2.1:8000/api/';
+  server = 'http://127.0.0.1:8000/api/';
   headers: Headers = new Headers();
   options: any;
 
@@ -50,7 +50,7 @@ export class AddDemoService {
         photo
       );
 
-      return this.httpClient.post<Demo>('http://192.168.2.1:8000/addDemo', newDemo);
+      return this.httpClient.post<Demo>('http://127.0.0.1:8000/addDemo', newDemo);
   }
 
 }

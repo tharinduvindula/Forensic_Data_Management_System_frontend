@@ -34,7 +34,7 @@ export class ScreenlockComponent implements OnInit {
   }
 
   handleResponse(data) {
-    if (this.Token.screenunlock(data.access_token)) {
+    if (this.Token.screenunlock(data.user)) {
       this.Auth.changescreenlockStatus(false);
       localStorage.setItem('lock', 'unlock');
       const url = this.Token.geturl()

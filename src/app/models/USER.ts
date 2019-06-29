@@ -15,8 +15,9 @@ export class USER {
     temporydisable = null;
     permenetdisable = null;
     photo = null;
+    passwordstate =null;
     constructor(address, email, firstname, nic, fullname, id, lastname, sex, startdate, telephone, usertype,
-        addingby, lasteditby, temporydisable, permenetdisable, photo) {
+        addingby, lasteditby, temporydisable, permenetdisable, photo, passwordstate) {
         this.address = address;
         this.email = email;
         this.firstname = firstname;
@@ -33,5 +34,6 @@ export class USER {
         this.temporydisable = temporydisable;
         this.permenetdisable = permenetdisable;
         this.photo = photo;
+        this.passwordstate = passwordstate;
     }
 }

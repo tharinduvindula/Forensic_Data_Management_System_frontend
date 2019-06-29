@@ -31,6 +31,7 @@ import { UserProfileViewComponent } from 'app/components/user-profile-view/user-
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { AllShareModule } from '../all-share/all-share.module';
+import { PasswordresetComponent } from 'app/pages/passwordreset/passwordreset.component';
 
 @NgModule({
   imports: [
@@ -57,11 +58,11 @@ import { AllShareModule } from '../all-share/all-share.module';
     AdmindashboardComponent,
     IconsComponent,
     UserAccessComponent,
+    PasswordresetComponent,
     AdminEditUserDetailComponent,
     UserProfileDeleteComponent,
     UserProfileEditComponent,
     UserProfileAddComponent,
-    
   ]
 })
 

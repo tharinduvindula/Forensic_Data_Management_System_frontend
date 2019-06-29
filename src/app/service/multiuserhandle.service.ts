@@ -6,7 +6,7 @@ import { Headers, RequestOptions } from '@angular/http';
 
 @Injectable()
 export class MultiuserhandleService {
-  private baseUrl = 'http://192.168.2.1:8000/api';
+  private baseUrl = 'http://127.0.0.1:8000/api';
   headers: Headers = new Headers();
   options: any;
 

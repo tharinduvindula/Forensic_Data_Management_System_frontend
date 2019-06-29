@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit, ErrorHandler {
   }
 
   handleResponse(data) {
-    this.Token.handle(data.access_token);
+    this.Token.handle(data.user);
     this.Auth.changeAuthStatus(true);
     if (this.Token.isUserAdmin()) {
       this.router.navigateByUrl('admin/Dashboard');

@@ -49,6 +49,7 @@
     "hammerjs": "2.0.8",
     "jquery-mapael": "^2.2.0",
     "moment": "2.22.1",
+    "ng-snotify": "^4.3.1",
     "ngx-fullpage": "^5.0.4",
     "ngx-loading": "^3.0.1",
     "perfect-scrollbar": "1.1.0",

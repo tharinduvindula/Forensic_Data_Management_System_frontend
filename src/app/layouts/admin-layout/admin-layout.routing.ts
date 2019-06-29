@@ -10,6 +10,7 @@ import { UserProfileEditComponent } from 'app/components/user-profile-edit/user-
 import { UserProfileAddComponent } from 'app/components/user-profile-add/user-profile-add.component';
 import { UserProfileViewComponent } from 'app/components/user-profile-view/user-profile-view.component';
 import { AdminuserService } from 'app/service/adminuser.service';
+import { PasswordresetComponent } from 'app/pages/passwordreset/passwordreset.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'dashboard',  component: AdmindashboardComponent },
@@ -20,6 +21,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'User-Profile-view', component: UserProfileViewComponent},
     { path: 'Add-Users',             component: UserProfileAddComponent },
     { path: 'User-Access',          component: UserAccessComponent },
+    { path: 'Password-Reset', component: PasswordresetComponent },
     { path: 'icons',                component: IconsComponent },
     { path: 'Edit-User-Detail',       component: AdminEditUserDetailComponent}
 ];

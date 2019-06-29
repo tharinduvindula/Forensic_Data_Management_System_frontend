@@ -85,7 +85,7 @@ export class ColombomapComponent implements OnInit {
         'division-dehiwala-mtlavinia-municipal-council': {
           value: '50',
           href: '#',
-          tooltip: { content: '<span style="font-weight:bold;">dehiwala-mtlavinia (13)</span><br />Population : 90' }
+          tooltip: { content: '<span style="font-weight:bold;">dehiwala-mtlavinia </span><br />Deths : 90' }
         },
         'division-homagama-pradeshiya-sabha': {
           value: '90',

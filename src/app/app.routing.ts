@@ -15,6 +15,8 @@ import { ScreenlockService } from './service/screenlock.service';
 import { LectureruserService } from './service/lectureruser.service';
 import { DemouserService } from './service/demouser.service';
 import { PagenotfoundComponent } from './pages/pagenotfound/pagenotfound.component';
+import { ResetComponent } from './pages/reset/reset.component';
+import { RequestResetComponent } from './pages/request-reset/request-reset.component';
 
 
 const routes: Routes = [
@@ -27,6 +29,16 @@ const routes: Routes = [
     canActivate: [BeforLoginService],
     path: 'login',
     component: LoginComponent,
+  },
+  {
+    canActivate: [BeforLoginService],
+    path: 'reset',
+    component: ResetComponent,
+  },
+  {
+    canActivate: [BeforLoginService],
+    path: 'request-password-reset',
+    component: RequestResetComponent,
   },
   {
     canActivate: [ScreenlockService],
