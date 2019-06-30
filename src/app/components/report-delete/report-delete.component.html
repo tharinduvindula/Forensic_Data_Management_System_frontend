@@ -104,6 +104,18 @@
                     <div class="row">
                         <div class="col-md-3">
                             <mat-form-field class="example-full-width" color="warn">
+                                <mat-label>Area</mat-label>
+                                <mat-select>
+                                  <mat-option *ngFor="let area of areas" [value]="area.value">
+                                    {{area.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <mat-form-field class="example-full-width" color="warn">
                               <mat-label>Rank</mat-label>
                               <mat-select>
                                 <mat-option value="igp">IGP</mat-option>
@@ -233,7 +245,29 @@
                             </mat-form-field>
                           </div>
                           
-                      </div>    
+                      </div> 
+                      <div class="row">
+                        <div class="col-md-4">                    
+                                                                                         
+                                  <mat-form-field color="warn">
+                                    <mat-label>Generalized Cause of Death</mat-label>
+                                    <mat-select [formControl]="gcodControl">
+                                      <mat-option>-- None --</mat-option>
+                                      <mat-optgroup *ngFor="let group of gcodGroups" [label]="group.name"
+                                                    [disabled]="group.disabled">
+                                        <mat-option *ngFor="let gcod of group.gcod" [value]="gcod.value">
+                                          {{gcod.viewValue}}
+                                        </mat-option>
+                                      </mat-optgroup>
+                                    </mat-select>
+                                  </mat-form-field>
+                             
+                              </div>
+                              
+                              
+                             
+                        
+                    </div>    
                    
                                             
                       <div class="row">

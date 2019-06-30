@@ -55,7 +55,7 @@ export class AnalysisComponent implements OnInit {
         'CaptionFontSize': 18,
         'subCaptionFontSize': 15,
         'subCaptionFontcolor': '#ffffff',
-        'caption': 'Cause of Death',
+        'caption': 'Manner of Death',
         'subCaption': '[2017-2018]',
         'palettecolors': '#310000,#630000,#950000,#c70000,#f90000',
         'legendItemFontColor': '#ffffff',
