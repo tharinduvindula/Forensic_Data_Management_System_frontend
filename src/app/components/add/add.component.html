@@ -1,108 +1,213 @@
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card">
-          <div class="card-header card-header-danger">
-              <h4 class="card-title">New Report</h4>
-              <p class="card-category">Complete new report</p>
-          </div>
-          <div class="card-body">
-            
-              <mat-horizontal-stepper [linear]="isLinear" #stepper>
-                <mat-step [stepControl]="firstFormGroup">
-                  <form [formGroup]="firstFormGroup">
-                    <ng-template matStepLabel>Deceased Details</ng-template>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <mat-form-field class="example-full-width" color="warn">
-                              <input matInput placeholder="SRJ No" type="text" >
-                            </mat-form-field>
-                          </div>
-                    </div>
-                    <div class="row">
-                              
-                        <div class="col-md-3">
-                                                            
-                            <mat-form-field class="example-full-width" color="warn">
-                                <input matInput placeholder="Post Mortem Date" type="date">
-                            </mat-form-field>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header card-header-danger">
+            <h4 class="card-title">New Report</h4>
+            <p class="card-category">Complete new report</p>
+        </div>
+        <div class="card-body">
+          
+            <mat-horizontal-stepper [linear]="isLinear" #stepper>
+              <mat-step [stepControl]="firstFormGroup">
+                <form [formGroup]="firstFormGroup">
+                  <ng-template matStepLabel>Deceased Details</ng-template>
+                  <div class="row">
+                      <div class="col-md-3">
+                          <mat-form-field class="example-full-width" color="warn">
+                            <input matInput placeholder="SRJ No" type="text" >
+                          </mat-form-field>
+                        </div>
+                  </div>
+                  <div class="row">
                             
-                        </div>          
-                        <div class="col-md-3">
-                                                            
-                            <mat-form-field class="example-full-width" color="warn">
-                              <input matInput placeholder="Post Mortem Time" type="time">                       
-                            </mat-form-field>
-                        </div>                   
+                      <div class="col-md-3">
+                                                          
+                          <mat-form-field class="example-full-width" color="warn">
+                              <input matInput placeholder="Post Mortem Date" type="date">
+                          </mat-form-field>
+                          
+                      </div>          
+                      <div class="col-md-3">
+                                                          
+                          <mat-form-field class="example-full-width" color="warn">
+                            <input matInput placeholder="Post Mortem Time" type="time">                       
+                          </mat-form-field>
+                      </div>                   
+                    </div>
+                  <div class="row">
+                      <div class="col-md-6">
+                        <mat-form-field class="example-full-width" color="warn">
+                          <input matInput placeholder="Full Name" type="text">
+                        </mat-form-field>
                       </div>
-                    <div class="row">
-                        <div class="col-md-6">
+                    
+                  </div>
+                  <div class="row">
+                      <div class="col-md-3">
                           <mat-form-field class="example-full-width" color="warn">
-                            <input matInput placeholder="Full Name" type="text">
+                            <input matInput placeholder="Age" type="text">
                           </mat-form-field>
                         </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-3">
+                          <mat-form-field class="example-full-width" color="warn">
+                            <mat-label>Sex</mat-label>
+                            <mat-select>
+                              <mat-option value="male">Male</mat-option>
+                              <mat-option value="female">Female</mat-option>                           
+                          
+                            </mat-select>
+                          </mat-form-field>
+                        </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-6">
+                        <mat-form-field class="example-full-width" color="warn">
+                          <input matInput placeholder="Address" type="text">
+                        </mat-form-field>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-3">
+                        <mat-form-field class="example-full-width" color="warn">
+                          <input matInput placeholder="Contact Number" type="text">
+                        </mat-form-field>
+                      </div>
                       
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <mat-form-field class="example-full-width" color="warn">
-                              <input matInput placeholder="Age" type="text">
-                            </mat-form-field>
-                          </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <mat-form-field class="example-full-width" color="warn">
-                              <mat-label>Sex</mat-label>
+                      
+                  </div>
+                  <div class="clearfix"></div>
+                  <div class="row" >
+                    <button mat-button matStepperNext class="btn btn-danger">Next</button>
+                  </div>
+                </form>
+              </mat-step>
+              <mat-step [stepControl]="secondFormGroup">
+                <form [formGroup]="secondFormGroup">
+                  <ng-template matStepLabel>Police Details</ng-template>
+                  <div class="row">
+                      <div class="col-md-6">
+                        <mat-form-field class="example-full-width" color="warn">
+                          <input matInput placeholder="Full Name" type="text">
+                        </mat-form-field>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-3">
+                          <mat-form-field class="example-full-width" color="warn">
+                            <input matInput placeholder="Tag Number" type="text">
+                          </mat-form-field>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-3">
+                          <mat-form-field class="example-full-width" color="warn">
+                              <mat-label>Area</mat-label>
                               <mat-select>
-                                <mat-option value="male">Male</mat-option>
-                                <mat-option value="female">Female</mat-option>                           
-                            
+                                <mat-option *ngFor="let area of areas" [value]="area.value">
+                                  {{area.viewValue}}
+                                </mat-option>
                               </mat-select>
-                            </mat-form-field>
-                          </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
+                          </mat-form-field>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-3">
                           <mat-form-field class="example-full-width" color="warn">
-                            <input matInput placeholder="Address" type="text">
+                            <mat-label>Rank</mat-label>
+                            <mat-select>
+                              <mat-option value="igp">IGP</mat-option>
+                              <mat-option value="sdig">SDIG</mat-option>                           
+                              <mat-option value="sdig">SSP</mat-option>  
+                              <mat-option value="sdig">SP</mat-option>  
+                              <mat-option value="sdig">ASP</mat-option>  
+                              <mat-option value="sdig">CI</mat-option>  
+                              <mat-option value="sdig">IP</mat-option>  
+                              <mat-option value="sdig">SI</mat-option>  
+                              <mat-option value="sdig">PSM</mat-option>  
+                              <mat-option value="sdig">PS</mat-option>  
+                              <mat-option value="sdig">PC</mat-option>  
+                            </mat-select>
                           </mat-form-field>
                         </div>
+                  </div>
+                  
+                  <div class="row">
+                      <div class="col-md-3">
+                        <mat-form-field class="example-full-width" color="warn">
+                          <input matInput placeholder="Phone Number" type="text">
+                        </mat-form-field>
+                      </div>                           
+                      
+                  </div>
+                  <div class="row">
+                      <div class="col-md-3">
+                          <mat-label>Scene Photographs</mat-label>
+                          <div class="col-md-3" >
+                            <mat-radio-group  >                                          
+                                <mat-radio-button color="warn" value="yes">Yes</mat-radio-button>
+                                <mat-radio-button color="warn" value="no">No</mat-radio-button>  
+                            </mat-radio-group> 
+                          </div>                                     
+                          
+                      </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-3">
-                          <mat-form-field class="example-full-width" color="warn">
-                            <input matInput placeholder="Contact Number" type="text">
-                          </mat-form-field>
-                        </div>
-                        
-                        
-                    </div>
-                    <div class="clearfix"></div>
-                    <div class="row" >
-                      <button mat-button matStepperNext class="btn btn-danger">Next</button>
-                    </div>
-                  </form>
-                </mat-step>
-                <mat-step [stepControl]="secondFormGroup">
+                      <div class="col-md-3">
+                        <mat-form-field class="example-full-width" color="warn">
+                          <input matInput placeholder="Folder Name" type="text">
+                        </mat-form-field>
+                      </div>
+                  </div>
+                  
+                  <div class="clearfix"></div>
+                  <div class="row">
+                    <button mat-button matStepperPrevious class="btn btn-danger ">Back</button>
+                    <button mat-button matStepperNext class="btn btn-danger ">Next</button>
+                  </div>
+                </form>
+              </mat-step>
+              <mat-step [stepControl]="secondFormGroup">
                   <form [formGroup]="secondFormGroup">
-                    <ng-template matStepLabel>Police Details</ng-template>
+                    <ng-template matStepLabel>Order Given By</ng-template>
                     <div class="row">
                         <div class="col-md-6">
                           <mat-form-field class="example-full-width" color="warn">
                             <input matInput placeholder="Full Name" type="text">
                           </mat-form-field>
                         </div>
+                        
                     </div>
                     <div class="row">
                         <div class="col-md-3">
                             <mat-form-field class="example-full-width" color="warn">
-                              <input matInput placeholder="Tag Number" type="text">
+                              <input matInput placeholder="Area" type="text">
                             </mat-form-field>
                         </div>
                     </div>
+                   
+                  
                     <div class="row">
                         <div class="col-md-3">
+
+                            <mat-label>Order given by</mat-label>
+                            <div class="col-md-3">
+                              <mat-radio-group >                                          
+                                  <mat-radio-button color="warn" value="Coroner">Coroner</mat-radio-button>
+                                  <mat-radio-button color="warn" value="Magistrate">Magistrate</mat-radio-button>  
+                              </mat-radio-group> 
+                            </div>                                     
+                            
+                        </div>
+                      </div>
+                                          
+                    <div class="clearfix"></div>
+                    <div class="row">
+                      <button mat-button matStepperPrevious class="btn btn-danger ">Back</button>
+                      <button mat-button matStepperNext class="btn btn-danger ">Next</button>
+
                             <mat-form-field class="example-full-width" color="warn">
                                 <mat-label>Area</mat-label>
                                 <mat-select>
@@ -132,116 +237,200 @@
                               </mat-select>
                             </mat-form-field>
                           </div>
+
                     </div>
-                    
+                  </form>
+                </mat-step>
+              <mat-step [stepControl]="secondFormGroup">
+                  <form [formGroup]="secondFormGroup">
+                    <ng-template matStepLabel>Cause of Death</ng-template>
                     <div class="row">
-                        <div class="col-md-3">
+                      <div class="col-md-6">
+                      <h4><b>I</b></h4>
+                        
                           <mat-form-field class="example-full-width" color="warn">
-                            <input matInput placeholder="Phone Number" type="text">
+                            <input matInput placeholder="(a)" type="text">
                           </mat-form-field>
-                        </div>                           
+                          <mat-form-field class="example-full-width" color="warn">
+                            <input matInput placeholder="(b)" type="text">
+                          </mat-form-field>
+                          <mat-form-field class="example-full-width" color="warn">
+                            <input matInput placeholder="(c)" type="text">
+                          </mat-form-field>
+                        </div>
                         
                     </div>
                     <div class="row">
-                        <div class="col-md-3">
-                            <mat-label>Scene Photographs</mat-label>
-                            <div class="col-md-3" >
-                              <mat-radio-group  >                                          
-                                  <mat-radio-button color="warn" value="yes">Yes</mat-radio-button>
-                                  <mat-radio-button color="warn" value="no">No</mat-radio-button>  
-                              </mat-radio-group> 
-                            </div>                                     
-                            
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-3">
+                      <div class="col-md-6">
+                        <h5><b>II</b></h5>
+                        
                           <mat-form-field class="example-full-width" color="warn">
-                            <input matInput placeholder="Folder Name" type="text">
+                            <input matInput placeholder="Contributory Causes" type="text">                              
+                          </mat-form-field>
+                        </div>                          
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width" color="warn">
+                            <input matInput placeholder="Other Comments" type="text">
+                            
                           </mat-form-field>
                         </div>
+                        
+                    </div>    
+                    <div class="row">
+                        <div class="col-md-4">                    
+                                                                                         
+                                  <mat-form-field color="warn">
+                                    <mat-label>Generalized Cause of Death</mat-label>
+                                    <mat-select [formControl]="gcodControl">
+                                      <mat-option>-- None --</mat-option>
+                                      <mat-optgroup *ngFor="let group of gcodGroups" [label]="group.name"
+                                                    [disabled]="group.disabled">
+                                        <mat-option *ngFor="let gcod of group.gcod" [value]="gcod.value">
+                                          {{gcod.viewValue}}
+                                        </mat-option>
+                                      </mat-optgroup>
+                                    </mat-select>
+                                  </mat-form-field>
+                             
+                              </div>
                     </div>
-                    
-                    <div class="clearfix"></div>
+                              
+                              <div class="row">
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width" color="warn">
+                                      <mat-label>Circumstances</mat-label>
+                                      <mat-select>
+                                        <mat-option value="accidental">Accidental</mat-option>
+                                        <mat-option value="natural">Natural</mat-option>                           
+                                        <mat-option value="suicidal">Suicidal</mat-option>  
+                                        <mat-option value="homicidal">Homicidal</mat-option>  
+                                        <mat-option value="unacertained">Unacertained</mat-option>  
+                                         
+                                      </mat-select>
+                                    </mat-form-field>
+                                  </div>
+                            </div>     
+                             
+                        
+                                        
                     <div class="row">
                       <button mat-button matStepperPrevious class="btn btn-danger ">Back</button>
                       <button mat-button matStepperNext class="btn btn-danger ">Next</button>
                     </div>
                   </form>
                 </mat-step>
-                <mat-step [stepControl]="secondFormGroup">
-                    <form [formGroup]="secondFormGroup">
-                      <ng-template matStepLabel>Order Given By</ng-template>
-                      <div class="row">
-                          <div class="col-md-6">
-                            <mat-form-field class="example-full-width" color="warn">
-                              <input matInput placeholder="Full Name" type="text">
-                            </mat-form-field>
-                          </div>
-                          
-                      </div>
-                      <div class="row">
-                          <div class="col-md-3">
+              <mat-step [stepControl]="secondFormGroup">
+                  <form [formGroup]="secondFormGroup">
+                    <ng-template matStepLabel>Samples Collected</ng-template>
+                    <div class="row">
+                        
+                        <div class="col-md-12" >
+                        <h3><b>Government Analyst</b></h3>
+                        <div class="row">
+                            <div class="col-md-6">
                               <mat-form-field class="example-full-width" color="warn">
-                                <input matInput placeholder="Area" type="text">
+                                <input matInput placeholder="CT Number" type="text">
                               </mat-form-field>
-                          </div>
-                      </div>
-                     
-                    
-                      <div class="row">
-                          <div class="col-md-3">
-                              <mat-label>Order given by</mat-label>
-                              <div class="col-md-3">
-                                <mat-radio-group >                                          
-                                    <mat-radio-button color="warn" value="Coroner">Coroner</mat-radio-button>
-                                    <mat-radio-button color="warn" value="Magistrate">Magistrate</mat-radio-button>  
-                                </mat-radio-group> 
-                              </div>                                     
-                              
-                          </div>
+                            </div>
+                          
                         </div>
-                                            
-                      <div class="clearfix"></div>
-                      <div class="row">
-                        <button mat-button matStepperPrevious class="btn btn-danger ">Back</button>
-                        <button mat-button matStepperNext class="btn btn-danger ">Next</button>
-                      </div>
-                    </form>
-                  </mat-step>
-                <mat-step [stepControl]="secondFormGroup">
-                    <form [formGroup]="secondFormGroup">
-                      <ng-template matStepLabel>Cause of Death</ng-template>
-                      <div class="row">
-                        <div class="col-md-6">
-                        <h4><b>I</b></h4>
-                          
-                            <mat-form-field class="example-full-width" color="warn">
-                              <input matInput placeholder="(a)" type="text">
-                            </mat-form-field>
-                            <mat-form-field class="example-full-width" color="warn">
-                              <input matInput placeholder="(b)" type="text">
-                            </mat-form-field>
-                            <mat-form-field class="example-full-width" color="warn">
-                              <input matInput placeholder="(c)" type="text">
-                            </mat-form-field>
+                        <h5><b>List of Specimens</b></h5>
+                        <p>
+                            Number of specimens submitted: {{specimens1.selectedOptions.selected.length}}
+                        </p>
+                        <mat-selection-list #specimens1 >
+                          <div class="row">
+                            <div class="col-md-4">
+                              <mat-list-option >Blood</mat-list-option>
+                            </div>
+                            <div class="col-md-4">
+                              <mat-list-option >Liver</mat-list-option>
+                            </div>
+                            <div class="col-md-4">
+                              <mat-list-option >Suspected Poison</mat-list-option>
+                            </div>
                           </div>
-                          
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <h5><b>II</b></h5>
-                          
+                          <div class="row">
+                              <div class="col-md-4">
+                                <mat-list-option >Urine</mat-list-option>
+                              </div>
+                              <div class="col-md-4">
+                                <mat-list-option >Kidney</mat-list-option>
+                              </div>
+                              <div class="col-md-4">
+                                <mat-list-option >Tablets/Medicines</mat-list-option>
+                              </div>
+
+                          </div>
+                          <div class="row">
+                              <div class="col-md-4">
+                                <mat-list-option >Bile</mat-list-option>
+                              </div>
+                              <div class="col-md-4">
+                                <mat-list-option >Lungs</mat-list-option>
+                              </div>
+                              <div class="col-md-4">
+                                <mat-list-option >Other (Specify)</mat-list-option>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-4">
+                                <mat-list-option >Stomach Contents</mat-list-option>
+                              </div>
+                              <div class="col-md-4">
+                                <mat-list-option >Vitreous humor</mat-list-option>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-4">
+                                <mat-list-option >Intestinal Contents</mat-list-option>
+                              </div>
+                              <div class="col-md-4">
+                                <mat-list-option >Brain</mat-list-option>
+                                </div>
+                          </div>
+                        </mat-selection-list>
+                        <h5><b>Analysis Required (Please request necessary analysis only)</b></h5>
+                        <div class="row">
+                      
+                          <div class="col-md-6">
+                                                              
                             <mat-form-field class="example-full-width" color="warn">
-                              <input matInput placeholder="Contributory Causes" type="text">                              
+                              <input matInput placeholder="No of analysis required (Please specify the required poisons)" type="text">                              
                             </mat-form-field>
                           </div>                          
-                      </div>
-                      <div class="row">
-                          <div class="col-md-6">
-                            <mat-form-field class="example-full-width" color="warn">
-                              <input matInput placeholder="Other Comments" type="text">
+                        </div>
+                        <h5><b>Chain of Custody</b></h5>
+                        <div class="row">
+                            
+                          <div class="col-md-3">
+                                                              
+                              <mat-form-field class="example-full-width" color="warn">
+                                  <input matInput placeholder="Samples Deliver Date" type="date">
+                                 
+                                </mat-form-field>
                               
+
+                          </div>          
+                          <div class="col-md-3">
+                                                              
+                              <mat-form-field class="example-full-width" color="warn">
+                                <input matInput placeholder="Samples Deliver Time" type="time">                       
+                              </mat-form-field>
+                          </div>                   
+                        </div>
+                        
+                        
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                          <h3><b>MRI</b></h3>
+
                             </mat-form-field>
                           </div>
                           
@@ -281,19 +470,20 @@
                           
                           <div class="col-md-12" >
                           <h3><b>Government Analyst</b></h3>
+
                           <div class="row">
                               <div class="col-md-6">
                                 <mat-form-field class="example-full-width" color="warn">
-                                  <input matInput placeholder="CT Number" type="text">
+                                  <input matInput placeholder="Reference Number" type="text">
                                 </mat-form-field>
                               </div>
                             
                           </div>
                           <h5><b>List of Specimens</b></h5>
-                          <p>
-                              Number of specimens submitted: {{specimens1.selectedOptions.selected.length}}
-                          </p>
-                          <mat-selection-list #specimens1 >
+                        <p>
+                            Number of specimens submitted: {{specimens2.selectedOptions.selected.length}}
+                        </p>
+                          <mat-selection-list #specimens2>
                             <div class="row">
                               <div class="col-md-4">
                                 <mat-list-option >Blood</mat-list-option>
@@ -333,7 +523,7 @@
                                   <mat-list-option >Stomach Contents</mat-list-option>
                                 </div>
                                 <div class="col-md-4">
-                                  <mat-list-option >Vitreous humor</mat-list-option>
+                                 <mat-list-option >Vitreous humor</mat-list-option>
                                 </div>
                             </div>
                             <div class="row">
@@ -341,47 +531,47 @@
                                   <mat-list-option >Intestinal Contents</mat-list-option>
                                 </div>
                                 <div class="col-md-4">
-                                  <mat-list-option >Brain</mat-list-option>
-                                  </div>
+                                 <mat-list-option >Brain</mat-list-option>
+                                 </div>
                             </div>
                           </mat-selection-list>
                           <h5><b>Analysis Required (Please request necessary analysis only)</b></h5>
                           <div class="row">
                         
-                            <div class="col-md-6">
-                                                                
-                              <mat-form-field class="example-full-width" color="warn">
-                                <input matInput placeholder="No of analysis required (Please specify the required poisons)" type="text">                              
-                              </mat-form-field>
-                            </div>                          
+                              <div class="col-md-6">
+                                                                 
+                                  <mat-form-field class="example-full-width" color="warn">
+                                    <input matInput placeholder="No of analysis required (Please specify the required poisons)" type="text">                              
+                                  </mat-form-field>
+                              </div>                          
                           </div>
                           <h5><b>Chain of Custody</b></h5>
                           <div class="row">
                               
-                            <div class="col-md-3">
-                                                                
-                                <mat-form-field class="example-full-width" color="warn">
-                                    <input matInput placeholder="Samples Deliver Date" type="date">
-                                   
+                              <div class="col-md-3">
+                                 
+                                  <mat-form-field class="example-full-width" color="warn">
+                                      <input matInput placeholder="Samples Deliver Date" type="date">                                       
+                                    </mat-form-field>
+                                          
+                                      
+                              </div>          
+                              <div class="col-md-3">
+                                                                 
+                                  <mat-form-field class="example-full-width" color="warn">
+                                    <input matInput placeholder="Samples Deliver Time" type="time">                              
                                   </mat-form-field>
-                                
-                            </div>          
-                            <div class="col-md-3">
-                                                                
-                                <mat-form-field class="example-full-width" color="warn">
-                                  <input matInput placeholder="Samples Deliver Time" type="time">                       
-                                </mat-form-field>
-                            </div>                   
+                              </div>                   
                           </div>
-                          
+                         
                           
                           </div>
                           
                       </div>
-                      
+                    
                       <div class="row">
                           <div class="col-md-12">
-                            <h3><b>MRI</b></h3>
+                            <h3><b>Other</b></h3>
                             <div class="row">
                                 <div class="col-md-6">
                                   <mat-form-field class="example-full-width" color="warn">
@@ -391,213 +581,111 @@
                               
                             </div>
                             <h5><b>List of Specimens</b></h5>
-                          <p>
-                              Number of specimens submitted: {{specimens2.selectedOptions.selected.length}}
-                          </p>
-                            <mat-selection-list #specimens2>
-                              <div class="row">
-                                <div class="col-md-4">
-                                  <mat-list-option >Blood</mat-list-option>
-                                </div>
-                                <div class="col-md-4">
-                                  <mat-list-option >Liver</mat-list-option>
-                                </div>
-                                <div class="col-md-4">
-                                  <mat-list-option >Suspected Poison</mat-list-option>
-                                </div>
+                        <p>
+                            Number of specimens submitted: {{specimens3.selectedOptions.selected.length}}
+                        </p>
+                          <mat-selection-list #specimens3>
+                            <div class="row">
+                              <div class="col-md-4">
+                                <mat-list-option >Blood</mat-list-option>
                               </div>
-                              <div class="row">
-                                  <div class="col-md-4">
-                                    <mat-list-option >Urine</mat-list-option>
-                                  </div>
-                                  <div class="col-md-4">
-                                    <mat-list-option >Kidney</mat-list-option>
-                                  </div>
-                                  <div class="col-md-4">
-                                    <mat-list-option >Tablets/Medicines</mat-list-option>
-                                  </div>
+                              <div class="col-md-4">
+                                <mat-list-option >Liver</mat-list-option>
+                              </div>
+                              <div class="col-md-4">
+                                <mat-list-option >Suspected Poison</mat-list-option>
+                              </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                  <mat-list-option >Urine</mat-list-option>
+                                </div>
+                                <div class="col-md-4">
+                                  <mat-list-option >Kidney</mat-list-option>
+                                </div>
+                                <div class="col-md-4">
+                                  <mat-list-option >Tablets/Medicines</mat-list-option>
+                                </div>
 
-                              </div>
-                              <div class="row">
-                                  <div class="col-md-4">
-                                    <mat-list-option >Bile</mat-list-option>
-                                  </div>
-                                  <div class="col-md-4">
-                                    <mat-list-option >Lungs</mat-list-option>
-                                  </div>
-                                  <div class="col-md-4">
-                                    <mat-list-option >Other (Specify)</mat-list-option>
-                                  </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-md-4">
-                                    <mat-list-option >Stomach Contents</mat-list-option>
-                                  </div>
-                                  <div class="col-md-4">
-                                   <mat-list-option >Vitreous humor</mat-list-option>
-                                  </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-md-4">
-                                    <mat-list-option >Intestinal Contents</mat-list-option>
-                                  </div>
-                                  <div class="col-md-4">
-                                   <mat-list-option >Brain</mat-list-option>
-                                   </div>
-                              </div>
-                            </mat-selection-list>
-                            <h5><b>Analysis Required (Please request necessary analysis only)</b></h5>
+                            </div>
                             <div class="row">
+                                <div class="col-md-4">
+                                  <mat-list-option >Bile</mat-list-option>
+                                </div>
+                                <div class="col-md-4">
+                                  <mat-list-option >Lungs</mat-list-option>
+                                </div>
+                                <div class="col-md-4">
+                                  <mat-list-option >Other (Specify)</mat-list-option>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                  <mat-list-option >Stomach Contents</mat-list-option>
+                                </div>
+                                <div class="col-md-4">
+                                 <mat-list-option >Vitreous humor</mat-list-option>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                  <mat-list-option >Intestinal Contents</mat-list-option>
+                                </div>
+                                <div class="col-md-4">
+                                 <mat-list-option >Brain</mat-list-option>
+                                 </div>
+                            </div>
+                          </mat-selection-list>
+                          <h5><b>Analysis Required (Please request necessary analysis only)</b></h5>
+                          <div class="row">
+                        
+                              <div class="col-md-6">
+                                                                 
+                                  <mat-form-field class="example-full-width" color="warn">
+                                    <input matInput placeholder="No of analysis required (Please specify the required poisons)" type="text">                              
+                                  </mat-form-field>
+                              </div>                          
+                          </div>
+                          <h5><b>Chain of Custody</b></h5>
+                          <div class="row">
+                              
+                              <div class="col-md-3">
+                                                                 
+                                  <mat-form-field class="example-full-width" color="warn">
+                                      <input matInput placeholder="Samples Deliver Date" type="date">                                        
+                                    </mat-form-field>
+                                  
+                              </div>          
+                              <div class="col-md-3">
+                                                                 
+                                  <mat-form-field class="example-full-width" color="warn">
+                                    <input matInput placeholder="Samples Deliver Time" type="time">                              
+                                  </mat-form-field>
+                              </div>                   
+                          </div>
+                         
                           
-                                <div class="col-md-6">
-                                                                   
-                                    <mat-form-field class="example-full-width" color="warn">
-                                      <input matInput placeholder="No of analysis required (Please specify the required poisons)" type="text">                              
-                                    </mat-form-field>
-                                </div>                          
-                            </div>
-                            <h5><b>Chain of Custody</b></h5>
-                            <div class="row">
-                                
-                                <div class="col-md-3">
-                                   
-                                    <mat-form-field class="example-full-width" color="warn">
-                                        <input matInput placeholder="Samples Deliver Date" type="date">                                       
-                                      </mat-form-field>
-                                            
-                                        
-                                </div>          
-                                <div class="col-md-3">
-                                                                   
-                                    <mat-form-field class="example-full-width" color="warn">
-                                      <input matInput placeholder="Samples Deliver Time" type="time">                              
-                                    </mat-form-field>
-                                </div>                   
-                            </div>
-                           
-                            
-                            </div>
-                            
-                        </div>
-                      
-                        <div class="row">
-                            <div class="col-md-12">
-                              <h3><b>Other</b></h3>
-                              <div class="row">
-                                  <div class="col-md-6">
-                                    <mat-form-field class="example-full-width" color="warn">
-                                      <input matInput placeholder="Reference Number" type="text">
-                                    </mat-form-field>
-                                  </div>
-                                
-                              </div>
-                              <h5><b>List of Specimens</b></h5>
-                          <p>
-                              Number of specimens submitted: {{specimens3.selectedOptions.selected.length}}
-                          </p>
-                            <mat-selection-list #specimens3>
-                              <div class="row">
-                                <div class="col-md-4">
-                                  <mat-list-option >Blood</mat-list-option>
-                                </div>
-                                <div class="col-md-4">
-                                  <mat-list-option >Liver</mat-list-option>
-                                </div>
-                                <div class="col-md-4">
-                                  <mat-list-option >Suspected Poison</mat-list-option>
-                                </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-md-4">
-                                    <mat-list-option >Urine</mat-list-option>
-                                  </div>
-                                  <div class="col-md-4">
-                                    <mat-list-option >Kidney</mat-list-option>
-                                  </div>
-                                  <div class="col-md-4">
-                                    <mat-list-option >Tablets/Medicines</mat-list-option>
-                                  </div>
-
-                              </div>
-                              <div class="row">
-                                  <div class="col-md-4">
-                                    <mat-list-option >Bile</mat-list-option>
-                                  </div>
-                                  <div class="col-md-4">
-                                    <mat-list-option >Lungs</mat-list-option>
-                                  </div>
-                                  <div class="col-md-4">
-                                    <mat-list-option >Other (Specify)</mat-list-option>
-                                  </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-md-4">
-                                    <mat-list-option >Stomach Contents</mat-list-option>
-                                  </div>
-                                  <div class="col-md-4">
-                                   <mat-list-option >Vitreous humor</mat-list-option>
-                                  </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-md-4">
-                                    <mat-list-option >Intestinal Contents</mat-list-option>
-                                  </div>
-                                  <div class="col-md-4">
-                                   <mat-list-option >Brain</mat-list-option>
-                                   </div>
-                              </div>
-                            </mat-selection-list>
-                            <h5><b>Analysis Required (Please request necessary analysis only)</b></h5>
-                            <div class="row">
+                          </div>
                           
-                                <div class="col-md-6">
-                                                                   
-                                    <mat-form-field class="example-full-width" color="warn">
-                                      <input matInput placeholder="No of analysis required (Please specify the required poisons)" type="text">                              
-                                    </mat-form-field>
-                                </div>                          
-                            </div>
-                            <h5><b>Chain of Custody</b></h5>
-                            <div class="row">
-                                
-                                <div class="col-md-3">
-                                                                   
-                                    <mat-form-field class="example-full-width" color="warn">
-                                        <input matInput placeholder="Samples Deliver Date" type="date">                                        
-                                      </mat-form-field>
-                                    
-                                </div>          
-                                <div class="col-md-3">
-                                                                   
-                                    <mat-form-field class="example-full-width" color="warn">
-                                      <input matInput placeholder="Samples Deliver Time" type="time">                              
-                                    </mat-form-field>
-                                </div>                   
-                            </div>
-                           
-                            
-                            </div>
-                            
-                        </div>
-                        <div class="row">
-                          <button mat-button matStepperPrevious class="btn btn-danger ">Back</button>
-                          <button mat-button matStepperNext class="btn btn-danger ">Next</button>
-                        </div>
-                    </form>
-                  </mat-step>
-                <mat-step [stepControl]="secondFormGroup">
-                  <ng-template matStepLabel>Done</ng-template>
-                  
-                  <div class="row">
-                    <button mat-button matStepperPrevious class="btn btn-danger ">Back</button>
-                    <button mat-button (click)="stepper.reset()" class="btn btn-danger">Reset</button>
-                  </div>
+                      </div>
+                      <div class="row">
+                        <button mat-button matStepperPrevious class="btn btn-danger ">Back</button>
+                        <button mat-button matStepperNext class="btn btn-danger ">Next</button>
+                      </div>
+                  </form>
                 </mat-step>
-              </mat-horizontal-stepper>
-            </div>
-
+              <mat-step [stepControl]="secondFormGroup">
+                <ng-template matStepLabel>Done</ng-template>
+                
+                <div class="row">
+                  <button mat-button matStepperPrevious class="btn btn-danger ">Back</button>
+                  <button mat-button (click)="stepper.reset()" class="btn btn-danger">Reset</button>
+                </div>
+              </mat-step>
+            </mat-horizontal-stepper>
           </div>
+
         </div>
       </div>
     </div>
- 
+  </div>

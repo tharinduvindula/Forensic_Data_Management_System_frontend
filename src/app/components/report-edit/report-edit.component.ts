@@ -1,6 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
+
+export interface Gcod {
+  value: string;
+  viewValue: string;
+}
+
+export interface GcodGroup {
+  disabled?: boolean;
+  name: string;
+  gcod: Gcod[];
+}
+
+
 export interface Area {
   value: string;
   viewValue: string;
@@ -60,11 +73,15 @@ export class ReportEditComponent implements OnInit {
         
         {value: 'cancer', viewValue: 'Cancer'},
         {value: 'stroke', viewValue: 'Stroke'},
-        {value: 'heartd', viewValue: 'Heart disease'},
+
+        {value: 'iheartd', viewValue: 'Ischemic Heart disease'},
         {value: 'Pneumonia', viewValue: 'Pneumonia'},
         {value: 'Infection', viewValue: 'Infection'},
-        {value: 'ckd', viewValue: 'CKD'},
-        {value: 'clcd', viewValue: 'CLCD'},
+        {value: 'ckd', viewValue: 'Chronic Kidney Disease'},
+        {value: 'clcdandc', viewValue: 'Chronic Liver Cell Disease and Cirrhosis'},
+        {value: 'cld', viewValue: 'Chronic Lung Disease'},
+        {value: 'dd', viewValue: 'Diarrheal Disease'},
+
       ]
     },
     {
@@ -75,10 +92,21 @@ export class ReportEditComponent implements OnInit {
         {value: 'electrocution', viewValue: 'Electrocution'},
         {value: 'drowning', viewValue: 'Drowning'},
         {value: 'burns', viewValue: 'Burns'},
-        {value: 'stabs', viewValue: 'Stabs'},
-        {value: 'poissoning', viewValue: 'Poissoning'},
+
+        {value: 'cands', viewValue: 'Cuts and Stabs'},
+        {value: 'poisoning', viewValue: 'Poisoning'},
         {value: 'firearm', viewValue: 'Firearm'},
+        {value: 'fandm', viewValue: 'Fallen/Macinery'},
+      ]
+    },
+    {
+      name: 'Other',
+      gcod: [
+        {value: 'underinvest', viewValue: 'Under investigation'},
+        
       ]
     }
   ];
+
+
 }
