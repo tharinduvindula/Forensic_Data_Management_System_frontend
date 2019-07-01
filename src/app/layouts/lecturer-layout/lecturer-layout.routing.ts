@@ -10,6 +10,8 @@ import { ReportDeleteComponent } from 'app/components/report-delete/report-delet
 import { ReportViewComponent } from 'app/components/report-view/report-view.component';
 import { AddDemoComponent } from 'app/components/add-demo/add-demo.component';
 import { UserProfileViewComponent } from 'app/components/user-profile-view/user-profile-view.component';
+import { EditdemoComponent } from 'app/components/editdemo/editdemo.component';
+import { UpdatedemoComponent } from 'app/components/updatedemo/updatedemo.component';
 
 export const LecturerLayoutRoutes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'dashboard', component: LecturerdashboardComponent },
@@ -23,4 +25,6 @@ export const LecturerLayoutRoutes: Routes = [
     { path: 'report-delete', component: ReportDeleteComponent },
     { path: 'report-view', component: ReportViewComponent },
     { path: 'add-demo', component: AddDemoComponent },
+    { path: 'edit-demo', component: EditdemoComponent },
+    { path: 'update-demo', component: UpdatedemoComponent },
 ];

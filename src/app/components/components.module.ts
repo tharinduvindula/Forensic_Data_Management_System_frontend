@@ -21,7 +21,6 @@ import { ScreenlockComponent } from '../pages/screenlock/screenlock.component';
 import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
 
 
-
 @NgModule({
   imports: [
     CommonModule,

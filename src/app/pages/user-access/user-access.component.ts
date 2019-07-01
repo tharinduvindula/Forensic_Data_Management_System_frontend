@@ -27,8 +27,7 @@ export class UserAccessComponent implements OnInit {
   }
   getAlluser() {
     this.User.getalluser().subscribe((all) => {
-      this.users = all,
-      console.log(all)
+      this.users = all
     }
     );
   }

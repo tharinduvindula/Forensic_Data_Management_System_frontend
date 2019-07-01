@@ -58,7 +58,6 @@ export class UserProfileDeleteComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.UserHandle.removmultiuserhandle(this.form1).subscribe(
       data => {
-        console.log(data)
       },
       error => {
         console.log(error)

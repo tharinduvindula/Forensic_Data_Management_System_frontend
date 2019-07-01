@@ -2,39 +2,33 @@
 export class Demo {
   fullname: string;
   firstname: string;
+  lastname: string;
   nic: string;
   address: string;
-  contactNumber: string;
+  telephone: string;
   email: string;
-  password: string;
-  usertype: string;
   startdate: Date;
-  enddate: Date;
-  photo: boolean;
+  addingby: string;
 
   constructor(
     fullname,
     firstname,
+    lastname,
     nic,
     address,
-    contactNumber,
+    telephone,
     email,
-    password,
-    usertype,
     startdate,
-    enddate,
-    photo
+    addingby
     ) {
     this.fullname = fullname;
     this.firstname = firstname;
+    this.lastname = lastname;
     this.nic = nic;
     this.address = address;
-    this.contactNumber = contactNumber;
+    this.telephone = telephone;
     this.email = email;
-    this.password = password;
-    this.usertype = usertype;
     this.startdate = startdate;
-    this.enddate = enddate;
-    this.photo = photo;
+    this.addingby = addingby
   }
 }

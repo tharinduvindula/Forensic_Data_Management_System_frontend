@@ -24,11 +24,13 @@ export class UserProfileComponent implements OnInit, OnDestroy {
     address: this.Token.payload(this.Token.gettoken()).ud.address,
     sex: this.Token.payload(this.Token.gettoken()).ud.sex,
     email: this.Token.payload(this.Token.gettoken()).ud.email,
+    nic: this.Token.payload(this.Token.gettoken()).ud.nic,
     telephone: this.Token.payload(this.Token.gettoken()).ud.telephone,
     addingby: this.Token.payload(this.Token.gettoken()).ud.addingby,
     lasteditby: this.Token.payload(this.Token.gettoken()).ud.fullname,
     oldemail: this.Token.payload(this.Token.gettoken()).ud.email,
     photo: this.Token.payload(this.Token.gettoken()).photo,
+    usertype: this.Token.payload(this.Token.gettoken()).ud.usertype,
 
   };
   editby = this.Token.payload(this.Token.gettoken()).ud.lasteditby;
@@ -56,7 +58,7 @@ export class UserProfileComponent implements OnInit, OnDestroy {
       this.form1.email = this.Token.payload(this.Token.gettoken()).ud.email;
       this.UserHandle.removmultiuserhandle(this.form1).subscribe(
         data => {
-          console.log(data)
+        
         },
         error => {
           console.log(error)
@@ -126,6 +128,14 @@ export class UserProfileComponent implements OnInit, OnDestroy {
     this.error = error.error.error;
   }
   openDialog(): void {
+    if (this.Token.gettoken() !== null) {
+      this.form1.email = this.Token.payload(this.Token.gettoken()).ud.email;
+      this.UserHandle.removmultiuserhandle(this.form1).subscribe(
+        data => {
+        },
+        error => {
+        });
+    }
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
       width: '350px',
       data: 'your data is submited you must logout for refresh that data'
