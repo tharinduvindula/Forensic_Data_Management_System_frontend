@@ -46,7 +46,6 @@ export class RetrieveComponent implements OnInit {
     private router: Router,
     private Token: TokenService
     ) {
-    console.log(this.Token.payload(this.Token.gettoken()).ud.usertype)
      }
 
   ngOnInit() {

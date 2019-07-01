@@ -24,6 +24,7 @@ export class UserProfileEditComponent implements OnInit, OnDestroy {
     nic: null,
     sex: null,
     email: null,
+    oldemail: null,
     telephone: null,
     startdate: null,
     usertype: null,
@@ -60,7 +61,10 @@ export class UserProfileEditComponent implements OnInit, OnDestroy {
   }
   constructor(
     private User: UserService,
-    private Activatedroute: ActivatedRoute, private Token: TokenService, private UserHandle: MultiuserhandleService) {
+    private Activatedroute: ActivatedRoute,
+    private Token: TokenService,
+    private UserHandle: MultiuserhandleService,
+    private router: Router,) {
     this.form1.email = this.Activatedroute.snapshot.queryParamMap.get('Email');
     this.getuser();
   }
@@ -69,7 +73,7 @@ export class UserProfileEditComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.UserHandle.removmultiuserhandle(this.form1).subscribe(
       data => {
-        console.log(data)
+       
       },
       error => {
         console.log(error)
@@ -85,6 +89,7 @@ export class UserProfileEditComponent implements OnInit, OnDestroy {
       this.form.nic = all.nic,
       this.form.sex = all.sex,
       this.form.email = all.email,
+      this.form.oldemail = all.email,
       this.form.telephone = all.telephone,
       this.form.startdate = all.startdate,
       this.form.usertype = all.usertype,
@@ -96,6 +101,14 @@ export class UserProfileEditComponent implements OnInit, OnDestroy {
     );
   }
   onsubmit() {
+    this.User.updateuser(this.form).subscribe(
+      data => this.router.navigateByUrl('admin/Edit-User-Detail'),
+      error => this.handleError(error),
+    );
+  }
+
+  handleError(error) {
+    this.error = error.error.error;
   }
 
 

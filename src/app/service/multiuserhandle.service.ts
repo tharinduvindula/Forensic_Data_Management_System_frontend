@@ -20,7 +20,6 @@ export class MultiuserhandleService {
    }
 
   multiuserhandleforuser(data) {
-    console.log(data)
     return this.http.post(`${this.baseUrl}/multiuserhandleforuser`, data);
   }
   removmultiuserhandle(data) {

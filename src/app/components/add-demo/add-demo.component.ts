@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AddDemoService } from '../../service/add-demo.service';
+import { UserService } from 'app/service/user.service';
+import { TokenService } from 'app/service/token.service';
 
 @Component({
   selector: 'app-add-demo',
@@ -10,17 +12,22 @@ export class AddDemoComponent implements OnInit {
 
   fullname: string;
   firstname: string;
+  lastname: string;
   nic: string;
   address: string;
-  contactNumber: string;
+  telephone: string;
   email: string;
-  password: string;
-  usertype = 'Demonstrator';
   startdate: string;
-  enddate: string;
-  photo: string;
+  addingby: string;
 
-  constructor(private addDemoService: AddDemoService) { }
+  public form = {
+    email: null
+  };
+
+  constructor(private addDemoService: AddDemoService,private Token: TokenService,private User:UserService) {
+    
+    this.addingby = this.Token.payload(this.Token.gettoken()).ud.fullname;
+   }
 
   ngOnInit() {
   }
@@ -30,17 +37,20 @@ export class AddDemoComponent implements OnInit {
     this.addDemoService.registerDemo(
       this.fullname,
       this.firstname,
+      this.lastname,
       this.nic,
       this.address,
-      this.contactNumber,
+      this.telephone,
       this.email,
-      this.password,
-      this.usertype,
       this.startdate,
-      this.enddate,
-      this.photo
+      this.addingby
     ).subscribe((data) => {
-        console.log('Demonstrator Added!');
+       
     });
+    this.form.email=this.email;
+    this.User.sendPasswordResetLink(this.form).subscribe(
+      data =>{}
+    );
+    
   }
 }

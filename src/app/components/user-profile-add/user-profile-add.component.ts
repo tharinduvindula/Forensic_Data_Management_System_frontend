@@ -61,7 +61,7 @@ export class UserProfileAddComponent implements OnInit {
     );
     this.form1.email = this.form.email;
     this.Users.sendPasswordResetLink(this.form1).subscribe(
-      data => console.log(data)
+      data => {}
     );
   }
 

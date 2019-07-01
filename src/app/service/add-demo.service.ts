@@ -3,12 +3,13 @@ import { Headers, RequestOptions } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
 import { Demo } from '../Demo';
 import { Observable } from 'rxjs';
+import { USER } from 'app/models/USER';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AddDemoService {
-
+ 
   server = 'http://127.0.0.1:8000/api/';
   headers: Headers = new Headers();
   options: any;
@@ -26,31 +27,44 @@ export class AddDemoService {
   registerDemo(
     fullname,
     firstname,
+    lastname,
     nic,
     address,
-    contactNumber,
+    telephone,
     email,
-    password,
-    usertype,
     startdate,
-    enddate,
-    photo
+    addingby
     ): Observable<Demo> {
       const newDemo = new Demo(
         fullname,
         firstname,
+        lastname,
         nic,
         address,
-        contactNumber,
+        telephone,
         email,
-        password,
-        usertype,
         startdate,
-        enddate,
-        photo
+        addingby
       );
 
-      return this.httpClient.post<Demo>('http://127.0.0.1:8000/addDemo', newDemo);
+      return this.httpClient.post<Demo>('http://127.0.0.1:8000/api/addDemo', newDemo);
+  }
+
+  updateDemo(data){
+
+    return this.httpClient.post('http://127.0.0.1:8000/api/updateDemo', data);
+  }
+
+  deletedemo(data) {
+    return this.httpClient.post('http://127.0.0.1:8000/api/deletedemo', data);
+  }
+
+  getalldemo() {
+    return this.httpClient.get<USER[]>('http://127.0.0.1:8000/api/getalldemo');
+  }
+
+  getdemo(data) {
+    return this.httpClient.post<USER>('http://127.0.0.1:8000/api/getdemo', data);
   }
 
 }

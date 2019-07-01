@@ -141,7 +141,6 @@ export class NavbarComponent implements OnInit {
         this.form1.email = this.Token.payload(this.Token.gettoken()).ud.email;
         this.UserHandle.removmultiuserhandle(this.form1).subscribe(
             data => {
-                console.log(data)
             },
             error => {
                 console.log(error)

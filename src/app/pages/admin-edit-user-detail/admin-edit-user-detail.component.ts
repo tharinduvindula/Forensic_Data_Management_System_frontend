@@ -46,7 +46,6 @@ export class AdminEditUserDetailComponent implements OnInit {
     this.form.email = email;
     this.UserHandle.multiuserhandleforuser(this.form).subscribe(
       data => {
-        console.log(data)
         this.router.navigate(['/admin/User-Profile-edit'], { queryParams: { Email: email }, skipLocationChange: true });
       },
       error => {

@@ -8,6 +8,7 @@ export class USER {
     nic = null;
     sex = null;
     startdate = null;
+    enddate = null;
     telephone = null;
     usertype = null;
     addingby = null;
@@ -16,7 +17,7 @@ export class USER {
     permenetdisable = null;
     photo = null;
     passwordstate =null;
-    constructor(address, email, firstname, nic, fullname, id, lastname, sex, startdate, telephone, usertype,
+    constructor(address, email, firstname, nic, fullname, id, lastname, sex, startdate, enddate, telephone, usertype,
         addingby, lasteditby, temporydisable, permenetdisable, photo, passwordstate) {
         this.address = address;
         this.email = email;
@@ -27,6 +28,7 @@ export class USER {
         this.nic = nic;
         this.sex = sex;
         this.startdate = startdate;
+        this.enddate = enddate;
         this.telephone = telephone;
         this.usertype = usertype;
         this.addingby = addingby;

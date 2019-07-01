@@ -33,6 +33,8 @@ import { AddDemoComponent } from 'app/components/add-demo/add-demo.component';
 import { DemoLecturerShareModule } from '../demo-lecturer-share/demo-lecturer-share.module';
 import { AllShareModule } from '../all-share/all-share.module';
 import { UserProfileViewComponent } from 'app/components/user-profile-view/user-profile-view.component';
+import { EditdemoComponent } from 'app/components/editdemo/editdemo.component';
+import { UpdatedemoComponent } from 'app/components/updatedemo/updatedemo.component';
 
 
 FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
@@ -65,6 +67,8 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
   declarations: [
     LecturerdashboardComponent,
     AddDemoComponent,
+    EditdemoComponent,
+    UpdatedemoComponent,
   ]
 })
 
