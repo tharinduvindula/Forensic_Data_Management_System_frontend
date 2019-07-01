@@ -36,6 +36,7 @@ export class AddComponent implements OnInit {
   toggleMeridian() {
       this.meridian = !this.meridian;
   }
+
   
   areas: Area[] = [
     {value: 'area-01', viewValue: 'Agulana'},{value: 'area-02', viewValue: 'Athurugiriya'},{value: 'area-03', viewValue: 'Bambalapitiya'},
@@ -69,6 +70,7 @@ export class AddComponent implements OnInit {
         
         {value: 'cancer', viewValue: 'Cancer'},
         {value: 'stroke', viewValue: 'Stroke'},
+
         {value: 'iheartd', viewValue: 'Ischemic Heart disease'},
         {value: 'Pneumonia', viewValue: 'Pneumonia'},
         {value: 'Infection', viewValue: 'Infection'},
@@ -76,6 +78,7 @@ export class AddComponent implements OnInit {
         {value: 'clcdandc', viewValue: 'Chronic Liver Cell Disease and Cirrhosis'},
         {value: 'cld', viewValue: 'Chronic Lung Disease'},
         {value: 'dd', viewValue: 'Diarrheal Disease'},
+
       ]
     },
     {
@@ -86,6 +89,7 @@ export class AddComponent implements OnInit {
         {value: 'electrocution', viewValue: 'Electrocution'},
         {value: 'drowning', viewValue: 'Drowning'},
         {value: 'burns', viewValue: 'Burns'},
+
         {value: 'cands', viewValue: 'Cuts and Stabs'},
         {value: 'poisoning', viewValue: 'Poisoning'},
         {value: 'firearm', viewValue: 'Firearm'},
@@ -97,6 +101,7 @@ export class AddComponent implements OnInit {
       gcod: [
         {value: 'underinvest', viewValue: 'Under investigation'},
         
+
       ]
     }
   ];

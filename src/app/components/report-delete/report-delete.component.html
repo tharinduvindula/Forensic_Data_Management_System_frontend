@@ -104,6 +104,18 @@
                     <div class="row">
                         <div class="col-md-3">
                             <mat-form-field class="example-full-width" color="warn">
+                                <mat-label>Area</mat-label>
+                                <mat-select>
+                                  <mat-option *ngFor="let area of areas" [value]="area.value">
+                                    {{area.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <mat-form-field class="example-full-width" color="warn">
                               <mat-label>Rank</mat-label>
                               <mat-select>
                                 <mat-option value="igp">IGP</mat-option>
@@ -233,7 +245,9 @@
                             </mat-form-field>
                           </div>
                           
+
                       </div>    
+
                       <div class="row">
                         <div class="col-md-4">                    
                                                                                          
@@ -251,6 +265,7 @@
                                   </mat-form-field>
                              
                               </div>
+
                     </div>
                               
                               <div class="row">
@@ -268,6 +283,7 @@
                                     </mat-form-field>
                                   </div>
                             </div>  
+
                                             
                       <div class="row">
                         <button mat-button matStepperPrevious class="btn btn-danger ">Back</button>
