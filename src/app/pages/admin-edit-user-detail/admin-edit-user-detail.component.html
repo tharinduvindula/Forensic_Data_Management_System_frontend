@@ -16,15 +16,15 @@
               <th>Delete</th>
             </thead>
             <tbody>
-              <tr *ngFor="let menuItem of lecturesets">
-                <td><img class="img" src={{menuItem.photo}} alt="Card image cap"
+              <tr *ngFor="let user of isOtheruser()">
+                <td><img class="img"  [src]="'data:image/png' + ';base64,' + user.photo"  alt="Card image cap"
                     style="width:80px;height: 80px;border-radius: 50%;"></td>
-                <td class="text-dark">{{menuItem.name}}</td>
-                <td>{{menuItem.nic}}</td>
-                <td><button mat-raised-button [routerLink]="[menuItem.editpath]" type="submit"
+                <td class="text-dark">{{user.fullname}}</td>
+                <td>{{user.nic}}</td>
+                <td><button mat-raised-button type="submit" (click)=onedit($event,user.email)
                     style="background-color: blue;" class="btn">Edit
                     Profile</button></td>
-                <td><button mat-raised-button [routerLink]="[menuItem.deletepath]" type="submit"
+                <td><button mat-raised-button type="submit" (click)=ondelete($event,user.email)
                     class="btn btn-danger">Delete
                     Profile</button></td>
               </tr>

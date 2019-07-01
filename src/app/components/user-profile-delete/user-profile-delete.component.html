@@ -8,62 +8,72 @@
                       <p class="card-category">Complete profile</p>
                   </div>
                   <div class="card-header">
-                        <div class="row">
-                          <div class="col-md-12">
-                            <h5>Full Name : </h5>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-12">
-                            <h5>NIC Number : </h5>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-12">
-                            <h5>Sex : </h5>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-12">
-                            <h5>Email : </h5>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-12">
-                            <h5>Adress : </h5>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-12">
-                            <h5>Telephone : </h5>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-12">
-                            <h5>Starting Date : </h5>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-12">
-                            <h5>User Type: </h5>
-                          </div>
-                        </div>
-                        <button mat-raised-button type="submit" class="btn btn-danger pull-right">Delete Profile</button>
-                     
+                    <div class="row">
+                      <div class="col-md-12" style="padding-left: 5%;padding-bottom: 1%; padding-top: 1%;">
+                        <strong style="display:inline;font-size: 17px">Full Name : </strong>
+                        <h5 style="display:inline;">{{form.fullname}}</h5>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12" style="padding-left: 5%;padding-bottom: 1%">
+                        <strong style="display:inline;font-size: 17px">NIC Number : </strong>
+                        <h5 style="display:inline;">{{form.nic}}</h5>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12" style="padding-left: 5%;padding-bottom: 1%">
+                        <strong style="display:inline;font-size: 17px">Sex : </strong>
+                        <h5 style="display:inline;">{{form.sex}}</h5>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12" style="padding-left: 5%;padding-bottom: 1%">
+                        <strong style="display:inline;font-size: 17px">Email : </strong>
+                        <h5 style="display:inline;">{{form.email}}</h5>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12" style="padding-left: 5%;padding-bottom: 1%">
+                        <strong style="display:inline;font-size: 17px">Adress : </strong>
+                        <h5 style="display:inline;">{{form.address}}</h5>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12" style="padding-left: 5%;padding-bottom: 1%">
+                        <strong style="display:inline;font-size: 17px">Telephone : </strong>
+                        <h5 style="display:inline;">{{form.telephone}}</h5>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12" style="padding-left: 5%;padding-bottom: 1%">
+                        <strong style="display:inline;font-size: 17px">Starting Date : </strong>
+                        <h5 style="display:inline;">{{form.startdate}}</h5>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12" style="padding-left: 5%;padding-bottom: 1%">
+                        <strong style="display:inline;font-size: 17px">User Type : </strong>
+                        <h5 style="display:inline;">{{form.usertype}}</h5>
+                      </div>
+                    </div>
+                    <button mat-raised-button (click)="onsubmit()" class="btn btn-danger pull-right">Delete Profile</button>
+                  
                   </div>
+                  <span style="padding-left: 10%">this user is adding by {{addingby}} and last edit by {{editby}}</span>
               </div>
           </div>
           <div class="col-md-3" style="padding-top:2% ;">
             <div class="card card-profile"
               style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-              <div class="card-avatar">
-                <img class="img" style="width:100px;height: 100px;border-radius: 50%;" src="./assets/img/cover.jpeg" />
+              <div style="padding-top: 3%;padding-bottom: 3%">
+                <img class="img" style="width:90%;height: 90%;border-radius: 50%;"
+                  [src]="'data:image/png' + ';base64,' + form.photo" *ngIf="form.photo" />
               </div>
               <div class="card-body">
-                <h5 class="card-title">tharindu vindula</h5>
-                <p class="card-text">0717615678<br>
-                  tharinduvindula@gmail.com<br>
-                  2019/04/20</p>
+                <h5 class="card-title">{{form.fullname}}</h5>
+                <p class="card-text">0{{form.telephone}}<br>
+                  {{form.email}}<br>
+                  Start Date : {{startdate}}</p>
               </div>
             </div>
           </div>

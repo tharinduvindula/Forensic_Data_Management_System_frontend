@@ -4,6 +4,7 @@ import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common'
 import { Router } from '@angular/router';
 import { AuthService } from 'app/service/auth.service';
 import { TokenService } from 'app/service/token.service';
+import { MultiuserhandleService } from 'app/service/multiuserhandle.service';
 
 @Component({
   selector: 'app-navbar',
@@ -16,13 +17,17 @@ export class NavbarComponent implements OnInit {
       mobile_menu_visible: any = 0;
     private toggleButton: any;
     private sidebarVisible: boolean;
+    public form1 = {
+        email: null
+    };
 
     constructor(
         location: Location,
         private element: ElementRef,
         private router: Router,
         private Auth: AuthService,
-        private Token: TokenService
+        private Token: TokenService,
+        private UserHandle: MultiuserhandleService
         ) {
       this.location = location;
           this.sidebarVisible = false;
@@ -71,7 +76,7 @@ export class NavbarComponent implements OnInit {
         }
         const body = document.getElementsByTagName('body')[0];
 
-        if (this.mobile_menu_visible == 1) {
+        if (this.mobile_menu_visible === 1) {
             // $('html').removeClass('nav-open');
             body.classList.remove('nav-open');
             if ($layer) {
@@ -101,7 +106,7 @@ export class NavbarComponent implements OnInit {
                 $layer.classList.add('visible');
             }, 100);
 
-            $layer.onclick = function() { //asign a function
+            $layer.onclick = function() { // asign a function
               body.classList.remove('nav-open');
               this.mobile_menu_visible = 0;
               $layer.classList.remove('visible');
@@ -126,24 +131,38 @@ export class NavbarComponent implements OnInit {
 
       for (var item = 0; item < this.listTitles.length; item++) {
           if (this.listTitles[item].path === titlee) {
-              return this.listTitles[item].title;
+               console.log(this.listTitles[item].title);
           }
       }
-      return 'Dashboard';
+      return titlee;
     }
     logout(event: MouseEvent) {
         event.preventDefault();
+        this.form1.email = this.Token.payload(this.Token.gettoken()).ud.email;
+        this.UserHandle.removmultiuserhandle(this.form1).subscribe(
+            data => {
+                console.log(data)
+            },
+            error => {
+                console.log(error)
+            });
         this.Token.remove();
         this.Auth.changeAuthStatus(false);
         this.router.navigateByUrl('login');
     }
     screenlock(event: MouseEvent) {
         event.preventDefault();
-        console.log('1 ' + false);
         localStorage.removeItem('lock');
         localStorage.setItem('flink', this.router.url);
         this.Auth.changescreenlockStatus(true);
-        console.log('4 ' + this.Auth.getstatus());
         this.router.navigateByUrl('lock');
+    }
+    editprofile(event: MouseEvent) {
+        event.preventDefault();
+        this.router.navigateByUrl(`${this.Token.payload(this.Token.gettoken()).ud.usertype}/` + 'User-Profile');
+    }
+    godashboard(event: MouseEvent) {
+        event.preventDefault();
+        this.router.navigateByUrl(`${this.Token.payload(this.Token.gettoken()).ud.usertype}/` + 'Dashboard');
     }
 }

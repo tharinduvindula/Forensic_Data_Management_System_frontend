@@ -12,8 +12,7 @@ export class AnalysisComponent implements OnInit {
   pareport: Object;
   pmreport: Object;
   ngOnInit() {}
-// tslint:disable-next-line: member-ordering
-  public title = '';
+  public title = null;
 
   constructor() {
     this.dataSource = {
@@ -45,12 +44,11 @@ export class AnalysisComponent implements OnInit {
   };
     this.manner = {
       'chart': {
-        
-        "showLabels":0,
-        //"showp":0,
+        'showLabels': 0,
+        // "showp":0,
         'smartLineColor': '#ffffff',
         'use3DLighting': '1',
-       /// 'showLegend': 0,
+       // 'showLegend': 0,
         'pieRadius': 90,
         'CaptionFontSize': 18,
         'subCaptionFontSize': 15,
@@ -86,7 +84,6 @@ export class AnalysisComponent implements OnInit {
     };
     this.gareport = {
       'chart': {
-        
         'maxLabelHeight': '50',
         'labelDisplay': 'rotate',
         'CaptionFontSize': 18,
@@ -178,7 +175,7 @@ export class AnalysisComponent implements OnInit {
         'CaptionFontSize': 30,
         'subCaptionFontSize': 20,
         'subCaptionFontcolor': '#ffffff',
-        //'labelFontSize': 10,
+        // 'labelFontSize': 10,
         'legendFontSize': 5,
         'palettecolors': '#ffffff,#fdfacc,#fcf59a,#faf068,#f9eb36,#f8e604,#FFD700',
         'legendItemFontColor': '#ffffff',

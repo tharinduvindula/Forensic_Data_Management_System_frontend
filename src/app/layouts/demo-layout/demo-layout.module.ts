@@ -3,11 +3,10 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DemoLayoutRoutes } from './demo-layout.routing';
-import { DemodashboardComponent } from '../../pages/demodashboard/demodashboard.component';
-import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
+import { DemodashboardComponent } from '../../components/demodashboard/demodashboard.component';
+import { UserProfileComponent } from '../../components/user-profile/user-profile.component';
 import { ComponentsModule } from 'app/components/components.module';
-import { AddComponent } from 'app/components/add/add.component';
-import { DemoRetrieveComponent } from 'app/components/demoretrieve/demoretrieve.component';
+import { RetrieveComponent } from 'app/components/retrieve/retrieve.component';
 import {
   MatButtonModule,
   MatInputModule,
@@ -30,9 +29,8 @@ import * as FusionCharts from 'fusioncharts';
 import * as Charts from 'fusioncharts/fusioncharts.charts';
 import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 import { UserProfileViewComponent } from 'app/components/user-profile-view/user-profile-view.component';
-import { ReportEditComponent } from 'app/components/report-edit/report-edit.component';
-import { ReportDeleteComponent } from 'app/components/report-delete/report-delete.component';
-import { ReportViewComponent } from 'app/components/report-view/report-view.component';
+import { DemoLecturerShareModule } from '../demo-lecturer-share/demo-lecturer-share.module';
+import { AllShareModule } from '../all-share/all-share.module';
 
 
 FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
@@ -61,17 +59,11 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     MatIconModule,
     FusionChartsModule,
     HttpModule,
+    DemoLecturerShareModule,
+    AllShareModule,
   ],
   declarations: [
     DemodashboardComponent,
-    UserProfileComponent,
-    AnalysisComponent,
-    AddComponent,
-    DemoRetrieveComponent,
-    UserProfileViewComponent,
-    ReportEditComponent,
-    ReportDeleteComponent,
-    ReportViewComponent,
   ]
 })
 

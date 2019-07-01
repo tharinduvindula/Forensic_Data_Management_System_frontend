@@ -1,44 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
-declare const $: any;
-declare interface RouteInfo {
-  nic: string;
-  editpath: string;
-  deletepath: string;
-  name: string;
-  photo: string;
-  startDate: string;
-  contactNumber: string;
-  email: string;
-  type: string;
-}
-export const ROUTES: RouteInfo[] = [
-  {
-// tslint:disable-next-line: max-line-length
-    nic: '963190042v', editpath: '/admin/user-profile-edit', deletepath: '/admin/user-profile-delete', name: 'tharindu', photo: 'assets/img/faces/marc.jpg',
-    startDate: '2019/04/22', contactNumber: '0717615678', email: 'tharinduvindula@gmail.com', type: 'demo'
-  },
-  {
-    nic: '963190042v', editpath: '/admin/user-profile-edit', deletepath: '/admin/user-profile-delete', name: 'tharindu', photo: 'assets/img/cover.jpeg',
-    startDate: '2019/04/22', contactNumber: '0717615678', email: 'tharinduvindula@gmail.com', type: 'demo'
-  },
-  {
-    nic: '963190042v', editpath: '/admin/user-profile-edit', deletepath: '/admin/user-profile-delete', name: 'tharindu', photo: 'assets/img/cover.jpeg',
-    startDate: '2019/04/22', contactNumber: '0717615678', email: 'tharinduvindula@gmail.com', type: 'demo'
-  },
-  {
-    nic: '963190042v', editpath: '/admin/user-profile-edit', deletepath: '/admin/user-profile-delete', name: 'tharindu', photo: 'assets/img/cover.jpeg',
-    startDate: '2019/04/22', contactNumber: '0717615678', email: 'tharinduvindula@gmail.com', type: 'demo'
-  },
-  {
-    nic: '963190042v', editpath: '/admin/user-profile-edit', deletepath: '/admin/user-profile-delete', name: 'tharindu', photo: 'assets/img/cover.jpeg',
-    startDate: '2019/04/22', contactNumber: '0717615678', email: 'tharinduvindula@gmail.com', type: 'demo'
-  },
-  {
-    nic: '963190042v', editpath: '/admin/user-profile-edit', deletepath: '/admin/user-profile-delete', name: 'tharindu', photo: 'assets/img/cover.jpeg',
-    startDate: '2019/04/22', contactNumber: '0717615678', email: 'tharinduvindula@gmail.com', type: 'lecture'
-  },
-];
+import { UserService } from 'app/service/user.service';
+import { TokenService } from 'app/service/token.service';
+import { USER } from 'app/models/USER';
+import { Router } from '@angular/router';
+import { MultiuserhandleService } from 'app/service/multiuserhandle.service';
 
 
 @Component({
@@ -47,15 +12,28 @@ export const ROUTES: RouteInfo[] = [
   styleUrls: ['./admin-edit-user-detail.component.scss']
 })
 export class AdminEditUserDetailComponent implements OnInit {
-  demosets: any[];
-  lecturesets: any[];
+  users: USER[] = [];
+  public form = {
+  email: null
+  }
 
 
-  constructor() { }
+
+  constructor(private User: UserService, private Token: TokenService, private router: Router, private UserHandle: MultiuserhandleService) {
+  this.getAlluser();
+  }
+
 
   ngOnInit() {
-    this.demosets = ROUTES.filter(menuItem => menuItem);
-    this.lecturesets = ROUTES.filter(menuItem => menuItem);
+  }
+  getAlluser() {
+    this.User.getalluser().subscribe((all) => {
+      this.users = all
+    }
+    );
+  }
+  isOtheruser() {
+    return this.users.filter(x => (x.id !== this.Token.payload(this.Token.gettoken()).sub) && (x.permenetdisable === 0));
   }
   isMobileMenu() {
     if (screen.width > 991) {
@@ -63,18 +41,30 @@ export class AdminEditUserDetailComponent implements OnInit {
     }
     return true;
   }
-
-  isDemo(dtype) {
-    if (dtype === 'demo') {
-      return true;
-    }
-    return false;
+  onedit(event, email) {
+    event.preventDefault();
+    this.form.email = email;
+    this.UserHandle.multiuserhandleforuser(this.form).subscribe(
+      data => {
+        console.log(data)
+        this.router.navigate(['/admin/User-Profile-edit'], { queryParams: { Email: email }, skipLocationChange: true });
+      },
+      error => {
+        console.log(error)
+      }
+    );
   }
-  isLecture(Ltype) {
-    if (Ltype === 'lecture') {
-      return true;
-    }
-    return false;
+  ondelete(event, email) {
+    event.preventDefault();
+    this.form.email = email;
+    this.UserHandle.multiuserhandleforuser(this.form).subscribe(
+      data => {
+        this.router.navigate(['/admin/User-Profile-delete'], { queryParams: { Email: email }, skipLocationChange: true });
+      },
+      error => {
+        console.log(error)
+      }
+    );
   }
 
 }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MultiuserhandleService } from 'app/service/multiuserhandle.service';
+import { TokenService } from 'app/service/token.service';
 
 declare const $: any;
 declare interface RouteInfo {
@@ -8,12 +11,11 @@ declare interface RouteInfo {
     class: string;
 }
 export const ROUTES: RouteInfo[] = [
-  { path: '/lecturer/dashboard', title: 'Dashboard', icon: 'dashboard', class: '' },
-  { path: '/lecturer/user-profile', title: 'User Profile', icon: 'person', class: '' },
+  { path: '/lecturer/Dashboard', title: 'Dashboard', icon: 'dashboard', class: '' },
   { path: '/lecturer/add-demo', title: 'Add Users', icon: 'person_add', class: '' },
   { path: '/lecturer/analysis', title: 'Report Analysis', icon: 'show_chart', class: '' },
   { path: '/lecturer/add', title: 'New Report', icon: 'add', class: '' },
-  { path: '/lecturer/lecturerretrieve', title: 'Retrieve Report', icon: 'description', class: '' },
+  { path: '/lecturer/retrieve', title: 'Retrieve Report', icon: 'description', class: '' },
 ];
 
 @Component({
@@ -23,8 +25,11 @@ export const ROUTES: RouteInfo[] = [
 })
 export class LecturersidebarComponent implements OnInit {
   menuItems: any[];
+  public form = {
+    email: null
+  }
 
-  constructor() { }
+  constructor(private router: Router, private UserHandle: MultiuserhandleService, private token: TokenService) { }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
@@ -35,4 +40,15 @@ export class LecturersidebarComponent implements OnInit {
       }
       return true;
   };
+  dirtoprofile() {
+    this.form.email = this.token.payload(this.token.gettoken()).ud.email;
+    this.UserHandle.multiuserhandleforuser(this.form).subscribe(
+      data => {
+        this.router.navigate(['/lecturer/User-Profile']);
+      },
+      error => {
+        console.log(error)
+      }
+    );
+  }
 }

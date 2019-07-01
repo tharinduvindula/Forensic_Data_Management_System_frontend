@@ -1,14 +1,14 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserProfileViewComponent } from './user-profile-view.component';
+import {UserProfileViewComponent } from './user-profile-view.component';
 
 describe('UserProfileViewComponent', () => {
-  let component: UserProfileViewComponent;
+  let component:UserProfileViewComponent;
   let fixture: ComponentFixture<UserProfileViewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserProfileViewComponent ]
+      declarations: [UserProfileViewComponent ]
     })
     .compileComponents();
   }));

@@ -6,17 +6,17 @@ import { Routes, RouterModule } from '@angular/router';
 import { DemoLayoutComponent } from './layouts/demo-layout/demo-layout.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LecturerLayoutComponent } from './layouts/lecturer-layout/lecturer-layout.component';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from './pages/login/login.component';
 import { BeforLoginService } from './service/befor-login.service';
 import { AfterLoginService } from './service/after-login.service';
 import { AdminuserService } from './service/adminuser.service';
-import { ScreenlockComponent } from './components/screenlock/screenlock.component';
+import { ScreenlockComponent } from './pages/screenlock/screenlock.component';
 import { ScreenlockService } from './service/screenlock.service';
 import { LectureruserService } from './service/lectureruser.service';
 import { DemouserService } from './service/demouser.service';
 import { PagenotfoundComponent } from './pages/pagenotfound/pagenotfound.component';
-
-
+import { ResetComponent } from './pages/reset/reset.component';
+import { RequestResetComponent } from './pages/request-reset/request-reset.component';
 
 
 const routes: Routes = [
@@ -29,6 +29,16 @@ const routes: Routes = [
     canActivate: [BeforLoginService],
     path: 'login',
     component: LoginComponent,
+  },
+  {
+    canActivate: [BeforLoginService],
+    path: 'reset',
+    component: ResetComponent,
+  },
+  {
+    canActivate: [BeforLoginService],
+    path: 'request-password-reset',
+    component: RequestResetComponent,
   },
   {
     canActivate: [ScreenlockService],
@@ -67,7 +77,7 @@ const routes: Routes = [
  },
   { path: '**', component: PagenotfoundComponent }
     // { path: 'dashboard',      component: DashboardComponent },
-    // { path: 'user-profile',   component: UserProfileComponent },
+    // { path: 'User-Profile',   component: UserProfileComponent },
     // { path: 'table-list',     component: TableListComponent },
     // { path: 'typography',     component: TypographyComponent },
     // { path: 'icons',          component: IconsComponent },
@@ -85,6 +95,6 @@ const routes: Routes = [
   exports: [
   ],
 })
-export class AppRoutingModule { 
-  constructor(){}
+export class AppRoutingModule {
+  constructor() {}
 }

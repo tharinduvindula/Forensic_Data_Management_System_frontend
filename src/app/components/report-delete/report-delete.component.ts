@@ -52,10 +52,11 @@ ngOnInit() {
     secondCtrl: ['', Validators.required]
   });
 }
+
 @ViewChild('stepper') stepper: MatStepper;
 
-ngAfterViewInit() {
-    this.stepper.selectedIndex = 5; 
+  ngAfterViewInit() {
+    this.stepper.selectedIndex = 5;
 }
 gcodControl = new FormControl();
 gcodGroups: GcodGroup[] = [

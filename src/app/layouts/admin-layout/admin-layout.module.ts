@@ -3,8 +3,8 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLayoutRoutes } from './admin-layout.routing';
-import { AdmindashboardComponent } from '../../pages/admindashboard/admindashboard.component';
-import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
+import { AdmindashboardComponent } from '../../components/admindashboard/admindashboard.component';
+import { UserProfileComponent } from '../../components/user-profile/user-profile.component';
 import { IconsComponent } from '../../pages/icons/icons.component';
 import { UserAccessComponent } from 'app/pages/user-access/user-access.component';
 
@@ -20,6 +20,7 @@ import {
   MatIconModule,
   MatDatepickerModule,
   MatNativeDateModule,
+  MatRadioModule,
 
 } from '@angular/material';
 import { AdminEditUserDetailComponent } from 'app/pages/admin-edit-user-detail/admin-edit-user-detail.component';
@@ -29,6 +30,8 @@ import { UserProfileAddComponent } from 'app/components/user-profile-add/user-pr
 import { UserProfileViewComponent } from 'app/components/user-profile-view/user-profile-view.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+import { AllShareModule } from '../all-share/all-share.module';
+import { PasswordresetComponent } from 'app/pages/passwordreset/passwordreset.component';
 
 @NgModule({
   imports: [
@@ -36,6 +39,7 @@ import { HttpModule } from '@angular/http';
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
     MatButtonModule,
+    MatRadioModule,
     MatRippleModule,
     MatFormFieldModule,
     MatInputModule,
@@ -48,17 +52,17 @@ import { HttpModule } from '@angular/http';
     ReactiveFormsModule,
     HttpClientModule,
     HttpModule,
+    AllShareModule,
   ],
   declarations: [
     AdmindashboardComponent,
     IconsComponent,
     UserAccessComponent,
+    PasswordresetComponent,
     AdminEditUserDetailComponent,
     UserProfileDeleteComponent,
     UserProfileEditComponent,
     UserProfileAddComponent,
-    UserProfileViewComponent,
-    UserProfileComponent,
   ]
 })
 

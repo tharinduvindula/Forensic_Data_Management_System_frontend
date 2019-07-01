@@ -36,6 +36,7 @@ export class AddComponent implements OnInit {
   toggleMeridian() {
       this.meridian = !this.meridian;
   }
+
   
   areas: Area[] = [
     {value: 'area-01', viewValue: 'Agulana'},{value: 'area-02', viewValue: 'Athurugiriya'},{value: 'area-03', viewValue: 'Bambalapitiya'},
@@ -49,6 +50,7 @@ export class AddComponent implements OnInit {
     {value: 'area-25', viewValue: 'Welikada'},{value: 'area-26', viewValue: 'Wellawatte'}   
   ];
   
+
 
   constructor(private _formBuilder: FormBuilder) {}
 
