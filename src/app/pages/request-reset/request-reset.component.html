@@ -1,29 +1,3 @@
-<div class="mt-4 col-8 offset-2">
-  <div class="card">
-    <div class="card-header">Send Email for Reset password</div>
-    <div class="card-body">
-      <form #RequestResetForm=ngForm (ngSubmit)="onSubmit()">
-        <div class="form-group row">
-          <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-          <div class="col-sm-10">
-            <input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Email"
-              [(ngModel)]="form.email" required>
-          </div>
-        </div>
-
-        <div class="form-group row">
-          <div class="col-sm-10 offset-2">
-
-            <button type="submit" class="btn btn-primary" [disabled]="!RequestResetForm.valid">Send Password Reset
-              Email</button>
-
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-
 
 <link rel="stylesheet" type="text/css" href="./assets/login/css/main.css">
 
@@ -35,7 +9,7 @@
 <div class="limiter" *ngIf="!loggedin">
   <div class="container-login100" style="background-image: url('./assets/login/images/bg-01.jpg');">
     <div class="wrap-login100">
-      <form class="login100-form validate-form" #loginForm=ngForm (ngSubmit)="onSubmit()">
+      <form class="login100-form validate-form" #RequestResetForm=ngForm (ngSubmit)="onSubmit()">
         <div style="padding-bottom: 3%">
           <span class="login100-form-logo">
 
@@ -47,9 +21,7 @@
         <span class="login100-form-title p-b-34 p-t-27">
         Send Email for Reset password
         </span>
-        <div class="alert alert-danger" [hidden]="!error">
-          {{error}}
-        </div>
+        
 
         <div class="wrap-input100 validate-input" data-validate="Enter username">
           <input type="email" name="email" class="input100" id="inputEmail3" placeholder="Email"
@@ -57,15 +29,10 @@
           <span class="focus-input100" data-placeholder="&#xf207;"></span>
         </div>
 
-        <div class="wrap-input100 validate-input" data-validate="Enter password">
-          <input type="password" name="password" class="input100" id="inputPassword3" placeholder="Password"
-            [(ngModel)]="form.password" required>
-          <span class="focus-input100" data-placeholder="&#xf191;"></span>
-        </div>
 
 
         <div class="container-login100-form-btn">
-          <button type="submit" class="login100-form-btn" [disabled]="!loginForm.valid">Unlock</button>
+          <button type="submit" class="login100-form-btn" [disabled]="!RequestResetForm.valid">Unlock</button>
         </div>
 
       </form>

@@ -11,7 +11,47 @@ import '../../../assets/js/sl-district-maps.min';
 export class ColombomapComponent implements OnInit {
 
   constructor() { }
-
+  /*
+{ value: 'area-01', viewValue: 'Agulana' },
+{ value: 'area-02', viewValue: 'Athurugiriya' },
+{ value: 'area-03', viewValue: 'Bambalapitiya' },
+{ value: 'area-04', viewValue: 'Boralesgamuwa' },
+{ value: 'area-05', viewValue: 'Borella' },
+{ value: 'area-06', viewValue: 'Dehiwala' },
+{ value: 'area-07', viewValue: 'Homagama' },
+{ value: 'area-08', viewValue: 'Hospital Police' },
+{ value: 'area-09', viewValue: 'Jayawardanapura' },
+{ value: 'area-10', viewValue: 'Kahathuduwa' },
+{ value: 'area-11', viewValue: 'Kirulapone' },
+{ value: 'area-12', viewValue: 'Kohuwala' },
+{ value: 'area-13', viewValue: 'Kollupitiya' },
+{ value: 'area-14', viewValue: 'Kottawa' },
+{ value: 'area-15', viewValue: 'Maharagama' },
+{ value: 'area-16', viewValue: 'Meegoda' },
+{ value: 'area-17', viewValue: 'Mirihana' },
+{ value: 'area-18', viewValue: 'Moragahahena' },
+{ value: 'area-19', viewValue: 'Moratumulla' },
+{ value: 'area-20', viewValue: 'Moratuwa' },
+{ value: 'area-21', viewValue: 'Mt-Lavinia' },
+{ value: 'area-22', viewValue: 'Padukka' },
+{ value: 'area-23', viewValue: 'Panadura' },
+{ value: 'area-24', viewValue: 'Piliyandala' },
+{ value: 'area-25', viewValue: 'Welikada' },
+{ value: 'area-26', viewValue: 'Wellawatte' }   */
+// tslint:disable: member-ordering
+  boralesgamuwa = 55;
+  colombo = 125;
+  dehiwalamtlavinia = 95;
+  homagama = 45;
+  kaduwela = 85;
+  kolonnawa = 65;
+  kotikawatte = 35;
+  maharagama = 15;
+  moratuwa = 85;
+  seethawaka = 65;
+  seethawakapura = 145;
+  srijayewardenapurakotte = 35;
+  kesbewa = 5;
   ngOnInit() {
     $('.mapcontainer').mapael({
       map: {
@@ -19,123 +59,111 @@ export class ColombomapComponent implements OnInit {
         defaultArea: {
           attrs: {
             stroke: '#fff',
-            'stroke-width': 1
+            'stroke-width': 0.75
           },
           attrsHover: {
-            'stroke-width': 2
+            'stroke-width': 1.5
           }
         }
       },
       legend: {
         area: {
-          title: 'Population of France by department',
+          title: 'Deths of colombo district by municipal-council',
           slices: [
             {
               max: 25,
               attrs: {
                 fill: '#BBDEFB'
               },
-              label: 'Less than de 300 000 inhabitants'
+              label: 'Less than the 25 Deths'
             },
             {
               min: 25,
               max: 50,
               attrs: {
-                fill: '#1F65C0'
+                fill: '#42A5F5'
               },
-              label: 'Less than de 300 000 inhabitants'
+              label: 'Between 25 and 50 Deths'
             },
             {
               min: 50,
               max: 75,
               attrs: {
-                fill: '#1976D2'
+                fill: '#1E88E5'
               },
-              label: 'Between 100 000 and 500 000 inhabitants'
+              label: 'Between 50 and 75 Deths'
             },
             {
               min: 75,
               max: 100,
               attrs: {
-                fill: '#1E88E5'
+                fill: '#1976D2'
               },
-              label: 'Between 500 000 and 1 000 000 inhabitants'
+              label: 'Between 75 and 100 Deths'
             },
             {
               min: 100,
               attrs: {
-                fill: '#42A5F5'
+                fill: '#1F65C0'
               },
-              label: 'More than 1 million inhabitants'
+              label: 'More than 100 Deths'
             }
           ]
         }
       },
       areas: {
         'division-boralesgamuwa-urban-council': {
-          value: '100',
-          href: '#',
-          tooltip: { content: '<span style="font-weight:bold;">boralesgamuwa</span><br />Population : 100' }
+          value: this.boralesgamuwa,
+          tooltip: { content: '<span style="font-weight:bold;">boralesgamuwa </span><br />Deths : ' + this.boralesgamuwa}
         },
         'division-colombo-municipal-council': {
-          value: '50',
-          href: '#',
-          tooltip: { content: '<span style="font-weight:bold;">colombo (75)</span><br />Population : 50' }
+          value: this.colombo,
+          tooltip: { content: '<span style="font-weight:bold;">colombo </span><br />Deths : ' + this.colombo }
         },
         'division-dehiwala-mtlavinia-municipal-council': {
-          value: '50',
-          href: '#',
-          tooltip: { content: '<span style="font-weight:bold;">dehiwala-mtlavinia </span><br />Deths : 90' }
+          value: this.dehiwalamtlavinia,
+          tooltip: { content: '<span style="font-weight:bold;">dehiwala-mtlavinia </span><br />Deths : ' + this.dehiwalamtlavinia }
         },
         'division-homagama-pradeshiya-sabha': {
-          value: '90',
-          href: '#',
-          tooltip: { content: '<span style="font-weight:bold;">homagama (69)</span><br />Population : 2' }
+          value: this.homagama,
+          tooltip: { content: '<span style="font-weight:bold;">homagama </span><br />Deths : ' + this.homagama }
         },
         'division-kaduwela-municipal-council': {
-          value: '35',
-          href: '#',
-          tooltip: { content: '<span style="font-weight:bold;">Hauts-de-Seine (92)</span><br />Population : 9' }
+          value: this.kaduwela,
+          tooltip: { content: '<span style="font-weight:bold;">kaduwela </span><br />Deths : ' + this.kaduwela}
         },
         'division-kolonnawa-urban-council': {
-          value: '70',
-          href: '#',
-          tooltip: { content: '<span style="font-weight:bold;">Seine-Saint-Denis (93)</span><br />Population : 7' }
+          value: this.kolonnawa,
+          tooltip: { content: '<span style="font-weight:bold;">kolonnawa </span><br />Deths : ' + this.kolonnawa }
         },
         'division-kotikawatte-mulleriyawa-pradeshiya-sabha': {
-          value: '7',
-          href: '#',
-          tooltip: { content: '<span style="font-weight:bold;">Pas-de-Calais (62)</span><br />Population : 40' }
+          value: this.kotikawatte,
+          tooltip: { content: '<span style="font-weight:bold;">kotikawatte </span><br />Deths : ' + this.kotikawatte }
         },
         'division-maharagama-urban-council': {
-          value: '40',
-          href: '#',
-          tooltip: { content: '<span style="font-weight:bold;">Gironde (33)</span><br />Population : 75' }
+          value: this.maharagama,
+          tooltip: { content: '<span style="font-weight:bold;">maharagama </span><br />Deths : ' + this.maharagama }
         },
         'division-moratuwa-municipal-council': {
-          value: '75',
-          href: '#',
-          tooltip: { content: '<span style="font-weight:bold;">Yvelines (78)</span><br />Population : 55' }
+          value: this.moratuwa,
+          tooltip: { content: '<span style="font-weight:bold;">moratuwa </span><br />Deths : ' + this.moratuwa}
         },
         'division-seethawaka-pradeshiya-sabha': {
-          value: '5',
-          href: '#',
-          tooltip: { content: '<span style="font-weight:bold;">Seine-et-Marne (77)</span><br />Population : 1347008' }
+          value: this.seethawaka,
+          tooltip: { content: '<span style="font-weight:bold;">seethawaka </span><br />Deths : ' + this.seethawaka}
         },
         'division-seethawakapura-urban-council': {
-          value: '60',
-          href: '#',
-          tooltip: { content: '<span style="font-weight:bold;">Val-de-Marne (94)</span><br />Population : 1340868' }
+          value: this.seethawakapura,
+          tooltip: { content: '<span style="font-weight:bold;">seethawakapura </span><br />Deths : ' + this.seethawakapura }
         },
         'division-sri-jayewardenapura-kotte-municipal-council': {
-          value: '180',
-          href: '#',
-          tooltip: { content: '<span style="font-weight:bold;">Loire-Atlantique (44)</span><br />Population : 1317685' }
+          value: this.srijayewardenapurakotte,
+          tooltip: { content: '<span style="font-weight:bold;">sri-jayewardenapura-kotte </span><br />Deths : '
+          + this.srijayewardenapurakotte}
         },
         'division-kesbewa-urban-council': {
-          value: '110',
-          href: '#',
-          tooltip: { content: '<span style="font-weight:bold;">Seine-Maritime (76)</span><br />Population : 1275952' }
+          value: this.kesbewa,
+          tooltip: { content: '<span style="font-weight:bold;">kesbewa </span><br />Deths : ' + this.kesbewa }
         }
 
       }
