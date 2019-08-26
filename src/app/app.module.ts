@@ -53,6 +53,7 @@ import { ResetComponent } from './pages/reset/reset.component';
 import { PasswordresetComponent } from './pages/passwordreset/passwordreset.component';
 import { RequestResetComponent } from './pages/request-reset/request-reset.component';
 import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
+import { AddDeceasedService } from './service/add-deceased.service';
 
 
 
@@ -109,10 +110,11 @@ FusionChartsModule.fcRoot(FusionCharts, FusionMaps, Srilanka, FusionTheme);
     ScreenlockService,
     LectureruserService,
     DemouserService,
+    AddDeceasedService,
     MultiuserhandleService,
     { provide: 'SnotifyToastConfig', useValue: ToastDefaults },
     SnotifyService
-   
+
   ],
   bootstrap: [AppComponent]
 })

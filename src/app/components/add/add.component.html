@@ -10,12 +10,12 @@
 
           <mat-horizontal-stepper [linear]="isLinear" #stepper>
             <mat-step [stepControl]="firstFormGroup">
-              <form [formGroup]="firstFormGroup">
+              <form #firstFormGroup=ngForm>
                 <ng-template matStepLabel>Deceased Details</ng-template>
                 <div class="row">
                   <div class="col-md-3">
                     <mat-form-field class="example-full-width" color="warn">
-                      <input matInput placeholder="SRJ No" type="text">
+                      <input matInput placeholder="SRJ No"  name="srjno"type="text" [(ngModel)]="form1.srjno">
                     </mat-form-field>
                   </div>
                 </div>
@@ -24,21 +24,21 @@
                   <div class="col-md-3">
 
                     <mat-form-field class="example-full-width" color="warn">
-                      <input matInput placeholder="Post Mortem Date" type="date">
+                      <input matInput placeholder="Post Mortem Date"  name="pmdate" type="date" [(ngModel)]="form1.pmdate">
                     </mat-form-field>
 
                   </div>
                   <div class="col-md-3">
 
                     <mat-form-field class="example-full-width" color="warn">
-                      <input matInput placeholder="Post Mortem Time" type="time">
+                      <input matInput placeholder="Post Mortem Time"  name="pmtime" type="time" [(ngModel)]="form1.pmtime">
                     </mat-form-field>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-6">
                     <mat-form-field class="example-full-width" color="warn">
-                      <input matInput placeholder="Full Name" type="text">
+                      <input matInput placeholder="Full Name"   name="fullname" type="text" [(ngModel)]="form1.fullname">
                     </mat-form-field>
                   </div>
 
@@ -46,7 +46,7 @@
                 <div class="row">
                   <div class="col-md-3">
                     <mat-form-field class="example-full-width" color="warn">
-                      <input matInput placeholder="Age" type="text">
+                      <input matInput placeholder="Age"  name="age" type="text" [(ngModel)]="form1.age">
                     </mat-form-field>
                   </div>
                 </div>
@@ -54,7 +54,7 @@
                   <div class="col-md-3">
                     <mat-form-field class="example-full-width" color="warn">
                       <mat-label>Sex</mat-label>
-                      <mat-select>
+                      <mat-select [(ngModel)]="form1.sex" name ="sex">
                         <mat-option value="male">Male</mat-option>
                         <mat-option value="female">Female</mat-option>
 
@@ -65,14 +65,14 @@
                 <div class="row">
                   <div class="col-md-6">
                     <mat-form-field class="example-full-width" color="warn">
-                      <input matInput placeholder="Address" type="text">
+                      <input matInput placeholder="Address" name = "address" type="text" [(ngModel)]="form1.address">
                     </mat-form-field>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-3">
                     <mat-form-field class="example-full-width" color="warn">
-                      <input matInput placeholder="Contact Number" type="text">
+                      <input matInput placeholder="Contact Number"  name= "contactno"type="text" [(ngModel)]="form1.contactno">
                     </mat-form-field>
                   </div>
 
@@ -85,19 +85,19 @@
               </form>
             </mat-step>
             <mat-step [stepControl]="secondFormGroup">
-              <form [formGroup]="secondFormGroup">
+              <form #secondFormGroup=ngForm>
                 <ng-template matStepLabel>Police Details</ng-template>
                 <div class="row">
                   <div class="col-md-6">
                     <mat-form-field class="example-full-width" color="warn">
-                      <input matInput placeholder="Full Name" type="text">
+                      <input matInput placeholder="Full Name" name="policefullname"type="text" [(ngModel)]="form2.policefullname">
                     </mat-form-field>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-3">
                     <mat-form-field class="example-full-width" color="warn">
-                      <input matInput placeholder="Tag Number" type="text">
+                      <input matInput placeholder="Tag Number" name="policetagno" type="text"[(ngModel)]="form2.policetag">
                     </mat-form-field>
                   </div>
                 </div>
@@ -105,7 +105,7 @@
                   <div class="col-md-3">
                     <mat-form-field class="example-full-width" color="warn">
                       <mat-label>Area</mat-label>
-                      <mat-select>
+                      <mat-select name="policearea" [(ngModel)]="form2.policearea">
                         <mat-option *ngFor="let area of areas" [value]="area.value">
                           {{area.viewValue}}
                         </mat-option>
@@ -117,7 +117,7 @@
                   <div class="col-md-3">
                     <mat-form-field class="example-full-width" color="warn">
                       <mat-label>Rank</mat-label>
-                      <mat-select>
+                      <mat-select name="policerank" [(ngModel)]="form2.policerank">
                         <mat-option value="igp">IGP</mat-option>
                         <mat-option value="sdig">SDIG</mat-option>
                         <mat-option value="sdig">SSP</mat-option>
@@ -137,7 +137,7 @@
                 <div class="row">
                   <div class="col-md-3">
                     <mat-form-field class="example-full-width" color="warn">
-                      <input matInput placeholder="Phone Number" type="text">
+                      <input matInput placeholder="Phone Number" type="text" name="policephoneno" [(ngModel)]="form2.policephoneno">
                     </mat-form-field>
                   </div>
 
@@ -146,7 +146,7 @@
                   <div class="col-md-3">
                     <mat-label>Scene Photographs</mat-label>
                     <div class="col-md-3">
-                      <mat-radio-group>
+                      <mat-radio-group name="policescenephoto" [(ngModel)]="form2.policescenephoto">
                         <mat-radio-button color="warn" value="yes">Yes</mat-radio-button>
                         <mat-radio-button color="warn" value="no">No</mat-radio-button>
                       </mat-radio-group>
@@ -157,7 +157,7 @@
                 <div class="row">
                   <div class="col-md-3">
                     <mat-form-field class="example-full-width" color="warn">
-                      <input matInput placeholder="Folder Name" type="text">
+                      <input matInput placeholder="Folder Name" type="text" name="policefoldername" [(ngModel)]="form2.policefoldername">
                     </mat-form-field>
                   </div>
                 </div>
@@ -169,13 +169,13 @@
                 </div>
               </form>
             </mat-step>
-            <mat-step [stepControl]="secondFormGroup">
-              <form [formGroup]="secondFormGroup">
+            <mat-step [stepControl]="thirdFormGroup">
+              <form #thirdFormGroup=ngForm (ngSubmit)="onsubmit()">
                 <ng-template matStepLabel>Order Given By</ng-template>
                 <div class="row">
                   <div class="col-md-6">
                     <mat-form-field class="example-full-width" color="warn">
-                      <input matInput placeholder="Full Name" type="text">
+                      <input matInput placeholder="Full Name" type="text" name="coronerfullname" [(ngModel)]="form3.coronerfullname">
                     </mat-form-field>
                   </div>
 
@@ -183,7 +183,7 @@
                 <div class="row">
                   <div class="col-md-3">
                     <mat-form-field class="example-full-width" color="warn">
-                      <input matInput placeholder="Area" type="text">
+                      <input matInput placeholder="Area" type="text" name="coronerarea" [(ngModel)]="form3.coronerarea">
                     </mat-form-field>
                   </div>
                 </div>
@@ -193,7 +193,7 @@
                   <div class="col-md-3">
                     <mat-label>Order given by</mat-label>
                     <div class="col-md-3">
-                      <mat-radio-group>
+                      <mat-radio-group name="coronerorder" [(ngModel)]="form3.coronerordergivenby">
                         <mat-radio-button color="warn" value="Coroner">Coroner</mat-radio-button>
                         <mat-radio-button color="warn" value="Magistrate">Magistrate</mat-radio-button>
                       </mat-radio-group>
@@ -205,11 +205,12 @@
                 <div class="clearfix"></div>
                 <div class="row">
                   <button mat-button matStepperPrevious class="btn btn-danger ">Back</button>
-                  <button mat-button matStepperNext class="btn btn-danger ">Next</button>
+                  <button mat-button (click)="stepper.reset()" class="btn btn-danger">Reset</button>
+                  <button type="submit" style="background-color: green;" class="btn pull-right">submit</button>
                 </div>
               </form>
             </mat-step>
-            <mat-step [stepControl]="secondFormGroup">
+            <!--<mat-step [stepControl]="secondFormGroup">
               <form [formGroup]="secondFormGroup">
                 <ng-template matStepLabel>Cause of Death</ng-template>
                 <div class="row">
@@ -606,9 +607,10 @@
 
               <div class="row">
                 <button mat-button matStepperPrevious class="btn btn-danger ">Back</button>
+                
                 <button mat-button (click)="stepper.reset()" class="btn btn-danger">Reset</button>
               </div>
-            </mat-step>
+            </mat-step>-->
           </mat-horizontal-stepper>
         </div>
 
