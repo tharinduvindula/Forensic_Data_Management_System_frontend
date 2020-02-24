@@ -2,6 +2,9 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { TokenService } from 'app/service/token.service';
+import { AddDeceasedService } from 'app/service/add-deceased.service';
+import { DECEASED } from 'app/models/DECEASED';
+import { RETREIVE } from 'app/models/RETREIVE';
 
 declare const $: any;
 declare interface RouteInfo {
@@ -42,15 +45,25 @@ export const ROUTES: RouteInfo[] = [
 export class RetrieveComponent implements OnInit {
   srj: string;
   reports: any[];
+  deceaseds : RETREIVE[] =[];
+ 
   constructor(
     private router: Router,
-    private Token: TokenService
-    ) {
+    private Token: TokenService,
+    private deceased: AddDeceasedService,
+    ) {//this.getAlldeceased();
      }
 
   ngOnInit() {
     this.reports = ROUTES.filter(menuItem => menuItem);
 
+  }
+
+  getAlldeceased() {
+    this.deceased.getalldeceased().subscribe((all) => {
+      this.deceaseds = all
+    }
+    );
   }
 
   Search() {

@@ -26,27 +26,27 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    canActivate: [BeforLoginService],
+    //canActivate: [BeforLoginService],
     path: 'login',
     component: LoginComponent,
   },
   {
-    canActivate: [BeforLoginService],
+    //canActivate: [BeforLoginService],
     path: 'reset',
     component: ResetComponent,
   },
   {
-    canActivate: [BeforLoginService],
+    //canActivate: [BeforLoginService],
     path: 'request-password-reset',
     component: RequestResetComponent,
   },
   {
-    canActivate: [ScreenlockService],
+    //canActivate: [ScreenlockService],
     path: 'lock',
     component: ScreenlockComponent,
   },
   {
-    canActivate: [AfterLoginService, DemouserService],
+    //canActivate: [AfterLoginService, DemouserService],
     path: 'demo',
     component: DemoLayoutComponent,
     children: [
@@ -56,7 +56,7 @@ const routes: Routes = [
       }]
   },
   {
-    canActivate: [AfterLoginService, AdminuserService],
+    //canActivate: [AfterLoginService, AdminuserService],
     path: 'admin',
     component: AdminLayoutComponent,
     children: [
@@ -66,7 +66,7 @@ const routes: Routes = [
       }],
   },
   {
-    canActivate: [AfterLoginService, LectureruserService],
+    //canActivate: [AfterLoginService, LectureruserService],
     path: 'lecturer',
     component: LecturerLayoutComponent,
     children: [
