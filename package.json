@@ -55,6 +55,7 @@
     "perfect-scrollbar": "1.1.0",
     "popper.js": "1.14.3",
     "raphael": "^2.2.8",
+    "restful-decorator": "^1.0.14",
     "rxjs": "6.3.3",
     "rxjs-compat": "6.3.3",
     "utf8": "^3.0.0",
