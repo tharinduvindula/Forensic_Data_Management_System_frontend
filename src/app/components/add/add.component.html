@@ -170,7 +170,7 @@
               </form>
             </mat-step>
             <mat-step [stepControl]="thirdFormGroup">
-              <form #thirdFormGroup=ngForm (ngSubmit)="onsubmit()">
+              <form #thirdFormGroup=ngForm>
                 <ng-template matStepLabel>Order Given By</ng-template>
                 <div class="row">
                   <div class="col-md-6">
@@ -205,12 +205,12 @@
                 <div class="clearfix"></div>
                 <div class="row">
                   <button mat-button matStepperPrevious class="btn btn-danger ">Back</button>
-                  <button mat-button (click)="stepper.reset()" class="btn btn-danger">Reset</button>
+                  <button mat-button matStepperNext class="btn btn-danger ">Next</button>
                 </div>
               </form>
             </mat-step>
             <mat-step [stepControl]="fourthFormGroup">
-              <form [formGroup]="fourthFormGroup">
+              <form #fourthFormGroup=ngForm>
                 <ng-template matStepLabel>Cause of Death</ng-template>
                 <div class="row">
                   <div class="col-md-6">
@@ -288,7 +288,7 @@
               </form>
             </mat-step>
             <mat-step [stepControl]="fifthFormGroup">
-              <form [formGroup]="fifthFormGroup">
+              <form  #fifthFormGroup=ngForm (ngSubmit)="onsubmit()">
                 <ng-template matStepLabel>Samples Collected</ng-template>
                 <div class="row">
 
@@ -596,12 +596,12 @@
 
                 </div>
                 <div class="row">
-                  <button mat-button matStepperPrevious class="btn btn-danger ">Back</button>
-                  <button mat-button matStepperNext class="btn btn-danger ">Next</button>
-                </div>
+                  <button mat-button matStepperPrevious class="btn btn-danger ">Back</button>              
+                  <button mat-button (click)="stepper.reset()" class="btn btn-danger">Reset</button>                
+                  <button type="submit" style="background-color: green;" class="btn pull-right">submit</button>                </div>
               </form>
             </mat-step>
-            <mat-step [stepControl]="secondFormGroup">
+            <!-- <mat-step [stepControl]="secondFormGroup">
               <ng-template matStepLabel>Done</ng-template>
 
               <div class="row">
@@ -609,7 +609,7 @@
                 <button mat-button (click)="stepper.reset()" class="btn btn-danger">Reset</button>                
                 <button type="submit" style="background-color: green;" class="btn pull-right">submit</button>
               </div>
-            </mat-step>
+            </mat-step> -->
           </mat-horizontal-stepper>
         </div>
 
