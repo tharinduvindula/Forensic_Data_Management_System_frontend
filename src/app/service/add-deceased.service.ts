@@ -35,4 +35,11 @@ export class AddDeceasedService{
   getalldeceased() {
     return this.http.get<RETREIVE[]>('http://127.0.0.1:8000/api/getalldeceased');
   }
+
+  addcod(data){
+    return this.http.post(`${this.baseUrl}/addcoddetails`, data);
+  }
+  addsamples(data){
+    return this.http.post(`${this.baseUrl}/addsamplesdetails`, data);
+  }
 }

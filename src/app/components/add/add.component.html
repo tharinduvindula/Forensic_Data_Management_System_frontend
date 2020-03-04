@@ -72,7 +72,7 @@
                 <div class="row">
                   <div class="col-md-3">
                     <mat-form-field class="example-full-width" color="warn">
-                      <input matInput placeholder="Contact Number"  name= "contactno"type="text" [(ngModel)]="form1.contactno">
+                      <input matInput placeholder="Contact Number"  name= "contactnumber" type="text" [(ngModel)]="form1.contactnumber">
                     </mat-form-field>
                   </div>
 
@@ -206,12 +206,11 @@
                 <div class="row">
                   <button mat-button matStepperPrevious class="btn btn-danger ">Back</button>
                   <button mat-button (click)="stepper.reset()" class="btn btn-danger">Reset</button>
-                  <button type="submit" style="background-color: green;" class="btn pull-right">submit</button>
                 </div>
               </form>
             </mat-step>
-            <mat-step [stepControl]="secondFormGroup">
-              <form [formGroup]="secondFormGroup">
+            <mat-step [stepControl]="fourthFormGroup">
+              <form [formGroup]="fourthFormGroup">
                 <ng-template matStepLabel>Cause of Death</ng-template>
                 <div class="row">
                   <div class="col-md-6">
@@ -288,8 +287,8 @@
                 </div>
               </form>
             </mat-step>
-            <mat-step [stepControl]="secondFormGroup">
-              <form [formGroup]="secondFormGroup">
+            <mat-step [stepControl]="fifthFormGroup">
+              <form [formGroup]="fifthFormGroup">
                 <ng-template matStepLabel>Samples Collected</ng-template>
                 <div class="row">
 
@@ -606,9 +605,9 @@
               <ng-template matStepLabel>Done</ng-template>
 
               <div class="row">
-                <button mat-button matStepperPrevious class="btn btn-danger ">Back</button>
-                
-                <button mat-button (click)="stepper.reset()" class="btn btn-danger">Reset</button>
+                <button mat-button matStepperPrevious class="btn btn-danger ">Back</button>                
+                <button mat-button (click)="stepper.reset()" class="btn btn-danger">Reset</button>                
+                <button type="submit" style="background-color: green;" class="btn pull-right">submit</button>
               </div>
             </mat-step>
           </mat-horizontal-stepper>

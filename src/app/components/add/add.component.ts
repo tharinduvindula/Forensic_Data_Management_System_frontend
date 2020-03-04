@@ -32,6 +32,8 @@ export class AddComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
+  fourthFormGroup: FormGroup;
+  fifthFormGroup: FormGroup;
   time = {hour: 13, minute: 30};
   meridian = true;
 
@@ -69,6 +71,12 @@ export class AddComponent implements OnInit {
     }); 
     this.thirdFormGroup = this._formBuilder.group({
       thirdCtrl: ['', Validators.required]
+    });
+    this.fourthFormGroup = this._formBuilder.group({
+      fourthCtrl: ['', Validators.required]
+    });
+    this.fifthFormGroup = this._formBuilder.group({
+      fifthCtrl: ['', Validators.required]
     });
   }
 
@@ -145,12 +153,30 @@ export class AddComponent implements OnInit {
     coronerordergivenby: null,
   }
 
+  public form4 ={
+    srjno: null,
+    a: null,
+    b: null,
+    c: null,
+    contributory_cause: null,
+    other_comments: null,
+    cod: null,
+    circumstances: null,
+  }
+  public form5 ={
+    srjno: null,
+  }
+
   onsubmit(){
     this.form2.srjno=this.form1.srjno;
     this.form3.srjno = this.form1.srjno;
+    this.form4.srjno = this.form1.srjno;
+    this.form5.srjno = this.form1.srjno;
     this.adddeceaseddetails();
     this.addcoronerdetails();
     this.addpolicedetails();
+    this.addcoddetails();
+    this.addsamplesdetails();
   }
   addpolicedetails(){
     this.adddeceased.addpolice(this.form2).subscribe(
@@ -167,6 +193,18 @@ export class AddComponent implements OnInit {
   }
   addcoronerdetails(){
     this.adddeceased.addcoroner(this.form3).subscribe(
+      data => { },
+      error => { }
+    );
+  }
+  addcoddetails(){
+    this.adddeceased.addcod(this.form4).subscribe(
+      data => { },
+      error => { }
+    );
+  }
+  addsamplesdetails(){
+    this.adddeceased.addsamples(this.form5).subscribe(
       data => { },
       error => { }
     );
