@@ -57,7 +57,6 @@
                       <mat-select [(ngModel)]="form1.sex" name ="sex">
                         <mat-option value="male">Male</mat-option>
                         <mat-option value="female">Female</mat-option>
-
                       </mat-select>
                     </mat-form-field>
                   </div>
@@ -216,13 +215,13 @@
                   <div class="col-md-6">
                     <h4><b>I</b></h4>
 
-                    <mat-form-field class="example-full-width" color="warn">
+                    <mat-form-field class="example-full-width" color="warn" [(ngModel)]="form4.a">
                       <input matInput placeholder="(a)" type="text">
                     </mat-form-field>
-                    <mat-form-field class="example-full-width" color="warn">
+                    <mat-form-field class="example-full-width" color="warn" [(ngModel)]="form4.b">
                       <input matInput placeholder="(b)" type="text">
                     </mat-form-field>
-                    <mat-form-field class="example-full-width" color="warn">
+                    <mat-form-field class="example-full-width" color="warn" [(ngModel)]="form4.c">
                       <input matInput placeholder="(c)" type="text">
                     </mat-form-field>
                   </div>
@@ -232,14 +231,14 @@
                   <div class="col-md-6">
                     <h5><b>II</b></h5>
 
-                    <mat-form-field class="example-full-width" color="warn">
+                    <mat-form-field class="example-full-width" color="warn" [(ngModel)]="form4.contributory_cause">
                       <input matInput placeholder="Contributory Causes" type="text">
                     </mat-form-field>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-6">
-                    <mat-form-field class="example-full-width" color="warn">
+                    <mat-form-field class="example-full-width" color="warn" [(ngModel)]="form4.other_comments">
                       <input matInput placeholder="Other Comments" type="text">
 
                     </mat-form-field>
@@ -249,7 +248,7 @@
                 <div class="row">
                   <div class="col-md-4">
 
-                    <mat-form-field color="warn">
+                    <mat-form-field color="warn" [(ngModel)]="form4.cod">
                       <mat-label>Generalized Cause of Death</mat-label>
                       <mat-select [formControl]="gcodControl">
                         <mat-option>-- None --</mat-option>
@@ -265,7 +264,7 @@
 
                   
                     <div class="col-md-3">
-                      <mat-form-field class="example-full-width" color="warn">
+                      <mat-form-field class="example-full-width" color="warn" [(ngModel)]="form4.circumstances">
                         <mat-label>Circumstances</mat-label>
                         <mat-select>
                           <mat-option value="accidental">Accidental</mat-option>
@@ -296,7 +295,7 @@
                     <h3><b>Government Analyst</b></h3>
                     <div class="row">
                       <div class="col-md-6">
-                        <mat-form-field class="example-full-width" color="warn">
+                        <mat-form-field class="example-full-width" color="warn" [(ngModel)]="form5.gactnumber">
                           <input matInput placeholder="CT Number" type="text">
                         </mat-form-field>
                       </div>
@@ -306,55 +305,55 @@
                     <p>
                       Number of specimens submitted: {{specimens1.selectedOptions.selected.length}}
                     </p>
-                    <mat-selection-list #specimens1>
+                    <mat-selection-list #list [(ngmodel)]="selectedOptions" (ngModelChange)="onNgModelChange($event)">
                       <div class="row">
                         <div class="col-md-4">
-                          <mat-list-option>Blood</mat-list-option>
+                          <mat-list-option [value]="gablood">Blood</mat-list-option>
                         </div>
                         <div class="col-md-4">
-                          <mat-list-option>Liver</mat-list-option>
+                          <mat-list-option [value]="galiver">Liver</mat-list-option>
                         </div>
                         <div class="col-md-4">
-                          <mat-list-option>Suspected Poison</mat-list-option>
+                          <mat-list-option [value]="gasuspectedpoison">Suspected Poison</mat-list-option>
                         </div>
                       </div>
                       <div class="row">
                         <div class="col-md-4">
-                          <mat-list-option>Urine</mat-list-option>
+                          <mat-list-option [value]="gaurine">Urine</mat-list-option>
                         </div>
                         <div class="col-md-4">
-                          <mat-list-option>Kidney</mat-list-option>
+                          <mat-list-option [value]="gakidney">Kidney</mat-list-option>
                         </div>
                         <div class="col-md-4">
-                          <mat-list-option>Tablets/Medicines</mat-list-option>
+                          <mat-list-option [value]="gamedicine">Tablets/Medicines</mat-list-option>
                         </div>
 
                       </div>
                       <div class="row">
                         <div class="col-md-4">
-                          <mat-list-option>Bile</mat-list-option>
+                          <mat-list-option [value]="gabile">Bile</mat-list-option>
                         </div>
                         <div class="col-md-4">
-                          <mat-list-option>Lungs</mat-list-option>
+                          <mat-list-option [value]="galungs">Lungs</mat-list-option>
                         </div>
                         <div class="col-md-4">
-                          <mat-list-option>Other (Specify)</mat-list-option>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-4">
-                          <mat-list-option>Stomach Contents</mat-list-option>
-                        </div>
-                        <div class="col-md-4">
-                          <mat-list-option>Vitreous humor</mat-list-option>
+                          <mat-list-option [value]="gaother">Other (Specify)</mat-list-option>
                         </div>
                       </div>
                       <div class="row">
                         <div class="col-md-4">
-                          <mat-list-option>Intestinal Contents</mat-list-option>
+                          <mat-list-option [value]="gastomach">Stomach Contents</mat-list-option>
                         </div>
                         <div class="col-md-4">
-                          <mat-list-option>Brain</mat-list-option>
+                          <mat-list-option [value]="gavitreous">Vitreous humor</mat-list-option>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <mat-list-option [value]="gaintestinal">Intestinal Contents</mat-list-option>
+                        </div>
+                        <div class="col-md-4">
+                          <mat-list-option [value]="gabrain">Brain</mat-list-option>
                         </div>
                       </div>
                     </mat-selection-list>
@@ -363,7 +362,7 @@
 
                       <div class="col-md-6">
 
-                        <mat-form-field class="example-full-width" color="warn">
+                        <mat-form-field class="example-full-width" color="warn" [(ngModel)]="form5.gaanalysis">
                           <input matInput placeholder="No of analysis required (Please specify the required poisons)"
                             type="text">
                         </mat-form-field>
@@ -374,7 +373,7 @@
 
                       <div class="col-md-3">
 
-                        <mat-form-field class="example-full-width" color="warn">
+                        <mat-form-field class="example-full-width" color="warn" [(ngModel)]="form5.gadate">
                           <input matInput placeholder="Samples Deliver Date" type="date">
 
                         </mat-form-field>
@@ -382,7 +381,7 @@
                       </div>
                       <div class="col-md-3">
 
-                        <mat-form-field class="example-full-width" color="warn">
+                        <mat-form-field class="example-full-width" color="warn" [(ngModel)]="form5.gatime">
                           <input matInput placeholder="Samples Deliver Time" type="time">
                         </mat-form-field>
                       </div>
@@ -398,7 +397,7 @@
                     <h3><b>MRI</b></h3>
                     <div class="row">
                       <div class="col-md-6">
-                        <mat-form-field class="example-full-width" color="warn">
+                        <mat-form-field class="example-full-width" color="warn" [(ngModel)]="form5.mrirefnum">
                           <input matInput placeholder="Reference Number" type="text">
                         </mat-form-field>
                       </div>
@@ -465,7 +464,7 @@
 
                       <div class="col-md-6">
 
-                        <mat-form-field class="example-full-width" color="warn">
+                        <mat-form-field class="example-full-width" color="warn" [(ngModel)]="form5.mrianalysis">
                           <input matInput placeholder="No of analysis required (Please specify the required poisons)"
                             type="text">
                         </mat-form-field>
@@ -476,7 +475,7 @@
 
                       <div class="col-md-3">
 
-                        <mat-form-field class="example-full-width" color="warn">
+                        <mat-form-field class="example-full-width" color="warn" [(ngModel)]="form5.mridate">
                           <input matInput placeholder="Samples Deliver Date" type="date">
                         </mat-form-field>
 
@@ -484,7 +483,7 @@
                       </div>
                       <div class="col-md-3">
 
-                        <mat-form-field class="example-full-width" color="warn">
+                        <mat-form-field class="example-full-width" color="warn" [(ngModel)]="form5.mritime">
                           <input matInput placeholder="Samples Deliver Time" type="time">
                         </mat-form-field>
                       </div>
@@ -500,7 +499,7 @@
                     <h3><b>Other</b></h3>
                     <div class="row">
                       <div class="col-md-6">
-                        <mat-form-field class="example-full-width" color="warn">
+                        <mat-form-field class="example-full-width" color="warn" [(ngModel)]="form5.otherrefnum">
                           <input matInput placeholder="Reference Number" type="text">
                         </mat-form-field>
                       </div>
@@ -567,7 +566,7 @@
 
                       <div class="col-md-6">
 
-                        <mat-form-field class="example-full-width" color="warn">
+                        <mat-form-field class="example-full-width" color="warn" [(ngModel)]="form5.otheranalysis">
                           <input matInput placeholder="No of analysis required (Please specify the required poisons)"
                             type="text">
                         </mat-form-field>
@@ -578,14 +577,14 @@
 
                       <div class="col-md-3">
 
-                        <mat-form-field class="example-full-width" color="warn">
+                        <mat-form-field class="example-full-width" color="warn" [(ngModel)]="form5.otherdate">
                           <input matInput placeholder="Samples Deliver Date" type="date">
                         </mat-form-field>
 
                       </div>
                       <div class="col-md-3">
 
-                        <mat-form-field class="example-full-width" color="warn">
+                        <mat-form-field class="example-full-width" color="warn" [(ngModel)]="form5.othertime">
                           <input matInput placeholder="Samples Deliver Time" type="time">
                         </mat-form-field>
                       </div>

@@ -37,6 +37,8 @@ export class AddComponent implements OnInit {
   time = {hour: 13, minute: 30};
   meridian = true;
 
+  selectedOptions: string[] = ['']
+
   toggleMeridian() {
       this.meridian = !this.meridian;
   }
@@ -80,6 +82,9 @@ export class AddComponent implements OnInit {
     });
   }
 
+  onNgModelChange(event){
+    console.log('on ng model change', event);
+  }
 // tslint:disable: member-ordering
   gcodControl = new FormControl();
   gcodGroups: GcodGroup[] = [
@@ -165,6 +170,57 @@ export class AddComponent implements OnInit {
   }
   public form5 ={
     srjno: null,
+    gactnumber: null,
+    gaanalysis: null,
+    gadate: null,
+    gatime: null,
+    gablood: null,
+    galiver: null,
+    gasuspectedpoison: null,
+    gaurine: null,
+    gakidney: null,
+    gamedicine: null,
+    gabile: null,
+    galungs: null,
+    gaother: null,
+    gastomach:null,
+    gavitreous: null,
+    gaintestinal: null,
+    gabrain: null,
+    mrirefnum: null,
+    mrianalysis: null,
+    mridate: null,
+    mritime: null,
+    mriblood: null,
+    mriliver: null,
+    mrisuspectedpoison: null,
+    mriurine: null,
+    mrikidney: null,
+    mrimedicine: null,
+    mribile: null,
+    mrilungs: null,
+    mriother: null,
+    mristomach: null,
+    mrivitreous: null,
+    mriintestinal: null,
+    mribrain: null,
+    otherrefnum: null,
+    otheranalysis: null,
+    otherdate: null,
+    othertime: null,
+    otherblood: null,
+    otherliver: null,
+    othersuspectedpoison: null,
+    otherurine: null,
+    otherkidney: null,
+    othermedicine: null,
+    otherbile: null,
+    otherlungs: null,
+    otherother: null,
+    otherstomach: null,
+    othervitreous: null,
+    otherintestinal: null,
+    otherbrain: null,
   }
 
   onsubmit(){
