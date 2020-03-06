@@ -37,12 +37,41 @@ export class AddComponent implements OnInit {
   time = {hour: 13, minute: 30};
   meridian = true;
 
-  selectedOptions: string[] = ['']
+  selectedOptions1: string[] = [''];
+  selectedOptions2: string[] = [''];
+  selectedOptions3: string[] = [''];
 
   toggleMeridian() {
       this.meridian = !this.meridian;
   }
 
+  sp1: {
+    name:string;
+  }[]=[
+    {name: "Blood"},
+    {name: "Liver"},
+    {name: "Suspected Poison"},
+    {name: "Urine"},
+    {name: "Kidney"},
+  
+];
+ sp2: {
+    name:string;
+  }[]=[
+    {name: "Tablets/Medicines"},
+    {name: "Bile"},
+    {name: "Lungs"},
+    {name: "Other (Specify)"},
+  ];
+  sp3: {
+    name:string;
+  }[]=[
+    {name:"Stomach Contents"},
+    {name: "Vitreous humor"},
+    {name: "Intestinal Contents"},
+    {name: "Brain"},
+  ];
+ 
 
 // tslint:disable-next-line: member-ordering
   areas: Area[] = [
@@ -174,56 +203,24 @@ export class AddComponent implements OnInit {
     gaanalysis: null,
     gadate: null,
     gatime: null,
-    gablood: null,
-    galiver: null,
-    gasuspectedpoison: null,
-    gaurine: null,
-    gakidney: null,
-    gamedicine: null,
-    gabile: null,
-    galungs: null,
-    gaother: null,
-    gastomach:null,
-    gavitreous: null,
-    gaintestinal: null,
-    gabrain: null,
+    gaspecimens:this.selectedOptions1,
     mrirefnum: null,
     mrianalysis: null,
     mridate: null,
     mritime: null,
-    mriblood: null,
-    mriliver: null,
-    mrisuspectedpoison: null,
-    mriurine: null,
-    mrikidney: null,
-    mrimedicine: null,
-    mribile: null,
-    mrilungs: null,
-    mriother: null,
-    mristomach: null,
-    mrivitreous: null,
-    mriintestinal: null,
-    mribrain: null,
+    mrispecimens:this.selectedOptions2,
     otherrefnum: null,
     otheranalysis: null,
     otherdate: null,
     othertime: null,
-    otherblood: null,
-    otherliver: null,
-    othersuspectedpoison: null,
-    otherurine: null,
-    otherkidney: null,
-    othermedicine: null,
-    otherbile: null,
-    otherlungs: null,
-    otherother: null,
-    otherstomach: null,
-    othervitreous: null,
-    otherintestinal: null,
-    otherbrain: null,
+    otherspecimens:this.selectedOptions3,
   }
 
   onsubmit(){
+    
+    console.log(this.selectedOptions1);
+    console.log(this.selectedOptions2);
+    console.log(this.selectedOptions3);
     this.form2.srjno=this.form1.srjno;
     this.form3.srjno = this.form1.srjno;
     this.form4.srjno = this.form1.srjno;
