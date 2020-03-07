@@ -36,10 +36,9 @@ export class AddComponent implements OnInit {
   fifthFormGroup: FormGroup;
   time = {hour: 13, minute: 30};
   meridian = true;
-
-  selectedOptions1: string[] = [''];
-  selectedOptions2: string[] = [''];
-  selectedOptions3: string[] = [''];
+  selectedOptions1: string[] = [];
+  selectedOptions2: string[] = [];
+  selectedOptions3: string[] = [];
 
   toggleMeridian() {
       this.meridian = !this.meridian;
@@ -203,28 +202,28 @@ export class AddComponent implements OnInit {
     gaanalysis: null,
     gadate: null,
     gatime: null,
-    gaspecimens:this.selectedOptions1,
+    gaspecimens:null,
     mrirefnum: null,
     mrianalysis: null,
     mridate: null,
     mritime: null,
-    mrispecimens:this.selectedOptions2,
+    mrispecimens:null,
     otherrefnum: null,
     otheranalysis: null,
     otherdate: null,
     othertime: null,
-    otherspecimens:this.selectedOptions3,
+    otherspecimens:null,
   }
 
   onsubmit(){
     
-    console.log(this.selectedOptions1);
-    console.log(this.selectedOptions2);
-    console.log(this.selectedOptions3);
     this.form2.srjno=this.form1.srjno;
     this.form3.srjno = this.form1.srjno;
     this.form4.srjno = this.form1.srjno;
-    this.form5.srjno = this.form1.srjno;
+    this.form5.srjno = this.form1.srjno;    
+    this.form5.gaspecimens = this.selectedOptions1;    
+    this.form5.mrispecimens = this.selectedOptions2;    
+    this.form5.otherspecimens = this.selectedOptions3;
     this.adddeceaseddetails();
     this.addcoronerdetails();
     this.addpolicedetails();
