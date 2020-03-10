@@ -2,7 +2,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="card">
-          <div class="card-header card-header-warning">
+          <div class="card-header card-header-default" style="background-color: #25393b; color:white">
             <h4 class="card-title">Retrieve Report</h4>
             <p class="card-category">Search report to view, edit and delete </p>
           </div>
@@ -20,7 +20,7 @@
                   <div class="card">                    
                       <div class="card-body table-responsive">
                           <table class="table table-hover">
-                              <thead class="text-warning">
+                              <thead class="text-default" style="color:black">
                                   <th class="cname">SRJ No</th>
                                   <th class="cname">Deceased Name</th>
                                   <th class="cname">View Report</th>
@@ -32,12 +32,12 @@
                                   <tr *ngFor="let menuItem of reports">
                                     <td class="text-dark">{{menuItem.srj}}</td>
                                     <td>{{menuItem.fname}}</td>
-                                    <td><button mat-raised-button (click)=onview($event) type="submit"
-                                      class="btn btn-info"><i class="material-icons">view_list</i> View</button></td>
-                                    <td><button mat-raised-button (click)=onedit($event) type="submit"
-                                        class="btn btn-success"><i class="material-icons">edit </i> Edit</button></td>
-                                    <td><button mat-raised-button (click)=ondelete($event) type="submit"
-                                      class="btn btn-danger"><i class="material-icons">delete </i> Delete</button></td>
+                                    <td><button mat-raised-button (click)=onview($event) type="submit"style="background-color: #e6e9e9; color:black"
+                                      class="btn btn-default"><i class="material-icons">view_list</i> View</button></td>
+                                    <td><button mat-raised-button (click)=onedit($event) type="submit" style="background-color: #e6e9e9; color:black"
+                                        class="btn btn-default"><i class="material-icons">edit </i> Edit</button></td>
+                                    <td><button mat-raised-button (click)=ondelete($event) type="submit" style="background-color: #e6e9e9; color:black"
+                                      class="btn btn-default"><i class="material-icons">delete </i> Delete</button></td>
                                   </tr>
                                   <!---<tr *ngFor="let deceased of getAlldeceased()">
                                     <td class="text-dark">{{deceased.srjno}}</td>

@@ -25,7 +25,7 @@
         </div>
         <div class="col-md-8">
           <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-            <div class="card-header card-header-danger"
+            <div class="card-header card-header-default" style="background-color: #25393b; color:white"
               style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
               <h4 class="card-title">Edit Profile</h4>
               <p class="card-category">Complete profile</p>
@@ -120,8 +120,7 @@
       <div class="row">
         <div class="col-md-8">
           <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-            <div class="card-header card-header-danger"
-              style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <div class="card-header card-header-default" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);background-color: #25393b; color:white">
               <h4 class="card-title">Edit Profile</h4>
               <p class="card-category">Complete profile</p>
             </div>
@@ -193,7 +192,7 @@
                   <div class="col-sm-10 offset-2">
 
                     <button type="submit" [disabled]="!userupdateForm.valid" 
-                      class="btn btn-danger pull-right">Update
+                      class="btn btn-default pull-right"    style="background-color: #e6e9e9; color:black">Update
                       Profile</button>
                     <div class="alert alert-danger" [hidden]="!error">
                       {{error}}
@@ -219,7 +218,7 @@
                 [src]="'data:image/png;base64,'+ form.photo" *ngIf="form.photo" />
             </div>
             <div class="upload-btn-wrapper">
-              <button class="btn btn-danger">
+              <button class="btn btn-default"  style="background-color: #e6e9e9; color:black" >
                 <i class="material-icons"> add_photo_alternate</i>add new Photo
               </button>
               <input #imageInput type="file" accept="image/*" (change)="picked($event)">
