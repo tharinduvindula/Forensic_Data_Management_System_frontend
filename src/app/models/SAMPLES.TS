@@ -29,8 +29,8 @@ export class SAMPLES{
         otherrefnum,
         otheranalysis,
         otherdate,
-        othertime,        
-        otherspecimens ){
+        othertime,
+        otherspecimens ) {
             this.srjno = srjno;
             this.gactnumber = gactnumber;
             this.gaanalysis = gaanalysis;
@@ -45,7 +45,7 @@ export class SAMPLES{
             this.otherrefnum = otherrefnum;
             this.otheranalysis = otheranalysis;
             this.otherdate = otherdate;
-            this.othertime = othertime;            
+            this.othertime = othertime;
             this.otherspecimens = otherspecimens;
         }
     

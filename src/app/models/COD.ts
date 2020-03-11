@@ -7,13 +7,13 @@ export class COD{
     cod = null;
     circumstances = null;
 
-    constructor(a,b,c,contributory_cause,other_comments,cod,circumstances){
-        this.a=a;
-        this.b=b;
-        this.c=c;
-        this.contributory_cause=contributory_cause;
-        this.other_comments=other_comments;
-        this.cod=cod;
-        this.circumstances=circumstances;
+    constructor(a, b, c, contributory_cause, other_comments, cod, circumstances){
+        this.a = a;
+        this.b = b;
+        this.c = c;
+        this.contributory_cause = contributory_cause;
+        this.other_comments = other_comments;
+        this.cod = cod;
+        this.circumstances = circumstances;
     }
 }

@@ -8,7 +8,7 @@ export class POLICE {
     policescenephoto = null;
     policefoldername = null;
     
-    constructor(srjno,policefullname,policetag,polecearea,policerank,policephoneno ,policescenephoto,policefoldername) {
+    constructor(srjno, policefullname, policetag, polecearea, policerank, policephoneno , policescenephoto, policefoldername) {
         this.srjno = srjno;
         this.policefullname = policefullname;
         this.policetag = policetag;
