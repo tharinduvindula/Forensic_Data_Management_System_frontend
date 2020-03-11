@@ -29,9 +29,9 @@
                                   
                               </thead>
                               <tbody>
-                                  <tr *ngFor="let menuItem of reports">
-                                    <td class="text-dark">{{menuItem.srj}}</td>
-                                    <td>{{menuItem.fname}}</td>
+                                  <tr *ngFor="let deceased of getall">
+                                    <td class="text-dark">{{deceased["srjno"]}}</td>
+                                    <td>{{deceased["fullname"]}}</td>
                                     <td><button mat-raised-button (click)=onview($event) type="submit"style="background-color: #e6e9e9; color:black"
                                       class="btn btn-default"><i class="material-icons">view_list</i> View</button></td>
                                     <td><button mat-raised-button (click)=onedit($event) type="submit" style="background-color: #e6e9e9; color:black"
