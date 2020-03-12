@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AddDeceasedService } from 'app/service/add-deceased.service';
 import { TokenService } from 'app/service/token.service';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { RETREIVE } from 'app/models/RETREIVE';
 
 @Component({
@@ -49,7 +49,8 @@ export class ReportViewComponent implements OnInit {
   }
 
   constructor(private Deceased: AddDeceasedService, private Activatedroute: ActivatedRoute, private Token: TokenService) { 
-    this.form1.srjno = "27";
+    console.log(this.Activatedroute.snapshot.queryParamMap.get("srjno"));
+    this.form1.srjno = this.Activatedroute.snapshot.queryParamMap.get("srjno");
     this.getdeceased();
   }
 

@@ -59,21 +59,21 @@ export class RetrieveComponent implements OnInit {
 
   }
 
-  onview(event) {
-    event.preventDefault();   
+  onview(srjno1) {
+    event.preventDefault();
     console.log(event);
     this.router.navigate([`/${this.Token.payload(this.Token.gettoken()).ud.usertype}` + '/report-view'],
-    { queryParams: { srjno: "" }, skipLocationChange: true });
+    { queryParams: { srjno: srjno1 }});
   }
-  onedit(event) {
+  onedit(srjno1) {
     event.preventDefault();
     this.router.navigate([`/${this.Token.payload(this.Token.gettoken()).ud.usertype}` + '/report-edit'],
-     { queryParams: { srjno: "" }, skipLocationChange: true });
+     { queryParams: { srjno: srjno1 }, skipLocationChange: true });
   }
-  ondelete(event) {
+  ondelete(srjno1) {
     event.preventDefault();
     this.router.navigate([`/${this.Token.payload(this.Token.gettoken()).ud.usertype}` + '/report-delete'],
-     { queryParams: { srjno :"" }, skipLocationChange: true });
+     { queryParams: { srjno :srjno1 }, skipLocationChange: true });
   }
 
 }
