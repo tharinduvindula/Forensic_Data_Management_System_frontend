@@ -18,6 +18,7 @@ export interface GcodGroup {
   gcod: Gcod[];
 }
 
+
 @Component(
   {
   selector: 'app-add',
@@ -39,6 +40,8 @@ export class AddComponent implements OnInit {
   selectedOptions1: string[] = [];
   selectedOptions2: string[] = [];
   selectedOptions3: string[] = [];
+  submitted=false;
+  errors=[];
 
   toggleMeridian() {
       this.meridian = !this.meridian;
@@ -94,7 +97,7 @@ export class AddComponent implements OnInit {
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
+      firstCtrl: ['', Validators.required],
     });
     this.secondFormGroup = this._formBuilder.group({
       secondCtrl: ['', Validators.required]
@@ -109,12 +112,12 @@ export class AddComponent implements OnInit {
       fifthCtrl: ['', Validators.required]
     });
   }
-
+  
   onNgModelChange(event){
     console.log('on ng model change', event);
   }
 // tslint:disable: member-ordering
-  gcodControl = new FormControl();
+  //gcodControl = new FormControl();
   gcodGroups: GcodGroup[] = [
     {
       name: 'Natural Death',
@@ -157,8 +160,7 @@ export class AddComponent implements OnInit {
     }
   ];
 
-  public form1 = {
-    id: null,
+  public form = {
     srjno: null,
     pmdate: null,
     pmtime: null,
@@ -167,9 +169,6 @@ export class AddComponent implements OnInit {
     sex: null,
     address: null,
     contactnumber: null,
-  }
-  public form2 = {
-    srjno: null,
     policefullname : null,
     policetagno : null,
     policearea : null,
@@ -177,27 +176,9 @@ export class AddComponent implements OnInit {
     policephoneno: null,
     policescenephoto: null,
     policefoldername: null,
-
-  }
-  public form3 ={
-    srjno: null,
     coronerfullname: null,
     coronerarea: null,
     coronerordergivenby: null,
-  }
-
-  public form4 ={
-    srjno: null,
-    a: null,
-    b: null,
-    c: null,
-    contributory_cause: null,
-    other_comments: null,
-    cod: null,
-    circumstances: null,
-  }
-  public form5 ={
-    srjno: null,
     gactnumber: null,
     gaanalysis: null,
     gadate: null,
@@ -216,50 +197,30 @@ export class AddComponent implements OnInit {
   }
 
   onsubmit(){
-    
-    this.form2.srjno=this.form1.srjno;
-    this.form3.srjno = this.form1.srjno;
-    this.form4.srjno = this.form1.srjno;
-    this.form5.srjno = this.form1.srjno;    
-    this.form5.gaspecimens = this.selectedOptions1;    
-    this.form5.mrispecimens = this.selectedOptions2;    
-    this.form5.otherspecimens = this.selectedOptions3;
+    this.submitted=true; 
+    this.form.gaspecimens = this.selectedOptions1;    
+    this.form.mrispecimens = this.selectedOptions2;    
+    this.form.otherspecimens = this.selectedOptions3;
     this.adddeceaseddetails();
-    this.addcoronerdetails();
-    this.addpolicedetails();
-    this.addcoddetails();
-    this.addsamplesdetails();
-  }
-  addpolicedetails(){
-    this.adddeceased.addpolice(this.form2).subscribe(
-      data => {},
-      error => {}
-    );
   }
   adddeceaseddetails(){
-    this.adddeceased.adddeceased(this.form1).subscribe(
-      data => { },
-      error => { }
+    this.adddeceased.adddeceased(this.form).subscribe(
+      data => { 
+        if(data["message"]="success"){
+          this.errors["srjdup"]=true;
+          this.errors["overall"]=false;
+        }
+      },
+      error => 
+      {             
+        if(error.error.error=="SRJ no already exists") {   
+          this.errors["srjdup"]=true;
+        }
+        if(error.error.error=="Oops something went wrong!"){
+          this.errors["overall"]=true;
+        }
+      }
     );
-
-  }
-  addcoronerdetails(){
-    this.adddeceased.addcoroner(this.form3).subscribe(
-      data => { },
-      error => { }
-    );
-  }
-  addcoddetails(){
-    this.adddeceased.addcod(this.form4).subscribe(
-      data => { },
-      error => { }
-    );
-  }
-  addsamplesdetails(){
-    this.adddeceased.addsamples(this.form5).subscribe(
-      data => { },
-      error => { }
-    );
-  }
+  }  
 
 }
