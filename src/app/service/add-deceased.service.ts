@@ -22,25 +22,11 @@ export class AddDeceasedService{
 
   }
 
-  addpolice(data) {
-    return this.http.post(`${this.baseUrl}/addpolicedetails`, data);
-  }
   adddeceased(data) {
     return this.http.post(`${this.baseUrl}/adddeceaseddetails`, data);
   }
-  addcoroner(data) {
-    return this.http.post(`${this.baseUrl}/addcoronerdetails`, data);
-  }
-
   getalldeceased() {
     return this.http.get(`${this.baseUrl}/getalldeceased`);
-  }
-
-  addcod(data){
-    return this.http.post(`${this.baseUrl}/addcoddetails`, data);
-  }
-  addsamples(data){
-    return this.http.post(`${this.baseUrl}/addsamplesdetails`, data);
   }
   
   getdeceased(data){

@@ -65,7 +65,7 @@ export class ReportViewComponent implements OnInit {
       this.form.pmtime = all.pmtime,
       this.form.fullname = all.policefullname,
       this.form.ptagno = all.policetag,
-      this.form.parea = all.polecearea,
+      this.form.parea = all.policearea,
       this.form.scenephotographs = all.policescenephoto,
       this.form.foldername = all.policefoldername,
       this.form.ordergivenby = all.coronerordergivenby,
