@@ -112,10 +112,7 @@ export class AddComponent implements OnInit {
       fifthCtrl: ['', Validators.required]
     });
   }
-  
-  onNgModelChange(event){
-    console.log('on ng model change', event);
-  }
+ 
 // tslint:disable: member-ordering
   //gcodControl = new FormControl();
   gcodGroups: GcodGroup[] = [
