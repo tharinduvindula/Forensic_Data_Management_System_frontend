@@ -2,188 +2,185 @@
     <div class="row">
       <div class="col-md-12">
         <div class="card">
-          <div class="card-header card-header-danger">
+          <div class="card-header card-header-default" style="background-color: #25393b; color: white">
               <h4 class="card-title">View Report</h4>
               <p class="card-category">Report of the deceased</p>
           </div>
           <div class="card-body">
             
               <div class="row">
-                  <div class="col-md-2">
-                    <label class="lbl">SRJ No:</label> 310290
-                    </div>
-                    <div class="col-md-4">
-                        <label  class="lbl">Deceased Full Name:</label> Geesa Daluwatumulle
-                      </div>
-                      <div class="col-md-3">
-                          <label  class="lbl">Post Mortem Date:</label> 12/03/2019
-                        </div>
-                        <div class="col-md-3">
-                            <label  class="lbl">Post Mortem Time:</label> 12:30
-                          </div>
-              </div>
-              <div class="row">
                   <div class="col-md-4">
-                      <label  class="lbl">Police Full Name:</label> Geesa Vihara Daluwatumulle
+                    <label class="lbl">SRJ No:</label>  {{form.srjno}}
                   </div>
                   <div class="col-md-4">
-                      <label  class="lbl">Tag Number:</label> GV2890
-                  </div>
-                  <div class="col-md-4">
-                      <label  class="lbl">Area:</label> Mt-Lavinia
+                      <label  class="lbl">Deceased Full Name:</label>   {{form.fullname}}
                   </div>
               </div>
+
               <div class="row">
-                  <div class="col-md-3">
-                      <label  class="lbl">Scene Photographs:</label> Yes
+                  <div class="col-md-4">
+                      <label  class="lbl">Post Mortem Date:</label> {{form.pmdate}}
                   </div>
-                  <div class="col-md-3">
-                      <label  class="lbl">Folder Name:</label> Local Disk C
+                  <div class="col-md-4">
+                      <label  class="lbl">Post Mortem Time:</label> {{form.pmtime}}
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-md-4">
+                      <label  class="lbl">Police Full Name:</label> {{form.pfullname}}
+                  </div>
+                  <div class="col-md-4">
+                      <label  class="lbl">Tag Number:</label>   {{form.ptagno}}
+                  </div>
+                  <div class="col-md-4">
+                      <label  class="lbl">Area:</label> {{form.parea}}
                   </div>
               </div>
               <div class="row">
                   <div class="col-md-4">
-                      <label  class="lbl">Order Given By:</label> Magistrate
-                    </div>
-                    <div class="col-md-4">
-                        <label  class="lbl">Full Name:</label> Geesa Vihara Daluwatumulle
-                      </div>
-                      <div class="col-md-4">
-                          <label  class="lbl">Area:</label> Mount Lavinia
-                        </div>
-                       
+                      <label  class="lbl">Scene Photographs:</label>    {{form.scenephotographs}}
+                  </div>
+                  <div class="col-md-4">
+                      <label  class="lbl">Folder Name:</label>  {{form.foldername}}
+                  </div>
               </div>
               <div class="row">
                   <div class="col-md-4">
-                      <label  class="lbl">Cause of Death:</label> 
+                      <label  class="lbl">Order Given By:</label>   {{form.ordergivenby}}
+                  </div>
+                  <div class="col-md-4">
+                      <label  class="lbl">Full Name:</label>    {{form.ofullname}}
+                  </div>
+                  <div class="col-md-4">
+                      <label  class="lbl">Area:</label> {{form.oarea}}
+                  </div>        
+              </div>
+              <div class="row">
+                  <div class="col-md-4">
+                      <label  class="lbl">Cause of Death:</label>
                   </div>
               </div>
               <div class="row">
                   <div class="col-md-6">
-                      <ul type="upper-roman">
-                        <li></li>
                         <ul type="lower-alpha">
-                          <li>Geesa Vihara Daluwatumulle</li>
-                          <li>Geesa Vihara Daluwatumulle</li>
-                          <li>Geesa Vihara Daluwatumulle</li>
+                          <div>(a)  {{form.a}}</div>
+                          <div>(b)  {{form.b}}</div>
+                          <div>(c)  {{form.c}}</div>
                         </ul>
-                        <li>
-                            <div class="row">
-                                <label class="lbl">Contributory Causes:</label> Geesa Vihara Daluwatumulle
-                              </div>
-
-                        </li>                        
-                      </ul>  
-                                    
-                          <div class="row">
-                              <label class="lbl">Other Comments:</label> Geesa Vihara Daluwatumulle
-                            </div>
-                          <div class="row">
-                            <label class="lbl">Generalized Cause of Death:</label> Geesa Vihara Daluwatumull
-                          </div>
-                          <div class="row">
-                            <label class="lbl">Circumstance:</label> Geesa Vihara Daluwatumulle
-                          </div>
-                            
-
-                          
-
-                             
-                    </div>                             
-                                       
+                  </div>
+              </div> 
+        
+              <div class="row">
+                <div class="col-md-6">
+                  <label class="lbl">Contributory Causes:</label>   {{form.contributorycauses}}
+                </div>
+              </div>    
+              <div class="row">
+                <div class="col-md-6">
+                  <label class="lbl">Other Comments:</label>    {{form.othercomments}}
+                </div>
               </div>
-                
-              
+              <div class="row">
+                <div class="col-md-6">
+                  <label class="lbl">Generalized Cause of Death:</label>    {{form.generalizedcod}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label class="lbl">Circumstance:</label>  {{form.circumstance}}
+                </div>
+              </div>
               <div class="col-md-12">
-                  <div class="card-header card-header-danger">
+                  <div class="card-header card-header-default" style="background-color: #25393b; color: white">
                     <h5><b>Government Analyst</b></h5>
                   </div>
               </div>
               <div class="row">
                   <div class="col-md-4">
-                      <label  class="lbl">CT Number:</label> 328908
-                    </div> 
-                    <div class="col-md-4">
-                        <label  class="lbl">Sample Deliver Date:</label> 02/12/2019
-                      </div>    
-                      <div class="col-md-4">
-                          <label  class="lbl">Sample Deliver Time:</label> 04:45
-                        </div>                        
+                      <label  class="lbl">CT Number:</label>    {{form.gactnumber}}
+                  </div> 
+                  <div class="col-md-4">
+                      <label  class="lbl">Sample Deliver Date:</label>  {{form.gadate}}
+                  </div>    
+                  <div class="col-md-4">
+                      <label  class="lbl">Sample Deliver Time:</label>  {{form.gatime}}
+                  </div>                        
               </div>
               <div class="row">
                   <div class="col-md-4">
-                      <h6 class="specs2"><b>List of Specimens</b></h6>
+                      <label class="specs2"><b>List of Specimens:</b></label>
                   </div>
               </div>
               <div class="row">
                   <div class="col-md-6">
                       <ul type="square">
-                          <li>Blood</li>
-                          <li>Brain</li>
-                          <li>Liver</li>
-                        </ul> 
-                    </div>                     
+                            <li *ngFor="let specimen of form.galist">
+                                {{specimen}}
+                            </li>
+                      </ul> 
+                  </div>                     
               </div>
               
               <div class="col-md-12">
-                  <div class="card-header card-header-danger">
+                  <div class="card-header card-header-default" style="background-color: #25393b; color: white">
                     <h5><b>MRI</b></h5>
                   </div>
               </div>
               <div class="row">
                   <div class="col-md-4">
-                      <label  class="lbl">Reference Number:</label> 328908
-                    </div> 
-                    <div class="col-md-4">
-                        <label  class="lbl">Sample Deliver Date:</label> 02/12/2019
-                      </div>    
-                      <div class="col-md-4">
-                          <label  class="lbl">Sample Deliver Time:</label> 04:45
-                        </div>                        
+                      <label  class="lbl">Reference Number:</label> {{form.mrirefnum}}
+                  </div> 
+                  <div class="col-md-4">
+                      <label  class="lbl">Sample Deliver Date:</label>  {{form.mridate}}
+                  </div>    
+                  <div class="col-md-4">
+                      <label  class="lbl">Sample Deliver Time:</label>  {{form.mritime}}
+                  </div>                        
               </div>
               <div class="row">
                   <div class="col-md-4">
-                      <h6 class="specs2"><b>List of Specimens</b></h6>
+                      <label class="specs2"><b>List of Specimens:</b></label>
                   </div>
               </div>
               <div class="row">
                   <div class="col-md-6">
                       <ul type="square">
-                          <li>Blood</li>
-                          <li>Brain</li>
-                          <li>Liver</li>
-                        </ul> 
-                    </div>                     
+                        <li *ngFor="let specimen of form.mrilist">
+                            {{specimen}}
+                        </li>
+                      </ul> 
+                  </div>                     
               </div>
               <div class="col-md-12">
-                  <div class="card-header card-header-danger">
+                  <div class="card-header card-header-default" style="background-color: #25393b; color: white">
                     <h5><b>Other</b></h5>
                   </div>
               </div>
               <div class="row">
                   <div class="col-md-4">
-                      <label  class="lbl">Reference Number:</label> 328908
-                    </div> 
-                    <div class="col-md-4">
-                        <label  class="lbl">Sample Deliver Date:</label> 02/12/2019
-                      </div>    
-                      <div class="col-md-4">
-                          <label  class="lbl">Sample Deliver Time:</label> 04:45
-                        </div>                        
+                      <label  class="lbl">Reference Number:</label> {{form.otherrefnum}}
+                  </div> 
+                  <div class="col-md-4">
+                      <label  class="lbl">Sample Deliver Date:</label>  {{form.otherdate}}
+                  </div>    
+                  <div class="col-md-4">
+                      <label  class="lbl">Sample Deliver Time:</label>  {{form.othertime}}
+                  </div>                        
               </div>
               <div class="row">
                   <div class="col-md-4">
-                    <h6 class="specs2"><b>List of Specimens</b></h6>
+                    <label class="specs2"><b>List of Specimens:</b></label>
                   </div>
               </div>
               <div class="row">
                   <div class="col-md-6">
                       <ul type="square">
-                          <li>Blood</li>
-                          <li>Brain</li>
-                          <li>Liver</li>
-                        </ul> 
-                    </div>                     
+                        <li *ngFor="let specimen of form.otherlist">
+                            {{specimen}}
+                        </li>
+                      </ul> 
+                  </div>                     
               </div>
           </div>
         </div>

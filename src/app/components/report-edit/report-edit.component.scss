@@ -1,11 +1,10 @@
-::ng-deep .mat-step-header .mat-step-icon-selected {
-    background-color:  rgb(241, 0, 0); 
-    
- }
+::ng-deep .mat-step-header .mat-step-icon {
+    background-color: black;
+}
 .btn {
     margin-right: 16px;
 }
 
 ::ng-deep.mat-pseudo-checkbox-checked{
-    background-color:  rgb(241, 0, 0); 
+    background-color:  gray; 
   }

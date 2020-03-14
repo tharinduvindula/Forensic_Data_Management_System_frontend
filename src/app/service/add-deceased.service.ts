@@ -22,17 +22,15 @@ export class AddDeceasedService{
 
   }
 
-  addpolice(data) {
-    return this.http.post(`${this.baseUrl}/addpolicedetails`, data);
-  }
   adddeceased(data) {
     return this.http.post(`${this.baseUrl}/adddeceaseddetails`, data);
   }
-  addcoroner(data) {
-    return this.http.post(`${this.baseUrl}/addcoronerdetails`, data);
+  getalldeceased() {
+    return this.http.get(`${this.baseUrl}/getalldeceased`);
+  }
+  
+  getdeceased(data){
+    return this.http.post<RETREIVE>(`${this.baseUrl}/getdeceased`, data);
   }
 
-  getalldeceased() {
-    return this.http.get<RETREIVE[]>('http://127.0.0.1:8000/api/getalldeceased');
-  }
 }

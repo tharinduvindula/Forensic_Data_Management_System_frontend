@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { TokenService } from 'app/service/token.service';
 import { AddDeceasedService } from 'app/service/add-deceased.service';
-import { DECEASED } from 'app/models/DECEASED';
 import { RETREIVE } from 'app/models/RETREIVE';
 
 declare const $: any;
@@ -15,27 +14,8 @@ declare interface RouteInfo {
   viewpath: string;
 }
 export const ROUTES: RouteInfo[] = [
-  {
-    srj: '390129', fname: 'Geesa Daluwatumulle', viewpath: '/demo/report-view', editpath: '/demo/report-edit', deletepath: '/demo/report-delete'
-  },
-  {
-    srj: '390130', fname: 'Geesa Daluwatumulle', viewpath: '/demo/report-view', editpath: '/demo/report-edit', deletepath: '/demo/report-delete'
-  },
-  {
-    srj: '390131', fname: 'Geesa Daluwatumulle', viewpath: '/demo/report-view', editpath: '/demo/report-edit', deletepath: '/demo/report-delete'
-  },
-  {
-    srj: '390132', fname: 'Geesa Daluwatumulle', viewpath: '/demo/report-view', editpath: '/demo/report-edit', deletepath: '/demo/report-delete'
-  },
-  {
-    srj: '390133', fname: 'Geesa Daluwatumulle', viewpath: '/demo/report-view', editpath: '/demo/report-edit', deletepath: '/demo/report-delete'
-  },
-  {
-    srj: '390134', fname: 'Geesa Daluwatumulle', viewpath: '/demo/report-view', editpath: '/demo/report-edit', deletepath: '/demo/report-delete'
-  },
+  
 ];
-
-
 
 @Component({
   selector: 'app-retrieve',
@@ -44,28 +24,30 @@ export const ROUTES: RouteInfo[] = [
 })
 export class RetrieveComponent implements OnInit {
   srj: string;
+  getall: any;
   reports: any[];
-  deceaseds : RETREIVE[] =[];
+  deceased: RETREIVE[] =[];
  
   constructor(
     private router: Router,
     private Token: TokenService,
-    private deceased: AddDeceasedService,
-    ) {//this.getAlldeceased();
-     }
+    private Deceased: AddDeceasedService,
+    ) {
+      this.getAlldeceased();
+    }
 
   ngOnInit() {
     this.reports = ROUTES.filter(menuItem => menuItem);
-
   }
 
   getAlldeceased() {
-    this.deceased.getalldeceased().subscribe((all) => {
-      this.deceaseds = all
+    this.Deceased.getalldeceased().subscribe((all) => {
+      this.getall = all;
+      // this.fullname = all.fullname
     }
     );
   }
-
+    
   Search() {
     if (this.srj !== '') {
       this.reports = this.reports.filter(res => {
@@ -77,21 +59,21 @@ export class RetrieveComponent implements OnInit {
 
   }
 
-  onview(event) {
+  onview(srjno1) {
     event.preventDefault();
-   
+    console.log(event);
     this.router.navigate([`/${this.Token.payload(this.Token.gettoken()).ud.usertype}` + '/report-view'],
-    { queryParams: { srjno: "" }, skipLocationChange: true });
+    { queryParams: { srjno: srjno1 }});
   }
-  onedit(event) {
+  onedit(srjno1) {
     event.preventDefault();
     this.router.navigate([`/${this.Token.payload(this.Token.gettoken()).ud.usertype}` + '/report-edit'],
-     { queryParams: { srjno: "" }, skipLocationChange: true });
+     { queryParams: { srjno: srjno1 }, skipLocationChange: true });
   }
-  ondelete(eventl) {
+  ondelete(srjno1) {
     event.preventDefault();
     this.router.navigate([`/${this.Token.payload(this.Token.gettoken()).ud.usertype}` + '/report-delete'],
-     { queryParams: { srjno :"" }, skipLocationChange: true });
+     { queryParams: { srjno :srjno1 }, skipLocationChange: true });
   }
 
 }
