@@ -200,13 +200,18 @@ export class AddComponent implements OnInit {
     this.form.otherspecimens = this.selectedOptions3;
     this.adddeceaseddetails();
   }
+  reset(){
+    this.submitted=false;
+    this.errors["srjdup"]=false;
+    this.errors["overall"]=false;
+  }
   adddeceaseddetails(){
     this.adddeceased.adddeceased(this.form).subscribe(
       data => { 
         if(data["message"]="success"){
-          this.errors["srjdup"]=true;
+          this.errors["srjdup"]=false;
           this.errors["overall"]=false;
-        }
+        }               
       },
       error => 
       {             

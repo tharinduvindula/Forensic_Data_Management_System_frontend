@@ -14,6 +14,13 @@
                 </div>
               </div>
           </div>
+          <div class="row">
+              <div class="col-md-3">
+                <div *ngIf="submitted && !errors['overall'] && !errors['srjdup']" class="alert alert-success">
+                    Report submitted successfully!
+                </div>
+              </div>
+          </div>
           
           <div class="row">
               <div class="col-md-3">                    
@@ -474,7 +481,7 @@
                 </div>
                 <div class="row">
                   <button mat-button matStepperPrevious class="btn btn-default" style="background-color: #e6e9e9; color:black">Back</button>              
-                  <button mat-button type="button" (click)="firstFormGroup.reset();secondFormGroup.reset();thirdFormGroup.reset();fourthFormGroup.reset();fifthFormGroup.reset();stepper.reset()" class="btn btn-default" style="background-color: #e6e9e9; color:black">Reset</button>                
+                  <button mat-button type="button" (click)="firstFormGroup.reset();secondFormGroup.reset();thirdFormGroup.reset();fourthFormGroup.reset();fifthFormGroup.reset();reset();stepper.reset()" class="btn btn-default" style="background-color: #e6e9e9; color:black">Reset</button>                
                   <button type="submit"  style="background-color: #25393b" class="btn pull-right" [disabled]="!firstFormGroup.valid || !secondFormGroup.valid || !thirdFormGroup.valid || !fourthFormGroup.valid || !fifthFormGroup.valid">submit</button>
                 </div>
               </form>
