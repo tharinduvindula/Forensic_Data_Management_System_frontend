@@ -1,9 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { RETREIVE } from 'app/models/RETREIVE';
 import { AddDeceasedService } from 'app/service/add-deceased.service';
 import { TokenService } from 'app/service/token.service';
 
 export interface Area {
+  value: string;
+  viewValue: string;
+}
+
+export interface Rank {
   value: string;
   viewValue: string;
 }
@@ -39,8 +46,9 @@ export class ReportEditComponent implements OnInit {
   selectedOptions1: string[] = [];
   selectedOptions2: string[] = [];
   selectedOptions3: string[] = [];
-  submitted=false;
-  errors=[];
+  submitted = false;
+  errors = [];
+  error: any;
 
   toggleMeridian() {
       this.meridian = !this.meridian;
@@ -88,12 +96,23 @@ export class ReportEditComponent implements OnInit {
     {value: 'area-25', viewValue: 'Welikada'}, {value: 'area-26', viewValue: 'Wellawatte'}
   ];
 
+  // tslint:disable-next-line: member-ordering
+  ranks: Rank[] = [ {value: 'igp', viewValue: 'IGP'}, {value: 'sdig', viewValue: 'SDIG'}, {value: 'ssp', viewValue: 'SSP'}, 
+                    {value: 'sp', viewValue: 'SP'}, {value: 'asp', viewValue: 'ASP'}, {value: 'ci', viewValue: 'CI'}, 
+                    {value: 'ip', viewValue: 'IP'}, {value: 'si', viewValue: 'SI'}, {value:'psm', viewValue: 'PSM'}, 
+                    {value: 'ps', viewValue: 'PS'}, {value: 'pc', viewValue: 'PC'}];
+
 
   constructor(
     private _formBuilder: FormBuilder,
     private adddeceased: AddDeceasedService,
+    private Activatedroute: ActivatedRoute,
+    private router: Router,
     private Token: TokenService
-    ) {}
+    ) {
+      this.form.srjno = this.Activatedroute.snapshot.queryParamMap.get('srjno');
+    this.getdeceased();
+    }
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
@@ -197,17 +216,17 @@ export class ReportEditComponent implements OnInit {
     otheranalysis: null,
     otherdate: null,
     othertime: null,
-    otherspecimens:null,    
+    otherspecimens:null,
     addingby: this.Token.payload(this.Token.gettoken()).ud.fullname,
     lasteditby: this.Token.payload(this.Token.gettoken()).ud.fullname,
   }
 
   onsubmit(){
     this.submitted=true; 
-    this.form.gaspecimens = this.selectedOptions1;    
-    this.form.mrispecimens = this.selectedOptions2;    
+    this.form.gaspecimens = this.selectedOptions1;
+    this.form.mrispecimens = this.selectedOptions2;
     this.form.otherspecimens = this.selectedOptions3;
-    if(this.form.policescenephoto=="no"){
+    if(this.form.policescenephoto == "no" ) {
       this.form.policefoldername="None"
     }
     this.adddeceaseddetails();
@@ -262,6 +281,78 @@ export class ReportEditComponent implements OnInit {
           this.errors["overall"]=false;
       }
     );
-  }  
+  }
+
+  getdeceased() {
+    this.adddeceased.getdeceased(this.form).subscribe((all) => {
+      this.form.srjno = all.srjno,
+      this.form.pmdate = all.pmdate,
+      this.form.pmtime = all.pmtime,
+      this.form.fullname = all.fullname,
+      this.form.age = all.age,
+      this.form.sex = all.sex,
+      this.form.address = all.address,
+      this.form.contactnumber = all.contactnumber,
+      this.form.policefullname = all.policefullname,
+      this.form.policetagno = all.policetag,
+      this.form.policearea = all.policearea,
+      this.form.policerank = all.policerank.toUpperCase(),
+      this.form.policephoneno = all.policephoneno,
+      this.form.policescenephoto = all.policescenephoto,
+      this.form.policefoldername = all.policefoldername,
+      this.form.coronerfullname = all.coronerfullname,
+      this.form.coronerarea = all.coronerarea,
+      this.form.coronerordergivenby = all.coronerordergivenby,
+      this.form.a = all.a,
+      this.form.b = all.b,
+      this.form.c = all.c,
+      this.form.contributory_cause = all.contributory_cause,
+      this.form.other_comments = all.other_comments,
+      this.form.cod = all.cod,
+      this.form.circumstances = all.circumstances,
+      this.form.gactnumber = all.gactnumber,
+      this.form.gaanalysis = all.gaanalysis,
+      this.form.gadate = all.gadate,
+      this.form.gatime = all.gatime,
+      this.selectedOptions1 = all.gaspecimens,
+      this.form.mrirefnum = all.mrirefnum,
+      this.form.mrianalysis = all.mrianalysis,
+      this.form.mridate = all.mridate,
+      this.form.mritime = all.mritime,
+      this.selectedOptions2 = all.mrispecimens,
+      this.form.otherrefnum = all.otherrefnum,
+      this.form.otheranalysis = all.otheranalysis,
+      this.form.otherdate = all.otherdate,
+      this.form.othertime = all.othertime,
+      this.selectedOptions3 = all.otherspecimens
+      // this.startdate = this.form.startdate.split('T')[0],
+      // this.addingby = all.addingby,
+      // this.editby = all.lasteditby,
+      // this.form.photo =all.photo
+    }
+    );
+  }
+  onupdate() {
+    this.adddeceased.updatedeceased(this.form).subscribe(
+      data => this.router.navigateByUrl('demo/report-edit'),
+      error => this.handleError(error),
+    );
+  }
+
+  handleError(error) {
+    this.error = error.error.error;
+  }
+
+
+  getErrorMessage() {
+    return this.form.srjno.hasError('required') ? 'You must enter a value' :
+      this.form.srjno.hasError('srjno') ? 'Not a valid srjno' :
+        '';
+  }
+  // myFilter = (d: Date): boolean => {
+  //   const day = d.getDay();
+  //   // Prevent Saturday and Sunday from being selected.
+  //   return day !== 0 && day !== 6;
+  // }
 
 }

@@ -3,8 +3,8 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header card-header-default" style="background-color: #25393b; color:white">
-            <h4 class="card-title">New Report</h4>
-            <p class="card-category">Complete new report</p>
+            <h4 class="card-title">Edit Report</h4>
+            <p class="card-category">Edit the submitted report</p>
           </div>
           <div class="card-body">
             <div class="row">
@@ -139,7 +139,7 @@
                     
                     <div class="col-md-6">
                       <mat-form-field class="example-full-width" >
-                        <input matInput placeholder="Full Name" name="policefullname"type="text" [(ngModel)]="form.policefullname" required >
+                        <input matInput placeholder="Full Name" name="policefullname" type="text" [(ngModel)]="form.policefullname" required >
                       </mat-form-field>
                     </div>
                   </div>
@@ -170,17 +170,9 @@
                       <mat-form-field class="example-full-width" >
                         <mat-label>Rank</mat-label>
                         <mat-select name="policerank" [(ngModel)]="form.policerank" required >
-                          <mat-option value="igp">IGP</mat-option>
-                          <mat-option value="sdig">SDIG</mat-option>
-                          <mat-option value="sdig">SSP</mat-option>
-                          <mat-option value="sdig">SP</mat-option>
-                          <mat-option value="sdig">ASP</mat-option>
-                          <mat-option value="sdig">CI</mat-option>
-                          <mat-option value="sdig">IP</mat-option>
-                          <mat-option value="sdig">SI</mat-option>
-                          <mat-option value="sdig">PSM</mat-option>
-                          <mat-option value="sdig">PS</mat-option>
-                          <mat-option value="sdig">PC</mat-option>
+                          <mat-option *ngFor="let rank of ranks" [value]="rank.viewValue">
+                            {{rank.viewValue}}
+                          </mat-option>
                         </mat-select>
                       </mat-form-field>
                     </div>

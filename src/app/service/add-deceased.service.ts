@@ -35,5 +35,8 @@ export class AddDeceasedService{
   deletedeceased(data){
     return this.http.post(`${this.baseUrl}/deletedeceased`, data);
   }
+  updatedeceased(data) {
+    return this.http.post(`${this.baseUrl}/updatedeceased`, data);
+  }
 
 }
