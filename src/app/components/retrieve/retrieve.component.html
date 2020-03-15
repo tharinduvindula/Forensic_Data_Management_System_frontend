@@ -13,7 +13,7 @@
                           <i class="material-icons">search</i>
                           <div class="ripple-container"></div>
                       </button>
-                      <input type="text" value="" class="form-control" placeholder="Enter SRJ No to search..."  [(ngModel)]="srj" (input)="Search()">
+                      <input type="text" class="form-control" placeholder="Enter SRJ No to search..."  [(ngModel)]="srj" (input)="Search()">
                   </div>     
               </div>
               <div class="col-lg-8 col-md-12" style="float: none; margin: 0 auto;">
@@ -22,7 +22,9 @@
                           <table class="table table-hover">
                               <thead class="text-default" style="color:black">
                                   <th class="cname">SRJ No</th>
-                                  <th class="cname">Deceased Name</th>
+                                  <th class="cname">Deceased Name</th>                                  
+                                  <th class="cname">Added By</th>
+                                  <th class="cname">Last Editted By</th>
                                   <th class="cname">View Report</th>
                                   <th class="cname">Edit Report</th>
                                   <th class="cname">Delete Report</th>
@@ -32,23 +34,16 @@
                                   <tr *ngFor="let deceased of getall">
                                     <td class="text-dark">{{deceased["srjno"]}}</td>
                                     <td>{{deceased["fullname"]}}</td>
+                                    <td class="text-dark">{{deceased["addingby"]}}</td>
+                                    <td>{{deceased["lasteditby"]}}</td>
                                     <td><button mat-raised-button (click)="onview(deceased['srjno'])" type="submit"style="background-color: #e6e9e9; color:black"
                                       class="btn btn-default"><i class="material-icons">view_list</i> View</button></td>
                                     <td><button mat-raised-button (click)="onedit(deceased['srjno'])" type="submit" style="background-color: #e6e9e9; color:black"
                                         class="btn btn-default"><i class="material-icons">edit </i> Edit</button></td>
                                     <td><button mat-raised-button (click)="ondelete(deceased['srjno'])" type="submit" style="background-color: #e6e9e9; color:black"
                                       class="btn btn-default"><i class="material-icons">delete </i> Delete</button></td>
+                                    
                                   </tr>
-                                  <!---<tr *ngFor="let deceased of getAlldeceased()">
-                                    <td class="text-dark">{{deceased.srjno}}</td>
-                                    <td>{{deceased.fullname}}</td>
-                                    <td><button mat-raised-button (click)=onview($event) type="submit" class="btn btn-info"><i
-                                          class="material-icons">view_list</i> View</button></td>
-                                    <td><button mat-raised-button (click)=onedit($event) type="submit" class="btn btn-success"><i
-                                          class="material-icons">edit </i> Edit</button></td>
-                                    <td><button mat-raised-button (click)=ondelete($event) type="submit" class="btn btn-danger"><i
-                                          class="material-icons">delete </i> Delete</button></td>
-                                  </tr>-->
                                 </tbody>
                           </table>
                       </div>

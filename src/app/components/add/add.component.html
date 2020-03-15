@@ -16,7 +16,7 @@
           </div>
           <div class="row">
               <div class="col-md-3">
-                <div *ngIf="submitted && !errors['overall'] && !errors['srjdup']" class="alert alert-success">
+                <div *ngIf="submitted && !errors['overall'] && !errors['srjdup'] && !errors['gact'] && !errors['mriref'] && !errors['otherref'] " class="alert alert-success">
                     Report submitted successfully!
                 </div>
               </div>
@@ -27,8 +27,29 @@
                   <div *ngIf="submitted && errors['srjdup']" class="alert alert-danger">
                       SRJ no already exists.
                   </div>
+              </div>          
+          </div> 
+          <div class="row">
+            <div class="col-md-3">                    
+              <div *ngIf="submitted && errors['gact']" class="alert alert-danger">
+                  Government Analyst CT Number already exists.
               </div>
-            </div>  
+            </div>        
+          </div>
+          <div class="row">
+            <div class="col-md-3">                    
+              <div *ngIf="submitted && errors['mriref']" class="alert alert-danger">
+                  MRI Reference Number already exists.
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">                    
+              <div *ngIf="submitted && errors['otherref']" class="alert alert-danger">
+                    Other Reference Number already exists.
+              </div>
+            </div>
+          </div> 
           <mat-horizontal-stepper [linear]="isLinear" #stepper>
             <mat-step [stepControl]="firstFormGroup">
               <form #firstFormGroup=ngForm>
@@ -184,7 +205,7 @@
                     </div>                    
                   </div>
                 </div>
-                <div class="row">
+                <div class="row" *ngIf='form.policescenephoto!="no"'>
                   
                   <div class="col-md-3">
                     <mat-form-field class="example-full-width" >

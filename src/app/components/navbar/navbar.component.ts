@@ -138,6 +138,9 @@ export class NavbarComponent implements OnInit {
       if(mid[0]=="report-view"){
         return "report-view";
     }
+    if(mid[0]=="report-edit"){
+        return "report-edit";
+    }
       return titlee;
     }
     logout(event: MouseEvent) {
