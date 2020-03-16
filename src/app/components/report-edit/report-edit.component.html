@@ -16,40 +16,11 @@
             </div>
             <div class="row">
                 <div class="col-md-3">
-                  <div *ngIf="submitted && !errors['overall'] && !errors['srjdup'] && !errors['gact'] && !errors['mriref'] && !errors['otherref'] " class="alert alert-success">
-                      Report submitted successfully!
+                  <div *ngIf="submitted && !errors['overall'] " class="alert alert-success">
+                      Report editted successfully!
                   </div>
                 </div>
             </div>
-            
-            <div class="row">
-                <div class="col-md-3">                    
-                    <div *ngIf="submitted && errors['srjdup']" class="alert alert-danger">
-                        SRJ no already exists.
-                    </div>
-                </div>          
-            </div> 
-            <div class="row">
-              <div class="col-md-3">                    
-                <div *ngIf="submitted && errors['gact']" class="alert alert-danger">
-                    Government Analyst CT Number already exists.
-                </div>
-              </div>        
-            </div>
-            <div class="row">
-              <div class="col-md-3">                    
-                <div *ngIf="submitted && errors['mriref']" class="alert alert-danger">
-                    MRI Reference Number already exists.
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-3">                    
-                <div *ngIf="submitted && errors['otherref']" class="alert alert-danger">
-                      Other Reference Number already exists.
-                </div>
-              </div>
-            </div> 
             <mat-horizontal-stepper [linear]="isLinear" #stepper>
               <mat-step [stepControl]="firstFormGroup">
                 <form #firstFormGroup=ngForm>
@@ -57,7 +28,7 @@
                   <div class="row">                     
                     <div class="col-md-3">
                       <mat-form-field class="example-full-width" >
-                        <input matInput placeholder="SRJ No" name="srjno"type="text" [(ngModel)]="form.srjno" required >                      
+                        <input matInput placeholder="SRJ No" name="srjno"type="text" [(ngModel)]="form.srjno" required [disabled]="true" >                      
                       </mat-form-field>
                     </div>                  
                   </div>
@@ -332,7 +303,7 @@
                         
                         <div class="col-md-6">
                           <mat-form-field class="example-full-width" >
-                            <input matInput placeholder="CT Number" name="gactnumber" type="text" [(ngModel)]="form.gactnumber" required>
+                            <input matInput placeholder="CT Number" name="gactnumber" type="text" [(ngModel)]="form.gactnumber" required [disabled]="true">
                           </mat-form-field>
                         </div>
                       </div>
@@ -388,7 +359,7 @@
                         
                         <div class="col-md-6">
                           <mat-form-field class="example-full-width" >
-                            <input matInput placeholder="Reference Number" name="mrirefnum" type="text" [(ngModel)]="form.mrirefnum" required >
+                            <input matInput placeholder="Reference Number" name="mrirefnum" type="text" [(ngModel)]="form.mrirefnum" required [disabled]="true" >
                           </mat-form-field>
                         </div>
                       </div>
@@ -444,7 +415,7 @@
                         
                         <div class="col-md-6">
                           <mat-form-field class="example-full-width" >
-                            <input matInput placeholder="Reference Number" type="text" name="otherrefnum" [(ngModel)]="form.otherrefnum" required >
+                            <input matInput placeholder="Reference Number" type="text" name="otherrefnum" [(ngModel)]="form.otherrefnum" required [disabled]="true">
                           </mat-form-field>
                         </div>
                       </div>

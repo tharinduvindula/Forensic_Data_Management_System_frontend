@@ -229,60 +229,13 @@ export class ReportEditComponent implements OnInit {
     if(this.form.policescenephoto == "no" ) {
       this.form.policefoldername="None"
     }
-    this.adddeceaseddetails();
+    this.onupdate();
   }
   reset(){
     this.submitted=false;
-    this.errors["srjdup"]=false;
-    this.errors["overall"]=false;    
-    this.errors["gact"]=false;
-    this.errors["mriref"]=false;
-    this.errors["otherref"]=false;
+    this.errors["overall"]=false; 
   }
-  adddeceaseddetails(){
-    this.adddeceased.adddeceased(this.form).subscribe(
-      data => { 
-        if(data["message"]="success"){
-          this.errors["srjdup"]=false;
-          this.errors["overall"]=false;
-          this.errors["gact"]=false;
-          this.errors["mriref"]=false;
-          this.errors["otherref"]=false;
-
-
-        }               
-      },
-      error => 
-      {             
-        if(error.error.error=="SRJ no already exists") {   
-          this.errors["srjdup"]=true;
-        }
-        else
-          this.errors["srjdup"]=false;
-        if(error.error.error=="ga ct") {   
-          this.errors["gact"]=true;
-        }
-        else
-          this.errors["gact"]=false;
-        if(error.error.error=="mri ref") {   
-          this.errors["mriref"]=true;
-        }
-        else
-          this.errors["mriref"]=false;
-        if(error.error.error=="other ref") {   
-          this.errors["otherref"]=true;
-        }
-        else
-          this.errors["otherref"]=false;
-        if(error.error.error=="Oops something went wrong!"){
-          this.errors["overall"]=true;
-        }
-        else
-          this.errors["overall"]=false;
-      }
-    );
-  }
-
+  
   getdeceased() {
     this.adddeceased.getdeceased(this.form).subscribe((all) => {
       this.form.srjno = all.srjno,
@@ -334,14 +287,22 @@ export class ReportEditComponent implements OnInit {
   }
   onupdate() {
     this.adddeceased.updatedeceased(this.form).subscribe(
-      data => this.router.navigateByUrl('demo/report-edit'),
-      error => this.handleError(error),
+      data => {
+        if(data["message"]="success"){
+          this.errors["overall"]=false;
+        }  
+      },
+      error =>{
+        if(error.error.error=="Oops something went wrong!"){
+          this.errors["overall"]=true;
+        }
+        else
+          this.errors["overall"]=false;
+
+      },
     );
   }
 
-  handleError(error) {
-    this.error = error.error.error;
-  }
 
 
   getErrorMessage() {
