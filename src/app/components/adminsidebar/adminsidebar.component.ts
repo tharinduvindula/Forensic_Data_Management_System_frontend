@@ -16,6 +16,8 @@ export const ROUTES: RouteInfo[] = [
     { path: '/admin/User-Access', title: 'User Access', icon: 'phonelink_off', class: '' },
     { path: '/admin/Password-Reset', title: 'Password Reset', icon: 'phonelink_off', class: '' },
     { path: '/admin/Edit-User-Detail', title: 'Edit User Detail', icon: 'recent_actors', class: '' },
+    { path: '/admin/User-Profile', title: 'User Profile',  icon: 'person', class: '' },
+
 ];
 
 

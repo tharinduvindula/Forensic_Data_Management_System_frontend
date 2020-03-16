@@ -20,40 +20,41 @@ declare interface RouteInfo {
 export class RetrieveComponent implements OnInit {
   srj: string;
   getall: any;
- 
+  reports:any;
   constructor(
     private router: Router,
     private Token: TokenService,
     private Deceased: AddDeceasedService,
     public dialog: MatDialog
     ) {
-      
+      this.getAlldeceased();
     }
   public form = {
     deleteby:this.Token.payload(this.Token.gettoken()).ud.fullname,
     srjno:null,
   }
   ngOnInit() {
-    this.getAlldeceased();
+    this.reports=this.getall;
    }
-
+  
   getAlldeceased() {
     this.Deceased.getalldeceased().subscribe((all) => {
-      this.getall = all
-    }
+      this.getall = all;
+      this.reports = all;
+    }    
     );
-    
+        
   }
     
-  Search() {
+  Search() {    
     if (this.srj !== '') {
-      this.getall = this.getall.filter(res => {
+      this.reports = this.reports.filter(res => {
         return res["srjno"].toLocaleLowerCase().match(this.srj.toLocaleLowerCase());
       });
     } else if (this.srj === '') {
       this.ngOnInit();
     }
-
+    
   }
 
   onview(srjno1) {
