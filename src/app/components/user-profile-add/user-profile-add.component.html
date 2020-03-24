@@ -3,7 +3,7 @@
     <div class="col-md-8">
       <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
         <div class="card-header card-header-pills"
-          style="background-color: green;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        style="background-color: #25393b; color:white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
           <h4 class="card-title">Edit Profile</h4>
           <p class="card-category">Complete profile</p>
         </div>
@@ -104,7 +104,7 @@
             <div class="form-group row">
               <div class="col-sm-10 offset-2">
 
-                <button type="submit" [disabled]="!useraddForm.valid" style="background-color: green;"
+                <button type="submit" [disabled]="!useraddForm.valid" style="background-color: #e6e9e9; color:black"
                   class="btn pull-right">Add
                   Profile</button>
                   <div class="alert alert-danger" [hidden]="!error">
@@ -126,7 +126,7 @@
         
         <img class="img" style="width:90%;height: 90%;border-radius: 50%" [src]="form.photo" *ngIf="form.photo" />
         <div class="upload-btn-wrapper">
-          <button class="btn" style="background-color: green">
+          <button class="btn" style="background-color: #e6e9e9; color:black">
             <i class="material-icons"> add_photo_alternate</i>add new Photo
           </button>
           <input #imageInput type="file" accept=".png, .jpg, .jpeg" (change)="picked($event)">

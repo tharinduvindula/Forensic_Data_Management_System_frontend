@@ -8,3 +8,18 @@
 ::ng-deep.mat-pseudo-checkbox-checked{
     background-color:  gray; 
   }
+
+::ng-deep .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element{
+    background-color: gray ;
+}
+
+::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
+    background-color: gray; 
+}
+
+::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+   border-color:gray;
+}
+.btn.pull-right:disabled{
+    cursor: not-allowed;
+}

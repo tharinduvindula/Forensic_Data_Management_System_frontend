@@ -2,620 +2,478 @@
     <div class="row">
       <div class="col-md-12">
         <div class="card">
-          <div class="card-header card-header-warning">
-              <h4 class="card-title">Update Report</h4>
-              <p class="card-category">Click Update to submit changes</p>
+          <div class="card-header card-header-default" style="background-color: #25393b; color:white">
+            <h4 class="card-title">Edit Report</h4>
+            <p class="card-category">Edit the submitted report</p>
           </div>
           <div class="card-body">
-            
-              <mat-horizontal-stepper [linear]="isLinear" #stepper>
-                <mat-step [stepControl]="firstFormGroup">
-                  <form [formGroup]="firstFormGroup">
-                    <ng-template matStepLabel>Deceased Details</ng-template>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <mat-form-field class="example-full-width" color="warn">
-                              <input matInput placeholder="SRJ No" type="text" >
-                            </mat-form-field>
-                          </div>
-                    </div>
-                    <div class="row">
-                              
-                        <div class="col-md-3">
-                                                            
-                            <mat-form-field class="example-full-width" color="warn">
-                                <input matInput placeholder="Post Mortem Date" type="date">
-                            </mat-form-field>
-                            
-                        </div>          
-                        <div class="col-md-3">
-                                                            
-                            <mat-form-field class="example-full-width" color="warn">
-                              <input matInput placeholder="Post Mortem Time" type="time">                       
-                            </mat-form-field>
-                        </div>                   
-                      </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                          <mat-form-field class="example-full-width" color="warn">
-                            <input matInput placeholder="Full Name" type="text">
-                          </mat-form-field>
-                        </div>
-                      
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <mat-form-field class="example-full-width" color="warn">
-                              <input matInput placeholder="Age" type="text">
-                            </mat-form-field>
-                          </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <mat-form-field class="example-full-width" color="warn">
-                              <mat-label>Sex</mat-label>
-                              <mat-select>
-                                <mat-option value="male">Male</mat-option>
-                                <mat-option value="female">Female</mat-option>                           
-                            
-                              </mat-select>
-                            </mat-form-field>
-                          </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                          <mat-form-field class="example-full-width" color="warn">
-                            <input matInput placeholder="Address" type="text">
-                          </mat-form-field>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                          <mat-form-field class="example-full-width" color="warn">
-                            <input matInput placeholder="Contact Number" type="text">
-                          </mat-form-field>
-                        </div>
-                        
-                        
-                    </div>
-                    <div class="clearfix"></div>
-                    <div class="row" >
-                      <button mat-button matStepperNext class="btn btn-danger">Next</button>
-                    </div>
-                  </form>
-                </mat-step>
-                <mat-step [stepControl]="secondFormGroup">
-                  <form [formGroup]="secondFormGroup">
-                    <ng-template matStepLabel>Police Details</ng-template>
-                    <div class="row">
-                        <div class="col-md-6">
-                          <mat-form-field class="example-full-width" color="warn">
-                            <input matInput placeholder="Full Name" type="text">
-                          </mat-form-field>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <mat-form-field class="example-full-width" color="warn">
-                              <input matInput placeholder="Tag Number" type="text">
-                            </mat-form-field>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <mat-form-field class="example-full-width" color="warn">
-                                <mat-label>Area</mat-label>
-                                <mat-select>
-                                  <mat-option *ngFor="let area of areas" [value]="area.value">
-                                    {{area.viewValue}}
-                                  </mat-option>
-                                </mat-select>
-                            </mat-form-field>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <mat-form-field class="example-full-width" color="warn">
-                              <mat-label>Rank</mat-label>
-                              <mat-select>
-                                <mat-option value="igp">IGP</mat-option>
-                                <mat-option value="sdig">SDIG</mat-option>                           
-                                <mat-option value="sdig">SSP</mat-option>  
-                                <mat-option value="sdig">SP</mat-option>  
-                                <mat-option value="sdig">ASP</mat-option>  
-                                <mat-option value="sdig">CI</mat-option>  
-                                <mat-option value="sdig">IP</mat-option>  
-                                <mat-option value="sdig">SI</mat-option>  
-                                <mat-option value="sdig">PSM</mat-option>  
-                                <mat-option value="sdig">PS</mat-option>  
-                                <mat-option value="sdig">PC</mat-option>  
-                              </mat-select>
-                            </mat-form-field>
-                          </div>
+            <div class="row">
+                <div class="col-md-3">
+                  <div *ngIf="submitted && errors['overall']" class="alert alert-danger">
+                      Oops something went wrong!
+                  </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                  <div *ngIf="submitted && !errors['overall'] " class="alert alert-success">
+                      Report editted successfully!
+                  </div>
+                </div>
+            </div>
+            <mat-horizontal-stepper [linear]="isLinear" #stepper>
+              <mat-step [stepControl]="firstFormGroup">
+                <form #firstFormGroup=ngForm>
+                  <ng-template matStepLabel>Deceased Details</ng-template>            
+                  <div class="row">                     
+                    <div class="col-md-3">
+                      <mat-form-field class="example-full-width" >
+                        <input matInput placeholder="SRJ No" name="srjno"type="text" [(ngModel)]="form.srjno" required [disabled]="true" >                      
+                      </mat-form-field>
+                    </div>                  
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3">
+                      <mat-form-field class="example-full-width" >
+                        <input matInput placeholder="Post Mortem Date" name="pmdate" type="date" [(ngModel)]="form.pmdate" required  >
+                      </mat-form-field>
+                    </div>                  
+                    
+                    <div class="col-md-3">
+                      <mat-form-field class="example-full-width" >
+                        <input matInput placeholder="Post Mortem Time" name="pmtime" type="time" [(ngModel)]="form.pmtime" required >
+                        <mat-hint>Hint: Press 'A' for AM and 'P' for PM for the last two digits </mat-hint>
+                      </mat-form-field>
+                    </div>                  
+                    
+                  </div>
+                  <div class="row">
+                    
+                    <div class="col-md-6">
+                      <mat-form-field class="example-full-width" >
+                        <input matInput placeholder="Full Name" name="fullname" type="text" [(ngModel)]="form.fullname" required >
+                      </mat-form-field>
                     </div>
                     
-                    <div class="row">
-                        <div class="col-md-3">
-                          <mat-form-field class="example-full-width" color="warn">
-                            <input matInput placeholder="Phone Number" type="text">
-                          </mat-form-field>
-                        </div>                           
-                        
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <mat-label>Scene Photographs</mat-label>
-                            <div class="col-md-3" >
-                              <mat-radio-group  >                                          
-                                  <mat-radio-button color="warn" value="yes">Yes</mat-radio-button>
-                                  <mat-radio-button color="warn" value="no">No</mat-radio-button>  
-                              </mat-radio-group> 
-                            </div>                                     
-                            
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-3">
-                          <mat-form-field class="example-full-width" color="warn">
-                            <input matInput placeholder="Folder Name" type="text">
-                          </mat-form-field>
-                        </div>
+                  </div>
+                  <div class="row">
+                    
+                    <div class="col-md-3">
+                      <mat-form-field class="example-full-width" >
+                        <input matInput placeholder="Age" name="age" type="text" [(ngModel)]="form.age" required >
+                      </mat-form-field>
                     </div>
                     
-                    <div class="clearfix"></div>
-                    <div class="row">
-                      <button mat-button matStepperPrevious class="btn btn-danger ">Back</button>
-                      <button mat-button matStepperNext class="btn btn-danger ">Next</button>
-                    </div>
-                  </form>
-                </mat-step>
-                <mat-step [stepControl]="secondFormGroup">
-                    <form [formGroup]="secondFormGroup">
-                      <ng-template matStepLabel>Order Given By</ng-template>
-                      <div class="row">
-                          <div class="col-md-6">
-                            <mat-form-field class="example-full-width" color="warn">
-                              <input matInput placeholder="Full Name" type="text">
-                            </mat-form-field>
-                          </div>
-                          
-                      </div>
-                      <div class="row">
-                          <div class="col-md-3">
-                              <mat-form-field class="example-full-width" color="warn">
-                                <input matInput placeholder="Area" type="text">
-                              </mat-form-field>
-                          </div>
-                      </div>
-                     
+                  </div>
+                  <div class="row">
                     
-                      <div class="row">
-                          <div class="col-md-3">
-                              <mat-label>Order given by</mat-label>
-                              <div class="col-md-3">
-                                <mat-radio-group >                                          
-                                    <mat-radio-button color="warn" value="Coroner">Coroner</mat-radio-button>
-                                    <mat-radio-button color="warn" value="Magistrate">Magistrate</mat-radio-button>  
-                                </mat-radio-group> 
-                              </div>                                     
-                              
-                          </div>
-                        </div>
-                                            
-                      <div class="clearfix"></div>
-                      <div class="row">
-                        <button mat-button matStepperPrevious class="btn btn-danger ">Back</button>
-                        <button mat-button matStepperNext class="btn btn-danger ">Next</button>
-                      </div>
-                    </form>
-                  </mat-step>
-                <mat-step [stepControl]="secondFormGroup">
-                    <form [formGroup]="secondFormGroup">
-                      <ng-template matStepLabel>Cause of Death</ng-template>
-                      <div class="row">
-                        <div class="col-md-6">
-                        <h4><b>I</b></h4>
-                          
-                            <mat-form-field class="example-full-width" color="warn">
-                              <input matInput placeholder="(a)" type="text">
-                            </mat-form-field>
-                            <mat-form-field class="example-full-width" color="warn">
-                              <input matInput placeholder="(b)" type="text">
-                            </mat-form-field>
-                            <mat-form-field class="example-full-width" color="warn">
-                              <input matInput placeholder="(c)" type="text">
-                            </mat-form-field>
-                          </div>
-                          
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <h5><b>II</b></h5>
-                          
-                            <mat-form-field class="example-full-width" color="warn">
-                              <input matInput placeholder="Contributory Causes" type="text">                              
-                            </mat-form-field>
-                          </div>                          
-                      </div>
-                      <div class="row">
-                          <div class="col-md-6">
-                            <mat-form-field class="example-full-width" color="warn">
-                              <input matInput placeholder="Other Comments" type="text">
-                              
-                            </mat-form-field>
-                          </div>
-                          
-
-                      </div>    
-
-                      <div class="row">
-                        <div class="col-md-4">                    
-                                                                                         
-                                  <mat-form-field color="warn">
-                                    <mat-label>Generalized Cause of Death</mat-label>
-                                    <mat-select [formControl]="gcodControl">
-                                      <mat-option>-- None --</mat-option>
-                                      <mat-optgroup *ngFor="let group of gcodGroups" [label]="group.name"
-                                                    [disabled]="group.disabled">
-                                        <mat-option *ngFor="let gcod of group.gcod" [value]="gcod.value">
-                                          {{gcod.viewValue}}
-                                        </mat-option>
-                                      </mat-optgroup>
-                                    </mat-select>
-                                  </mat-form-field>
-                             
-                              </div>
-
+                    <div class="col-md-3">
+                      <mat-form-field class="example-full-width" >
+                        <mat-label>Sex</mat-label>
+                        <mat-select [(ngModel)]="form.sex" name ="sex" required >
+                          <mat-option value="male">Male</mat-option>
+                          <mat-option value="female">Female</mat-option>
+                        </mat-select>
+                      </mat-form-field>
                     </div>
-                              
-                              <div class="row">
-                                <div class="col-md-4">
-                                    <mat-form-field class="example-full-width" color="warn">
-                                      <mat-label>Circumstances</mat-label>
-                                      <mat-select>
-                                        <mat-option value="accidental">Accidental</mat-option>
-                                        <mat-option value="natural">Natural</mat-option>                           
-                                        <mat-option value="suicidal">Suicidal</mat-option>  
-                                        <mat-option value="homicidal">Homicidal</mat-option>  
-                                        <mat-option value="unacertained">Unacertained</mat-option>  
-                                         
-                                      </mat-select>
-                                    </mat-form-field>
-                                  </div>
-                            </div>  
-                                    
-
-                                            
-                      <div class="row">
-                        <button mat-button matStepperPrevious class="btn btn-danger ">Back</button>
-                        <button mat-button matStepperNext class="btn btn-danger ">Next</button>
-                      </div>
-                    </form>
-                  </mat-step>
-                <mat-step [stepControl]="secondFormGroup">
-                    <form [formGroup]="secondFormGroup">
-                      <ng-template matStepLabel>Samples Collected</ng-template>
-                      <div class="row">
-                          
-                          <div class="col-md-12" >
-                          <h3><b>Government Analyst</b></h3>
-                          <div class="row">
-                              <div class="col-md-6">
-                                <mat-form-field class="example-full-width" color="warn">
-                                  <input matInput placeholder="CT Number" type="text">
-                                </mat-form-field>
-                              </div>
-                            
-                          </div>
-                          <h5><b>List of Specimens</b></h5>
-                          <p>
-                              Number of specimens submitted: {{specimens1.selectedOptions.selected.length}}
-                          </p>
-                          <mat-selection-list #specimens1 >
-                            <div class="row">
-                              <div class="col-md-4">
-                                <mat-list-option >Blood</mat-list-option>
-                              </div>
-                              <div class="col-md-4">
-                                <mat-list-option >Liver</mat-list-option>
-                              </div>
-                              <div class="col-md-4">
-                                <mat-list-option >Suspected Poison</mat-list-option>
-                              </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                  <mat-list-option >Urine</mat-list-option>
-                                </div>
-                                <div class="col-md-4">
-                                  <mat-list-option >Kidney</mat-list-option>
-                                </div>
-                                <div class="col-md-4">
-                                  <mat-list-option >Tablets/Medicines</mat-list-option>
-                                </div>
-
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                  <mat-list-option >Bile</mat-list-option>
-                                </div>
-                                <div class="col-md-4">
-                                  <mat-list-option >Lungs</mat-list-option>
-                                </div>
-                                <div class="col-md-4">
-                                  <mat-list-option >Other (Specify)</mat-list-option>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                  <mat-list-option >Stomach Contents</mat-list-option>
-                                </div>
-                                <div class="col-md-4">
-                                  <mat-list-option >Vitreous humor</mat-list-option>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                  <mat-list-option >Intestinal Contents</mat-list-option>
-                                </div>
-                                <div class="col-md-4">
-                                  <mat-list-option >Brain</mat-list-option>
-                                  </div>
-                            </div>
-                          </mat-selection-list>
-                          <h5><b>Analysis Required (Please request necessary analysis only)</b></h5>
-                          <div class="row">
-                        
-                            <div class="col-md-6">
-                                                                
-                              <mat-form-field class="example-full-width" color="warn">
-                                <input matInput placeholder="No of analysis required (Please specify the required poisons)" type="text">                              
-                              </mat-form-field>
-                            </div>                          
-                          </div>
-                          <h5><b>Chain of Custody</b></h5>
-                          <div class="row">
-                              
-                            <div class="col-md-3">
-                                                                
-                                <mat-form-field class="example-full-width" color="warn">
-                                    <input matInput placeholder="Samples Deliver Date" type="date">
-                                   
-                                  </mat-form-field>
-                                
-                            </div>          
-                            <div class="col-md-3">
-                                                                
-                                <mat-form-field class="example-full-width" color="warn">
-                                  <input matInput placeholder="Samples Deliver Time" type="time">                       
-                                </mat-form-field>
-                            </div>                   
-                          </div>
-                          
-                          
-                          </div>
-                          
-                      </div>
-                      
-                      <div class="row">
-                          <div class="col-md-12">
-                            <h3><b>MRI</b></h3>
-                            <div class="row">
-                                <div class="col-md-6">
-                                  <mat-form-field class="example-full-width" color="warn">
-                                    <input matInput placeholder="Reference Number" type="text">
-                                  </mat-form-field>
-                                </div>
-                              
-                            </div>
-                            <h5><b>List of Specimens</b></h5>
-                          <p>
-                              Number of specimens submitted: {{specimens2.selectedOptions.selected.length}}
-                          </p>
-                            <mat-selection-list #specimens2>
-                              <div class="row">
-                                <div class="col-md-4">
-                                  <mat-list-option >Blood</mat-list-option>
-                                </div>
-                                <div class="col-md-4">
-                                  <mat-list-option >Liver</mat-list-option>
-                                </div>
-                                <div class="col-md-4">
-                                  <mat-list-option >Suspected Poison</mat-list-option>
-                                </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-md-4">
-                                    <mat-list-option >Urine</mat-list-option>
-                                  </div>
-                                  <div class="col-md-4">
-                                    <mat-list-option >Kidney</mat-list-option>
-                                  </div>
-                                  <div class="col-md-4">
-                                    <mat-list-option >Tablets/Medicines</mat-list-option>
-                                  </div>
-
-                              </div>
-                              <div class="row">
-                                  <div class="col-md-4">
-                                    <mat-list-option >Bile</mat-list-option>
-                                  </div>
-                                  <div class="col-md-4">
-                                    <mat-list-option >Lungs</mat-list-option>
-                                  </div>
-                                  <div class="col-md-4">
-                                    <mat-list-option >Other (Specify)</mat-list-option>
-                                  </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-md-4">
-                                    <mat-list-option >Stomach Contents</mat-list-option>
-                                  </div>
-                                  <div class="col-md-4">
-                                   <mat-list-option >Vitreous humor</mat-list-option>
-                                  </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-md-4">
-                                    <mat-list-option >Intestinal Contents</mat-list-option>
-                                  </div>
-                                  <div class="col-md-4">
-                                   <mat-list-option >Brain</mat-list-option>
-                                   </div>
-                              </div>
-                            </mat-selection-list>
-                            <h5><b>Analysis Required (Please request necessary analysis only)</b></h5>
-                            <div class="row">
-                          
-                                <div class="col-md-6">
-                                                                   
-                                    <mat-form-field class="example-full-width" color="warn">
-                                      <input matInput placeholder="No of analysis required (Please specify the required poisons)" type="text">                              
-                                    </mat-form-field>
-                                </div>                          
-                            </div>
-                            <h5><b>Chain of Custody</b></h5>
-                            <div class="row">
-                                
-                                <div class="col-md-3">
-                                   
-                                    <mat-form-field class="example-full-width" color="warn">
-                                        <input matInput placeholder="Samples Deliver Date" type="date">                                       
-                                      </mat-form-field>
-                                            
-                                        
-                                </div>          
-                                <div class="col-md-3">
-                                                                   
-                                    <mat-form-field class="example-full-width" color="warn">
-                                      <input matInput placeholder="Samples Deliver Time" type="time">                              
-                                    </mat-form-field>
-                                </div>                   
-                            </div>
-                           
-                            
-                            </div>
-                            
-                        </div>
-                      
-                        <div class="row">
-                            <div class="col-md-12">
-                              <h3><b>Other</b></h3>
-                              <div class="row">
-                                  <div class="col-md-6">
-                                    <mat-form-field class="example-full-width" color="warn">
-                                      <input matInput placeholder="Reference Number" type="text">
-                                    </mat-form-field>
-                                  </div>
-                                
-                              </div>
-                              <h5><b>List of Specimens</b></h5>
-                          <p>
-                              Number of specimens submitted: {{specimens3.selectedOptions.selected.length}}
-                          </p>
-                            <mat-selection-list #specimens3>
-                              <div class="row">
-                                <div class="col-md-4">
-                                  <mat-list-option >Blood</mat-list-option>
-                                </div>
-                                <div class="col-md-4">
-                                  <mat-list-option >Liver</mat-list-option>
-                                </div>
-                                <div class="col-md-4">
-                                  <mat-list-option >Suspected Poison</mat-list-option>
-                                </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-md-4">
-                                    <mat-list-option >Urine</mat-list-option>
-                                  </div>
-                                  <div class="col-md-4">
-                                    <mat-list-option >Kidney</mat-list-option>
-                                  </div>
-                                  <div class="col-md-4">
-                                    <mat-list-option >Tablets/Medicines</mat-list-option>
-                                  </div>
-
-                              </div>
-                              <div class="row">
-                                  <div class="col-md-4">
-                                    <mat-list-option >Bile</mat-list-option>
-                                  </div>
-                                  <div class="col-md-4">
-                                    <mat-list-option >Lungs</mat-list-option>
-                                  </div>
-                                  <div class="col-md-4">
-                                    <mat-list-option >Other (Specify)</mat-list-option>
-                                  </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-md-4">
-                                    <mat-list-option >Stomach Contents</mat-list-option>
-                                  </div>
-                                  <div class="col-md-4">
-                                   <mat-list-option >Vitreous humor</mat-list-option>
-                                  </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-md-4">
-                                    <mat-list-option >Intestinal Contents</mat-list-option>
-                                  </div>
-                                  <div class="col-md-4">
-                                   <mat-list-option >Brain</mat-list-option>
-                                   </div>
-                              </div>
-                            </mat-selection-list>
-                            <h5><b>Analysis Required (Please request necessary analysis only)</b></h5>
-                            <div class="row">
-                          
-                                <div class="col-md-6">
-                                                                   
-                                    <mat-form-field class="example-full-width" color="warn">
-                                      <input matInput placeholder="No of analysis required (Please specify the required poisons)" type="text">                              
-                                    </mat-form-field>
-                                </div>                          
-                            </div>
-                            <h5><b>Chain of Custody</b></h5>
-                            <div class="row">
-                                
-                                <div class="col-md-3">
-                                                                   
-                                    <mat-form-field class="example-full-width" color="warn">
-                                        <input matInput placeholder="Samples Deliver Date" type="date">                                        
-                                      </mat-form-field>
-                                    
-                                </div>          
-                                <div class="col-md-3">
-                                                                   
-                                    <mat-form-field class="example-full-width" color="warn">
-                                      <input matInput placeholder="Samples Deliver Time" type="time">                              
-                                    </mat-form-field>
-                                </div>                   
-                            </div>
-                           
-                            
-                            </div>
-                            
-                        </div>
-                        <div class="row">
-                          <button mat-button matStepperPrevious class="btn btn-danger ">Back</button>
-                          <button mat-button matStepperNext class="btn btn-danger ">Next</button>
-                        </div>
-                    </form>
-                  </mat-step>
-                <mat-step [stepControl]="secondFormGroup">
-                  <ng-template matStepLabel>Update</ng-template>
+                    
+                  </div>
+                  <div class="row">
+                    
+                    <div class="col-md-6">
+                      <mat-form-field class="example-full-width" >
+                        <input matInput placeholder="Address" name = "address" type="text" [(ngModel)]="form.address" required >
+                      </mat-form-field>
+                    </div>
+                    
+                  </div>
+                  <div class="row">
+                    
+                    <div class="col-md-3">
+                      <mat-form-field class="example-full-width" >
+                        <input matInput placeholder="Contact Number" name= "contactnumber" type="text" [(ngModel)]="form.contactnumber" required >
+                      </mat-form-field>
+                    </div>
+                    
+                  </div>
+                  <div class="clearfix"></div>
                   
                   <div class="row">
-                    <button mat-button matStepperPrevious class="btn btn-danger ">Back</button>
-                    <button mat-button class="btn btn-danger">Update</button>
+                    <button mat-button matStepperNext class="btn btn-default" style="background-color: #e6e9e9; color:black">Next</button>
                   </div>
-                </mat-step>
-              </mat-horizontal-stepper>
-            </div>
-
+                </form>
+              </mat-step>
+              <mat-step [stepControl]="secondFormGroup">
+                <form #secondFormGroup=ngForm>
+                  <ng-template matStepLabel>Police Details</ng-template>
+                  <div class="row">
+                    
+                    <div class="col-md-6">
+                      <mat-form-field class="example-full-width" >
+                        <input matInput placeholder="Full Name" name="policefullname" type="text" [(ngModel)]="form.policefullname" required >
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                   
+                    <div class="col-md-3">
+                      <mat-form-field class="example-full-width" >
+                        <input matInput placeholder="Tag Number" name="policetagno" type="text"[(ngModel)]="form.policetagno" required >
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    
+                    <div class="col-md-3">
+                      <mat-form-field class="example-full-width" >
+                        <mat-label>Area</mat-label>
+                        <mat-select name="policearea" [(ngModel)]="form.policearea" required >
+                          <mat-option *ngFor="let area of areas" [value]="area.viewValue">
+                            {{area.viewValue}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    
+                    <div class="col-md-3">
+                      <mat-form-field class="example-full-width" >
+                        <mat-label>Rank</mat-label>
+                        <mat-select name="policerank" [(ngModel)]="form.policerank" required >
+                          <mat-option *ngFor="let rank of ranks" [value]="rank.viewValue">
+                            {{rank.viewValue}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    
+                    <div class="col-md-3">
+                      <mat-form-field class="example-full-width" >
+                        <input matInput placeholder="Phone Number" type="text" name="policephoneno" [(ngModel)]="form.policephoneno" required >
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">                  
+                    
+                    <div class="col-md-3">
+                      <mat-label>Scene Photographs</mat-label>
+                      <div class="col-md-3">                        
+                        <mat-radio-group name="policescenephoto"[(ngModel)]="form.policescenephoto" required>
+                          <mat-radio-button  value="yes" [disableRipple]="true">Yes</mat-radio-button>
+                          <mat-radio-button  value="no" [disableRipple]="true">No</mat-radio-button>
+                        </mat-radio-group>                     
+                      </div>                    
+                    </div>
+                  </div>
+                  <div class="row" *ngIf='form.policescenephoto!="no"'>
+                    
+                    <div class="col-md-3">
+                      <mat-form-field class="example-full-width" >
+                        <input matInput placeholder="Folder Name" type="text" name="policefoldername" [(ngModel)]="form.policefoldername" required>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
+                  <div class="row">
+                    <button mat-button matStepperPrevious class="btn btn-default " style="background-color: #e6e9e9; color:black">Back</button>
+                    <button mat-button matStepperNext class="btn btn-default " style="background-color: #e6e9e9; color:black">Next</button>
+                  </div>
+                </form>
+              </mat-step>
+              <mat-step [stepControl]="thirdFormGroup">
+                <form #thirdFormGroup=ngForm>
+                  <ng-template matStepLabel>Order Given By</ng-template>
+                  <div class="row">                  
+                    <div class="col-md-6">
+                      <mat-form-field class="example-full-width" >
+                        <input matInput placeholder="Full Name" type="text" name="coronerfullname" [(ngModel)]="form.coronerfullname" required >
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                   
+                    <div class="col-md-3">
+                      <mat-form-field class="example-full-width" >                      
+                        <mat-label>Area</mat-label>
+                        <mat-select name="coronerarea" [(ngModel)]="form.coronerarea" required >
+                          <mat-option *ngFor="let area of areas" [value]="area.viewValue">
+                              {{area.viewValue}}
+                          </mat-option>
+                        </mat-select>                      
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    
+                    <div class="col-md-3">
+                      <mat-label>Order given by</mat-label>
+                      <div class="col-md-3">
+                        <mat-radio-group name="coronerorder" [(ngModel)]="form.coronerordergivenby" required >
+                          <mat-radio-button  value="Coroner" [disableRipple]="true">Coroner</mat-radio-button>
+                          <mat-radio-button  value="Magistrate" [disableRipple]="true">Magistrate</mat-radio-button>
+                        </mat-radio-group>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
+                  <div class="row">
+                    <button mat-button matStepperPrevious class="btn btn-default " style="background-color: #e6e9e9; color:black">Back</button>
+                    <button mat-button matStepperNext class="btn btn-default " style="background-color: #e6e9e9; color:black">Next</button>
+                  </div>
+                </form>
+              </mat-step>
+              <mat-step [stepControl]="fourthFormGroup">
+                <form #fourthFormGroup=ngForm>
+                  <ng-template matStepLabel>Cause of Death</ng-template>
+                  <div class="row">                  
+                    <div class="col-md-6">
+                      <h4><b>I</b></h4>
+                      <mat-form-field class="example-full-width" >
+                        <input matInput placeholder="(a)" name="a" type="text" [(ngModel)]="form.a" required >
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width" >
+                        <input matInput placeholder="(b)" name="b" type="text" [(ngModel)]="form.b" required >
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width" >
+                        <input matInput placeholder="(c)" name="c" type="text" [(ngModel)]="form.c" required >
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    
+                    <div class="col-md-6">
+                      <h5><b>II</b></h5>
+                      <mat-form-field class="example-full-width" >
+                        <input matInput placeholder="Contributory Causes" name="contributory_cause" type="text" [(ngModel)]="form.contributory_cause" required >
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    
+                    <div class="col-md-6">
+                      <mat-form-field class="example-full-width" >
+                        <input matInput placeholder="Other Comments" name="other_comments" type="text" [(ngModel)]="form.other_comments" required >
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    
+                    <div class="col-md-4">
+                      <mat-form-field >
+                        <mat-label>Generalized Cause of Death</mat-label>
+                        <mat-select name="gcodControl" [(ngModel)]="form.cod" required >
+                          <mat-option>-- None --</mat-option>
+                          <mat-optgroup *ngFor="let group of gcodGroups" [label]="group.name" [disabled]="group.disabled">
+                            <mat-option *ngFor="let gcod of group.gcod" [value]="gcod.value">
+                              {{gcod.viewValue}}
+                            </mat-option>
+                          </mat-optgroup>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>                  
+                      <div class="col-md-3">
+                        <mat-form-field class="example-full-width" >
+                          <mat-label>Circumstances</mat-label>
+                          <mat-select [(ngModel)]="form.circumstances" name="circumstances" required >
+                            <mat-option value="accidental">Accidental</mat-option>
+                            <mat-option value="natural">Natural</mat-option>
+                            <mat-option value="suicidal">Suicidal</mat-option>
+                            <mat-option value="homicidal">Homicidal</mat-option>
+                            <mat-option value="unacertained">Unacertained</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                  </div>
+                  <div class="row">
+                    <button mat-button matStepperPrevious class="btn btn-default " style="background-color: #e6e9e9; color:black">Back</button>
+                    <button mat-button matStepperNext class="btn btn-default " style="background-color: #e6e9e9; color:black">Next</button>
+                  </div>
+                </form>
+              </mat-step>
+              <mat-step [stepControl]="fifthFormGroup">
+                <form #fifthFormGroup=ngForm (ngSubmit)="onsubmit()">
+                  <ng-template matStepLabel>Samples Collected</ng-template>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h3><b>Government Analyst</b></h3>
+                      <div class="row">
+                        
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width" >
+                            <input matInput placeholder="CT Number" name="gactnumber" type="text" [(ngModel)]="form.gactnumber" required [disabled]="true">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <h5><b>List of Specimens</b></h5>
+                      <p>
+                        Number of specimens submitted: {{specimen1.selectedOptions.selected.length}}
+                      </p>
+                      
+                      <mat-selection-list name="selectedOptions1" #specimen1 [(ngModel)]="selectedOptions1"  required >
+                        <div class="row">                          
+                          <div class="col-md-4">
+                            <mat-list-option *ngFor="let ga of sp1" [value]="ga.name">{{ga.name}}</mat-list-option>
+                          </div>
+                          <div class="col-md-4">
+                            <mat-list-option *ngFor="let ga of sp2" [value]="ga.name">{{ga.name}}</mat-list-option>
+                          </div>
+                          <div class="col-md-4">
+                            <mat-list-option *ngFor="let ga of sp3" [value]="ga.name">{{ga.name}}</mat-list-option>
+                          </div>
+                        </div>                     
+                      </mat-selection-list>
+                      <h5><b>Analysis Required (Please request necessary analysis only)</b></h5>
+                      <div class="row">
+                        
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width" >
+                            <input matInput placeholder="No of analysis required (Please specify the required poisons)"
+                              name="gaanalysis" type="text" [(ngModel)]="form.gaanalysis" required >
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <h5><b>Chain of Custody</b></h5>
+                      <div class="row">
+                        
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width" >
+                            <input matInput placeholder="Samples Deliver Date" name="gadate" type="date" [(ngModel)]="form.gadate" required > 
+                          </mat-form-field>
+                        </div>                      
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width" >
+                            <input matInput placeholder="Samples Deliver Time" name="gatime" type="time" [(ngModel)]="form.gatime" required >
+                            <mat-hint>Hint: Press 'A' for AM and 'P' for PM for the last two digits </mat-hint>
+                          </mat-form-field>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h3><b>MRI</b></h3>
+                      <div class="row">
+                        
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width" >
+                            <input matInput placeholder="Reference Number" name="mrirefnum" type="text" [(ngModel)]="form.mrirefnum" required [disabled]="true" >
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <h5><b>List of Specimens</b></h5>
+                      <p>
+                        Number of specimens submitted: {{specimen2.selectedOptions.selected.length}}
+                      </p>
+                      
+                      <mat-selection-list name="selectedOptions2" #specimen2 [(ngModel)]="selectedOptions2" required >
+                        <div class="row">                          
+                          <div class="col-md-4">
+                            <mat-list-option *ngFor="let ga of sp1" [value]="ga.name">{{ga.name}}</mat-list-option>
+                          </div>
+                          <div class="col-md-4">
+                            <mat-list-option *ngFor="let ga of sp2" [value]="ga.name">{{ga.name}}</mat-list-option>
+                          </div>
+                          <div class="col-md-4">
+                            <mat-list-option *ngFor="let ga of sp3" [value]="ga.name">{{ga.name}}</mat-list-option>
+                          </div>
+                        </div>                     
+                      </mat-selection-list>
+                      <h5><b>Analysis Required (Please request necessary analysis only)</b></h5>
+                      <div class="row">
+                        
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width" >
+                            <input matInput placeholder="No of analysis required (Please specify the required poisons)"
+                              name="mrianalysis" type="text" [(ngModel)]="form.mrianalysis" required >
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <h5><b>Chain of Custody</b></h5>
+                      <div class="row">
+                        
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width" >
+                            <input matInput placeholder="Samples Deliver Date" name="mridate" type="date" [(ngModel)]="form.mridate" required >
+                          </mat-form-field>
+                        </div>                      
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width" >
+                            <input matInput placeholder="Samples Deliver Time" name="mritime" type="time" [(ngModel)]="form.mritime" required >
+                            <mat-hint>Hint: Press 'A' for AM and 'P' for PM for the last two digits </mat-hint>
+                          </mat-form-field>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h3><b>Other</b></h3>
+                      <div class="row">
+                        
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width" >
+                            <input matInput placeholder="Reference Number" type="text" name="otherrefnum" [(ngModel)]="form.otherrefnum" required [disabled]="true">
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <h5><b>List of Specimens</b></h5>
+                      <p>
+                        Number of specimens submitted: {{specimen3.selectedOptions.selected.length}}
+                      </p>
+                      
+                      <mat-selection-list name="selectedOptions3" #specimen3 [(ngModel)]="selectedOptions3" required >
+                        <div class="row">                          
+                          <div class="col-md-4">
+                            <mat-list-option *ngFor="let ga of sp1" [value]="ga.name">{{ga.name}}</mat-list-option>
+                          </div>
+                          <div class="col-md-4">
+                            <mat-list-option *ngFor="let ga of sp2" [value]="ga.name">{{ga.name}}</mat-list-option>
+                          </div>
+                          <div class="col-md-4">
+                            <mat-list-option *ngFor="let ga of sp3" [value]="ga.name">{{ga.name}}</mat-list-option>
+                          </div>
+                        </div>                     
+                      </mat-selection-list>
+                      <h5><b>Analysis Required (Please request necessary analysis only)</b></h5>
+                      <div class="row">
+                        
+                        <div class="col-md-6">
+                          <mat-form-field class="example-full-width" >
+                            <input matInput placeholder="No of analysis required (Please specify the required poisons)"
+                              name="otheranalysis" type="text" [(ngModel)]="form.otheranalysis" required >
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <h5><b>Chain of Custody</b></h5>
+                      <div class="row">
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width" >
+                            <input matInput placeholder="Samples Deliver Date" name="otherdate" type="date" [(ngModel)]="form.otherdate" required >
+                          </mat-form-field>
+                        </div>                      
+                        <div class="col-md-3">
+                          <mat-form-field class="example-full-width" >
+                            <input matInput placeholder="Samples Deliver Time" name="othertime" type="time" [(ngModel)]="form.othertime" required >
+                            <mat-hint>Hint: Press 'A' for AM and 'P' for PM for the last two digits </mat-hint>
+                          </mat-form-field>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <button mat-button matStepperPrevious class="btn btn-default" style="background-color: #e6e9e9; color:black">Back</button>              
+                    <button mat-button type="button" (click)="firstFormGroup.reset();secondFormGroup.reset();thirdFormGroup.reset();fourthFormGroup.reset();fifthFormGroup.reset();reset();stepper.reset()" class="btn btn-default" style="background-color: #e6e9e9; color:black">Reset</button>                
+                    <button type="submit"  style="background-color: #25393b" class="btn pull-right" [disabled]="!firstFormGroup.valid || !secondFormGroup.valid || !thirdFormGroup.valid || !fourthFormGroup.valid || !fifthFormGroup.valid">Update</button>
+                  </div>
+                </form>
+              </mat-step>
+            </mat-horizontal-stepper>
           </div>
+  
         </div>
       </div>
     </div>
- 
+  </div>

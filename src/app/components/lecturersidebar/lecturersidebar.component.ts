@@ -17,6 +17,8 @@ export const ROUTES: RouteInfo[] = [
   { path: '/lecturer/analysis', title: 'Report Analysis', icon: 'show_chart', class: '' },
   { path: '/lecturer/add', title: 'New Report', icon: 'add', class: '' },
   { path: '/lecturer/retrieve', title: 'Retrieve Report', icon: 'description', class: '' },
+  { path: '/lecturer/User-Profile', title: 'User Profile',  icon: 'person', class: '' },
+
 ];
 
 @Component({

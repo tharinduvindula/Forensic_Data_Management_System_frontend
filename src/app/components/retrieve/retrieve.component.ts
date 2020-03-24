@@ -4,18 +4,13 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
 import { TokenService } from 'app/service/token.service';
 import { AddDeceasedService } from 'app/service/add-deceased.service';
 import { RETREIVE } from 'app/models/RETREIVE';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmationDialogComponent } from 'app/components/shared/confirmation-dialog/confirmation-dialog.component';
 
 declare const $: any;
 declare interface RouteInfo {
   srj: string;
-  fname: string;
-  editpath: string;
-  deletepath: string;
-  viewpath: string;
 }
-export const ROUTES: RouteInfo[] = [
-  
-];
 
 @Component({
   selector: 'app-retrieve',
@@ -25,55 +20,77 @@ export const ROUTES: RouteInfo[] = [
 export class RetrieveComponent implements OnInit {
   srj: string;
   getall: any;
-  reports: any[];
-  deceased: RETREIVE[] =[];
- 
+  reports:any;
   constructor(
     private router: Router,
     private Token: TokenService,
     private Deceased: AddDeceasedService,
+    public dialog: MatDialog
     ) {
       this.getAlldeceased();
     }
-
-  ngOnInit() {
-    this.reports = ROUTES.filter(menuItem => menuItem);
+  public form = {
+    deleteby:this.Token.payload(this.Token.gettoken()).ud.fullname,
+    srjno:null,
   }
-
+  ngOnInit() {
+    this.reports=this.getall;
+   }
+  
   getAlldeceased() {
     this.Deceased.getalldeceased().subscribe((all) => {
       this.getall = all;
-      // this.fullname = all.fullname
-    }
+      this.reports = all;
+    }    
     );
+        
   }
     
-  Search() {
+  Search() {    
     if (this.srj !== '') {
       this.reports = this.reports.filter(res => {
-        return res.srj.toLocaleLowerCase().match(this.srj.toLocaleLowerCase());
+        return res["srjno"].toLocaleLowerCase().match(this.srj.toLocaleLowerCase());
       });
     } else if (this.srj === '') {
       this.ngOnInit();
     }
-
+    
   }
 
   onview(srjno1) {
     event.preventDefault();
-    console.log(event);
     this.router.navigate([`/${this.Token.payload(this.Token.gettoken()).ud.usertype}` + '/report-view'],
     { queryParams: { srjno: srjno1 }});
   }
   onedit(srjno1) {
     event.preventDefault();
     this.router.navigate([`/${this.Token.payload(this.Token.gettoken()).ud.usertype}` + '/report-edit'],
-     { queryParams: { srjno: srjno1 }, skipLocationChange: true });
+     { queryParams: { srjno: srjno1 }});
   }
   ondelete(srjno1) {
     event.preventDefault();
-    this.router.navigate([`/${this.Token.payload(this.Token.gettoken()).ud.usertype}` + '/report-delete'],
-     { queryParams: { srjno :srjno1 }, skipLocationChange: true });
+    this.openDialog(srjno1);
+  }
+  openDialog(srjno1): void {
+    if (this.Token.gettoken() !== null) {
+      this.form.srjno = srjno1;      
+    }
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      width: '350px',
+      data: 'Are you sure you want to delete the SRJ No: '+`${srjno1}`+' report?'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.Deceased.deletedeceased(this.form).subscribe(
+          data => {
+            if(data["message"]="success"){                 
+                this.getAlldeceased();
+            }
+          },
+          error => {
+          });
+      }
+    }); 
   }
 
 }
