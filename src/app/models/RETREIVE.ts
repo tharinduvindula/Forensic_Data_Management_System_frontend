@@ -12,6 +12,7 @@ export class RETREIVE {
     policearea = null;
     policerank = null;
     policephoneno = null;
+    policedate = null;
     policescenephoto = null;
     policefoldername = null;
     coronerfullname = null;
@@ -41,7 +42,7 @@ export class RETREIVE {
     otherspecimens = null;
 
     constructor(srjno, pmdate, pmtime, fullname, age, sex, address, contactnumber, 
-        policefullname, policetag, policearea, policerank, policephoneno , policescenephoto, policefoldername, 
+        policefullname, policetag, policearea, policerank, policephoneno , policedate, policescenephoto, policefoldername, 
         coronerfullname, coronerarea, coronerordergivenby, 
         a, b, c, contributory_cause, other_comments, cod, circumstances,
         gactnumber, gaanalysis, gadate, gatime, gaspecimens, mrirefnum, mrianalysis, mridate, mritime, mrispecimens, otherrefnum, otheranalysis, otherdate, othertime, otherspecimens) {
@@ -59,6 +60,7 @@ export class RETREIVE {
         this.policearea = policearea;
         this.policerank = policerank;
         this.policephoneno = policephoneno;
+        this.policedate = policedate;
         this.policescenephoto = policescenephoto;
         this.policefoldername = policefoldername;
         this.coronerfullname = coronerfullname;

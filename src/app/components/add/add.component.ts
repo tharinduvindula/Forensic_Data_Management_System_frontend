@@ -173,6 +173,7 @@ export class AddComponent implements OnInit {
     policearea : null,
     policerank: null,
     policephoneno: null,
+    policedate: null,
     policescenephoto: null,
     policefoldername: null,
     coronerfullname: null,
