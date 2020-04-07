@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { AnalysisService } from 'app/service/analysis.service';
+
+export interface Area {
+      value: string;
+      viewValue: string;
+}
+
 
 @Component({
   selector: 'app-analysis',
@@ -14,17 +21,33 @@ export class AnalysisComponent implements OnInit {
   ngOnInit() {}
   public title = null;
 
-  constructor() {
+  areas: Area[] = [
+      {value: 'area-01', viewValue: 'Agulana'}, {value: 'area-02', viewValue: 'Athurugiriya'}, {value: 'area-03', viewValue: 'Bambalapitiya'},
+      {value: 'area-04', viewValue: 'Boralesgamuwa'}, {value: 'area-05', viewValue: 'Borella'}, {value: 'area-06', viewValue: 'Dehiwala'},  
+      {value: 'area-07', viewValue: 'Homagama'}, {value: 'area-08', viewValue: 'Hospital Police'}, {value: 'area-09', viewValue: 'Jayawardanapura'},
+      {value: 'area-10', viewValue: 'Kahathuduwa'}, {value: 'area-11', viewValue: 'Kirulapone'}, {value: 'area-12', viewValue: 'Kohuwala'},
+      {value: 'area-13', viewValue: 'Kollupitiya'}, {value: 'area-14', viewValue: 'Kottawa'}, {value: 'area-15', viewValue: 'Maharagama'},
+      {value: 'area-16', viewValue: 'Meegoda'}, {value: 'area-17', viewValue: 'Mirihana'}, {value: 'area-18', viewValue: 'Moragahahena'},
+      {value: 'area-19', viewValue: 'Moratumulla'}, {value: 'area-20', viewValue: 'Moratuwa'}, {value: 'area-21', viewValue: 'Mt-Lavinia'},
+      {value: 'area-22', viewValue: 'Padukka'}, {value: 'area-23', viewValue: 'Panadura'}, {value: 'area-24', viewValue: 'Piliyandala'},
+      {value: 'area-25', viewValue: 'Welikada'}, {value: 'area-26', viewValue: 'Wellawatte'}
+    ];
+    public form={
+      gareportarea:"Agulana"      
+}
+  constructor(
+      private analysis: AnalysisService,) {
+        
     this.dataSource = {
       'chart': {
         'CaptionFontSize': 18,
         'subCaptionFontSize': 15,
-        'subCaptionFontcolor': '#ffffff',
-        'palettecolors': '#ffffff,#FFFF00',
-        'labelFontColor': '#ffffff',
+        'subCaptionFontcolor': '#25393b',
+        'palettecolors': '#ffffff,#054f55',
+        'labelFontColor': '#25393b',
         'labelFontSize': 12,
-        'legendItemFontColor': '#ffffff',
-        'outCnvBaseFontColor': '#ffffff',
+        'legendItemFontColor': '#25393b',
+        'outCnvBaseFontColor': '#25393b',
         'bgAlpha': 0,
         'pieRadius': 80,
         'caption': 'Orders by Coroner and Magistrate',
@@ -52,13 +75,13 @@ export class AnalysisComponent implements OnInit {
         'pieRadius': 90,
         'CaptionFontSize': 18,
         'subCaptionFontSize': 15,
-        'subCaptionFontcolor': '#ffffff',
+        'subCaptionFontcolor': '#25393b',
         'caption': 'Manner of Death',
         'subCaption': '[2017-2018]',
-        'palettecolors': '#310000,#630000,#950000,#c70000,#f90000',
-        'legendItemFontColor': '#ffffff',
-        'outCnvBaseFontColor': '#ffffff',
-        'labelFontColor': '#ffffff',
+        'palettecolors': '#ffffff,#9fcace,#449aa1,#1d7880,#054f55',
+        'legendItemFontColor': '#25393b',
+        'outCnvBaseFontColor': '#25393b',
+        'labelFontColor': '#25393b',
         'labelFontSize': 10,
        // 'legendFontSize': 11,
         'bgAlpha': 0,
@@ -88,14 +111,14 @@ export class AnalysisComponent implements OnInit {
         'labelDisplay': 'rotate',
         'CaptionFontSize': 18,
         'subCaptionFontSize': 15,
-        'subCaptionFontcolor': '#ffffff',
+        'subCaptionFontcolor': '#25393b',
         'labelFontSize': 10,
         'caption': 'No of GA Report Delays',
-        'subCaption': 'Dehiwala-Mount Lavinia',
-        'palettecolors': '#ffffff,#8B0000',
-        'legendItemFontColor': '#ffffff',
-        'outCnvBaseFontColor': '#ffffff',
-        'labelFontColor': '#ffffff',
+        'subCaption': this.form.gareportarea,
+        'palettecolors': '#ffffff,#9fcace,#6eaaaf,#449aa1,#1d7880,#054f55,#1b2728',
+        'legendItemFontColor': '#25393b',
+        'outCnvBaseFontColor': '#25393b',
+        'labelFontColor': '#25393b',
         'bgAlpha': 0,
         'theme': 'fusion'
 
@@ -130,12 +153,12 @@ export class AnalysisComponent implements OnInit {
         'labelDisplay': 'rotate',
         'CaptionFontSize': 18,
         'subCaptionFontSize': 15,
-        'subCaptionFontcolor': '#ffffff',
+        'subCaptionFontcolor': '#25393b',
         'labelFontSize': 10,
-        'palettecolors': '#ffffff,#ADFF2F',
-        'legendItemFontColor': '#ffffff',
-        'outCnvBaseFontColor': '#ffffff',
-        'labelFontColor': '#ffffff',
+        'palettecolors': '#ffffff',
+        'legendItemFontColor': '#25393b',
+        'outCnvBaseFontColor': '#25393b',
+        'labelFontColor': '#25393b',
         'bgAlpha': 0,
         'caption': 'No of Police Report Delays',
         'subCaption': 'Dehiwala-Mount Lavinia',
@@ -174,13 +197,13 @@ export class AnalysisComponent implements OnInit {
         'subCaption': 'Dehiwala-Mount Lavinia',
         'CaptionFontSize': 30,
         'subCaptionFontSize': 20,
-        'subCaptionFontcolor': '#ffffff',
+        'subCaptionFontcolor': '#25393b',
         // 'labelFontSize': 10,
         'legendFontSize': 5,
-        'palettecolors': '#ffffff,#fdfacc,#fcf59a,#faf068,#f9eb36,#f8e604,#FFD700',
-        'legendItemFontColor': '#ffffff',
-        'outCnvBaseFontColor': '#ffffff',
-        'labelFontColor': '#ffffff',
+        'palettecolors': '#ffffff,#9fcace,#6eaaaf,#449aa1,#1d7880,#054f55,#1b2728',
+        'legendItemFontColor': '#25393b',
+        'outCnvBaseFontColor': '#25393b',
+        'labelFontColor': '#25393b',
         'bgAlpha': 0,
         'theme': 'fusion'
       },
@@ -208,6 +231,61 @@ export class AnalysisComponent implements OnInit {
       }]
   };
     }
+    onChange(area) {
+      this.form.gareportarea=area;   
+      this.analysis.GAReportDelays(this.form).subscribe(
+            data => { 
+              if(data["message"]="success"){ 
+              }               
+            },
+            error => 
+            {  
+                  console.log("Error:"+error)           
+            }
+          );
+      this.gareport = {
+            'chart': {
+            'maxLabelHeight': '50',
+            'labelDisplay': 'rotate',
+            'CaptionFontSize': 18,
+            'subCaptionFontSize': 15,
+            'subCaptionFontcolor': '#25393b',
+            'labelFontSize': 10,
+            'caption': 'No of GA Report Delays',
+            'subCaption': this.form.gareportarea,
+            'palettecolors': '#ffffff,#9fcace,#6eaaaf,#449aa1,#1d7880,#054f55,#1b2728',
+            'legendItemFontColor': '#25393b',
+            'outCnvBaseFontColor': '#25393b',
+            'labelFontColor': '#25393b',
+            'bgAlpha': 0,
+            'theme': 'fusion'
 
+
+            },
+
+            'data': [{
+            'label': '1 day',
+            'value': '10'
+      }, {
+            'label': '1 day>Delay<=1 week',
+            'value': '30'
+      }, {
+            'label': '1 week>Delay<=1 month',
+            'value': '23'
+      }, {
+            'label': '1 month>Delay<=3 months',
+            'value': '300'
+      }, {
+            'label': '3 months>Delay<=1 year',
+            'value': '150'
+      }, {
+            'label': '1 year>Delay<=3 years',
+            'value': '25'
+      }, {
+            'label': 'Delay>3 years',
+            'value': '10'
+            }]
+            };
+      }
 
     }
