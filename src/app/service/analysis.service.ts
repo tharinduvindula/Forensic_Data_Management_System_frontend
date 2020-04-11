@@ -20,4 +20,8 @@ export class AnalysisService {
    GAReportDelays(data) {
     return this.http.post(`${this.baseUrl}/GAReportDelays`, data);
   }
+
+  OrderGivenCount(data) {
+    return this.http.post(`${this.baseUrl}/OrderGivenCount`, data);
+  }
 }

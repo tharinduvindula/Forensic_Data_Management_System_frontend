@@ -18,6 +18,11 @@ export class AnalysisComponent implements OnInit {
   gareport: Object;
   pareport: Object;
   pmreport: Object;
+  ordercount: Object;
+  ordercountarea: Object;
+  coroner:Number;
+  magistrate: Number;
+
   ngOnInit() {}
   public title = null;
 
@@ -33,38 +38,40 @@ export class AnalysisComponent implements OnInit {
       {value: 'area-25', viewValue: 'Welikada'}, {value: 'area-26', viewValue: 'Wellawatte'}
     ];
     public form={
-      gareportarea:"Agulana"      
+      gareportarea:"Agulana",
 }
   constructor(
       private analysis: AnalysisService,) {
-        
-    this.dataSource = {
-      'chart': {
-        'CaptionFontSize': 18,
-        'subCaptionFontSize': 15,
-        'subCaptionFontcolor': '#25393b',
-        'palettecolors': '#ffffff,#054f55',
-        'labelFontColor': '#25393b',
-        'labelFontSize': 12,
-        'legendItemFontColor': '#25393b',
-        'outCnvBaseFontColor': '#25393b',
-        'bgAlpha': 0,
-        'pieRadius': 80,
-        'caption': 'Orders by Coroner and Magistrate',
-        'subCaption': '[2017-2018]',
-        'numberPrefix': '',
-        'decimals': '0',
-        'theme': 'fusion'
-      },
 
-      'data': [{
-          'label': 'Coroner',
-          'value': '290'
-      }, {
-          'label': 'Magistrate',
-          'value': '30'
-      }]
-  };
+            this.ordercount = {
+            
+                  'chart': {
+                        'CaptionFontSize': 18,
+                        'subCaptionFontSize': 15,
+                        'subCaptionFontcolor': '#25393b',
+                        'palettecolors': '#ffffff,#054f55',
+                        'labelFontColor': '#25393b',
+                        'labelFontSize': 12,
+                        'legendItemFontColor': '#25393b',
+                        'outCnvBaseFontColor': '#25393b',
+                        'bgAlpha': 0,
+                        'pieRadius': 80,
+                        'caption': 'Orders by Coroner and Magistrate',
+                        'subCaption': this.ordercountarea,
+                        'numberPrefix': '',
+                        'decimals': '0',
+                        'theme': 'fusion'
+                  },
+                  
+                  'data': [{
+                        'label': 'Coroner',
+                        'value': this.coroner
+                  }, {
+                        'label': 'Magistrate',
+                        'value': this.magistrate
+                  }]
+            };
+
     this.manner = {
       'chart': {
         'showLabels': 0,
@@ -285,6 +292,56 @@ export class AnalysisComponent implements OnInit {
             'label': 'Delay>3 years',
             'value': '10'
             }]
+            };
+      }
+
+      onSelect(area) {
+            const ordercountarea = {
+                  area:area,
+            }
+            this.analysis.OrderGivenCount(ordercountarea).subscribe(
+                  data => { 
+                    if(data["message"]="success"){ 
+                        this.coroner = data[0];
+                        this.magistrate = data[1];
+                        console.log(this.coroner);
+                        console.log(this.magistrate);
+                    }               
+                  },
+                  error => 
+                  {  
+                        console.log("Error:"+error)           
+                  }
+                  
+            );
+
+            this.ordercount = {
+            
+                  'chart': {
+                        'CaptionFontSize': 18,
+                        'subCaptionFontSize': 15,
+                        'subCaptionFontcolor': '#25393b',
+                        'palettecolors': '#ffffff,#054f55',
+                        'labelFontColor': '#25393b',
+                        'labelFontSize': 12,
+                        'legendItemFontColor': '#25393b',
+                        'outCnvBaseFontColor': '#25393b',
+                        'bgAlpha': 0,
+                        'pieRadius': 80,
+                        'caption': 'Orders by Coroner and Magistrate',
+                        'subCaption': this.ordercountarea,
+                        'numberPrefix': '',
+                        'decimals': '0',
+                        'theme': 'fusion'
+                  },
+                  
+                  'data': [{
+                        'label': 'Coroner',
+                        'value': this.coroner
+                  }, {
+                        'label': 'Magistrate',
+                        'value': this.magistrate
+                  }]
             };
       }
 
