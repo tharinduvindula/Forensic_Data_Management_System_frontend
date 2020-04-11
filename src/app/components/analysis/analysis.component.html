@@ -127,7 +127,7 @@
                             <div class="col-md-12">
                                 <mat-form-field class="example-full-width" >
                                     <mat-label>Search count according to place </mat-label>
-                                    <mat-select name="ordercountarea" [(ngModel)]="ordercountarea" (ngModelChange)="onSelect($event)" >
+                                    <mat-select name="ordercountarea" [(ngModel)]="form.ordercountarea" (ngModelChange)="onSelect($event)" >
                                     <mat-option *ngFor="let area of areas" [value]="area.viewValue" >
                                         {{area.viewValue}}
                                     </mat-option>
