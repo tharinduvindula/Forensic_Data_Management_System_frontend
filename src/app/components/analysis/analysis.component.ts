@@ -88,7 +88,64 @@ export class AnalysisComponent implements OnInit {
                   }
                   
             );
-            
+            const gareportdelays = {
+                  area:this.form.gareportarea,
+            }
+            this.analysis.GAReportDelays(gareportdelays).subscribe(
+                  data => { 
+                    if(data["message"]="success"){ 
+                       
+                        this.gareport = {
+                              'chart': {
+                                'maxLabelHeight': '50',
+                                'labelDisplay': 'rotate',
+                                'CaptionFontSize': 18,
+                                'subCaptionFontSize': 15,
+                                'subCaptionFontcolor': '#25393b',
+                                'labelFontSize': 10,
+                                'caption': 'No of GA Report Delays',
+                                'subCaption': this.form.gareportarea,
+                                'palettecolors': '#ffffff,#9fcace,#6eaaaf,#449aa1,#1d7880,#054f55,#1b2728',
+                                'legendItemFontColor': '#25393b',
+                                'outCnvBaseFontColor': '#25393b',
+                                'labelFontColor': '#25393b',
+                                'bgAlpha': 0,
+                                'theme': 'fusion'
+                        
+                        
+                              },
+                        
+                              'data': [{
+                                'label': '1 day',
+                                'value': data[0]
+                            }, {
+                                'label': '1 day>Delay<=1 week',
+                                'value': data[1]
+                            }, {
+                                'label': '1 week>Delay<=1 month',
+                                'value': data[2]
+                          }, {
+                                'label': '1 month>Delay<=3 months',
+                                'value': data[3]
+                          }, {
+                                'label': '3 months>Delay<=1 year',
+                                'value': data[4]
+                          }, {
+                                'label': '1 year>Delay<=3 years',
+                                'value': data[5]
+                          }, {
+                                'label': 'Delay>3 years',
+                                'value': data[6]
+                              }]
+                          };
+                    }               
+                  },
+                  error => 
+                  {  
+                        console.log("Error:"+error)           
+                  }
+                  
+            );    
 
     this.manner = {
       'chart': {
@@ -130,49 +187,7 @@ export class AnalysisComponent implements OnInit {
           'value': '10'
     }]
     };
-    this.gareport = {
-      'chart': {
-        'maxLabelHeight': '50',
-        'labelDisplay': 'rotate',
-        'CaptionFontSize': 18,
-        'subCaptionFontSize': 15,
-        'subCaptionFontcolor': '#25393b',
-        'labelFontSize': 10,
-        'caption': 'No of GA Report Delays',
-        'subCaption': this.form.gareportarea,
-        'palettecolors': '#ffffff,#9fcace,#6eaaaf,#449aa1,#1d7880,#054f55,#1b2728',
-        'legendItemFontColor': '#25393b',
-        'outCnvBaseFontColor': '#25393b',
-        'labelFontColor': '#25393b',
-        'bgAlpha': 0,
-        'theme': 'fusion'
-
-
-      },
-
-      'data': [{
-        'label': '1 day',
-        'value': '10'
-    }, {
-        'label': '1 day>Delay<=1 week',
-        'value': '30'
-    }, {
-        'label': '1 week>Delay<=1 month',
-        'value': '23'
-  }, {
-        'label': '1 month>Delay<=3 months',
-        'value': '300'
-  }, {
-        'label': '3 months>Delay<=1 year',
-        'value': '150'
-  }, {
-        'label': '1 year>Delay<=3 years',
-        'value': '25'
-  }, {
-        'label': 'Delay>3 years',
-        'value': '10'
-      }]
-  };
+    
     this.pareport = {
       'chart': {
         'labelDisplay': 'rotate',
@@ -257,60 +272,65 @@ export class AnalysisComponent implements OnInit {
   };
     }
     onChange(area) {
-      this.form.gareportarea=area;   
-      this.analysis.GAReportDelays(this.form).subscribe(
+      this.form.gareportarea=area; 
+      const gareportdelays = {
+            area:area,
+      }  
+      this.analysis.GAReportDelays(gareportdelays).subscribe(
             data => { 
-              if(data["message"]="success"){ 
+              if(data){ 
+                 
+                  this.gareport = {
+                        'chart': {
+                          'maxLabelHeight': '50',
+                          'labelDisplay': 'rotate',
+                          'CaptionFontSize': 18,
+                          'subCaptionFontSize': 15,
+                          'subCaptionFontcolor': '#25393b',
+                          'labelFontSize': 10,
+                          'caption': 'No of GA Report Delays',
+                          'subCaption': this.form.gareportarea,
+                          'palettecolors': '#ffffff,#9fcace,#6eaaaf,#449aa1,#1d7880,#054f55,#1b2728',
+                          'legendItemFontColor': '#25393b',
+                          'outCnvBaseFontColor': '#25393b',
+                          'labelFontColor': '#25393b',
+                          'bgAlpha': 0,
+                          'theme': 'fusion'
+                  
+                  
+                        },
+                  
+                        'data': [{
+                          'label': '1 day',
+                          'value': data[0]
+                      }, {
+                          'label': '1 day>Delay<=1 week',
+                          'value': data[1]
+                      }, {
+                          'label': '1 week>Delay<=1 month',
+                          'value': data[2]
+                    }, {
+                          'label': '1 month>Delay<=3 months',
+                          'value': data[3]
+                    }, {
+                          'label': '3 months>Delay<=1 year',
+                          'value': data[4]
+                    }, {
+                          'label': '1 year>Delay<=3 years',
+                          'value': data[5]
+                    }, {
+                          'label': 'Delay>3 years',
+                          'value': data[6]
+                        }]
+                    };
               }               
             },
             error => 
             {  
                   console.log("Error:"+error)           
             }
-          );
-      this.gareport = {
-            'chart': {
-            'maxLabelHeight': '50',
-            'labelDisplay': 'rotate',
-            'CaptionFontSize': 18,
-            'subCaptionFontSize': 15,
-            'subCaptionFontcolor': '#25393b',
-            'labelFontSize': 10,
-            'caption': 'No of GA Report Delays',
-            'subCaption': this.form.gareportarea,
-            'palettecolors': '#ffffff,#9fcace,#6eaaaf,#449aa1,#1d7880,#054f55,#1b2728',
-            'legendItemFontColor': '#25393b',
-            'outCnvBaseFontColor': '#25393b',
-            'labelFontColor': '#25393b',
-            'bgAlpha': 0,
-            'theme': 'fusion'
-
-
-            },
-
-            'data': [{
-            'label': '1 day',
-            'value': '10'
-      }, {
-            'label': '1 day>Delay<=1 week',
-            'value': '30'
-      }, {
-            'label': '1 week>Delay<=1 month',
-            'value': '23'
-      }, {
-            'label': '1 month>Delay<=3 months',
-            'value': '300'
-      }, {
-            'label': '3 months>Delay<=1 year',
-            'value': '150'
-      }, {
-            'label': '1 year>Delay<=3 years',
-            'value': '25'
-      }, {
-            'label': 'Delay>3 years',
-            'value': '10'
-            }]
-            };
+            
+      );    
       }
 
       onSelect(area) {
@@ -321,7 +341,7 @@ export class AnalysisComponent implements OnInit {
             }
             this.analysis.OrderGivenCount(ordercountarea).subscribe(
                   data => { 
-                    if(data["message"]="success"){ 
+                    if(data){ 
                         this.coroner = data[0];
                         this.magistrate = data[1];
                         /* console.log(this.coroner);
