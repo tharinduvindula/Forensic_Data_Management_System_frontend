@@ -21,6 +21,10 @@ export class AnalysisService {
     return this.http.post(`${this.baseUrl}/GAReportDelays`, data);
   }
 
+  PMReportDelays(data) {
+    return this.http.post(`${this.baseUrl}/PMReportDelays`, data);
+  }
+
   OrderGivenCount(data) {
     return this.http.post(`${this.baseUrl}/OrderGivenCount`, data);
   }
