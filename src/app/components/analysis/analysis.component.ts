@@ -87,19 +87,19 @@ constructor(
                               'label': '1 day',
                               'value': this.count7
                               }, {
-                              'label': '1 day>Delay<=1 week',
+                              'label': '1 day<Delay<=1 week',
                               'value': this.count6
                               }, {
-                              'label': '1 week>Delay<=1 month',
+                              'label': '1 week<Delay<=1 month',
                               'value': this.count5
                         }, {
-                              'label': '1 month>Delay<=3 months',
+                              'label': '1 month<Delay<=3 months',
                               'value': this.count4
                         }, {
-                              'label': '3 months>Delay<=1 year',
+                              'label': '3 months<Delay<=1 year',
                               'value': this.count3
                         }, {
-                              'label': '1 year>Delay<=3 years',
+                              'label': '1 year<Delay<=3 years',
                               'value': this.count2
                         }, {
                               'label': 'Delay>3 years',
@@ -332,19 +332,19 @@ constructor(
                           'label': '1 day',
                           'value': data[0]
                       }, {
-                          'label': '1 day>Delay<=1 week',
+                          'label': '1 day<Delay<=1 week',
                           'value': data[1]
                       }, {
-                          'label': '1 week>Delay<=1 month',
+                          'label': '1 week<Delay<=1 month',
                           'value': data[2]
                     }, {
-                          'label': '1 month>Delay<=3 months',
+                          'label': '1 month<Delay<=3 months',
                           'value': data[3]
                     }, {
-                          'label': '3 months>Delay<=1 year',
+                          'label': '3 months<Delay<=1 year',
                           'value': data[4]
                     }, {
-                          'label': '1 year>Delay<=3 years',
+                          'label': '1 year<Delay<=3 years',
                           'value': data[5]
                     }, {
                           'label': 'Delay>3 years',
