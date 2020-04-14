@@ -24,4 +24,8 @@ export class AnalysisService {
   OrderGivenCount(data) {
     return this.http.post(`${this.baseUrl}/OrderGivenCount`, data);
   }
+
+  PoliceReportDelays(data){
+    return this.http.post(`${this.baseUrl}/PoliceReportDelays`, data);
+  }
 }
