@@ -7,7 +7,7 @@
                           <i class="material-icons">pan_tool</i>
                       </div>
                       <p class="card-category">Total Orders Given</p>
-                      <h3 class="card-title">100
+                      <h3 class="card-title">{{this.orders}}
                           
                       </h3>
                   </div>
@@ -23,10 +23,10 @@
               <div class="card card-stats">
                   <div class="card-header card-header-default card-header-icon">
                       <div class="card-icon" style="background-color:  #25393b">
-                          <i class="material-icons">group</i>
+                          <i class="material-icons">fingerprint</i>
                       </div>
-                      <p class="card-category">Total Deaths</p>
-                      <h3 class="card-title">34,245</h3>
+                      <p class="card-category">Post Mortems for Today</p>
+                      <h3 class="card-title">{{this.postmortems}}</h3>
                   </div>
                   <div class="card-footer">
                       <div class="stats">
@@ -39,10 +39,10 @@
               <div class="card card-stats">
                   <div class="card-header card-header-default card-header-icon">
                       <div class="card-icon" style="background-color:  #25393b">
-                          <i class="material-icons">fingerprint</i>
+                          <i class="material-icons">group</i>
                       </div>
-                      <p class="card-category">Total Post Mortems</p>
-                      <h3 class="card-title">75</h3>
+                      <p class="card-category">Total Deaths</p>
+                      <h6 class="card-title">Male : {{this.deathsm}} <br> Female : {{this.deathsf}}</h6>
                   </div>
                   <div class="card-footer">
                       <div class="stats">
@@ -60,7 +60,7 @@
                           <i class="material-icons">thumb_down</i>
                       </div>
                       <p class="card-category">Report delays > 1 month</p>
-                      <h3 class="card-title">245</h3>
+                      <h3 class="card-title">{{this.reportdelays}}</h3>
                   </div>
                   <div class="card-footer">
                       <div class="stats">

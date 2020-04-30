@@ -28,4 +28,21 @@ export class AnalysisService {
   PoliceReportDelays(data){
     return this.http.post(`${this.baseUrl}/PoliceReportDelays`, data);
   }
+
+  TotalOrders(){
+    return this.http.get(`${this.baseUrl}/TotalOrders`);
+  }
+
+  TotalPostMortems(){
+    return this.http.get(`${this.baseUrl}/TotalPostMortems`);
+  }
+
+  ReportDelays(){
+    return this.http.get(`${this.baseUrl}/ReportDelays`);
+  }
+
+  TotalDeaths(){
+    return this.http.get(`${this.baseUrl}/TotalDeaths`);
+  }
+
 }

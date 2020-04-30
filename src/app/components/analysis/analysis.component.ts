@@ -13,22 +13,27 @@ export interface Area {
   styleUrls: ['./analysis.component.scss']
 })
 export class AnalysisComponent implements OnInit {
-  dataSource: Object;
-  manner: Object;
-  gareport: Object;
-  pareport: Object;
-  pmreport: Object;
-  ordercount: Object;
-  //ordercountarea: Object;
-  coroner:Number;
-  magistrate: Number;
-  count1: Number;
-  count2: Number;
-  count3: Number;
-  count4: Number;
-  count5: Number;
-  count6: Number;
-  count7: Number;
+      dataSource: Object;
+      manner: Object;
+      gareport: Object;
+      pareport: Object;
+      pmreport: Object;
+      ordercount: Object;
+      //ordercountarea: Object;
+      coroner:Number;
+      magistrate: Number;
+      count1: Number;
+      count2: Number;
+      count3: Number;
+      count4: Number;
+      count5: Number;
+      count6: Number;
+      count7: Number;
+      orders: Object;
+      postmortems: Object;
+      reportdelays: Object;
+      deathsf: Object;
+      deathsm: Object;
 
   ngOnInit() {}
   public title = null;
@@ -48,66 +53,113 @@ export class AnalysisComponent implements OnInit {
       ordercountarea:"Agulana",
       policereportarea:"Agulana"
       }
-constructor(
-      private analysis: AnalysisService,) {
+
+constructor(private analysis: AnalysisService) {
+
+            this.analysis.TotalOrders().subscribe(
+                  data => {
+                        if(data){
+                              this.orders = data;
+                        }
+                  },
+                  error =>{
+                        console.log("Error:"+error);
+                  }
+            );
+
+            this.analysis.TotalPostMortems().subscribe(
+                  data => {
+                        if(data){
+                              this.postmortems = data;
+                        }
+                  },
+                  error =>{
+                        console.log("Error:"+error);
+                  }
+            );
+
+            this.analysis.ReportDelays().subscribe(
+                  data => {
+                        if(data){
+                              console.log(data);
+                              this.reportdelays = data;
+                        }
+                  },
+                  error =>{
+                        console.log("Error:"+error);
+                  }
+            );
+
+            this.analysis.TotalDeaths().subscribe(
+                  data => {
+                        if(data){
+                              console.log(data);
+                              this.deathsf = data[0];
+                              this.deathsm = data[1];
+                        }
+                  },
+                  error =>{
+                        console.log("Error:"+error);
+                  }
+            );
 
             const policereportdelays = {
                   area:this.form.policereportarea,
             }
             this.analysis.PoliceReportDelays(policereportdelays).subscribe(
                   data => { 
-                  if(data["message"]="success"){ 
-                        this.count1 = data[0];
-                        this.count2 = data[1];
-                        this.count3 = data[2];
-                        this.count4 = data[3];
-                        this.count5 = data[4];
-                        this.count6 = data[5];
-                        this.count7 = data[6];
+                        if(data["message"]="success"){ 
+                              this.count1 = data[0];
+                              this.count2 = data[1];
+                              this.count3 = data[2];
+                              this.count4 = data[3];
+                              this.count5 = data[4];
+                              this.count6 = data[5];
+                              this.count7 = data[6];
 
-                        this.pareport = {
-                              'chart': {
-                              'labelDisplay': 'rotate',
-                              'CaptionFontSize': 18,
-                              'subCaptionFontSize': 15,
-                              'subCaptionFontcolor': '#25393b',
-                              'labelFontSize': 10,
-                              'palettecolors': '#ffffff',
-                              'legendItemFontColor': '#25393b',
-                              'outCnvBaseFontColor': '#25393b',
-                              'labelFontColor': '#25393b',
-                              'bgAlpha': 0,
-                              'caption': 'No of Police Report Delays',
-                              'subCaption': this.form.policereportarea,
-                              'lineThickness': '3',
-                              'theme': 'fusion'
-                              },
+                              this.pareport = {
+                                    'chart': {
+                                    'labelDisplay': 'rotate',
+                                    'CaptionFontSize': 18,
+                                    'subCaptionFontSize': 15,
+                                    'subCaptionFontcolor': '#25393b',
+                                    'labelFontSize': 10,
+                                    'palettecolors': '#ffffff',
+                                    'legendItemFontColor': '#25393b',
+                                    'outCnvBaseFontColor': '#25393b',
+                                    'labelFontColor': '#25393b',
+                                    'bgAlpha': 0,
+                                    'caption': 'No of Police Report Delays',
+                                    'subCaption': this.form.policereportarea,
+                                    'lineThickness': '3',
+                                    'theme': 'fusion'
+                                    },
 
-                              'data': [{
-                              'label': '1 day',
-                              'value': this.count7
-                              }, {
-                              'label': '1 day<Delay<=1 week',
-                              'value': this.count6
-                              }, {
-                              'label': '1 week<Delay<=1 month',
-                              'value': this.count5
-                        }, {
-                              'label': '1 month<Delay<=3 months',
-                              'value': this.count4
-                        }, {
-                              'label': '3 months<Delay<=1 year',
-                              'value': this.count3
-                        }, {
-                              'label': '1 year<Delay<=3 years',
-                              'value': this.count2
-                        }, {
-                              'label': 'Delay>3 years',
-                              'value': this.count1
-                              }]
-                        };
-                  }
-            },
+                                    'data': [{
+                                    'label': '1 day',
+                                    'value': this.count7
+                                    }, {
+                                    'label': '1 day<Delay<=1 week',
+                                    'value': this.count6
+                                    }, {
+                                    'label': '1 week<Delay<=1 month',
+                                    'value': this.count5
+                                    }, {
+                                    'label': '1 month<Delay<=3 months',
+                                    'value': this.count4
+                                    }, {
+                                    'label': '3 months<Delay<=1 year',
+                                    'value': this.count3
+                                    }, {
+                                    'label': '1 year<Delay<=3 years',
+                                    'value': this.count2
+                                    }, {
+                                    'label': 'Delay>3 years',
+                                    'value': this.count1
+                                    }]
+                              };
+                        }
+                  },
                   error =>
                   {
                         console.log("Error:"+error);
@@ -118,104 +170,102 @@ constructor(
                   area:this.form.ordercountarea,
             }
             this.analysis.OrderGivenCount(ordercountarea).subscribe(
-                  data => { 
-                  if(data["message"]="success"){ 
-                        this.coroner = data[0];
-                        this.magistrate = data[1];
-                  
-                        this.ordercount = {
-            
-                              'chart': {
-                                    'CaptionFontSize': 18,
-                                    'subCaptionFontSize': 15,
-                                    'subCaptionFontcolor': '#25393b',
-                                    'palettecolors': '#ffffff,#054f55',
-                                    'labelFontColor': '#25393b',
-                                    'labelFontSize': 12,
-                                    'legendItemFontColor': '#25393b',
-                                    'outCnvBaseFontColor': '#25393b',
-                                    'bgAlpha': 0,
-                                    'pieRadius': 80,
-                                    'caption': 'Orders by Coroner and Magistrate',
-                                    'subCaption': this.form.ordercountarea,
-                                    'numberPrefix': '',
-                                    'decimals': '0',
-                                    'theme': 'fusion'
-                              },
-                              
-                              'data': [{
-                                    'label': 'Coroner',
-                                    'value': this.coroner
-                              }, {
-                                    'label': 'Magistrate',
-                                    'value': this.magistrate
-                              }]
-                        };
-                  }               
+                  data => {
+                        if(data["message"]="success"){ 
+                              this.coroner = data[0];
+                              this.magistrate = data[1];
+
+                              this.ordercount = {
+
+                                    'chart': {
+                                          'CaptionFontSize': 18,
+                                          'subCaptionFontSize': 15,
+                                          'subCaptionFontcolor': '#25393b',
+                                          'palettecolors': '#ffffff,#054f55',
+                                          'labelFontColor': '#25393b',
+                                          'labelFontSize': 12,
+                                          'legendItemFontColor': '#25393b',
+                                          'outCnvBaseFontColor': '#25393b',
+                                          'bgAlpha': 0,
+                                          'pieRadius': 80,
+                                          'caption': 'Orders by Coroner and Magistrate',
+                                          'subCaption': this.form.ordercountarea,
+                                          'numberPrefix': '',
+                                          'decimals': '0',
+                                          'theme': 'fusion'
+                                    },
+
+                                    'data': [{
+                                          'label': 'Coroner',
+                                          'value': this.coroner
+                                          }, {
+                                          'label': 'Magistrate',
+                                          'value': this.magistrate
+                                    }]
+                              };
+                        }
                   },
-                  error => 
-                  {  
-                        console.log("Error:"+error)           
+                  error =>
+                  {
+                        console.log("Error:"+error)
                   }
-                  
+
             );
+
             const gareportdelays = {
                   area:this.form.gareportarea,
             }
             this.analysis.GAReportDelays(gareportdelays).subscribe(
                   data => { 
-                  if(data["message"]="success"){ 
-                  
-                        this.gareport = {
-                              'chart': {
-                              'maxLabelHeight': '50',
-                              'labelDisplay': 'rotate',
-                              'CaptionFontSize': 18,
-                              'subCaptionFontSize': 15,
-                              'subCaptionFontcolor': '#25393b',
-                              'labelFontSize': 10,
-                              'caption': 'No of GA Report Delays',
-                              'subCaption': this.form.gareportarea,
-                              'palettecolors': '#ffffff,#9fcace,#6eaaaf,#449aa1,#1d7880,#054f55,#1b2728',
-                              'legendItemFontColor': '#25393b',
-                              'outCnvBaseFontColor': '#25393b',
-                              'labelFontColor': '#25393b',
-                              'bgAlpha': 0,
-                              'theme': 'fusion'
-                        
-                        
-                              },
-                        
-                              'data': [{
-                              'label': '1 day',
-                              'value': data[0]
-                        }, {
-                              'label': '1 day>Delay<=1 week',
-                              'value': data[1]
-                        }, {
-                              'label': '1 week>Delay<=1 month',
-                              'value': data[2]
-                        }, {
-                              'label': '1 month>Delay<=3 months',
-                              'value': data[3]
-                        }, {
-                              'label': '3 months>Delay<=1 year',
-                              'value': data[4]
-                        }, {
-                              'label': '1 year>Delay<=3 years',
-                              'value': data[5]
-                        }, {
-                              'label': 'Delay>3 years',
-                              'value': data[6]
-                              }]
-                        };
-                  }               
+                        if(data["message"]="success"){ 
+
+                              this.gareport = {
+                                    'chart': {
+                                    'maxLabelHeight': '50',
+                                    'labelDisplay': 'rotate',
+                                    'CaptionFontSize': 18,
+                                    'subCaptionFontSize': 15,
+                                    'subCaptionFontcolor': '#25393b',
+                                    'labelFontSize': 10,
+                                    'caption': 'No of GA Report Delays',
+                                    'subCaption': this.form.gareportarea,
+                                    'palettecolors': '#ffffff,#9fcace,#6eaaaf,#449aa1,#1d7880,#054f55,#1b2728',
+                                    'legendItemFontColor': '#25393b',
+                                    'outCnvBaseFontColor': '#25393b',
+                                    'labelFontColor': '#25393b',
+                                    'bgAlpha': 0,
+                                    'theme': 'fusion'
+                                    },
+
+                                    'data': [{
+                                    'label': '1 day',
+                                    'value': data[0]
+                                    }, {
+                                    'label': '1 day>Delay<=1 week',
+                                    'value': data[1]
+                                    }, {
+                                    'label': '1 week>Delay<=1 month',
+                                    'value': data[2]
+                                    }, {
+                                    'label': '1 month>Delay<=3 months',
+                                    'value': data[3]
+                                    }, {
+                                    'label': '3 months>Delay<=1 year',
+                                    'value': data[4]
+                                    }, {
+                                    'label': '1 year>Delay<=3 years',
+                                    'value': data[5]
+                                    }, {
+                                    'label': 'Delay>3 years',
+                                    'value': data[6]
+                                    }]
+                              };
+                        }
                   },
-                  error => 
-                  {  
-                        console.log("Error:"+error)           
+                  error =>
+                  {
+                        console.log("Error:"+error)
                   }
-                  
             );
 
     this.manner = {
@@ -300,64 +350,64 @@ constructor(
       }]
   };
     }
-    onChange(area) {
-      this.form.gareportarea=area; 
-      const gareportdelays = {
-            area:area,
-      }
-      this.analysis.GAReportDelays(gareportdelays).subscribe(
-            data => { 
-              if(data){
 
-                  this.gareport = {
-                        'chart': {
-                          'maxLabelHeight': '50',
-                          'labelDisplay': 'rotate',
-                          'CaptionFontSize': 18,
-                          'subCaptionFontSize': 15,
-                          'subCaptionFontcolor': '#25393b',
-                          'labelFontSize': 10,
-                          'caption': 'No of GA Report Delays',
-                          'subCaption': this.form.gareportarea,
-                          'palettecolors': '#ffffff,#9fcace,#6eaaaf,#449aa1,#1d7880,#054f55,#1b2728',
-                          'legendItemFontColor': '#25393b',
-                          'outCnvBaseFontColor': '#25393b',
-                          'labelFontColor': '#25393b',
-                          'bgAlpha': 0,
-                          'theme': 'fusion'
+      onChange(area) {
 
-                        },
-
-                        'data': [{
-                          'label': '1 day',
-                          'value': data[0]
-                      }, {
-                          'label': '1 day<Delay<=1 week',
-                          'value': data[1]
-                      }, {
-                          'label': '1 week<Delay<=1 month',
-                          'value': data[2]
-                    }, {
-                          'label': '1 month<Delay<=3 months',
-                          'value': data[3]
-                    }, {
-                          'label': '3 months<Delay<=1 year',
-                          'value': data[4]
-                    }, {
-                          'label': '1 year<Delay<=3 years',
-                          'value': data[5]
-                    }, {
-                          'label': 'Delay>3 years',
-                          'value': data[6]
-                        }]
-                    };
-              }
-            },
-            error =>
-            {
-                  console.log("Error:"+error)
+            this.form.gareportarea=area; 
+            const gareportdelays = {
+                  area:area,
             }
-      );
+            this.analysis.GAReportDelays(gareportdelays).subscribe(
+                  data => { 
+                        if(data){
+                              this.gareport = {
+                                    'chart': {
+                                          'maxLabelHeight': '50',
+                                          'labelDisplay': 'rotate',
+                                          'CaptionFontSize': 18,
+                                          'subCaptionFontSize': 15,
+                                          'subCaptionFontcolor': '#25393b',
+                                          'labelFontSize': 10,
+                                          'caption': 'No of GA Report Delays',
+                                          'subCaption': this.form.gareportarea,
+                                          'palettecolors': '#ffffff,#9fcace,#6eaaaf,#449aa1,#1d7880,#054f55,#1b2728',
+                                          'legendItemFontColor': '#25393b',
+                                          'outCnvBaseFontColor': '#25393b',
+                                          'labelFontColor': '#25393b',
+                                          'bgAlpha': 0,
+                                          'theme': 'fusion'
+                                    },
+
+                                    'data': [{
+                                          'label': '1 day',
+                                          'value': data[0]
+                                          }, {
+                                          'label': '1 day<Delay<=1 week',
+                                          'value': data[1]
+                                          }, {
+                                          'label': '1 week<Delay<=1 month',
+                                          'value': data[2]
+                                          }, {
+                                          'label': '1 month<Delay<=3 months',
+                                          'value': data[3]
+                                          }, {
+                                          'label': '3 months<Delay<=1 year',
+                                          'value': data[4]
+                                          }, {
+                                          'label': '1 year<Delay<=3 years',
+                                          'value': data[5]
+                                          }, {
+                                          'label': 'Delay>3 years',
+                                          'value': data[6]
+                                    }]
+                              };
+                        }
+                  },
+                  error =>
+                  {
+                        console.log("Error:"+error)
+                  }
+            );
       }
 
       onSelect(area) {
@@ -368,39 +418,39 @@ constructor(
             }
             this.analysis.OrderGivenCount(ordercountarea).subscribe(
                   data => { 
-                    if(data){ 
-                        this.coroner = data[0];
-                        this.magistrate = data[1];
+                        if(data){ 
+                              this.coroner = data[0];
+                              this.magistrate = data[1];
 
-                        this.ordercount = {
+                              this.ordercount = {
 
-                              'chart': {
-                                    'CaptionFontSize': 18,
-                                    'subCaptionFontSize': 15,
-                                    'subCaptionFontcolor': '#25393b',
-                                    'palettecolors': '#ffffff,#054f55',
-                                    'labelFontColor': '#25393b',
-                                    'labelFontSize': 12,
-                                    'legendItemFontColor': '#25393b',
-                                    'outCnvBaseFontColor': '#25393b',
-                                    'bgAlpha': 0,
-                                    'pieRadius': 80,
-                                    'caption': 'Orders by Coroner and Magistrate',
-                                    'subCaption': this.form.ordercountarea,
-                                    'numberPrefix': '',
-                                    'decimals': '0',
-                                    'theme': 'fusion'
-                              },
+                                    'chart': {
+                                          'CaptionFontSize': 18,
+                                          'subCaptionFontSize': 15,
+                                          'subCaptionFontcolor': '#25393b',
+                                          'palettecolors': '#ffffff,#054f55',
+                                          'labelFontColor': '#25393b',
+                                          'labelFontSize': 12,
+                                          'legendItemFontColor': '#25393b',
+                                          'outCnvBaseFontColor': '#25393b',
+                                          'bgAlpha': 0,
+                                          'pieRadius': 80,
+                                          'caption': 'Orders by Coroner and Magistrate',
+                                          'subCaption': this.form.ordercountarea,
+                                          'numberPrefix': '',
+                                          'decimals': '0',
+                                          'theme': 'fusion'
+                                    },
 
-                              'data': [{
-                                    'label': 'Coroner',
-                                    'value': this.coroner
-                              }, {
-                                    'label': 'Magistrate',
-                                    'value': this.magistrate
-                              }]
-                        };
-                    }
+                                    'data': [{
+                                          'label': 'Coroner',
+                                          'value': this.coroner
+                                          }, {
+                                          'label': 'Magistrate',
+                                          'value': this.magistrate
+                                    }]
+                              };
+                        }
                   },
                   error =>
                   {
@@ -415,60 +465,59 @@ constructor(
                   area:area
             }
             this.analysis.PoliceReportDelays(policereportdelays).subscribe(
-                  data => { 
-                        console.log(data);
-                  if(data["message"]="success"){ 
-                        this.count1 = data[0];
-                        this.count2 = data[1];
-                        this.count3 = data[2];
-                        this.count4 = data[3];
-                        this.count5 = data[4];
-                        this.count6 = data[5];
-                        this.count7 = data[6];
+                  data => {
+                        if(data){
+                              this.count1 = data[0];
+                              this.count2 = data[1];
+                              this.count3 = data[2];
+                              this.count4 = data[3];
+                              this.count5 = data[4];
+                              this.count6 = data[5];
+                              this.count7 = data[6];
 
-                        this.pareport = {
-                              'chart': {
-                              'labelDisplay': 'rotate',
-                              'CaptionFontSize': 18,
-                              'subCaptionFontSize': 15,
-                              'subCaptionFontcolor': '#25393b',
-                              'labelFontSize': 10,
-                              'palettecolors': '#ffffff',
-                              'legendItemFontColor': '#25393b',
-                              'outCnvBaseFontColor': '#25393b',
-                              'labelFontColor': '#25393b',
-                              'bgAlpha': 0,
-                              'caption': 'No of Police Report Delays',
-                              'subCaption': this.form.policereportarea,
-                              'lineThickness': '3',
-                              'theme': 'fusion'
-                              },
+                              this.pareport = {
+                                    'chart': {
+                                    'labelDisplay': 'rotate',
+                                    'CaptionFontSize': 18,
+                                    'subCaptionFontSize': 15,
+                                    'subCaptionFontcolor': '#25393b',
+                                    'labelFontSize': 10,
+                                    'palettecolors': '#ffffff',
+                                    'legendItemFontColor': '#25393b',
+                                    'outCnvBaseFontColor': '#25393b',
+                                    'labelFontColor': '#25393b',
+                                    'bgAlpha': 0,
+                                    'caption': 'No of Police Report Delays',
+                                    'subCaption': this.form.policereportarea,
+                                    'lineThickness': '3',
+                                    'theme': 'fusion'
+                                    },
 
-                              'data': [{
-                              'label': '1 day',
-                              'value': this.count7
-                              }, {
-                              'label': '1 day>Delay<=1 week',
-                              'value': this.count6
-                              }, {
-                              'label': '1 week>Delay<=1 month',
-                              'value': this.count5
-                        }, {
-                              'label': '1 month>Delay<=3 months',
-                              'value': this.count4
-                        }, {
-                              'label': '3 months>Delay<=1 year',
-                              'value': this.count3
-                        }, {
-                              'label': '1 year>Delay<=3 years',
-                              'value': this.count2
-                        }, {
-                              'label': 'Delay>3 years',
-                              'value': this.count1
-                              }]
-                        };
-                  }
-            },
+                                    'data': [{
+                                    'label': '1 day',
+                                    'value': this.count7
+                                    }, {
+                                    'label': '1 day>Delay<=1 week',
+                                    'value': this.count6
+                                    }, {
+                                    'label': '1 week>Delay<=1 month',
+                                    'value': this.count5
+                                    }, {
+                                    'label': '1 month>Delay<=3 months',
+                                    'value': this.count4
+                                    }, {
+                                    'label': '3 months>Delay<=1 year',
+                                    'value': this.count3
+                                    }, {
+                                    'label': '1 year>Delay<=3 years',
+                                    'value': this.count2
+                                    }, {
+                                    'label': 'Delay>3 years',
+                                    'value': this.count1
+                                    }]
+                              };
+                        }
+                  },
                   error =>
                   {
                         console.log("Error:"+error);
@@ -476,4 +525,4 @@ constructor(
             );
       }
 
-    }
+}
