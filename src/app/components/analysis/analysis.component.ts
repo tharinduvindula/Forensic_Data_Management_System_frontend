@@ -51,7 +51,8 @@ export class AnalysisComponent implements OnInit {
     public form={
       gareportarea:"Agulana",      
       ordercountarea:"Agulana",
-      policereportarea:"Agulana"
+      policereportarea:"Agulana",
+      pmreportarea:"Agulana"
       }
 
 constructor(private analysis: AnalysisService) {
@@ -217,55 +218,111 @@ constructor(private analysis: AnalysisService) {
             }
             this.analysis.GAReportDelays(gareportdelays).subscribe(
                   data => { 
-                        if(data["message"]="success"){ 
-
-                              this.gareport = {
-                                    'chart': {
-                                    'maxLabelHeight': '50',
-                                    'labelDisplay': 'rotate',
-                                    'CaptionFontSize': 18,
-                                    'subCaptionFontSize': 15,
-                                    'subCaptionFontcolor': '#25393b',
-                                    'labelFontSize': 10,
-                                    'caption': 'No of GA Report Delays',
-                                    'subCaption': this.form.gareportarea,
-                                    'palettecolors': '#ffffff,#9fcace,#6eaaaf,#449aa1,#1d7880,#054f55,#1b2728',
-                                    'legendItemFontColor': '#25393b',
-                                    'outCnvBaseFontColor': '#25393b',
-                                    'labelFontColor': '#25393b',
-                                    'bgAlpha': 0,
-                                    'theme': 'fusion'
-                                    },
-
-                                    'data': [{
-                                    'label': '1 day',
-                                    'value': data[0]
-                                    }, {
-                                    'label': '1 day>Delay<=1 week',
-                                    'value': data[1]
-                                    }, {
-                                    'label': '1 week>Delay<=1 month',
-                                    'value': data[2]
-                                    }, {
-                                    'label': '1 month>Delay<=3 months',
-                                    'value': data[3]
-                                    }, {
-                                    'label': '3 months>Delay<=1 year',
-                                    'value': data[4]
-                                    }, {
-                                    'label': '1 year>Delay<=3 years',
-                                    'value': data[5]
-                                    }, {
-                                    'label': 'Delay>3 years',
-                                    'value': data[6]
-                                    }]
-                              };
-                        }
+                  if(data["message"]="success"){ 
+                  
+                        this.gareport = {
+                              'chart': {
+                              'maxLabelHeight': '50',
+                              'labelDisplay': 'rotate',
+                              'CaptionFontSize': 18,
+                              'subCaptionFontSize': 15,
+                              'subCaptionFontcolor': '#25393b',
+                              'labelFontSize': 10,
+                              'caption': 'No of GA Report Delays',
+                              'subCaption': this.form.gareportarea,
+                              'palettecolors': '#ffffff,#9fcace,#6eaaaf,#449aa1,#1d7880,#054f55,#1b2728',
+                              'legendItemFontColor': '#25393b',
+                              'outCnvBaseFontColor': '#25393b',
+                              'labelFontColor': '#25393b',
+                              'bgAlpha': 0,
+                              'theme': 'fusion'
+                        
+                        
+                              },
+                        
+                              'data': [{
+                              'label': '1 day',
+                              'value': data[6]
+                        }, {
+                              'label': '1 day>Delay<=1 week',
+                              'value': data[5]
+                        }, {
+                              'label': '1 week>Delay<=1 month',
+                              'value': data[4]
+                        }, {
+                              'label': '1 month>Delay<=3 months',
+                              'value': data[3]
+                        }, {
+                              'label': '3 months>Delay<=1 year',
+                              'value': data[2]
+                        }, {
+                              'label': '1 year>Delay<=3 years',
+                              'value': data[1]
+                        }, {
+                              'label': 'Delay>3 years',
+                              'value': data[0]
+                              }]
+                        };
+                  }               
                   },
                   error =>
                   {
                         console.log("Error:"+error)
                   }
+            );
+            const pmreportdelays = {
+                  area:this.form.pmreportarea,
+            }
+            this.analysis.PMReportDelays(pmreportdelays).subscribe(
+                  data => { 
+                  if(data["message"]="success"){ 
+                        this.pmreport = {
+                              'chart': {
+                        
+                                'caption': 'No of PM Report and Delays',
+                                'subCaption': this.form.pmreportarea,
+                                'CaptionFontSize': 30,
+                                'subCaptionFontSize': 20,
+                                'subCaptionFontcolor': '#25393b',
+                                'legendFontSize': 5,
+                                'palettecolors': '#ffffff,#9fcace,#6eaaaf,#449aa1,#1d7880,#054f55,#1b2728',
+                                'legendItemFontColor': '#25393b',
+                                'outCnvBaseFontColor': '#25393b',
+                                'labelFontColor': '#25393b',
+                                'bgAlpha': 0,
+                                'theme': 'fusion'
+                              },
+                              'data': [{
+                                    'label': '1 day',
+                                    'value': data[6]
+                                }, {
+                                    'label': '1 day>Delay<=1 week',
+                                    'value': data[5]
+                                }, {
+                                    'label': '1 week>Delay<=1 month',
+                                    'value': data[4]
+                              }, {
+                                    'label': '1 month>Delay<=3 months',
+                                    'value': data[3]
+                              }, {
+                                    'label': '3 months>Delay<=1 year',
+                                    'value': data[2]
+                              }, {
+                                    'label': '1 year>Delay<=3 years',
+                                    'value': data[1]
+                              }, {
+                                    'label': 'Delay>3 years',
+                                    'value': data[0]
+                                  }]
+                          };
+                        
+                  }               
+                  },
+                  error => 
+                  {  
+                        console.log("Error:"+error)           
+                  }
+                  
             );
 
     this.manner = {
@@ -309,99 +366,118 @@ constructor(private analysis: AnalysisService) {
     }]
     };
 
-    this.pmreport = {
-      'chart': {
-
-        'caption': 'No of PM Report and Delays',
-        'subCaption': 'Dehiwala-Mount Lavinia',
-        'CaptionFontSize': 30,
-        'subCaptionFontSize': 20,
-        'subCaptionFontcolor': '#25393b',
-        // 'labelFontSize': 10,
-        'legendFontSize': 5,
-        'palettecolors': '#ffffff,#9fcace,#6eaaaf,#449aa1,#1d7880,#054f55,#1b2728',
-        'legendItemFontColor': '#25393b',
-        'outCnvBaseFontColor': '#25393b',
-        'labelFontColor': '#25393b',
-        'bgAlpha': 0,
-        'theme': 'fusion'
-      },
-      'data': [{
-        'label': '1 day',
-        'value': '10'
-    }, {
-        'label': '1 day>Delay<=1 week',
-        'value': '30'
-    }, {
-        'label': '1 week>Delay<=1 month',
-        'value': '23'
-  }, {
-        'label': '1 month>Delay<=3 months',
-        'value': '300'
-  }, {
-        'label': '3 months>Delay<=1 year',
-        'value': '150'
-  }, {
-        'label': '1 year>Delay<=3 years',
-        'value': '25'
-  }, {
-        'label': 'Delay>3 years',
-        'value': '10'
-      }]
-  };
+    
     }
+    onChange(area) {
+      this.form.gareportarea=area; 
+      const gareportdelays = {
+            area:area,
+      }
+      this.analysis.GAReportDelays(gareportdelays).subscribe(
+            data => { 
+              if(data){
+                  this.gareport = {
+                        'chart': {
+                          'maxLabelHeight': '50',
+                          'labelDisplay': 'rotate',
+                          'CaptionFontSize': 18,
+                          'subCaptionFontSize': 15,
+                          'subCaptionFontcolor': '#25393b',
+                          'labelFontSize': 10,
+                          'caption': 'No of GA Report Delays',
+                          'subCaption': this.form.gareportarea,
+                          'palettecolors': '#ffffff,#9fcace,#6eaaaf,#449aa1,#1d7880,#054f55,#1b2728',
+                          'legendItemFontColor': '#25393b',
+                          'outCnvBaseFontColor': '#25393b',
+                          'labelFontColor': '#25393b',
+                          'bgAlpha': 0,
+                          'theme': 'fusion'
 
-      onChange(area) {
+                        },
 
-            this.form.gareportarea=area; 
-            const gareportdelays = {
+                        'data': [{
+                          'label': '1 day',
+                          'value': data[6]
+                      }, {
+                          'label': '1 day>Delay<=1 week',
+                          'value': data[5]
+                      }, {
+                          'label': '1 week>Delay<=1 month',
+                          'value': data[4]
+                    }, {
+                          'label': '1 month>Delay<=3 months',
+                          'value': data[3]
+                    }, {
+                          'label': '3 months>Delay<=1 year',
+                          'value': data[2]
+                    }, {
+                          'label': '1 year>Delay<=3 years',
+                          'value': data[1]
+                    }, {
+                          'label': 'Delay>3 years',
+                          'value': data[0]
+                        }]
+                    };
+              }
+            },
+            error =>
+            {
+                  console.log("Error:"+error)
+            } 
+      )     
+           
+      }
+
+
+      onPMReport(area){
+            this.form.pmreportarea=area; 
+            const pmreportdelays = {
                   area:area,
             }
-            this.analysis.GAReportDelays(gareportdelays).subscribe(
+            this.analysis.PMReportDelays(pmreportdelays).subscribe(
                   data => { 
-                        if(data){
-                              this.gareport = {
-                                    'chart': {
-                                          'maxLabelHeight': '50',
-                                          'labelDisplay': 'rotate',
-                                          'CaptionFontSize': 18,
-                                          'subCaptionFontSize': 15,
-                                          'subCaptionFontcolor': '#25393b',
-                                          'labelFontSize': 10,
-                                          'caption': 'No of GA Report Delays',
-                                          'subCaption': this.form.gareportarea,
-                                          'palettecolors': '#ffffff,#9fcace,#6eaaaf,#449aa1,#1d7880,#054f55,#1b2728',
-                                          'legendItemFontColor': '#25393b',
-                                          'outCnvBaseFontColor': '#25393b',
-                                          'labelFontColor': '#25393b',
-                                          'bgAlpha': 0,
-                                          'theme': 'fusion'
-                                    },
+                    if(data){
+      
+                        this.pmreport = {
+                              'chart': {
 
-                                    'data': [{
-                                          'label': '1 day',
-                                          'value': data[0]
-                                          }, {
-                                          'label': '1 day<Delay<=1 week',
-                                          'value': data[1]
-                                          }, {
-                                          'label': '1 week<Delay<=1 month',
-                                          'value': data[2]
-                                          }, {
-                                          'label': '1 month<Delay<=3 months',
-                                          'value': data[3]
-                                          }, {
-                                          'label': '3 months<Delay<=1 year',
-                                          'value': data[4]
-                                          }, {
-                                          'label': '1 year<Delay<=3 years',
-                                          'value': data[5]
-                                          }, {
-                                          'label': 'Delay>3 years',
-                                          'value': data[6]
-                                    }]
-                              };
-                        }
+                                    'caption': 'No of PM Report and Delays',
+                                    'subCaption': this.form.pmreportarea,
+                                    'CaptionFontSize': 30,
+                                    'subCaptionFontSize': 20,
+                                    'subCaptionFontcolor': '#25393b',
+                                    'legendFontSize': 5,
+                                    'palettecolors': '#ffffff,#9fcace,#6eaaaf,#449aa1,#1d7880,#054f55,#1b2728',
+                                    'legendItemFontColor': '#25393b',
+                                    'outCnvBaseFontColor': '#25393b',
+                                    'labelFontColor': '#25393b',
+                                    'bgAlpha': 0,
+                                    'theme': 'fusion'
+                                  },
+                                  'data': [{
+                                    'label': '1 day',
+                                    'value': data[6]
+                                }, {
+                                    'label': '1 day>Delay<=1 week',
+                                    'value': data[5]
+                                }, {
+                                    'label': '1 week>Delay<=1 month',
+                                    'value': data[4]
+                              }, {
+                                    'label': '1 month>Delay<=3 months',
+                                    'value': data[3]
+                              }, {
+                                    'label': '3 months>Delay<=1 year',
+                                    'value': data[2]
+                              }, {
+                                    'label': '1 year>Delay<=3 years',
+                                    'value': data[1]
+                              }, {
+                                    'label': 'Delay>3 years',
+                                    'value': data[0]
+                                  }]
+                          };
+                    }
                   },
                   error =>
                   {
