@@ -59,9 +59,7 @@ constructor(private analysis: AnalysisService) {
 
             this.analysis.TotalOrders().subscribe(
                   data => {
-                        if(data){
                               this.orders = data;
-                        }
                   },
                   error =>{
                         console.log("Error:"+error);
@@ -70,9 +68,10 @@ constructor(private analysis: AnalysisService) {
 
             this.analysis.TotalPostMortems().subscribe(
                   data => {
-                        if(data){
-                              this.postmortems = data;
-                        }
+                        
+                        this.postmortems = data;
+                              
+                        
                   },
                   error =>{
                         console.log("Error:"+error);
@@ -81,10 +80,8 @@ constructor(private analysis: AnalysisService) {
 
             this.analysis.ReportDelays().subscribe(
                   data => {
-                        if(data){
-                              console.log(data);
-                              this.reportdelays = data;
-                        }
+                        console.log(data);
+                        this.reportdelays = data;
                   },
                   error =>{
                         console.log("Error:"+error);
@@ -93,11 +90,9 @@ constructor(private analysis: AnalysisService) {
 
             this.analysis.TotalDeaths().subscribe(
                   data => {
-                        if(data){
-                              console.log(data);
-                              this.deathsf = data[0];
-                              this.deathsm = data[1];
-                        }
+                        console.log(data);
+                        this.deathsf = data[0];
+                        this.deathsm = data[1];
                   },
                   error =>{
                         console.log("Error:"+error);
