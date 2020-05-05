@@ -169,6 +169,124 @@ export class ColombomapComponent implements OnInit {
 
       }
     });
+    (<any>$('.mapcontainer1')).mapael({
+      map: {
+        name: 'sl_map_panadura',
+        defaultArea: {
+          attrs: {
+            stroke: '#fff',
+            'stroke-width': 0
+          },
+          attrsHover: {
+            fill: "#000000",
+            'stroke-width': 0
+          }
+        }
+      },
+      legend: {
+        area: {
+          title: 'Deaths of colombo district by municipal-council',
+          slices: [
+            {
+              max: 25,
+              attrs: {
+                fill: '#9fcace'
+              },
+              label: 'Less than the 25 Deaths'
+            },
+            {
+              min: 25,
+              max: 50,
+              attrs: {
+                fill: '#6eaaaf'
+              },
+              label: 'Between 25 and 50 Deaths'
+            },
+            {
+              min: 50,
+              max: 75,
+              attrs: {
+                fill: '#449aa1'
+              },
+              label: 'Between 50 and 75 Deaths'
+            },
+            {
+              min: 75,
+              max: 100,
+              attrs: {
+                fill: '#1d7880'
+              },
+              label: 'Between 75 and 100 Deaths'
+            },
+            {
+              min: 100,
+              attrs: {
+                fill: '#054f55'
+              },
+              label: 'More than 100 Deaths'
+            }
+          ]
+        }
+      },
+      areas: {
+        'division-boralesgamuwa-urban-council': {
+          value: this.boralesgamuwa,
+          tooltip: { content: '<span style="font-weight:bold;">boralesgamuwa </span><br />Deaths : ' + this.boralesgamuwa }
+        },
+        'division-colombo-municipal-council': {
+          value: this.colombo,
+          tooltip: { content: '<span style="font-weight:bold;">colombo </span><br />Deaths : ' + this.colombo }
+        },
+        'division-dehiwala-mtlavinia-municipal-council': {
+          value: this.dehiwalamtlavinia,
+          tooltip: { content: '<span style="font-weight:bold;">dehiwala-mtlavinia </span><br />Deaths : ' + this.dehiwalamtlavinia }
+        },
+        'division-homagama-pradeshiya-sabha': {
+          value: this.homagama,
+          tooltip: { content: '<span style="font-weight:bold;">homagama </span><br />Deaths : ' + this.homagama }
+        },
+        'division-kaduwela-municipal-council': {
+          value: this.kaduwela,
+          tooltip: { content: '<span style="font-weight:bold;">kaduwela </span><br />Deaths : ' + this.kaduwela }
+        },
+        'division-kolonnawa-urban-council': {
+          value: this.kolonnawa,
+          tooltip: { content: '<span style="font-weight:bold;">kolonnawa </span><br />Deaths : ' + this.kolonnawa }
+        },
+        'division-kotikawatte-mulleriyawa-pradeshiya-sabha': {
+          value: this.kotikawatte,
+          tooltip: { content: '<span style="font-weight:bold;">kotikawatte </span><br />Deaths : ' + this.kotikawatte }
+        },
+        'division-maharagama-urban-council': {
+          value: this.maharagama,
+          tooltip: { content: '<span style="font-weight:bold;">maharagama </span><br />Deaths : ' + this.maharagama }
+        },
+        'division-moratuwa-municipal-council': {
+          value: this.moratuwa,
+          tooltip: { content: '<span style="font-weight:bold;">moratuwa </span><br />Deaths : ' + this.moratuwa }
+        },
+        'division-seethawaka-pradeshiya-sabha': {
+          value: this.seethawaka,
+          tooltip: { content: '<span style="font-weight:bold;">seethawaka </span><br />Deaths : ' + this.seethawaka }
+        },
+        'division-seethawakapura-urban-council': {
+          value: this.seethawakapura,
+          tooltip: { content: '<span style="font-weight:bold;">seethawakapura </span><br />Deaths : ' + this.seethawakapura }
+        },
+        'division-sri-jayewardenapura-kotte-municipal-council': {
+          value: this.srijayewardenapurakotte,
+          tooltip: {
+            content: '<span style="font-weight:bold;">sri-jayewardenapura-kotte </span><br />Deaths : '
+              + this.srijayewardenapurakotte
+          }
+        },
+        'division-kesbewa-urban-council': {
+          value: this.kesbewa,
+          tooltip: { content: '<span style="font-weight:bold;">kesbewa </span><br />Deaths : ' + this.kesbewa }
+        }
+
+      }
+    });
   }
 
 }

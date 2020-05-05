@@ -2,16 +2,16 @@
   <div class="row ml-0 mr-0">
     <div class="col-lg-11">
       <div class="card">
-        <div class="card-header card-header-warning">
-          <h4 class="card-title">users</h4>
-          <p>editing user details</p>
+        <div class="card-header card-header-default" style="background-color: #25393b; color:white">
+          <h4 class="card-title">Users</h4>
+          <p>Editing user details</p>
         </div>
         <div class="card-body table-responsive">
           <table class="table table-hover">
-            <thead class="text-warning">
-              <th>photo</th>
+            <thead class="text-default" style="color:black">
+              <th>Photo</th>
               <th>Name</th>
-              <th>Nic Number</th>
+              <th>NIC Number</th>
               <th>Edit</th>
               <th>Delete</th>
             </thead>
@@ -22,10 +22,10 @@
                 <td class="text-dark">{{user.fullname}}</td>
                 <td>{{user.nic}}</td>
                 <td><button mat-raised-button type="submit" (click)=onedit($event,user.email)
-                    style="background-color: blue;" class="btn">Edit
+                  style="background-color: #e6e9e9; color:black" class="btn">Edit
                     Profile</button></td>
                 <td><button mat-raised-button type="submit" (click)=ondelete($event,user.email)
-                    class="btn btn-danger">Delete
+                    class="btn btn-default" style="background-color: #e6e9e9; color:black">Delete
                     Profile</button></td>
               </tr>
             </tbody>
